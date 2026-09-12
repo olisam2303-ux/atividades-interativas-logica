@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atividades Interativas — Lógica de Programação</title>
+<style>
+:root{--bg:#f5f7f6;--surface:#fff;--surface-2:#eef2f1;--ink:#17222b;--muted:#5d6b75;--border:#d9e1df;
+  --accent:#136f78;--accent-soft:#e0f0f1;--mono:ui-monospace,"Cascadia Mono",Consolas,monospace;
+  --sans:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1519;--surface:#151f24;--surface-2:#1b262c;
+  --ink:#e6edee;--muted:#95a4ac;--border:#26333a;--accent:#4ab8c2;--accent-soft:#16333733}}
+:root[data-theme="dark"]{--bg:#0e1519;--surface:#151f24;--surface-2:#1b262c;--ink:#e6edee;--muted:#95a4ac;
+  --border:#26333a;--accent:#4ab8c2;--accent-soft:#16333733}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:48px 20px 80px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-size:30px;margin:10px 0 8px;letter-spacing:-.015em}
+p.lead{color:var(--muted);margin:0 0 34px;max-width:62ch}
+h2{font-size:15px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+  margin:0 0 14px;font-weight:600}
+.grade{display:grid;gap:10px}
+.card{display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--border);
+  border-radius:11px;padding:15px 17px;text-decoration:none;color:inherit;transition:border-color .12s,transform .12s}
+.card:hover{border-color:var(--accent);transform:translateX(2px)}
+.card .num{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--accent);background:var(--accent-soft);
+  border-radius:7px;padding:7px 10px;flex:none}
+.card .txt{display:flex;flex-direction:column;gap:1px}
+.card strong{font-size:15.5px;font-weight:620}
+.card .meta{font-size:13px;color:var(--muted)}
+.card .meta2{font-size:12px;color:var(--muted);font-family:var(--mono)}
+footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">LÓGICA E LINGUAGEM DE PROGRAMAÇÃO · CURSO TÉCNICO</div>
+  <h1>Atividades interativas de Lógica</h1>
+  <p class="lead">Cada atividade abre em uma página própria, com diagramas explicando o conceito, passo a passo guiado, campos para preencher e um botão que gera o PDF da resposta pronto para enviar no AVA. As respostas ficam salvas no próprio computador enquanto o grupo trabalha.</p>
+  <h2>1º bimestre (semanas 1 a 7)</h2><div class="grade"><a class="card" href="logica-01-primeiro-algoritmo.html">
+          <span class="num">01</span>
+          <span class="txt">
+            <strong>Criando seu primeiro algoritmo</strong>
+            <span class="meta">Registro de Aula 01 — Semana 1</span>
+            <span class="meta2">Capítulo 1 — O que é programação? · 25 a 30 min</span>
+          </span>
+        </a><a class="card" href="logica-02-sistema-de-vendas.html">
+          <span class="num">02</span>
+          <span class="txt">
+            <strong>Sistema de vendas</strong>
+            <span class="meta">Registro de Aula 02 — Semana 2</span>
+            <span class="meta2">Capítulos 14 a 16 — SE / SENÃO / SENÃO SE · 35 a 40 min</span>
+          </span>
+        </a><a class="card" href="logica-03-classificacao-idade.html">
+          <span class="num">03</span>
+          <span class="txt">
+            <strong>Sistema de classificação de idade</strong>
+            <span class="meta">Registro de Aula 03 — Semana 3</span>
+            <span class="meta2">Capítulo 16 — SE / SENÃO SE / SENÃO · 35 a 40 min</span>
+          </span>
+        </a><a class="card" href="logica-04-operadores-relacionais.html">
+          <span class="num">04</span>
+          <span class="txt">
+            <strong>Operadores relacionais — comparando preços</strong>
+            <span class="meta">Registro de Aula 04 — Semana 4</span>
+            <span class="meta2">Capítulo 12 — Comparações · 20 a 25 min</span>
+          </span>
+        </a><a class="card" href="logica-05-media-aprovacao.html">
+          <span class="num">05</span>
+          <span class="txt">
+            <strong>Calculadora de média com verificação de aprovação</strong>
+            <span class="meta">Registro de Aula 05 — Semana 5</span>
+            <span class="meta2">Capítulo 14 — SE (e o SENÃO do Capítulo 15) · 25 a 30 min</span>
+          </span>
+        </a><a class="card" href="logica-06-validando-cadastro.html">
+          <span class="num">06</span>
+          <span class="txt">
+            <strong>Operadores relacionais — validando um cadastro</strong>
+            <span class="meta">Registro de Aula 06 — Semana 6</span>
+            <span class="meta2">Capítulo 12 — Comparações · 20 a 25 min</span>
+          </span>
+        </a><a class="card" href="logica-07-venda-ecommerce.html">
+          <span class="num">07</span>
+          <span class="txt">
+            <strong>Venda para um e-commerce de atacado</strong>
+            <span class="meta">Registro de Aula 07 — Semana 7</span>
+            <span class="meta2">Capítulo 15 — SE e SENÃO · 25 a 30 min</span>
+          </span>
+        </a></div>
+  <footer>Atividades baseadas nos Registros de Aula da SEDUC-SP, ampliadas com o passo a passo e os critérios de avaliação das apostilas da disciplina.</footer>
+</div>
+</body>
+</html>
