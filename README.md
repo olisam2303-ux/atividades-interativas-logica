@@ -34,6 +34,13 @@ formulário preenchível e geração do relatório em PDF direto pelo navegador.
 | 6 | Operadores relacionais — validando um cadastro | Cap. 12 — Comparações |
 | 7 | Venda para um e-commerce de atacado | Cap. 15 — SE e SENÃO |
 
+### 2º bimestre
+
+| Semana | Atividade | Ferramenta |
+|---|---|---|
+| 8 | O detetive de bugs: encontrando e corrigindo um loop infinito | Visualg |
+| 9 | Programando o Robô Chef: sua primeira receita com for | Google Colab (Python) |
+
 As atividades 4 e 6 vieram do AVA apenas com a lista de materiais, sem um
 problema definido; os exercícios foram construídos sobre o tema (operadores
 relacionais), e cada página sinaliza isso na seção "Nota sobre esta atividade".
