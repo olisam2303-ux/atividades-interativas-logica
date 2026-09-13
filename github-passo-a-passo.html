@@ -327,17 +327,24 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="passo">
       <div class="passo-top">
         <span class="passo-num">1</span>
-        <div class="passo-txt">Criem a conta no GitHub.</div>
+        <div class="passo-txt">Tentem primeiro com o e-mail institucional.</div>
       </div>
-      <p class="lead" style="margin:10px 0 0">Entrem em <code>github.com/signup</code> e usem o <b>e-mail institucional</b>. O nome de usuário fica público e vai aparecer no link do trabalho — escolham algo sóbrio, com o primeiro nome e o sobrenome, nada de apelido. O GitHub pede confirmação por e-mail: abram a caixa de entrada antes de seguir.</p>
-      <div class="dica" style="margin-top:11px"><b>Atenção:</b> Uma conta por aluno, mesmo em atividades de dupla. Quem for entregar cria o repositório e adiciona o colega depois.</div>
+      <p class="lead" style="margin:10px 0 0">Entrem em <code>github.com/signup</code> e usem o <b>e-mail da escola</b>. Se o cadastro for até o fim e o e-mail de confirmação chegar, está resolvido: sigam para o passo 3.</p>
+      <div class="dica" style="margin-top:11px"><b>Atenção:</b> A rede da escola costuma bloquear a associação do e-mail institucional com serviços de fora. Se o cadastro for recusado, ou se o e-mail de confirmação não chegar, não insistam — passem para o passo 2.</div>
     </div><div class="passo">
       <div class="passo-top">
         <span class="passo-num">2</span>
+        <div class="passo-txt">Se o institucional não funcionar, criem um Gmail com o seu RA.</div>
+      </div>
+      <p class="lead" style="margin:10px 0 0">Criem uma conta em <code>gmail.com</code> no formato <b>RA + sp</b>, assim: <code>1234567890sp@gmail.com</code>, trocando pelo <b>seu número de RA</b>. É esse número no endereço que permite ao professor saber de quem é cada entrega — sem ele, o trabalho chega sem dono. Com o Gmail criado, voltem ao <code>github.com/signup</code> e cadastrem-se com ele.</p>
+      <div class="dica" style="margin-top:11px"><b>Atenção:</b> Nada de apelido no endereço. O nome de usuário do GitHub também fica público e aparece no link do trabalho: usem o RA ou o nome e o sobrenome.</div>
+    </div><div class="passo">
+      <div class="passo-top">
+        <span class="passo-num">3</span>
         <div class="passo-txt">Anotem o nome de usuário.</div>
       </div>
       <p class="lead" style="margin:10px 0 0">É ele que forma o endereço do seu trabalho: <code>github.com/<b>seu-usuario</b>/nome-do-repositorio</code>. Esse endereço é o que vocês vão colar no AVA.</p>
-      
+      <div class="dica" style="margin-top:11px"><b>Atenção:</b> Uma conta por aluno, mesmo em atividades de dupla. Quem for entregar cria o repositório e adiciona o colega depois.</div>
     </div>
   </section>
 
@@ -346,35 +353,35 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <p class="lead">O VS Code já vem com a integração do GitHub embutida: dá para publicar sem sair do editor.</p>
     <div class="passo">
       <div class="passo-top">
-        <span class="passo-num">3</span>
+        <span class="passo-num">4</span>
         <div class="passo-txt">Abram a pasta do trabalho no VS Code.</div>
       </div>
       <p class="lead" style="margin:10px 0 0"><b>Arquivo → Abrir Pasta</b> e escolham a pasta onde estão os arquivos <code>.py</code> da atividade. O VS Code passa a mostrar todos os arquivos no painel da esquerda.</p>
       
     </div><div class="passo">
       <div class="passo-top">
-        <span class="passo-num">4</span>
+        <span class="passo-num">5</span>
         <div class="passo-txt">Abram o painel de Controle do Código-Fonte.</div>
       </div>
       <p class="lead" style="margin:10px 0 0">É o terceiro ícone da barra lateral esquerda — três bolinhas ligadas por linhas — ou o atalho <code>Ctrl + Shift + G</code>. Vai aparecer o botão <b>Publicar no GitHub</b> ou <b>Inicializar Repositório</b>.</p>
       <div class="dica" style="margin-top:11px"><b>Atenção:</b> Se aparecer a mensagem “Instalar Git”, o computador não tem o Git. Não tem problema: pulem para o Caminho B, pelo site.</div>
     </div><div class="passo">
       <div class="passo-top">
-        <span class="passo-num">5</span>
+        <span class="passo-num">6</span>
         <div class="passo-txt">Cliquem em Publicar no GitHub.</div>
       </div>
-      <p class="lead" style="margin:10px 0 0">O VS Code abre o navegador para vocês entrarem na conta e autorizarem. Depois ele pergunta o nome do repositório e se ele será público ou privado. Sugestão de nome: <code>logica-semana09-turma1A</code>. <b>Público</b> deixa o professor abrir pelo link sem precisar de convite.</p>
+      <p class="lead" style="margin:10px 0 0">O VS Code abre o navegador para vocês entrarem na conta e autorizarem. Depois ele pergunta o nome do repositório e se ele será público ou privado. O nome precisa identificar a tarefa: <code>logica-semana09-turma1A</code>. Escolham <b>Public</b> — é obrigatório: é assim que o professor abre o trabalho pelo link, sem depender de convite.</p>
       
     </div><div class="passo">
       <div class="passo-top">
-        <span class="passo-num">6</span>
+        <span class="passo-num">7</span>
         <div class="passo-txt">Escrevam a mensagem do commit.</div>
       </div>
       <p class="lead" style="margin:10px 0 0">Cada vez que vocês salvam uma versão no GitHub, isso se chama <b>commit</b>, e todo commit leva uma mensagem curta dizendo o que mudou. Escrevam algo útil — <i>“robô chef com o laço for funcionando”</i> — e não <i>“teste”</i> ou <i>“aaa”</i>. É esse histórico que mostra o trabalho de vocês ao longo da aula.</p>
       
     </div><div class="passo">
       <div class="passo-top">
-        <span class="passo-num">7</span>
+        <span class="passo-num">8</span>
         <div class="passo-txt">Nas próximas vezes: alterar, commitar, sincronizar.</div>
       </div>
       <p class="lead" style="margin:10px 0 0">Depois de mexer no código: voltem ao painel de Controle do Código-Fonte, cliquem no <b>+</b> ao lado de cada arquivo alterado, escrevam a mensagem, cliquem em <b>Commit</b> e depois em <b>Sincronizar Alterações</b>. Só depois de sincronizar é que o trabalho está no GitHub de verdade.</p>
@@ -387,21 +394,21 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <p class="lead">Use este caminho se o VS Code pedir para instalar o Git, ou se preferir um jeito mais direto.</p>
     <div class="passo">
       <div class="passo-top">
-        <span class="passo-num">8</span>
+        <span class="passo-num">9</span>
         <div class="passo-txt">Criem o repositório pelo site.</div>
       </div>
-      <p class="lead" style="margin:10px 0 0">Já logados, cliquem no <b>+</b> no canto superior direito → <b>New repository</b>. Deem o nome (<code>logica-semana09-turma1A</code>), marquem <b>Public</b> e cliquem em <b>Create repository</b>.</p>
+      <p class="lead" style="margin:10px 0 0">Já logados, cliquem no <b>+</b> no canto superior direito → <b>New repository</b>. O nome precisa identificar a tarefa: <code>logica-semana09-turma1A</code>. Marquem <b>Public</b> — obrigatório — e cliquem em <b>Create repository</b>.</p>
       
     </div><div class="passo">
       <div class="passo-top">
-        <span class="passo-num">9</span>
+        <span class="passo-num">10</span>
         <div class="passo-txt">Subam os arquivos arrastando.</div>
       </div>
       <p class="lead" style="margin:10px 0 0">Na página do repositório recém-criado, cliquem em <b>uploading an existing file</b> — ou em <b>Add file → Upload files</b>. Arrastem os arquivos <code>.py</code> da pasta para a área indicada.</p>
       
     </div><div class="passo">
       <div class="passo-top">
-        <span class="passo-num">10</span>
+        <span class="passo-num">11</span>
         <div class="passo-txt">Escrevam a mensagem e confirmem.</div>
       </div>
       <p class="lead" style="margin:10px 0 0">No campo de baixo, escrevam o que está sendo enviado e cliquem em <b>Commit changes</b>. Pronto: os arquivos estão no GitHub, sem instalar nada no computador.</p>
@@ -432,11 +439,11 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   <section>
     <div class="sec-head"><span class="n">CONFIRA</span><h2>Checklist da entrega</h2></div>
     <div class="check"><span class="passo-num" style="width:22px;height:22px;font-size:12px">✓</span>
-        <span style="font-size:14.5px;line-height:1.6">A conta foi criada com o e-mail institucional e confirmada.</span></div><div class="check"><span class="passo-num" style="width:22px;height:22px;font-size:12px">✓</span>
+        <span style="font-size:14.5px;line-height:1.6">Tentamos o e-mail institucional primeiro; se não deu, criamos o Gmail com o RA (ex.: 1234567890sp@gmail.com).</span></div><div class="check"><span class="passo-num" style="width:22px;height:22px;font-size:12px">✓</span>
         <span style="font-size:14.5px;line-height:1.6">O repositório tem um nome que diz a disciplina, a semana e a turma.</span></div><div class="check"><span class="passo-num" style="width:22px;height:22px;font-size:12px">✓</span>
         <span style="font-size:14.5px;line-height:1.6">Os arquivos <code>.py</code> aparecem na página do repositório.</span></div><div class="check"><span class="passo-num" style="width:22px;height:22px;font-size:12px">✓</span>
         <span style="font-size:14.5px;line-height:1.6">Cada commit tem uma mensagem que explica o que mudou.</span></div><div class="check"><span class="passo-num" style="width:22px;height:22px;font-size:12px">✓</span>
-        <span style="font-size:14.5px;line-height:1.6">O repositório está <b>público</b>, ou o professor foi adicionado como colaborador.</span></div><div class="check"><span class="passo-num" style="width:22px;height:22px;font-size:12px">✓</span>
+        <span style="font-size:14.5px;line-height:1.6">O repositório está <b>público</b> — dá para abrir o link numa janela anônima e ver os arquivos.</span></div><div class="check"><span class="passo-num" style="width:22px;height:22px;font-size:12px">✓</span>
         <span style="font-size:14.5px;line-height:1.6">O link do repositório foi colado na entrega do AVA.</span></div>
   </section>
 

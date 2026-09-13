@@ -81,6 +81,12 @@ com dois caminhos: pelo VS Code e, quando o Git não estiver instalado, pelo
 próprio site, arrastando os arquivos. Ele está linkado no índice e no card de
 ferramenta de cada atividade de Python.
 
+Sobre a conta: o guia manda **tentar primeiro o e-mail institucional** e, se a
+associação for recusada — que é o que parece acontecer também com o Colab —,
+criar um Gmail no formato `<RA>sp@gmail.com`, para que o RA no endereço
+identifique de quem é a entrega. Os repositórios são **públicos**, para abrir
+pelo link sem convite.
+
 ## Como usar
 
 Cada arquivo `.html` é autocontido: funciona offline, sem instalar nada e sem
