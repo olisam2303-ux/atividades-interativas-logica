@@ -27,12 +27,12 @@ formulário preenchível e geração do relatório em PDF direto pelo navegador.
 | Semana | Atividade | Base |
 |---|---|---|
 | 1 | Criando seu primeiro algoritmo | Cap. 1 — O que é programação |
-| 2 | Sistema de vendas | Cap. 14 a 16 — SE / SENÃO / SENÃO SE |
+| 2 | Sistema de vendas (com frete pela tabela dos Correios) | Cap. 14 a 16 — SE / SENÃO / SENÃO SE |
 | 3 | Sistema de classificação de idade | Cap. 16 — SE / SENÃO SE / SENÃO |
 | 4 | Melhoria contínua na prática: operadores relacionais | Cap. 12 — Comparações |
-| 5 | Calculadora de média com verificação de aprovação | Cap. 14 — SE |
+| 5 | Integrando estrutura sequencial com o comando SE | Cap. 14 — SE |
 | 6 | Projeto guiado: verificador de desconto do Cine Pipoca | Cap. 14 e 15 — SE e SENÃO |
-| 7 | Venda para um e-commerce de atacado | Cap. 15 — SE e SENÃO |
+| 7 | Vamos desenvolver uma venda para um e-commerce de atacado! | Cap. 15 — SE e SENÃO |
 
 ### 2º bimestre
 

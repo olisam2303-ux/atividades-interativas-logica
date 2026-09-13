@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Calculadora de média com verificação de aprovação — Registro de Aula 05 — Semana 5</title>
+<title>Integrando estrutura sequencial com o comando SE — Registro de Aula 02 — Semana 5</title>
 <style>
 :root{
   --bg:#f5f7f6; --surface:#ffffff; --surface-2:#eef2f1; --ink:#17222b; --muted:#5d6b75;
@@ -278,23 +278,33 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
 
   <header class="topo">
     <div class="eyebrow">LÓGICA E LINGUAGEM DE PROGRAMAÇÃO</div>
-    <h1>Calculadora de média com verificação de aprovação</h1>
-    <div class="sub">Registro de Aula 05 — Semana 5 · Aula 1 – Estrutura sequencial integrada ao SE</div>
-    <div class="chips"><span class="chip">Unidade <b>3 – Tomada de decisão</b></span><span class="chip">Base: <b>Capítulo 14 — SE (e o SENÃO do Capítulo 15)</b></span><span class="chip">Tempo: <b>25 a 30 min</b></span><span class="chip">Entrega: <b>AVA (.doc ou .pdf)</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S05A1</b></span></div>
+    <h1>Integrando estrutura sequencial com o comando SE</h1>
+    <div class="sub">Registro de Aula 02 — Semana 5 · Aula 2 – Estrutura sequencial + SE</div>
+    <div class="chips"><span class="chip">Unidade <b>5 (S5) – Introdução às estruturas de decisão simples</b></span><span class="chip">Base: <b>Capítulo 14 — SE (e o SENÃO do Capítulo 15)</b></span><span class="chip">Tempo: <b>25 a 30 min</b></span><span class="chip">Entrega: <b>AVA (.doc ou .pdf)</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S05A2</b></span></div>
   </header>
 
   <section>
     <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que vocês vão resolver</h2></div>
-    <p class="lead" style="color:var(--ink);font-size:15.5px">Criem um programa que leia <b>duas notas</b> de um aluno, calcule a média e verifique se ele foi aprovado. A média para aprovação é <b>6.0</b>. O programa deve exibir a média calculada e a mensagem de resultado.</p>
+    <p class="lead" style="color:var(--ink);font-size:15.5px"><b>Calculadora de média com verificação de aprovação.</b> Criem um programa que leia <b>duas notas</b> de um aluno, calcule a média e verifique se ele foi aprovado ou não. A média para aprovação é <b>60</b> — as notas vão de 0 a 100. O programa deve exibir a média calculada e uma mensagem indicando se o aluno foi aprovado.</p>
   </section>
 
-  
+  <section>
+    <div class="card-ava">
+      <div class="trilha">Lógica e Linguagem de Programação – 1º Bimestre / Semana 5 (S5) – Introdução às Estruturas de Decisão Simples / Aula 2: Estrutura sequencial + SE / Registro da Aula 2</div>
+      <div class="corpo">
+        <h3>Integrando estrutura sequencial com o comando SE</h3>
+        <p class="chamada"><b>Calculadora de média com verificação de aprovação</b></p>
+        <div class="bloco"><p>Você deve criar um programa que leia duas notas de um aluno, calcule a média e verifique se o aluno foi aprovado ou não.</p></div><div class="bloco"><p>A média para aprovação é 60. O programa deve exibir a média calculada e uma mensagem indicando se o aluno foi aprovado.</p></div><div class="bloco"><div class="rot">Instruções para realização da atividade:</div><p>Você deve criar um algoritmo que contenha as seguintes funções:</p></div><div class="bloco"><ol><li>Declare as variáveis para armazenar as duas notas e a média.</li><li>Solicite e leia as duas notas do usuário.</li><li>Calcule a média aritmética das notas.</li><li>Exiba a média calculada.</li><li>Use a estrutura SE para verificar se a média é maior ou igual a 60.</li><li>Se for verdadeiro, exiba a mensagem “Aprovado”.</li></ol></div><div class="bloco"><div class="rot">Instruções para entrega da atividade:</div><p>Entregue a atividade aqui no AVA, em documento no formato .doc ou .pdf com o exemplo de algoritmo desenvolvido no decorrer da atividade.</p></div>
+        
+      </div>
+    </div>
+  </section>
 
 
   <section>
     <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
     <ul class="objetivos">
-      <li><span class="tick">✓</span><span>Integrar a estrutura sequencial (ler, calcular, mostrar) a uma decisão com SE.</span></li><li><span class="tick">✓</span><span>Aplicar corretamente o operador maior ou igual (>=) em um critério de aprovação.</span></li><li><span class="tick">✓</span><span>Completar a decisão com o SENÃO, cobrindo também o caso falso.</span></li>
+      <li><span class="tick">✓</span><span>Integrar a estrutura sequencial (ler, calcular, mostrar) a uma decisão com SE.</span></li><li><span class="tick">✓</span><span>Aplicar corretamente o operador maior ou igual (>=) no critério de aprovação da média 60.</span></li><li><span class="tick">✓</span><span>Completar a decisão com o SENÃO, cobrindo também o caso falso.</span></li>
     </ul>
   </section>
 <section>
@@ -324,7 +334,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
         <text x="88" y="42" class="sv-label">LER nota 1 e nota 2</text></g><path d="M 184 37 L 212 37" class="sv-arrow" marker-end="url(#sv-head)"/><g><rect x="222" y="0" width="176" height="74" rx="10" class="sv-box"/>
         <text x="310" y="33" class="sv-label">CALCULAR a média das</text><text x="310" y="51" class="sv-label">duas</text></g><path d="M 406 37 L 434 37" class="sv-arrow" marker-end="url(#sv-head)"/><g><rect x="444" y="0" width="176" height="74" rx="10" class="sv-box"/>
         <text x="532" y="42" class="sv-label">MOSTRAR a média</text></g><text x="310" y="102" class="sv-legend">Esta parte é sequencial: acontece sempre, independentemente do resultado.</text>
-</svg></div><div class="visual"><svg viewBox="0 0 660 310" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
+</svg></div><div class="visual"><svg viewBox="0 0 660 326" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
       <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
@@ -334,7 +344,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     </marker>
   </defs>
   <polygon points="330,10 455,58 330,106 205,58" class="sv-diamond"/>
-     <text x="330" y="63" class="sv-label">média &gt;= 6.0 ?</text>
+     <text x="330" y="63" class="sv-label">média &gt;= 60 ?</text>
      <path d="M 205 58 L 131 58 L 131 186" class="sv-arrow" marker-end="url(#sv-head)"/>
      <path d="M 455 58 L 529 58 L 529 186" class="sv-arrow" marker-end="url(#sv-head)"/>
      <text x="149" y="46" class="sv-tag sv-ok">VERDADEIRO</text>
@@ -343,7 +353,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
      <text x="131" y="237" class="sv-label">escrever: Aprovado</text>
      <rect x="406" y="196" width="246" height="72" rx="10" class="sv-box sv-box-no"/>
      <text x="529" y="237" class="sv-label">escrever: Reprovado</text>
-     <text x="330" y="292" class="sv-legend">Use &gt;= e não apenas &gt; — uma média exatamente 6.0 precisa ser aprovada.</text>
+     <text x="330" y="292" class="sv-legend">Use &gt;= e não apenas &gt; — uma média de exatamente 60 precisa ser aprovada. É esse o caso que</text><text x="330" y="308" class="sv-legend">separa quem entendeu o operador de quem chutou.</text>
 </svg></div>
     </section>
 <section>
@@ -373,7 +383,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
           <span class="passo-num">1</span>
           <div class="passo-txt">Declarem as variáveis e digam por que elas são do tipo real.</div>
         </div>
-        <div class="dica"><b>Como pensar:</b> Notas podem ter casas decimais (7.5), por isso não servem como número inteiro.</div>
+        <div class="dica"><b>Como pensar:</b> Notas podem ter casas decimais (87.5), por isso não servem como número inteiro. A média de duas notas inteiras também pode cair no meio: 80 e 75 dão 77.5.</div>
         <div class="campoWrap" data-rel="campo" data-rotulo="Variáveis declaradas"><label class="f" for="c0">Variáveis declaradas</label><input type="text" id="c0" data-campo="c0" placeholder="Ex.: nota1, nota2, media: real"></div><div class="campoWrap" data-rel="campo" data-rotulo="Por que tipo real"><label class="f" for="c1">Por que tipo real?</label><input type="text" id="c1" data-campo="c1" placeholder="Porque..."></div>
       </div><div class="passo">
         <div class="passo-top">
@@ -408,12 +418,12 @@ fimalgoritmo"></textarea></div>
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">3</span>
-          <div class="passo-txt">Testem com três duplas de notas, incluindo o caso da média exatamente 6.0.</div>
+          <div class="passo-txt">Testem com quatro duplas de notas, incluindo o caso da média exatamente 60.</div>
         </div>
-        <div class="dica"><b>Como pensar:</b> Sugestão: (8 e 7), (5 e 4) e (6 e 6). O terceiro caso é o que revela se vocês usaram > em vez de >=.</div>
+        <div class="dica"><b>Como pensar:</b> O terceiro caso (60 e 60) é o que revela se vocês usaram <code>&gt;</code> em vez de <code>&gt;=</code>. O quarto tem média quebrada — confiram se o programa exibe 59.5 e reprova.</div>
         <div class="campoWrap tabWrap" data-rel="tabela" data-rotulo="Tabela de rastreamento">
     <label class="f">Tabela de rastreamento</label>
-    <table><thead><tr><th>Nota 1</th><th>Nota 2</th><th>Média</th><th>Resultado exibido</th></tr></thead><tbody><tr><td class="fix">8,0</td><td class="fix">7,0</td><td><input type="text" data-campo="t3_0_2"></td><td><input type="text" data-campo="t3_0_3"></td></tr><tr><td class="fix">5,0</td><td class="fix">4,0</td><td><input type="text" data-campo="t3_1_2"></td><td><input type="text" data-campo="t3_1_3"></td></tr><tr><td class="fix">6,0</td><td class="fix">6,0</td><td><input type="text" data-campo="t3_2_2"></td><td><input type="text" data-campo="t3_2_3"></td></tr></tbody></table>
+    <table><thead><tr><th>Nota 1</th><th>Nota 2</th><th>Média</th><th>Resultado exibido</th></tr></thead><tbody><tr><td class="fix">80</td><td class="fix">70</td><td><input type="text" data-campo="t3_0_2"></td><td><input type="text" data-campo="t3_0_3"></td></tr><tr><td class="fix">50</td><td class="fix">40</td><td><input type="text" data-campo="t3_1_2"></td><td><input type="text" data-campo="t3_1_3"></td></tr><tr><td class="fix">60</td><td class="fix">60</td><td><input type="text" data-campo="t3_2_2"></td><td><input type="text" data-campo="t3_2_3"></td></tr><tr><td class="fix">62</td><td class="fix">57</td><td><input type="text" data-campo="t3_3_2"></td><td><input type="text" data-campo="t3_3_3"></td></tr></tbody></table>
   </div>
       </div><div class="passo">
         <div class="passo-top">
@@ -421,30 +431,30 @@ fimalgoritmo"></textarea></div>
           <div class="passo-txt">O enunciado original só pedia a mensagem “Aprovado”. Expliquem por que vale a pena acrescentar o SENÃO.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> Pensem em quem usa o programa: sem o SENÃO, um aluno reprovado vê a média na tela e nenhuma mensagem — e fica sem saber o resultado.</div>
-        <div class="campoWrap" data-rel="campo" data-rotulo="Por que incluir o SENÃO"><label class="f" for="c4">Por que incluir o SENÃO</label><textarea id="c4" data-campo="c4" rows="2" placeholder="Sem o SENÃO, quando a média for menor que 6.0 o programa..."></textarea></div>
+        <div class="campoWrap" data-rel="campo" data-rotulo="Por que incluir o SENÃO"><label class="f" for="c4">Por que incluir o SENÃO</label><textarea id="c4" data-campo="c4" rows="2" placeholder="Sem o SENÃO, quando a média for menor que 60 o programa..."></textarea></div>
       </div>
   </section>
 <section>
     <div class="sec-head"><span class="n">CONFIRA</span><h2>Checklist antes de gerar o PDF</h2></div>
     <div class="progresso" id="progresso"></div>
-    <label class="check"><input type="checkbox" data-check="0"><span>As duas notas são lidas e a média é calculada corretamente.</span></label><label class="check"><input type="checkbox" data-check="1"><span>A média é exibida antes da decisão.</span></label><label class="check"><input type="checkbox" data-check="2"><span>A condição usa &gt;= 6.0, e não apenas &gt;.</span></label><label class="check"><input type="checkbox" data-check="3"><span>O SENÃO com a mensagem “Reprovado” foi incluído.</span></label><label class="check"><input type="checkbox" data-check="4"><span>A tabela de rastreamento está preenchida, incluindo o caso 6,0.</span></label><label class="check"><input type="checkbox" data-check="5"><span>Vamos salvar o PDF como NOME_TURMA_S05A1 e enviar no AVA.</span></label>
+    <label class="check"><input type="checkbox" data-check="0"><span>As duas notas são lidas e a média é calculada corretamente.</span></label><label class="check"><input type="checkbox" data-check="1"><span>A média é exibida antes da decisão.</span></label><label class="check"><input type="checkbox" data-check="2"><span>A condição usa &gt;= 60, e não apenas &gt;.</span></label><label class="check"><input type="checkbox" data-check="3"><span>O SENÃO com a mensagem “Reprovado” foi incluído.</span></label><label class="check"><input type="checkbox" data-check="4"><span>A tabela de rastreamento está preenchida, incluindo o caso da média exatamente 60.</span></label><label class="check"><input type="checkbox" data-check="5"><span>Vamos entregar no AVA em documento .doc ou .pdf, com o algoritmo desenvolvido.</span></label>
     <div class="avisoPDF">
       <b>Ao clicar em “Gerar PDF da resposta”</b>, o navegador monta o relatório completo no padrão de
       roteiro de aula prática — com capa, folha de rosto, objetivos, procedimentos, as respostas do grupo e
       as referências. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b>, salve como
-      <b>NOME_TURMA_S05A1</b> e envie no AVA.
+      <b>NOME_TURMA_S05A2</b> e envie no AVA.
     </div>
   </section>
 <section>
     <div class="sec-head"><span class="n">AVALIAÇÃO</span><h2>Como esta atividade será avaliada</h2></div>
     <div class="tabWrap"><table class="criterios">
       <thead><tr><th>Critério</th><th>Pontos</th></tr></thead>
-      <tbody><tr><td>Cálculo correto da média</td><td>3,0</td></tr><tr><td>Uso correto do operador &gt;= 6.0</td><td>3,0</td></tr><tr><td>Mensagens de Aprovado / Reprovado corretas</td><td>2,0</td></tr><tr><td>Rastreamento correto dos 3 casos</td><td>2,0</td></tr></tbody>
+      <tbody><tr><td>Cálculo correto da média</td><td>3,0</td></tr><tr><td>Uso correto do operador &gt;= 60</td><td>3,0</td></tr><tr><td>Mensagens de Aprovado / Reprovado corretas</td><td>2,0</td></tr><tr><td>Rastreamento correto dos 4 casos</td><td>2,0</td></tr></tbody>
     </table></div>
   </section>
 <section>
     <div class="sec-head"><span class="n">REFERÊNCIAS</span><h2>De onde veio o conteúdo desta aula</h2></div>
-    <ul class="refs"><li>Apostila da disciplina — Capítulos 12, 14 e 15: comparações, if e if/else.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 4.1 (instrução if).</li><li>SEDUC-SP — Registro de Aula 05 (calculadora de média com verificação de aprovação).</li></ul>
+    <ul class="refs"><li>Apostila da disciplina — Capítulos 12, 14 e 15: comparações, if e if/else.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 4.1 (instrução if).</li><li>SEDUC-SP — Registro da Aula 2, Semana 5 (integrando estrutura sequencial com o comando SE).</li></ul>
   </section>
 
   <div id="relatorio">
@@ -456,7 +466,7 @@ fimalgoritmo"></textarea></div>
       <div class="autores" data-fill="integrantes"></div>
       <div class="tituloTrab">Roteiro de Aula Prática</div>
       <div class="subtitulo">Lógica e Linguagem de Programação</div>
-      <div class="subtitulo">Calculadora de média com verificação de aprovação</div>
+      <div class="subtitulo">Integrando estrutura sequencial com o comando SE</div>
     </div>
     <div class="fim">
       <div>São Paulo - SP</div>
@@ -468,7 +478,7 @@ fimalgoritmo"></textarea></div>
     <div class="autores" data-fill="integrantes"></div>
     <div class="meio">
       <div class="tituloTrab">Roteiro de Aula Prática</div>
-      <div class="subtitulo">Calculadora de média com verificação de aprovação</div>
+      <div class="subtitulo">Integrando estrutura sequencial com o comando SE</div>
       <div class="fr-nota">Roteiro de Aula Prática apresentado ao componente curricular Lógica e Linguagem de Programação, como requisito parcial de avaliação do 1º bimestre.</div>
       <div class="fr-orient" data-fill="professor"></div>
       <div class="fr-orient" data-fill="turma"></div>
@@ -483,12 +493,12 @@ fimalgoritmo"></textarea></div>
   <div id="roteiro">
     <h2 class="rtitulo">Roteiro de Aula Prática</h2>
     <div class="rlinha"><b>Nome da disciplina:</b> LÓGICA E LINGUAGEM DE PROGRAMAÇÃO</div>
-    <div class="rlinha"><b>Unidade:</b> 3 – Tomada de decisão</div>
-    <div class="rlinha"><b>Aula:</b> 1 – Estrutura sequencial integrada ao SE</div>
+    <div class="rlinha"><b>Unidade:</b> 5 (S5) – Introdução às estruturas de decisão simples</div>
+    <div class="rlinha"><b>Aula:</b> 2 – Estrutura sequencial + SE</div>
     <div class="rlinha"><b>Base teórica:</b> Capítulo 14 — SE (e o SENÃO do Capítulo 15)</div>
 
     <h3>Objetivos</h3>
-    <ul class="lista-obj"><li>Integrar a estrutura sequencial (ler, calcular, mostrar) a uma decisão com SE.</li><li>Aplicar corretamente o operador maior ou igual (>=) em um critério de aprovação.</li><li>Completar a decisão com o SENÃO, cobrindo também o caso falso.</li></ul>
+    <ul class="lista-obj"><li>Integrar a estrutura sequencial (ler, calcular, mostrar) a uma decisão com SE.</li><li>Aplicar corretamente o operador maior ou igual (>=) no critério de aprovação da média 60.</li><li>Completar a decisão com o SENÃO, cobrindo também o caso falso.</li></ul>
 
     <h3>Solução digital</h3>
     <p>Visualg (interpretador de pseudocódigo).</p>
@@ -496,7 +506,7 @@ fimalgoritmo"></textarea></div>
     <p>Ferramenta gratuita que executa algoritmos escritos em português estruturado (Portugol), usada no laboratório da escola. Permite rodar o pseudocódigo e ver o resultado antes de traduzir para uma linguagem de programação. O relatório continua sendo preenchido nesta página e exportado em PDF pelo navegador.</p>
 
     <h3>Procedimento / Atividade</h3>
-    <p><b>Atividade proposta:</b> Criem um programa que leia <b>duas notas</b> de um aluno, calcule a média e verifique se ele foi aprovado. A média para aprovação é <b>6.0</b>. O programa deve exibir a média calculada e a mensagem de resultado.</p>
+    <p><b>Atividade proposta:</b> <b>Calculadora de média com verificação de aprovação.</b> Criem um programa que leia <b>duas notas</b> de um aluno, calcule a média e verifique se ele foi aprovado ou não. A média para aprovação é <b>60</b> — as notas vão de 0 a 100. O programa deve exibir a média calculada e uma mensagem indicando se o aluno foi aprovado.</p>
 
     <h3>Procedimentos para a realização da atividade</h3>
     <div id="corpoRoteiro"></div>
@@ -507,11 +517,11 @@ fimalgoritmo"></textarea></div>
     <h3>Critérios de avaliação</h3>
     <table>
       <thead><tr><th>Critério</th><th>Pontos</th></tr></thead>
-      <tbody><tr><td>Cálculo correto da média</td><td>3,0</td></tr><tr><td>Uso correto do operador &gt;= 6.0</td><td>3,0</td></tr><tr><td>Mensagens de Aprovado / Reprovado corretas</td><td>2,0</td></tr><tr><td>Rastreamento correto dos 3 casos</td><td>2,0</td></tr></tbody>
+      <tbody><tr><td>Cálculo correto da média</td><td>3,0</td></tr><tr><td>Uso correto do operador &gt;= 60</td><td>3,0</td></tr><tr><td>Mensagens de Aprovado / Reprovado corretas</td><td>2,0</td></tr><tr><td>Rastreamento correto dos 4 casos</td><td>2,0</td></tr></tbody>
     </table>
 
     <h3>Referências</h3>
-    <ul><li>Apostila da disciplina — Capítulos 12, 14 e 15: comparações, if e if/else.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 4.1 (instrução if).</li><li>SEDUC-SP — Registro de Aula 05 (calculadora de média com verificação de aprovação).</li></ul>
+    <ul><li>Apostila da disciplina — Capítulos 12, 14 e 15: comparações, if e if/else.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 4.1 (instrução if).</li><li>SEDUC-SP — Registro da Aula 2, Semana 5 (integrando estrutura sequencial com o comando SE).</li></ul>
   </div>
 </div>
 
