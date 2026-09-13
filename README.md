@@ -38,31 +38,42 @@ formulário preenchível e geração do relatório em PDF direto pelo navegador.
 
 | Semana | Atividade | Ferramenta |
 |---|---|---|
-| 8 | O detetive de bugs: encontrando e corrigindo um loop infinito | Visualg |
-| 9 | Programando o Robô Chef: sua primeira receita com for | Google Colab (Python) |
-| 10 | Detetives de performance (O(n²) x O(n)) | Teste de mesa |
-| 11 | Ordenando listas com Bubble Sort | Teste de mesa |
-| 12 | Desafio: Jogo da Velha (matriz 3×3 e trincas) | Modelagem em texto |
-| 13 | Boas práticas de nomeação (refatoração de funções) | Python |
-| 14 | Gerenciador de tarefas em dois módulos | Python |
+| 8 | O detetive de bugs: encontrando e corrigindo um loop infinito | Visualg ou Bloco de Notas |
+| 9 | Programando o Robô Chef: sua primeira receita com for | VS Code + Python |
+| 10 | Detetives de performance (O(n²) x O(n)) | Teste de mesa no papel |
+| 11 | Ordenando listas com Bubble Sort | Teste de mesa no papel |
+| 12 | Desafio: Jogo da Velha (matriz 3×3 e trincas) | Papel ou Bloco de Notas |
+| 13 | Boas práticas de nomeação (refatoração de funções) | VS Code + Python |
+| 14 | Gerenciador de tarefas em dois módulos | VS Code + Python |
 
 ### 3º bimestre
 
 | Semana | Atividade | Ferramenta |
 |---|---|---|
-| 15 | Percurso sequencial de vetores *(prática guiada A2)* | Python |
-| 15 | Investigando dados: média, busca e listas *(prática guiada A3)* | Python |
-| 15 | Sistema de análise de notas da turma *(registro A4)* | Python |
-| 16 | Aninhando laços para percorrer matrizes *(prática guiada A2)* | Python |
-| 16 | Agregando dados em matrizes *(prática guiada A3)* | Python |
-| 16 | Miniprojeto: Planilha de vendas *(registro A4)* | Python |
+| 15 | Percurso sequencial de vetores *(prática guiada A2)* | VS Code + Python |
+| 15 | Investigando dados: média, busca e listas *(prática guiada A3)* | VS Code + Python |
+| 15 | Sistema de análise de notas da turma *(registro A4)* | VS Code + Python |
+| 16 | Aninhando laços para percorrer matrizes *(prática guiada A2)* | VS Code + Python |
+| 16 | Agregando dados em matrizes *(prática guiada A3)* | VS Code + Python |
+| 16 | Miniprojeto: Planilha de vendas *(registro A4)* | VS Code + Python |
 | 17 | Revisão por pares e feedback assertivo | Revisão em dupla |
-| 18 | Técnicas básicas de depuração *(registro A3)* | Depurador da IDE |
-| 18 | Mini-kata TDD: Calculadora *(A4)* | Python |
-| 19 | Slicing e formatação com f-strings *(prática guiada A3)* | Python |
-| 19 | Parsing de logs: desafio de automação SOC *(registro A4)* | Python |
-| 20 | Gerador de relatório de estoque *(prática guiada A3)* | Python |
-| 20 | Integrador de dados com planilhas *(registro A4)* | Python + csv |
+| 18 | Técnicas básicas de depuração *(registro A3)* | Depurador do VS Code |
+| 18 | Mini-kata TDD: Calculadora *(A4)* | VS Code + Python |
+| 19 | Slicing e formatação com f-strings *(prática guiada A3)* | VS Code + Python |
+| 19 | Parsing de logs: desafio de automação SOC *(registro A4)* | VS Code + Python |
+| 20 | Gerador de relatório de estoque *(prática guiada A3)* | VS Code + Python |
+| 20 | Integrador de dados com planilhas *(registro A4)* | VS Code + Python (csv) |
+
+## Ferramentas do laboratório
+
+As atividades usam apenas o que está instalado nos computadores da escola e
+funciona sem depender da internet:
+
+- **pseudocódigo** → **Visualg** (executa com F9) ou **Bloco de Notas**;
+- **Python** → **Visual Studio Code**, com o trabalho salvo no **GitHub**.
+
+O Google Colab, citado em alguns roteiros da SEDUC-SP, é bloqueado pelo firewall
+da escola — as páginas indicam o VS Code no lugar, que faz o mesmo e roda offline.
 
 ## Como usar
 

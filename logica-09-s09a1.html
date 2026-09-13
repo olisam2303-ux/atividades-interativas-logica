@@ -304,9 +304,9 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="ferramenta">
       <div class="marca">PY</div>
       <div>
-        <div class="nome">Google Colab (Python)</div>
-        <div class="desc">Ambiente on-line que roda Python no navegador, sem instalar nada — a “cozinha digital” desta atividade. Cada célula de código é executada com <b>Shift + Enter</b>. Salve o notebook na sua conta Google: ele será reaproveitado nas próximas aulas da semana.</div>
-        <div class="link">https://colab.research.google.com/</div>
+        <div class="nome">Visual Studio Code + Python</div>
+        <div class="desc">O <b>VS Code já está instalado</b> nos computadores do laboratório e roda Python sem internet. Criem uma pasta para a dupla, salvem o arquivo com extensão <code>.py</code> e executem pelo botão <b>Run</b> (▷) no canto superior direito, ou pelo terminal integrado com <code>python nome_do_arquivo.py</code>. Ao terminar, <b>subam o arquivo para o GitHub</b> — é lá que fica o histórico do trabalho de vocês. <br><br>Se o roteiro indicar um ambiente on-line, usem o VS Code do mesmo jeito: ele faz o mesmo e funciona na rede da escola.</div>
+        
       </div>
     </div>
   </section>
@@ -369,14 +369,14 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   </section>
 <section>
     <div class="sec-head"><span class="n">PROCEDIMENTOS</span><h2>Programem o Robô Chef</h2></div>
-    <p class="lead">Trabalhem no Google Colab, em um notebook novo. Cada célula de código roda com Shift + Enter.</p>
+    <p class="lead">Trabalhem no VS Code, em um arquivo novo com extensão .py. Rodem o programa pelo botão Run (▷) ou pelo terminal, com python nome_do_arquivo.py.</p>
     <div class="passo">
         <div class="passo-top">
           <span class="passo-num">1</span>
-          <div class="passo-txt">Criem o notebook e a lista de ingredientes.</div>
+          <div class="passo-txt">Criem o arquivo e a lista de ingredientes.</div>
         </div>
-        <div class="dica"><b>Como pensar:</b> Em uma célula de código, digitem a lista e executem com Shift + Enter. A lista é a fonte de dados que o laço vai percorrer.</div>
-        <div class="campoWrap"><div class="modelo">ingredientes_a_picar = ["tomate", "cebola", "pepino", "alface", "cenoura"]</div></div><div class="campoWrap" data-rel="campo" data-rotulo="Notebook criado"><label class="f" for="c0">Nome do notebook no Colab</label><input type="text" id="c0" data-campo="c0" placeholder="Ex.: robo-chef-9A-grupo3.ipynb"></div>
+        <div class="dica"><b>Como pensar:</b> No VS Code, criem um arquivo com extensão <code>.py</code>, digitem a lista e rodem com o botão <b>Run</b> (▷). A lista é a fonte de dados que o laço vai percorrer.</div>
+        <div class="campoWrap"><div class="modelo">ingredientes_a_picar = ["tomate", "cebola", "pepino", "alface", "cenoura"]</div></div><div class="campoWrap" data-rel="campo" data-rotulo="Arquivo criado"><label class="f" for="c0">Nome do arquivo .py criado</label><input type="text" id="c0" data-campo="c0" placeholder="Ex.: robo-chef-9A-grupo3.py"></div>
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">2</span>
@@ -420,7 +420,7 @@ Robô Chef está picando: cebola
 <section>
     <div class="sec-head"><span class="n">CONFIRA</span><h2>Checklist antes de gerar o PDF</h2></div>
     <div class="progresso" id="progresso"></div>
-    <label class="check"><input type="checkbox" data-check="0"><span>Criamos o notebook no Colab e salvamos na conta Google.</span></label><label class="check"><input type="checkbox" data-check="1"><span>A lista ingredientes_a_picar foi criada e executada.</span></label><label class="check"><input type="checkbox" data-check="2"><span>O loop for roda e imprime uma linha para cada ingrediente.</span></label><label class="check"><input type="checkbox" data-check="3"><span>Explicamos as cinco partes do cabeçalho do for.</span></label><label class="check"><input type="checkbox" data-check="4"><span>Explicamos o que define o bloco repetido (indentação).</span></label><label class="check"><input type="checkbox" data-check="5"><span>Testamos a variável de controle depois do loop e registramos o valor.</span></label><label class="check"><input type="checkbox" data-check="6"><span>Vamos salvar o PDF como NOME_TURMA_S09A1 e enviar no AVA (.PDF ou .DOC).</span></label>
+    <label class="check"><input type="checkbox" data-check="0"><span>Criamos o arquivo .py no VS Code e salvamos a versão final no GitHub.</span></label><label class="check"><input type="checkbox" data-check="1"><span>A lista ingredientes_a_picar foi criada e executada.</span></label><label class="check"><input type="checkbox" data-check="2"><span>O loop for roda e imprime uma linha para cada ingrediente.</span></label><label class="check"><input type="checkbox" data-check="3"><span>Explicamos as cinco partes do cabeçalho do for.</span></label><label class="check"><input type="checkbox" data-check="4"><span>Explicamos o que define o bloco repetido (indentação).</span></label><label class="check"><input type="checkbox" data-check="5"><span>Testamos a variável de controle depois do loop e registramos o valor.</span></label><label class="check"><input type="checkbox" data-check="6"><span>Vamos salvar o PDF como NOME_TURMA_S09A1 e enviar no AVA (.PDF ou .DOC).</span></label>
     <div class="avisoPDF">
       <b>Ao clicar em “Gerar PDF da resposta”</b>, o navegador monta o relatório completo no padrão de
       roteiro de aula prática — com capa, folha de rosto, objetivos, procedimentos, as respostas do grupo e
@@ -437,7 +437,7 @@ Robô Chef está picando: cebola
   </section>
 <section>
     <div class="sec-head"><span class="n">REFERÊNCIAS</span><h2>De onde veio o conteúdo desta aula</h2></div>
-    <ul class="refs"><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B2S9A1AP: “Programando o Robô Chef: sua primeira receita com for”.</li><li>GOOGLE COLAB. <i>Conheça o Colab</i>. Disponível em: https://colab.research.google.com/.</li><li>Apostila da disciplina — Capítulos 21 e 22: <code>for</code> e <code>range</code>.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 4.2 (instrução <code>for</code>).</li></ul>
+    <ul class="refs"><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B2S9A1AP: “Programando o Robô Chef: sua primeira receita com for”.</li><li>Documentação do Visual Studio Code — <i>Python in VS Code</i>: code.visualstudio.com/docs/languages/python</li><li>Apostila da disciplina — Capítulos 21 e 22: <code>for</code> e <code>range</code>.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 4.2 (instrução <code>for</code>).</li></ul>
   </section>
 
   <div id="relatorio">
@@ -484,9 +484,9 @@ Robô Chef está picando: cebola
     <ul class="lista-obj"><li>Escrever a sintaxe básica do loop <code>for</code> em Python.</li><li>Identificar cada parte do cabeçalho: palavra-chave, variável de controle, <code>in</code>, fonte de dados e os dois-pontos.</li><li>Reconhecer o escopo do laço — o bloco indentado que será repetido.</li><li>Explicar o que acontece com a variável de controle a cada volta e depois do fim do loop.</li></ul>
 
     <h3>Solução digital</h3>
-    <p>Google Colab (Python)</p>
-    <p class="link">LINK SOLUÇÃO DIGITAL: https://colab.research.google.com/</p>
-    <p>Ambiente on-line que roda Python no navegador, sem instalar nada — a “cozinha digital” desta atividade. Cada célula de código é executada com <b>Shift + Enter</b>. Salve o notebook na sua conta Google: ele será reaproveitado nas próximas aulas da semana.</p>
+    <p>Visual Studio Code + Python.</p>
+    
+    <p>O <b>VS Code já está instalado</b> nos computadores do laboratório e roda Python sem internet. Criem uma pasta para a dupla, salvem o arquivo com extensão <code>.py</code> e executem pelo botão <b>Run</b> (▷) no canto superior direito, ou pelo terminal integrado com <code>python nome_do_arquivo.py</code>. Ao terminar, <b>subam o arquivo para o GitHub</b> — é lá que fica o histórico do trabalho de vocês. <br><br>Se o roteiro indicar um ambiente on-line, usem o VS Code do mesmo jeito: ele faz o mesmo e funciona na rede da escola.</p>
 
     <h3>Procedimento / Atividade</h3>
     <p><b>Atividade proposta:</b> Hoje vocês dão os primeiros passos em <b>Python</b>, programando um <b>Robô Chef</b> para executar uma tarefa repetitiva: picar cinco ingredientes de uma salada. Em vez de escrever uma instrução para cada ingrediente, vocês vão escrever uma <b>receita</b> — o cabeçalho do loop <code>for</code> — e entender o escopo da variável de controle, o “ingrediente da vez”.</p>
@@ -504,7 +504,7 @@ Robô Chef está picando: cebola
     </table>
 
     <h3>Referências</h3>
-    <ul><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B2S9A1AP: “Programando o Robô Chef: sua primeira receita com for”.</li><li>GOOGLE COLAB. <i>Conheça o Colab</i>. Disponível em: https://colab.research.google.com/.</li><li>Apostila da disciplina — Capítulos 21 e 22: <code>for</code> e <code>range</code>.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 4.2 (instrução <code>for</code>).</li></ul>
+    <ul><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B2S9A1AP: “Programando o Robô Chef: sua primeira receita com for”.</li><li>Documentação do Visual Studio Code — <i>Python in VS Code</i>: code.visualstudio.com/docs/languages/python</li><li>Apostila da disciplina — Capítulos 21 e 22: <code>for</code> e <code>range</code>.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 4.2 (instrução <code>for</code>).</li></ul>
   </div>
 </div>
 
