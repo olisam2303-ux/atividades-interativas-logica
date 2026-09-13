@@ -61,6 +61,8 @@ formulário preenchível e geração do relatório em PDF direto pelo navegador.
 | 18 | Mini-kata TDD: Calculadora *(A4)* | Python |
 | 19 | Slicing e formatação com f-strings *(prática guiada A3)* | Python |
 | 19 | Parsing de logs: desafio de automação SOC *(registro A4)* | Python |
+| 20 | Gerador de relatório de estoque *(prática guiada A3)* | Python |
+| 20 | Integrador de dados com planilhas *(registro A4)* | Python + csv |
 
 A semana 14 chegou com o título de outra atividade (uma retrospectiva de
 Sprint) e sem os blocos de código do roteiro; a página segue o procedimento
