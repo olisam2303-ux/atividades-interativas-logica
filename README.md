@@ -44,6 +44,12 @@ formulário preenchível e geração do relatório em PDF direto pelo navegador.
 | 11 | Ordenando listas com Bubble Sort | Teste de mesa |
 | 12 | Desafio: Jogo da Velha (matriz 3×3 e trincas) | Modelagem em texto |
 | 13 | Boas práticas de nomeação (refatoração de funções) | Python |
+| 14 | Gerenciador de tarefas em dois módulos | Python |
+
+A semana 14 chegou com o título de outra atividade (uma retrospectiva de
+Sprint) e sem os blocos de código do roteiro; a página segue o procedimento
+e as perguntas de consolidação, que são sobre a aplicação em Python, e traz
+o código de referência que faltava — tudo sinalizado no próprio material.
 
 As atividades 4 e 6 vieram do AVA apenas com a lista de materiais, sem um
 problema definido; os exercícios foram construídos sobre o tema (operadores
