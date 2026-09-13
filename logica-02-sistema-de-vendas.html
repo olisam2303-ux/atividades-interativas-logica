@@ -256,8 +256,8 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   <header class="topo">
     <div class="eyebrow">LÓGICA E LINGUAGEM DE PROGRAMAÇÃO</div>
     <h1>Sistema de vendas</h1>
-    <div class="sub">Registro de Aula 02 — Semana 2 · Aula 2 – Decisões encadeadas (SE / SENÃO SE / SENÃO)</div>
-    <div class="chips"><span class="chip">Unidade <b>3 – Tomada de decisão</b></span><span class="chip">Base: <b>Capítulos 14 a 16 — SE / SENÃO / SENÃO SE</b></span><span class="chip">Tempo: <b>35 a 40 min</b></span><span class="chip">Entrega: <b>AVA</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S02A1</b></span></div>
+    <div class="sub">Registro de Aula 02 — Semana 2 · Aula 2 – Processamento de dados</div>
+    <div class="chips"><span class="chip">Unidade <b>2 (S2) – Conceitos de entrada, processamento e saída</b></span><span class="chip">Base: <b>Capítulos 14 a 16 — SE / SENÃO / SENÃO SE</b></span><span class="chip">Tempo: <b>35 a 40 min</b></span><span class="chip">Entrega: <b>AVA</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S02A2</b></span></div>
   </header>
 
   <section>
@@ -268,7 +268,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   <section>
     <div class="proc">
       <h3>Procedência deste material</h3>
-      <ul><li><b>Do material oficial da SEDUC-SP:</b> o cenário do sistema de vendas, as faixas de desconto e a regra de frete.</li><li><b>Atenção a uma divergência do material oficial:</b> o card do AVA fala em escrever “código”, mas o roteiro da atividade pede <b>algoritmo em pseudocódigo</b> — que é o que esta semana ensina e o que será avaliado. Escrevam em pseudocódigo (Visualg); quem quiser pode traduzir para Python depois, como extra.</li></ul>
+      <ul><li><b>Do Registro de Aula da SEDUC-SP</b> (Semana 2, Aula 2 — “Processamento de dados”): o cenário do sistema de vendas, as três regras (5% acima de R$ 100, 10% acima de R$ 500, frete fixo de R$ 15 abaixo de R$ 200), os três passos do algoritmo e as quatro saídas exigidas. <b>Esta semana não tem roteiro de atividade prática</b> — o card é a fonte completa.</li><li><b>Contradição dentro do próprio card:</b> o enunciado manda “criar um <b>algoritmo</b> que…”, mas a instrução de entrega diz “envie o <b>código de programação</b> aqui no AVA”. Como a Semana 2 ainda trabalha entrada, processamento e saída — e a linguagem só chega depois —, esta página pede o <b>algoritmo em pseudocódigo</b>. Quem quiser pode traduzir para Python ou Visualg e anexar como extra; as duas formas atendem.</li><li><b>Ambiguidade do enunciado, resolvida aqui:</b> o card não diz se o frete é decidido pelo <b>valor dos produtos</b> ou pelo <b>valor já com desconto</b>. Numa compra de R$ 210 isso muda o resultado em R$ 15. Esta página adota o <b>valor dos produtos (subtotal)</b> nas três regras, porque o card usa a mesma palavra — “compras” — nas três. Se o professor decidir o contrário, basta inverter a ordem das duas etapas no algoritmo.</li></ul>
     </div>
   </section>
 
@@ -391,7 +391,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
           <span class="passo-num">3</span>
           <div class="passo-txt">Escrevam o algoritmo completo em pseudocódigo.</div>
         </div>
-        <div class="dica"><b>Como pensar:</b> Duas estruturas separadas: uma cascata SE / SENÃO SE / SENÃO para o desconto, e um SE / SENÃO independente para o frete.</div>
+        <div class="dica"><b>Como pensar:</b> Duas estruturas separadas: uma cascata SE / SENÃO SE / SENÃO para o desconto, e um SE / SENÃO independente para o frete. <b>Atenção às três palavras do enunciado:</b> “acima de” e “abaixo de” não incluem o próprio valor — uma compra de exatamente R$ 100 não ganha desconto, e uma de exatamente R$ 200 não paga frete. E as três regras leem o <b>valor dos produtos</b>, não o valor já com desconto.</div>
         <div class="campoWrap"><div class="modelo"><span class="k">algoritmo</span> "sistema_vendas"
 <span class="k">var</span>
    subtotal, desconto, frete, total: real
@@ -428,24 +428,24 @@ fimalgoritmo"></textarea></div>
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">4</span>
-          <div class="passo-txt">Testem mentalmente com um valor de cada faixa e preencham a tabela.</div>
+          <div class="passo-txt">Testem mentalmente cada valor e preencham a tabela.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> R$ 50 (sem desconto, com frete), R$ 150 (5% + frete) e R$ 600 (10%, sem frete). Se algum resultado te surpreender, volte ao algoritmo.</div>
-        <div class="campoWrap tabWrap" data-rel="tabela" data-rotulo="Tabela de rastreamento">
+        <div class="campoWrap" data-rel="campo" data-rotulo="O caso dos R$ 210,00 — o frete entra?"><label class="f" for="c3">No caso dos R$ 210,00: o desconto de 5% derruba o valor para R$ 199,50, que é abaixo de R$ 200. O frete entra ou não? Justifiquem a decisão do grupo.</label><textarea id="c3" data-campo="c3" rows="4" placeholder="Decidimos que o frete é decidido pelo valor dos produtos (R$ 210), então... porque o enunciado usa a palavra “compras” nas três regras."></textarea></div><div class="campoWrap tabWrap" data-rel="tabela" data-rotulo="Tabela de rastreamento">
     <label class="f">Tabela de rastreamento</label>
-    <table><thead><tr><th>Subtotal</th><th>Desconto</th><th>Frete</th><th>Total final</th></tr></thead><tbody><tr><td class="fix">R$ 50,00</td><td><input type="text" data-campo="t3_0_1"></td><td><input type="text" data-campo="t3_0_2"></td><td><input type="text" data-campo="t3_0_3"></td></tr><tr><td class="fix">R$ 150,00</td><td><input type="text" data-campo="t3_1_1"></td><td><input type="text" data-campo="t3_1_2"></td><td><input type="text" data-campo="t3_1_3"></td></tr><tr><td class="fix">R$ 600,00</td><td><input type="text" data-campo="t3_2_1"></td><td><input type="text" data-campo="t3_2_2"></td><td><input type="text" data-campo="t3_2_3"></td></tr></tbody></table>
+    <table><thead><tr><th>Valor dos produtos</th><th>Desconto aplicado</th><th>Valor do frete</th><th>Total final</th></tr></thead><tbody><tr><td class="fix">R$ 50,00</td><td><input type="text" data-campo="t4_0_1"></td><td><input type="text" data-campo="t4_0_2"></td><td><input type="text" data-campo="t4_0_3"></td></tr><tr><td class="fix">R$ 100,00  (limite do desconto)</td><td><input type="text" data-campo="t4_1_1"></td><td><input type="text" data-campo="t4_1_2"></td><td><input type="text" data-campo="t4_1_3"></td></tr><tr><td class="fix">R$ 150,00</td><td><input type="text" data-campo="t4_2_1"></td><td><input type="text" data-campo="t4_2_2"></td><td><input type="text" data-campo="t4_2_3"></td></tr><tr><td class="fix">R$ 200,00  (limite do frete)</td><td><input type="text" data-campo="t4_3_1"></td><td><input type="text" data-campo="t4_3_2"></td><td><input type="text" data-campo="t4_3_3"></td></tr><tr><td class="fix">R$ 210,00  (o caso que separa as duas leituras)</td><td><input type="text" data-campo="t4_4_1"></td><td><input type="text" data-campo="t4_4_2"></td><td><input type="text" data-campo="t4_4_3"></td></tr><tr><td class="fix">R$ 500,00  (limite dos 10%)</td><td><input type="text" data-campo="t4_5_1"></td><td><input type="text" data-campo="t4_5_2"></td><td><input type="text" data-campo="t4_5_3"></td></tr><tr><td class="fix">R$ 600,00</td><td><input type="text" data-campo="t4_6_1"></td><td><input type="text" data-campo="t4_6_2"></td><td><input type="text" data-campo="t4_6_3"></td></tr></tbody></table>
   </div>
       </div>
   </section>
 <section>
     <div class="sec-head"><span class="n">CONFIRA</span><h2>Checklist antes de gerar o PDF</h2></div>
     <div class="progresso" id="progresso"></div>
-    <label class="check"><input type="checkbox" data-check="0"><span>Testamos a faixa &gt; 500 antes da faixa &gt; 100.</span></label><label class="check"><input type="checkbox" data-check="1"><span>O frete é uma decisão separada do desconto.</span></label><label class="check"><input type="checkbox" data-check="2"><span>O programa mostra subtotal, desconto, frete e total final.</span></label><label class="check"><input type="checkbox" data-check="3"><span>A tabela de rastreamento está preenchida com os 3 casos.</span></label><label class="check"><input type="checkbox" data-check="4"><span>Vamos salvar o PDF como NOME_TURMA_S02A1 e enviar no AVA.</span></label>
+    <label class="check"><input type="checkbox" data-check="0"><span>Testamos a faixa &gt; 500 antes da faixa &gt; 100.</span></label><label class="check"><input type="checkbox" data-check="1"><span>O frete é uma decisão separada do desconto.</span></label><label class="check"><input type="checkbox" data-check="2"><span>O programa mostra subtotal, desconto, frete e total final.</span></label><label class="check"><input type="checkbox" data-check="3"><span>A tabela de rastreamento está preenchida com os 3 casos.</span></label><label class="check"><input type="checkbox" data-check="4"><span>Decidimos, e escrevemos, sobre qual valor a regra do frete é aplicada.</span></label><label class="check"><input type="checkbox" data-check="5"><span>Vamos salvar o PDF como NOME_TURMA_S02A2 e enviar no AVA.</span></label>
     <div class="avisoPDF">
       <b>Ao clicar em “Gerar PDF da resposta”</b>, o navegador monta o relatório completo no padrão de
       roteiro de aula prática — com capa, folha de rosto, objetivos, procedimentos, as respostas do grupo e
       as referências. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b>, salve como
-      <b>NOME_TURMA_S02A1</b> e envie no AVA.
+      <b>NOME_TURMA_S02A2</b> e envie no AVA.
     </div>
   </section>
 <section>
@@ -457,7 +457,7 @@ fimalgoritmo"></textarea></div>
   </section>
 <section>
     <div class="sec-head"><span class="n">REFERÊNCIAS</span><h2>De onde veio o conteúdo desta aula</h2></div>
-    <ul class="refs"><li>Apostila da disciplina — Capítulos 14 a 16: if, if/else e if/elif/else.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 4.1 (instrução if).</li><li>SEDUC-SP — Registro de Aula 02 (sistema de vendas).</li></ul>
+    <ul class="refs"><li>Apostila da disciplina — Capítulos 14 a 16: if, if/else e if/elif/else.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 4.1 (instrução if).</li><li>SEDUC-SP — Registro da Aula 2, Semana 2 (sistema de vendas).</li></ul>
   </section>
 
   <div id="relatorio">
@@ -496,8 +496,8 @@ fimalgoritmo"></textarea></div>
   <div id="roteiro">
     <h2 class="rtitulo">Roteiro de Aula Prática</h2>
     <div class="rlinha"><b>Nome da disciplina:</b> LÓGICA E LINGUAGEM DE PROGRAMAÇÃO</div>
-    <div class="rlinha"><b>Unidade:</b> 3 – Tomada de decisão</div>
-    <div class="rlinha"><b>Aula:</b> 2 – Decisões encadeadas (SE / SENÃO SE / SENÃO)</div>
+    <div class="rlinha"><b>Unidade:</b> 2 (S2) – Conceitos de entrada, processamento e saída</div>
+    <div class="rlinha"><b>Aula:</b> 2 – Processamento de dados</div>
     <div class="rlinha"><b>Base teórica:</b> Capítulos 14 a 16 — SE / SENÃO / SENÃO SE</div>
 
     <h3>Objetivos</h3>
@@ -524,9 +524,9 @@ fimalgoritmo"></textarea></div>
     </table>
 
     <h3>Referências</h3>
-    <ul><li>Apostila da disciplina — Capítulos 14 a 16: if, if/else e if/elif/else.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 4.1 (instrução if).</li><li>SEDUC-SP — Registro de Aula 02 (sistema de vendas).</li></ul>
+    <ul><li>Apostila da disciplina — Capítulos 14 a 16: if, if/else e if/elif/else.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 4.1 (instrução if).</li><li>SEDUC-SP — Registro da Aula 2, Semana 2 (sistema de vendas).</li></ul>
     <h3>Procedência do material</h3>
-    <ul><li><b>Do material oficial da SEDUC-SP:</b> o cenário do sistema de vendas, as faixas de desconto e a regra de frete.</li><li><b>Atenção a uma divergência do material oficial:</b> o card do AVA fala em escrever “código”, mas o roteiro da atividade pede <b>algoritmo em pseudocódigo</b> — que é o que esta semana ensina e o que será avaliado. Escrevam em pseudocódigo (Visualg); quem quiser pode traduzir para Python depois, como extra.</li></ul>
+    <ul><li><b>Do Registro de Aula da SEDUC-SP</b> (Semana 2, Aula 2 — “Processamento de dados”): o cenário do sistema de vendas, as três regras (5% acima de R$ 100, 10% acima de R$ 500, frete fixo de R$ 15 abaixo de R$ 200), os três passos do algoritmo e as quatro saídas exigidas. <b>Esta semana não tem roteiro de atividade prática</b> — o card é a fonte completa.</li><li><b>Contradição dentro do próprio card:</b> o enunciado manda “criar um <b>algoritmo</b> que…”, mas a instrução de entrega diz “envie o <b>código de programação</b> aqui no AVA”. Como a Semana 2 ainda trabalha entrada, processamento e saída — e a linguagem só chega depois —, esta página pede o <b>algoritmo em pseudocódigo</b>. Quem quiser pode traduzir para Python ou Visualg e anexar como extra; as duas formas atendem.</li><li><b>Ambiguidade do enunciado, resolvida aqui:</b> o card não diz se o frete é decidido pelo <b>valor dos produtos</b> ou pelo <b>valor já com desconto</b>. Numa compra de R$ 210 isso muda o resultado em R$ 15. Esta página adota o <b>valor dos produtos (subtotal)</b> nas três regras, porque o card usa a mesma palavra — “compras” — nas três. Se o professor decidir o contrário, basta inverter a ordem das duas etapas no algoritmo.</li></ul>
   </div>
 </div>
 

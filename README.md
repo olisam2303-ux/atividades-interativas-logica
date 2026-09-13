@@ -74,8 +74,8 @@ que foi construído aqui — e que sai também no PDF gerado pelo aluno.
 
 | Semana | O que aconteceu |
 |---|---|
-| 1 | O enunciado pede "considere possíveis problemas" sem dizer o que vale como resposta; os critérios de aceitação foram definidos aqui. |
-| 2 | O card fala em "código", o roteiro pede pseudocódigo — a página adota o pseudocódigo, que é o que a semana ensina. |
+| 1 | Sem roteiro de atividade prática: o card é a fonte. O requisito "considere possíveis problemas" não diz o que vale como resposta, e os critérios de aceitação foram definidos aqui. O passo de entrada/processamento/saída também é acréscimo. |
+| 2 | Sem roteiro de atividade prática. O card se contradiz: manda "criar um algoritmo" e depois "envie o código de programação" — a página adota o pseudocódigo. E não diz se o frete olha o valor dos produtos ou o já descontado; a página adota o valor dos produtos e põe o caso de R$ 210 na mesa de teste. |
 | 3 | Nada a completar: o card traz o planejamento, a codificação, o teste mental e a entrega (Word, PDF ou foto do caderno). |
 | 4 | Roteiro oficial reproduzido na íntegra. O Exemplo 1 do roteiro traz `idade >= 1` com resultado anunciado FALSO — o número saiu truncado; a página usa `idade >= 18`, que é o coerente, e sinaliza o erro. |
 | 5 | O enunciado oficial pede só a mensagem "Aprovado"; por decisão do professor, o SENÃO com "Reprovado" é obrigatório e vale nota. |
