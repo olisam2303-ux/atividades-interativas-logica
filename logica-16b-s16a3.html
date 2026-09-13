@@ -380,10 +380,10 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     soma_linha = 0
     <span class="k">for</span> j <span class="k">in</span> range(len(notas[i])):
         soma_linha += notas[i][j]
-    print("Soma da turma", i, ":", soma_linha)</div></div><div class="campoWrap" data-rel="campo" data-rotulo="E1 — o que é cada linha"><label class="f" for="c0">O que representa cada linha?</label><input type="text" id="c0" data-campo="c0" placeholder=""></div><div class="campoWrap" data-rel="campo" data-rotulo="E1 — por que reiniciar o acumulador"><label class="f" for="c1">Por que o acumulador precisa ser reiniciado a cada nova linha?</label><textarea id="c1" data-campo="c1" rows="2" placeholder=""></textarea></div><div class="campoWrap tabWrap" data-rel="tabela" data-rotulo="Somas por turma">
+    print("Soma da turma", i, ":", soma_linha)</div></div><div class="campoWrap tabWrap" data-rel="tabela" data-rotulo="Somas por turma">
     <label class="f">Somas por turma</label>
     <table><thead><tr><th>Turma (linha)</th><th>Notas</th><th>Soma</th></tr></thead><tbody><tr><td class="fix">Turma 0</td><td><input type="text" data-campo="t2_0_1"></td><td><input type="text" data-campo="t2_0_2"></td></tr><tr><td class="fix">Turma 1</td><td><input type="text" data-campo="t2_1_1"></td><td><input type="text" data-campo="t2_1_2"></td></tr><tr><td class="fix">Turma 2</td><td><input type="text" data-campo="t2_2_1"></td><td><input type="text" data-campo="t2_2_2"></td></tr></tbody></table>
-  </div>
+  </div><div class="campoWrap" data-rel="campo" data-rotulo="E1 — o que é cada linha"><label class="f" for="c0">O que representa cada linha?</label><input type="text" id="c0" data-campo="c0" placeholder=""></div><div class="campoWrap" data-rel="campo" data-rotulo="E1 — por que reiniciar o acumulador"><label class="f" for="c1">Por que o acumulador precisa ser reiniciado a cada nova linha?</label><textarea id="c1" data-campo="c1" rows="2" placeholder=""></textarea></div>
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">2</span>
@@ -409,10 +409,10 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <span class="k">for</span> i <span class="k">in</span> range(len(notas)):
         <span class="k">if</span> notas[i][j] &gt; maior:
             maior = notas[i][j]
-    print("Maior da coluna", j, ":", maior)</div></div><div class="campoWrap" data-rel="campo" data-rotulo="E4 — laço externo por coluna"><label class="f" for="c8">Por que o laço externo agora percorre colunas?</label><textarea id="c8" data-campo="c8" rows="2" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="E4 — o que mudou"><label class="f" for="c9">O que mudou na lógica?</label><textarea id="c9" data-campo="c9" rows="2" placeholder=""></textarea></div><div class="campoWrap tabWrap" data-rel="tabela" data-rotulo="Maior valor por coluna">
+    print("Maior da coluna", j, ":", maior)</div></div><div class="campoWrap tabWrap" data-rel="tabela" data-rotulo="Maior valor por coluna">
     <label class="f">Maior valor por coluna</label>
     <table><thead><tr><th>Coluna</th><th>Valores da coluna</th><th>Maior</th></tr></thead><tbody><tr><td class="fix">Coluna 0</td><td><input type="text" data-campo="t10_0_1"></td><td><input type="text" data-campo="t10_0_2"></td></tr><tr><td class="fix">Coluna 1</td><td><input type="text" data-campo="t10_1_1"></td><td><input type="text" data-campo="t10_1_2"></td></tr><tr><td class="fix">Coluna 2</td><td><input type="text" data-campo="t10_2_1"></td><td><input type="text" data-campo="t10_2_2"></td></tr></tbody></table>
-  </div>
+  </div><div class="campoWrap" data-rel="campo" data-rotulo="E4 — laço externo por coluna"><label class="f" for="c8">Por que o laço externo agora percorre colunas?</label><textarea id="c8" data-campo="c8" rows="2" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="E4 — o que mudou"><label class="f" for="c9">O que mudou na lógica?</label><textarea id="c9" data-campo="c9" rows="2" placeholder=""></textarea></div>
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">5</span>

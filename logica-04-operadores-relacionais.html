@@ -285,7 +285,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
 
   <section>
     <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que vocês vão resolver</h2></div>
-    <p class="lead" style="color:var(--ink);font-size:15.5px">Imagine que você trabalha em uma <b>empresa de desenvolvimento</b> e precisa criar um <b>sistema de aprovação de crédito</b>. O sistema precisa comparar salários, idades, scores de crédito e outros valores para tomar decisões. Mas como o computador sabe se um valor é maior, menor ou igual a outro? <br><br>Os <b>operadores relacionais</b> são fundamentais para criar qualquer sistema que tome decisões. Hoje você aprenderá a usar essas ferramentas essenciais da programação.</p>
+    <p class="lead" style="color:var(--ink);font-size:15.5px">Imagine que você trabalha em uma <b>empresa de desenvolvimento</b> e precisa criar um <b>sistema de aprovação de crédito</b>. O sistema precisa comparar salários, idades, scores de crédito e outros valores para tomar decisões. Mas como o computador sabe se um valor é maior, menor ou igual a outro? <br><br>Os <b>operadores relacionais</b> são fundamentais para criar qualquer sistema que tome decisões. Hoje você aprenderá a usar essas ferramentas essenciais da programação — e, no <b>Exercício 3</b>, vai aplicá-las exatamente nesse sistema de crédito, analisando quatro pedidos reais da financeira.</p>
   </section>
 
   <section>
@@ -304,7 +304,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   <section>
     <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
     <ul class="objetivos">
-      <li><span class="tick">✓</span><span>Identificar e aplicar corretamente os operadores relacionais na tomada de decisão em algoritmos.</span></li><li><span class="tick">✓</span><span>Usar os seis operadores de comparação e reconhecer que toda comparação devolve VERDADEIRO ou FALSO.</span></li><li><span class="tick">✓</span><span>Reconhecer que a comparação de textos diferencia maiúsculas de minúsculas.</span></li><li><span class="tick">✓</span><span>Perceber que faixas definidas com >= podem se sobrepor, fazendo um mesmo valor satisfazer mais de uma condição.</span></li><li><span class="tick">✓</span><span>Diferenciar o operador de atribuição do operador de comparação.</span></li>
+      <li><span class="tick">✓</span><span>Identificar e aplicar corretamente os operadores relacionais na tomada de decisão em algoritmos.</span></li><li><span class="tick">✓</span><span>Usar os seis operadores de comparação e reconhecer que toda comparação devolve VERDADEIRO ou FALSO.</span></li><li><span class="tick">✓</span><span>Reconhecer que a comparação de textos diferencia maiúsculas de minúsculas.</span></li><li><span class="tick">✓</span><span>Perceber que faixas definidas com >= podem se sobrepor, fazendo um mesmo valor satisfazer mais de uma condição.</span></li><li><span class="tick">✓</span><span>Aplicar os operadores a um caso real de análise de crédito, comparando idade, salário, score e valor solicitado.</span></li><li><span class="tick">✓</span><span>Diferenciar o operador de atribuição do operador de comparação.</span></li>
     </ul>
   </section>
 <section>
@@ -351,6 +351,26 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     </marker>
   </defs>
   <rect x="0" y="0" width="560" height="222" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">Exemplo 2 — verificação de senha</text><text x="20" y="52" class="sv-code" xml:space="preserve">senha_correta  ← "SENAC2024"</text><text x="20" y="78" class="sv-code" xml:space="preserve">senha_digitada ← "senac2024"</text><text x="20" y="104" class="sv-code" xml:space="preserve">acesso ← senha_correta = senha_digitada</text><text x="20" y="130" class="sv-code sv-code-key" xml:space="preserve">ESCREVA acesso          // Resultado: FALSO</text><text x="20" y="156" class="sv-code" xml:space="preserve"> </text><text x="20" y="182" class="sv-code sv-code-key" xml:space="preserve">maiúscula e minúscula são caracteres diferentes</text><text x="280" y="234" class="sv-legend">Comparação de texto diferencia maiúsculas de minúsculas. É por isso que digitar</text><text x="280" y="250" class="sv-legend">a senha com Caps Lock ligado não funciona.</text>
+</svg></div><div class="visual"><svg viewBox="0 0 560 336" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+    </marker>
+    <marker id="sv-head-soft" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="560" height="274" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">As quatro regras da Financeira Crédito Já</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">variável            regra                    expressão</text><text x="20" y="78" class="sv-code" xml:space="preserve"> </text><text x="20" y="104" class="sv-code" xml:space="preserve">idade               a partir de 18 anos      idade &gt;= 18</text><text x="20" y="130" class="sv-code" xml:space="preserve">salário             mínimo R$ 1.800,00       salario &gt;= 1800</text><text x="20" y="156" class="sv-code sv-code-key" xml:space="preserve">score de crédito    acima de 600             score &gt; 600</text><text x="20" y="182" class="sv-code" xml:space="preserve">valor pedido        até 10x o salário        valor &lt;= salario * 10</text><text x="20" y="208" class="sv-code" xml:space="preserve"> </text><text x="20" y="234" class="sv-code sv-code-key" xml:space="preserve">o pedido só é aprovado se as QUATRO derem VERDADEIRO</text><text x="280" y="286" class="sv-legend">Repare na diferença entre salário e score: o salário usa &gt;= e aceita quem está</text><text x="280" y="302" class="sv-legend">exatamente no mínimo; o score usa &gt; e recusa quem está exatamente em 600. Uma</text><text x="280" y="318" class="sv-legend">palavra do enunciado — “mínimo” contra “acima de” — decide o operador.</text>
+</svg></div><div class="visual"><svg viewBox="0 0 560 336" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+    </marker>
+    <marker id="sv-head-soft" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="560" height="274" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">As fichas dos quatro pedidos</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">candidato      idade   salário    score   pedido</text><text x="20" y="78" class="sv-code" xml:space="preserve"> </text><text x="20" y="104" class="sv-code" xml:space="preserve">Ana Souza        24    3.200,00     710   15.000,00</text><text x="20" y="130" class="sv-code" xml:space="preserve">Bruno Lima       17    2.500,00     680    5.000,00</text><text x="20" y="156" class="sv-code sv-code-key" xml:space="preserve">Carla Dias       31    1.800,00     600   20.000,00</text><text x="20" y="182" class="sv-code" xml:space="preserve">Diego Alves      45    6.000,00     640   70.000,00</text><text x="20" y="208" class="sv-code" xml:space="preserve"> </text><text x="20" y="234" class="sv-code sv-code-soft" xml:space="preserve">a Carla cai em DOIS limites ao mesmo tempo</text><text x="280" y="286" class="sv-legend">Analisem uma regra de cada vez, sem tentar decidir o pedido inteiro de cabeça.</text><text x="280" y="302" class="sv-legend">É assim que um sistema de verdade faz: quatro perguntas de sim ou não, depois a</text><text x="280" y="318" class="sv-legend">conclusão.</text>
 </svg></div><div class="visual"><svg viewBox="0 0 720 178" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -405,7 +425,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
           <span class="passo-num">1</span>
           <div class="passo-txt">Exercício 1 — Testando operadores.</div>
         </div>
-        <div class="dica"><b>Como pensar:</b> Resolvam cada expressão e escrevam se o resultado é VERDADEIRO ou FALSO. Cuidado com as duas últimas de cada bloco: <code>100 ≠ 100</code> e <code>3.14 &gt; 3</code> são as que mais confundem.</div>
+        <div class="dica"><b>Como pensar:</b> São os mesmos seis operadores que a financeira usa para analisar crédito — aqui vocês treinam com números soltos antes de aplicar no cenário, no Exercício 3. Cuidado com <code>100 ≠ 100</code> e <code>3.14 &gt; 3</code>, que são as que mais confundem.</div>
         <div class="campoWrap tabWrap" data-rel="tabela" data-rotulo="Resolva as expressões">
     <label class="f">Resolva as expressões</label>
     <table><thead><tr><th>Expressão</th><th>VERDADEIRO ou FALSO?</th></tr></thead><tbody><tr><td class="fix">10 &gt; 5</td><td><input type="text" data-campo="t0_0_1"></td></tr><tr><td class="fix">7 = 7</td><td><input type="text" data-campo="t0_1_1"></td></tr><tr><td class="fix">15 &lt; 10</td><td><input type="text" data-campo="t0_2_1"></td></tr><tr><td class="fix">20 &gt;= 20</td><td><input type="text" data-campo="t0_3_1"></td></tr><tr><td class="fix">8 &lt;= 6</td><td><input type="text" data-campo="t0_4_1"></td></tr><tr><td class="fix">100 ≠ 100</td><td><input type="text" data-campo="t0_5_1"></td></tr><tr><td class="fix">-5 &lt; 0</td><td><input type="text" data-campo="t0_6_1"></td></tr><tr><td class="fix">3.14 &gt; 3</td><td><input type="text" data-campo="t0_7_1"></td></tr></tbody></table>
@@ -415,7 +435,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
           <span class="passo-num">2</span>
           <div class="passo-txt">Exercício 1 (continuação) — Criem 3 novas expressões.</div>
         </div>
-        <div class="dica"><b>Como pensar:</b> Cada uma com uma exigência diferente. Escrevam a expressão e o resultado dela, como nos exemplos acima.</div>
+        <div class="dica"><b>Como pensar:</b> Cada uma com uma exigência diferente. Escrevam a expressão e o resultado dela, como nos exemplos acima. <b>Sugestão:</b> usem as variáveis do sistema de crédito — <code>idade</code>, <code>salario</code>, <code>score</code> — em vez de números soltos; assim já vão chegando no Exercício 3.</div>
         <div class="campoWrap tabWrap" data-rel="tabela" data-rotulo="Suas três expressões">
     <label class="f">Suas três expressões</label>
     <table><thead><tr><th>Exigência</th><th>Expressão criada</th><th>Resultado</th></tr></thead><tbody><tr><td class="fix">Resultado VERDADEIRO usando &gt;</td><td><input type="text" data-campo="t1_0_1"></td><td class="fix">VERDADEIRO</td></tr><tr><td class="fix">Resultado FALSO usando &lt;=</td><td><input type="text" data-campo="t1_1_1"></td><td class="fix">FALSO</td></tr><tr><td class="fix">Comparando números decimais</td><td><input type="text" data-campo="t1_2_1"></td><td><input type="text" data-campo="t1_2_2"></td></tr></tbody></table>
@@ -433,16 +453,28 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">4</span>
+          <div class="passo-txt">Exercício 3 — Analisem os quatro pedidos de crédito.</div>
+        </div>
+        <div class="dica"><b>Como pensar:</b> Este é o sistema que abriu a atividade. Para cada candidato, resolvam as <b>quatro comparações separadamente</b> e só então decidam o pedido. Atenção à Carla: o salário dela é exatamente o mínimo e o score é exatamente 600 — um passa e o outro não, e a diferença está no operador.</div>
+        <div class="campoWrap tabWrap" data-rel="tabela" data-rotulo="Análise de crédito — uma comparação de cada vez">
+    <label class="f">Análise de crédito — uma comparação de cada vez</label>
+    <table><thead><tr><th>Candidato</th><th>idade ≥ 18</th><th>salário ≥ 1800</th><th>score &gt; 600</th><th>valor ≤ 10× sal.</th><th>Aprovado?</th></tr></thead><tbody><tr><td class="fix">Ana Souza</td><td><input type="text" data-campo="t6_0_1"></td><td><input type="text" data-campo="t6_0_2"></td><td><input type="text" data-campo="t6_0_3"></td><td><input type="text" data-campo="t6_0_4"></td><td><input type="text" data-campo="t6_0_5"></td></tr><tr><td class="fix">Bruno Lima</td><td><input type="text" data-campo="t6_1_1"></td><td><input type="text" data-campo="t6_1_2"></td><td><input type="text" data-campo="t6_1_3"></td><td><input type="text" data-campo="t6_1_4"></td><td><input type="text" data-campo="t6_1_5"></td></tr><tr><td class="fix">Carla Dias</td><td><input type="text" data-campo="t6_2_1"></td><td><input type="text" data-campo="t6_2_2"></td><td><input type="text" data-campo="t6_2_3"></td><td><input type="text" data-campo="t6_2_4"></td><td><input type="text" data-campo="t6_2_5"></td></tr><tr><td class="fix">Diego Alves</td><td><input type="text" data-campo="t6_3_1"></td><td><input type="text" data-campo="t6_3_2"></td><td><input type="text" data-campo="t6_3_3"></td><td><input type="text" data-campo="t6_3_4"></td><td><input type="text" data-campo="t6_3_5"></td></tr></tbody></table>
+  </div><div class="campoWrap" data-rel="campo" data-rotulo="Motivo de cada recusa"><label class="f" for="c3">Para cada pedido negado, qual regra reprovou e por quê?</label><textarea id="c3" data-campo="c3" rows="4" placeholder="Bruno: reprovado pela regra de..., porque...
+Carla: reprovada por... (são duas regras)
+Diego: reprovado por..., embora tenha..."></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="O limite do score: &gt; contra &gt;="><label class="f" for="c4">O score da Carla é 600 e a regra é “acima de 600”. Se a financeira mudasse a regra para “600 ou mais”, o que mudaria na expressão — e o pedido dela seria aprovado?</label><textarea id="c4" data-campo="c4" rows="3" placeholder="A expressão passaria de score &gt; 600 para... O pedido dela ainda assim seria... porque a regra do valor..."></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="Total de pedidos aprovados"><label class="f" for="c5">Quantos dos quatro pedidos o sistema aprova?</label><input type="text" id="c5" data-campo="c5" placeholder="Ex.: 1 de 4"></div>
+      </div><div class="passo">
+        <div class="passo-top">
+          <span class="passo-num">5</span>
           <div class="passo-txt">Perguntas para reflexão.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> As três do roteiro. A segunda é a mais importante para a próxima aula: a diferença entre <code>&gt;</code> e <code>&gt;=</code> é o que decide se o valor exatamente igual ao limite entra ou fica de fora.</div>
-        <div class="campoWrap" data-rel="campo" data-rotulo="Q1 — por que só VERDADEIRO ou FALSO"><label class="f" for="c3">Por que o resultado de uma comparação é sempre VERDADEIRO ou FALSO? Como isso ajuda o computador a tomar decisões?</label><textarea id="c3" data-campo="c3" rows="3" placeholder="Porque a comparação é uma pergunta de sim ou não, e o computador..."></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="Q2 — diferença entre &gt; e &gt;="><label class="f" for="c4">Explique a diferença entre &gt; e &gt;=. Em que situações cada um seria mais apropriado?</label><textarea id="c4" data-campo="c4" rows="3" placeholder="O &gt; exige que seja estritamente maior, então..."></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="Q3 — senha com no mínimo 8 caracteres"><label class="f" for="c5">Como você usaria operadores relacionais para verificar se uma senha tem no mínimo 8 caracteres?</label><textarea id="c5" data-campo="c5" rows="3" placeholder="Usando o tamanho da senha: ..."></textarea></div>
+        <div class="campoWrap" data-rel="campo" data-rotulo="Q1 — por que só VERDADEIRO ou FALSO"><label class="f" for="c7">Por que o resultado de uma comparação é sempre VERDADEIRO ou FALSO? Como isso ajuda o computador a tomar decisões?</label><textarea id="c7" data-campo="c7" rows="3" placeholder="Porque a comparação é uma pergunta de sim ou não, e o computador..."></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="Q2 — diferença entre &gt; e &gt;="><label class="f" for="c8">Explique a diferença entre &gt; e &gt;=. Em que situações cada um seria mais apropriado?</label><textarea id="c8" data-campo="c8" rows="3" placeholder="O &gt; exige que seja estritamente maior, então..."></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="Q3 — senha com no mínimo 8 caracteres"><label class="f" for="c9">Como você usaria operadores relacionais para verificar se uma senha tem no mínimo 8 caracteres?</label><textarea id="c9" data-campo="c9" rows="3" placeholder="Usando o tamanho da senha: ..."></textarea></div>
       </div>
   </section>
 <section>
     <div class="sec-head"><span class="n">CONFIRA</span><h2>Checklist antes de gerar o PDF</h2></div>
     <div class="progresso" id="progresso"></div>
-    <label class="check"><input type="checkbox" data-check="0"><span>Resolvemos as oito expressões do Exercício 1.</span></label><label class="check"><input type="checkbox" data-check="1"><span>Criamos as três expressões novas, com as exigências pedidas.</span></label><label class="check"><input type="checkbox" data-check="2"><span>Completamos os três casos do sistema de desconto, com expressão e resultado.</span></label><label class="check"><input type="checkbox" data-check="3"><span>Percebemos que uma mesma compra pode satisfazer mais de uma faixa de desconto.</span></label><label class="check"><input type="checkbox" data-check="4"><span>Respondemos as três perguntas de reflexão.</span></label><label class="check"><input type="checkbox" data-check="5"><span>Vamos salvar o PDF como NOME_TURMA_S04A1 e fazer o registro no AVA.</span></label>
+    <label class="check"><input type="checkbox" data-check="0"><span>Resolvemos as oito expressões do Exercício 1.</span></label><label class="check"><input type="checkbox" data-check="1"><span>Criamos as três expressões novas, com as exigências pedidas.</span></label><label class="check"><input type="checkbox" data-check="2"><span>Completamos os três casos do sistema de desconto, com expressão e resultado.</span></label><label class="check"><input type="checkbox" data-check="3"><span>Percebemos que uma mesma compra pode satisfazer mais de uma faixa de desconto.</span></label><label class="check"><input type="checkbox" data-check="4"><span>Analisamos os quatro pedidos de crédito, resolvendo uma regra de cada vez.</span></label><label class="check"><input type="checkbox" data-check="5"><span>Identificamos qual regra reprovou cada pedido negado.</span></label><label class="check"><input type="checkbox" data-check="6"><span>Explicamos por que o score da Carla falha com &gt; 600 e passaria com &gt;= 600.</span></label><label class="check"><input type="checkbox" data-check="7"><span>Respondemos as três perguntas de reflexão.</span></label><label class="check"><input type="checkbox" data-check="8"><span>Vamos salvar o PDF como NOME_TURMA_S04A1 e fazer o registro no AVA.</span></label>
     <div class="avisoPDF">
       <b>Ao clicar em “Gerar PDF da resposta”</b>, o navegador monta o relatório completo no padrão de
       roteiro de aula prática — com capa, folha de rosto, objetivos, procedimentos, as respostas do grupo e
@@ -454,7 +486,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="sec-head"><span class="n">AVALIAÇÃO</span><h2>Como esta atividade será avaliada</h2></div>
     <div class="tabWrap"><table class="criterios">
       <thead><tr><th>Critério</th><th>Pontos</th></tr></thead>
-      <tbody><tr><td>Exercício 1 — oito expressões resolvidas corretamente</td><td>3,0</td></tr><tr><td>Exercício 1 — três expressões criadas, atendendo às exigências</td><td>2,0</td></tr><tr><td>Exercício 2 — expressões do sistema de desconto completas e corretas</td><td>3,0</td></tr><tr><td>Perguntas de reflexão respondidas com justificativa</td><td>2,0</td></tr></tbody>
+      <tbody><tr><td>Exercício 1 — oito expressões resolvidas corretamente</td><td>2,0</td></tr><tr><td>Exercício 1 — três expressões criadas, atendendo às exigências</td><td>1,5</td></tr><tr><td>Exercício 2 — expressões do sistema de desconto completas e corretas</td><td>2,0</td></tr><tr><td>Exercício 3 — análise dos quatro pedidos, regra por regra</td><td>2,5</td></tr><tr><td>Perguntas de reflexão respondidas com justificativa</td><td>2,0</td></tr></tbody>
     </table></div>
   </section>
 <section>
@@ -503,7 +535,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="rlinha"><b>Base teórica:</b> Capítulo 12 — Comparações</div>
 
     <h3>Objetivos</h3>
-    <ul class="lista-obj"><li>Identificar e aplicar corretamente os operadores relacionais na tomada de decisão em algoritmos.</li><li>Usar os seis operadores de comparação e reconhecer que toda comparação devolve VERDADEIRO ou FALSO.</li><li>Reconhecer que a comparação de textos diferencia maiúsculas de minúsculas.</li><li>Perceber que faixas definidas com >= podem se sobrepor, fazendo um mesmo valor satisfazer mais de uma condição.</li><li>Diferenciar o operador de atribuição do operador de comparação.</li></ul>
+    <ul class="lista-obj"><li>Identificar e aplicar corretamente os operadores relacionais na tomada de decisão em algoritmos.</li><li>Usar os seis operadores de comparação e reconhecer que toda comparação devolve VERDADEIRO ou FALSO.</li><li>Reconhecer que a comparação de textos diferencia maiúsculas de minúsculas.</li><li>Perceber que faixas definidas com >= podem se sobrepor, fazendo um mesmo valor satisfazer mais de uma condição.</li><li>Aplicar os operadores a um caso real de análise de crédito, comparando idade, salário, score e valor solicitado.</li><li>Diferenciar o operador de atribuição do operador de comparação.</li></ul>
 
     <h3>Solução digital</h3>
     <p>Visualg (interpretador de pseudocódigo).</p>
@@ -511,7 +543,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <p>Ferramenta gratuita que executa algoritmos escritos em português estruturado (Portugol), usada no laboratório da escola. Permite rodar o pseudocódigo e ver o resultado antes de traduzir para uma linguagem de programação. O relatório continua sendo preenchido nesta página e exportado em PDF pelo navegador.</p>
 
     <h3>Procedimento / Atividade</h3>
-    <p><b>Atividade proposta:</b> Imagine que você trabalha em uma <b>empresa de desenvolvimento</b> e precisa criar um <b>sistema de aprovação de crédito</b>. O sistema precisa comparar salários, idades, scores de crédito e outros valores para tomar decisões. Mas como o computador sabe se um valor é maior, menor ou igual a outro? <br><br>Os <b>operadores relacionais</b> são fundamentais para criar qualquer sistema que tome decisões. Hoje você aprenderá a usar essas ferramentas essenciais da programação.</p>
+    <p><b>Atividade proposta:</b> Imagine que você trabalha em uma <b>empresa de desenvolvimento</b> e precisa criar um <b>sistema de aprovação de crédito</b>. O sistema precisa comparar salários, idades, scores de crédito e outros valores para tomar decisões. Mas como o computador sabe se um valor é maior, menor ou igual a outro? <br><br>Os <b>operadores relacionais</b> são fundamentais para criar qualquer sistema que tome decisões. Hoje você aprenderá a usar essas ferramentas essenciais da programação — e, no <b>Exercício 3</b>, vai aplicá-las exatamente nesse sistema de crédito, analisando quatro pedidos reais da financeira.</p>
 
     <h3>Procedimentos para a realização da atividade</h3>
     <div id="corpoRoteiro"></div>
@@ -522,7 +554,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <h3>Critérios de avaliação</h3>
     <table>
       <thead><tr><th>Critério</th><th>Pontos</th></tr></thead>
-      <tbody><tr><td>Exercício 1 — oito expressões resolvidas corretamente</td><td>3,0</td></tr><tr><td>Exercício 1 — três expressões criadas, atendendo às exigências</td><td>2,0</td></tr><tr><td>Exercício 2 — expressões do sistema de desconto completas e corretas</td><td>3,0</td></tr><tr><td>Perguntas de reflexão respondidas com justificativa</td><td>2,0</td></tr></tbody>
+      <tbody><tr><td>Exercício 1 — oito expressões resolvidas corretamente</td><td>2,0</td></tr><tr><td>Exercício 1 — três expressões criadas, atendendo às exigências</td><td>1,5</td></tr><tr><td>Exercício 2 — expressões do sistema de desconto completas e corretas</td><td>2,0</td></tr><tr><td>Exercício 3 — análise dos quatro pedidos, regra por regra</td><td>2,5</td></tr><tr><td>Perguntas de reflexão respondidas com justificativa</td><td>2,0</td></tr></tbody>
     </table>
 
     <h3>Referências</h3>
