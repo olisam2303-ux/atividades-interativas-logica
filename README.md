@@ -56,6 +56,7 @@ formulário preenchível e geração do relatório em PDF direto pelo navegador.
 | 16 | Aninhando laços para percorrer matrizes *(prática guiada A2)* | Python |
 | 16 | Agregando dados em matrizes *(prática guiada A3)* | Python |
 | 16 | Miniprojeto: Planilha de vendas *(registro A4)* | Python |
+| 17 | Revisão por pares e feedback assertivo | Revisão em dupla |
 
 A semana 14 chegou com o título de outra atividade (uma retrospectiva de
 Sprint) e sem os blocos de código do roteiro; a página segue o procedimento
