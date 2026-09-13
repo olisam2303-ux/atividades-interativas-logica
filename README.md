@@ -75,6 +75,12 @@ funciona sem depender da internet:
 O Google Colab, citado em alguns roteiros da SEDUC-SP, é bloqueado pelo firewall
 da escola — as páginas indicam o VS Code no lugar, que faz o mesmo e roda offline.
 
+Para a entrega no GitHub há um guia à parte,
+[**Salvando seu trabalho no GitHub**](https://olisam2303-ux.github.io/atividades-interativas-logica/github-passo-a-passo.html),
+com dois caminhos: pelo VS Code e, quando o Git não estiver instalado, pelo
+próprio site, arrastando os arquivos. Ele está linkado no índice e no card de
+ferramenta de cada atividade de Python.
+
 ## Como usar
 
 Cada arquivo `.html` é autocontido: funciona offline, sem instalar nada e sem
