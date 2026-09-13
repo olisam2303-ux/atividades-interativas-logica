@@ -169,6 +169,24 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
 .check span{font-size:14.5px}
 .check.done{background:var(--ok-soft);border-color:var(--ok)}
 .progresso{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.dados{margin:18px 0;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
+.dados .cab{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+  padding:11px 14px;border-bottom:1px solid var(--line);background:var(--accent-soft)}
+.dados .nomeArq{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13.5px;font-weight:600;color:var(--accent)}
+.dados .acoes{display:flex;gap:8px}
+.dados .mini{font:inherit;font-size:12.5px;font-weight:600;padding:6px 11px;border-radius:8px;cursor:pointer;
+  border:1px solid var(--line);background:var(--bg);color:var(--ink);text-decoration:none;display:inline-block}
+.dados .mini:hover{border-color:var(--accent)}
+.dados pre{margin:0;padding:13px 15px;overflow-x:auto;font-family:ui-monospace,Menlo,Consolas,monospace;
+  font-size:12.5px;line-height:1.65;color:var(--ink);white-space:pre}
+.dados .obs{padding:9px 15px 12px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line)}
+@media print{.dados .acoes{display:none}}
+.proc{margin-top:16px;border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:10px;background:var(--card);padding:13px 15px}
+.proc h3{margin:0 0 7px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.proc ul{margin:0;padding-left:17px}
+.proc li{font-size:13.5px;line-height:1.55;color:var(--muted);margin:3px 0}
+.proc li b{color:var(--ink);font-weight:600}
 .avisoPDF{margin-top:14px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:10px;
   padding:13px 15px;font-size:14px}
 .avisoPDF b{color:var(--accent)}
@@ -248,6 +266,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   </section>
 
   <section>
+    <div class="proc">
+      <h3>Procedência deste material</h3>
+      <ul><li><b>Do material oficial da SEDUC-SP:</b> o cenário da Distribuidora Alfa, os dois arquivos de saída, os modos de escrita <code>w</code>, <code>a</code> e <code>x</code> e a tabela de produtos com quantidade e mínimo.</li><li><b>Complemento desta página:</b> o roteiro manda o script final ler <code>estoque.csv</code>, mas <b>não entrega o arquivo</b>. Ele foi gerado aqui a partir da própria tabela do roteiro, sem alterar nenhum valor, e está disponível em <code>arquivos/estoque.csv</code>, ao lado desta página.</li></ul>
+    </div>
+  </section>
+
+  <section>
     <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
     <ul class="objetivos">
       <li><span class="tick">✓</span><span>Diferenciar os modos de escrita de arquivo e seus efeitos sobre conteúdo já existente.</span></li><li><span class="tick">✓</span><span>Aplicar <code>write()</code> e <code>writelines()</code> para gerar arquivos formatados.</span></li><li><span class="tick">✓</span><span>Decidir conscientemente entre sobrescrever e acrescentar, conforme o propósito do arquivo.</span></li><li><span class="tick">✓</span><span>Combinar leitura e escrita em um único script de geração de relatórios.</span></li>
@@ -287,7 +312,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
         <text x="345" y="52" class="sv-label">Registro acumulado</text>
         <text x="345" y="81" class="sv-legend sv-small">cresce a cada execução ·</text><text x="345" y="96" class="sv-legend sv-small">perder o passado é perder a</text><text x="345" y="111" class="sv-legend sv-small">auditoria</text>
       </g><text x="227" y="156" class="sv-legend">Antes de escolher o modo, responda: este arquivo substitui o anterior ou continua de onde parou?</text>
-</svg></div><div class="visual"><svg viewBox="0 0 560 326" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
+</svg></div><div class="visual"><svg viewBox="0 0 560 346" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
       <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
@@ -296,8 +321,8 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="296" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">Os dados do estoque de hoje</text><text x="20" y="52" class="sv-code sv-code-key">produto          quantidade   mínimo</text><text x="20" y="78" class="sv-code">Notebook              12          5</text><text x="20" y="104" class="sv-code">Smartphone             3         10</text><text x="20" y="130" class="sv-code">Tablet                 8          5</text><text x="20" y="156" class="sv-code">Fone de Ouvido         2          8</text><text x="20" y="182" class="sv-code">Mochila               25         10</text><text x="20" y="208" class="sv-code">Carregador             1         15</text><text x="20" y="234" class="sv-code"> </text><text x="20" y="260" class="sv-code sv-code-key">estoque baixo = quantidade MENOR que o mínimo</text><text x="280" y="318" class="sv-legend">Percorram a tabela e identifiquem quais produtos disparam alerta antes de programar.</text>
-</svg></div><div class="visual"><svg viewBox="0 0 560 300" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="560" height="300" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">Os dados do estoque de hoje</text><text x="20" y="52" class="sv-code sv-code-key">produto          quantidade   mínimo</text><text x="20" y="78" class="sv-code">Notebook              12          5</text><text x="20" y="104" class="sv-code">Smartphone             3         10</text><text x="20" y="130" class="sv-code">Tablet                 8          5</text><text x="20" y="156" class="sv-code">Fone de Ouvido         2          8</text><text x="20" y="182" class="sv-code">Mochila               25         10</text><text x="20" y="208" class="sv-code">Carregador             1         15</text><text x="20" y="234" class="sv-code"> </text><text x="20" y="260" class="sv-code sv-code-key">estoque baixo = quantidade MENOR que o mínimo</text><text x="280" y="312" class="sv-legend">Percorram a tabela e identifiquem quais produtos disparam alerta antes de</text><text x="280" y="328" class="sv-legend">programar.</text>
+</svg></div><div class="visual"><svg viewBox="0 0 560 320" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
       <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
@@ -306,8 +331,29 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="270" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O formato do relatório</text><text x="20" y="52" class="sv-code sv-code-key">=== RELATÓRIO DE ESTOQUE - DISTRIBUIDORA ALFA ===</text><text x="20" y="78" class="sv-code">Notebook............12 unidades</text><text x="20" y="104" class="sv-code">Smartphone..........3 unidades</text><text x="20" y="130" class="sv-code sv-code-soft">...</text><text x="20" y="156" class="sv-code">Total de produtos: 6</text><text x="20" y="182" class="sv-code"> </text><text x="20" y="208" class="sv-code sv-code-soft">os pontos preenchem até uma largura fixa</text><text x="20" y="234" class="sv-code sv-code-soft">f"{produto:.&lt;20}{quantidade} unidades"</text><text x="280" y="292" class="sv-legend">O alinhamento por pontos é feito pela própria f-string — não precisa contar espaço na mão.</text>
+  <rect x="0" y="0" width="560" height="274" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O formato do relatório</text><text x="20" y="52" class="sv-code sv-code-key">=== RELATÓRIO DE ESTOQUE - DISTRIBUIDORA ALFA ===</text><text x="20" y="78" class="sv-code">Notebook............12 unidades</text><text x="20" y="104" class="sv-code">Smartphone..........3 unidades</text><text x="20" y="130" class="sv-code sv-code-soft">...</text><text x="20" y="156" class="sv-code">Total de produtos: 6</text><text x="20" y="182" class="sv-code"> </text><text x="20" y="208" class="sv-code sv-code-soft">os pontos preenchem até uma largura fixa</text><text x="20" y="234" class="sv-code sv-code-soft">f"{produto:.&lt;20}{quantidade} unidades"</text><text x="280" y="286" class="sv-legend">O alinhamento por pontos é feito pela própria f-string — não precisa contar</text><text x="280" y="302" class="sv-legend">espaço na mão.</text>
 </svg></div>
+    </section>
+<section>
+      <div class="sec-head"><span class="n">ARQUIVO DE DADOS</span><h2>O arquivo desta atividade</h2></div>
+      <p class="lead">O roteiro usa este arquivo, mas não o entrega. Ele foi montado exatamente com os dados do próprio roteiro. Baixe ou copie o conteúdo para um arquivo de texto, na mesma pasta do seu programa.</p>
+      <div class="dados">
+        <div class="cab">
+          <span class="nomeArq">estoque.csv</span>
+          <span class="acoes">
+            <button type="button" class="mini" data-copiar="estoque.csv">Copiar conteúdo</button>
+            <a class="mini" href="arquivos/estoque.csv" download>Baixar</a>
+          </span>
+        </div>
+        <pre data-arquivo="estoque.csv">produto,quantidade,minimo
+Notebook,12,5
+Smartphone,3,10
+Tablet,8,5
+Fone de Ouvido,2,8
+Mochila,25,10
+Carregador,1,15</pre>
+        <div class="obs">São os mesmos seis produtos da tabela do roteiro, com quantidade e mínimo. Salvem com esse nome, na mesma pasta do programa. <b>Confiram antes de programar:</b> três produtos estão com o estoque abaixo do mínimo.</div>
+      </div>
     </section>
 <section>
     <div class="comoBox">
@@ -469,6 +515,8 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
 
     <h3>Referências</h3>
     <ul><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S20A3AP: “Gerador de relatório de estoque”.</li><li>Apostila da disciplina — Capítulo 41: arquivos.</li><li>Documentação oficial do Python — <i>Reading and Writing Files</i>: modos de abertura e <code>writelines()</code>.</li></ul>
+    <h3>Procedência do material</h3>
+    <ul><li><b>Do material oficial da SEDUC-SP:</b> o cenário da Distribuidora Alfa, os dois arquivos de saída, os modos de escrita <code>w</code>, <code>a</code> e <code>x</code> e a tabela de produtos com quantidade e mínimo.</li><li><b>Complemento desta página:</b> o roteiro manda o script final ler <code>estoque.csv</code>, mas <b>não entrega o arquivo</b>. Ele foi gerado aqui a partir da própria tabela do roteiro, sem alterar nenhum valor, e está disponível em <code>arquivos/estoque.csv</code>, ao lado desta página.</li></ul>
   </div>
 </div>
 
@@ -604,6 +652,24 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       });
     }
   }
+
+  Array.prototype.forEach.call(document.querySelectorAll("[data-copiar]"), function (b) {
+    b.addEventListener("click", function () {
+      var pre = document.querySelector('pre[data-arquivo="' + b.getAttribute("data-copiar") + '"]');
+      if (!pre) return;
+      var txt = pre.textContent;
+      var antigo = b.textContent;
+      function ok() { b.textContent = "Copiado!"; setTimeout(function () { b.textContent = antigo; }, 1600); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(ok, function () { b.textContent = "Selecione e copie"; });
+      } else {
+        var t = document.createElement("textarea");
+        t.value = txt; document.body.appendChild(t); t.select();
+        try { document.execCommand("copy"); ok(); } catch (e) { b.textContent = "Selecione e copie"; }
+        document.body.removeChild(t);
+      }
+    });
+  });
 
   var pdf = document.getElementById("btnPDF");
   if(pdf) pdf.addEventListener("click", function(){ montarRelatorio(); window.print(); });

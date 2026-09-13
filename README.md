@@ -29,9 +29,9 @@ formulário preenchível e geração do relatório em PDF direto pelo navegador.
 | 1 | Criando seu primeiro algoritmo | Cap. 1 — O que é programação |
 | 2 | Sistema de vendas | Cap. 14 a 16 — SE / SENÃO / SENÃO SE |
 | 3 | Sistema de classificação de idade | Cap. 16 — SE / SENÃO SE / SENÃO |
-| 4 | Operadores relacionais — comparando preços | Cap. 12 — Comparações |
+| 4 | Melhoria contínua na prática: operadores relacionais | Cap. 12 — Comparações |
 | 5 | Calculadora de média com verificação de aprovação | Cap. 14 — SE |
-| 6 | Operadores relacionais — validando um cadastro | Cap. 12 — Comparações |
+| 6 | Projeto guiado: simulador de desconto por idade | Cap. 12 e 15 — SE e SENÃO |
 | 7 | Venda para um e-commerce de atacado | Cap. 15 — SE e SENÃO |
 
 ### 2º bimestre
@@ -64,14 +64,26 @@ formulário preenchível e geração do relatório em PDF direto pelo navegador.
 | 20 | Gerador de relatório de estoque *(prática guiada A3)* | Python |
 | 20 | Integrador de dados com planilhas *(registro A4)* | Python + csv |
 
-A semana 14 chegou com o título de outra atividade (uma retrospectiva de
-Sprint) e sem os blocos de código do roteiro; a página segue o procedimento
-e as perguntas de consolidação, que são sobre a aplicação em Python, e traz
-o código de referência que faltava — tudo sinalizado no próprio material.
+## Procedência do material
 
-As atividades 4 e 6 vieram do AVA apenas com a lista de materiais, sem um
-problema definido; os exercícios foram construídos sobre o tema (operadores
-relacionais), e cada página sinaliza isso na seção "Nota sobre esta atividade".
+Nem toda semana da SEDUC-SP tem roteiro de atividade prática publicado, e
+alguns dos que existem trazem inconsistências. Onde foi preciso completar ou
+corrigir alguma coisa, a página diz exatamente o quê, num bloco
+**"Procedência deste material"** que separa o que veio do material oficial do
+que foi construído aqui — e que sai também no PDF gerado pelo aluno.
+
+| Semana | O que aconteceu |
+|---|---|
+| 1 | O enunciado pede "considere possíveis problemas" sem dizer o que vale como resposta; os critérios de aceitação foram definidos aqui. |
+| 2 | O card fala em "código", o roteiro pede pseudocódigo — a página adota o pseudocódigo, que é o que a semana ensina. |
+| 3 | O enunciado não define entrega; formato, nome de arquivo e conteúdo obrigatório foram definidos aqui. |
+| 4 | O roteiro nunca foi disponibilizado. A atividade foi escrita a partir do tema oficial da aula e da situação-problema da própria aula (a autoescola). |
+| 5 | O enunciado oficial pede só a mensagem "Aprovado"; aqui o SENÃO é obrigatório e vale nota. |
+| 6 | O roteiro nunca foi disponibilizado — e o card repete, por engano, o título da Semana 4. O projeto foi montado a partir das três aulas da semana e das suas questões "Pause e responda". |
+| 9, 10, 12 | A lista de materiais do card não corresponde à ferramenta que o roteiro pede; cada página diz qual vale. |
+| 14 | O card vem com o título de outra atividade (retrospectiva de Sprint) e o roteiro cita blocos de código que não foram incluídos; o código de referência foi escrito para preencher a lacuna. |
+| 19 | O roteiro erra a régua de índices da string; a página traz a régua correta (0 a 16 e −1 a −17, para 17 caracteres). |
+| 20 | Os roteiros mandam ler os arquivos `estoque.csv` e `funcionarios.csv` sem fornecê-los; ambos foram gerados a partir das tabelas dos próprios roteiros e estão em [`arquivos/`](arquivos), além de embutidos nas páginas para copiar ou baixar. |
 
 ## Como usar
 

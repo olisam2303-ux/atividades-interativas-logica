@@ -169,6 +169,24 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
 .check span{font-size:14.5px}
 .check.done{background:var(--ok-soft);border-color:var(--ok)}
 .progresso{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.dados{margin:18px 0;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
+.dados .cab{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+  padding:11px 14px;border-bottom:1px solid var(--line);background:var(--accent-soft)}
+.dados .nomeArq{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13.5px;font-weight:600;color:var(--accent)}
+.dados .acoes{display:flex;gap:8px}
+.dados .mini{font:inherit;font-size:12.5px;font-weight:600;padding:6px 11px;border-radius:8px;cursor:pointer;
+  border:1px solid var(--line);background:var(--bg);color:var(--ink);text-decoration:none;display:inline-block}
+.dados .mini:hover{border-color:var(--accent)}
+.dados pre{margin:0;padding:13px 15px;overflow-x:auto;font-family:ui-monospace,Menlo,Consolas,monospace;
+  font-size:12.5px;line-height:1.65;color:var(--ink);white-space:pre}
+.dados .obs{padding:9px 15px 12px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line)}
+@media print{.dados .acoes{display:none}}
+.proc{margin-top:16px;border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:10px;background:var(--card);padding:13px 15px}
+.proc h3{margin:0 0 7px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.proc ul{margin:0;padding-left:17px}
+.proc li{font-size:13.5px;line-height:1.55;color:var(--muted);margin:3px 0}
+.proc li b{color:var(--ink);font-weight:600}
 .avisoPDF{margin-top:14px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:10px;
   padding:13px 15px;font-size:14px}
 .avisoPDF b{color:var(--accent)}
@@ -247,6 +265,8 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <p class="lead" style="color:var(--ink);font-size:15.5px">Vocês fazem parte da equipe de desenvolvimento de um e-commerce de atacado. A regra é simples: <b>só libera a venda se o cliente tiver 18 anos ou mais</b>. Escrevam a lógica em pseudocódigo (Visualg) e rastreiem dois cenários: idade 43 e idade 10.</p>
   </section>
 
+  
+
   <section>
     <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
     <ul class="objetivos">
@@ -286,7 +306,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
      <text x="131" y="237" class="sv-label">Venda liberada</text>
      <rect x="406" y="196" width="246" height="72" rx="10" class="sv-box sv-box-no"/>
      <text x="529" y="237" class="sv-label">Venda bloqueada</text>
-     <text x="330" y="294" class="sv-legend">Cenário 1 (idade 43) segue o caminho da esquerda; cenário 2 (idade 10) segue o da direita.</text>
+     <text x="330" y="282" class="sv-legend">Cenário 1 (idade 43) segue o caminho da esquerda; cenário 2 (idade 10) segue o da direita.</text>
 </svg></div>
     </section>
 <section>
@@ -449,6 +469,7 @@ fimalgoritmo"></textarea></div>
 
     <h3>Referências</h3>
     <ul><li>Apostila da disciplina — Capítulo 15: if e else.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 4.1 (instrução if).</li><li>SEDUC-SP — Registro de Aula 07 (venda para um e-commerce de atacado).</li></ul>
+    
   </div>
 </div>
 
@@ -584,6 +605,24 @@ fimalgoritmo"></textarea></div>
       });
     }
   }
+
+  Array.prototype.forEach.call(document.querySelectorAll("[data-copiar]"), function (b) {
+    b.addEventListener("click", function () {
+      var pre = document.querySelector('pre[data-arquivo="' + b.getAttribute("data-copiar") + '"]');
+      if (!pre) return;
+      var txt = pre.textContent;
+      var antigo = b.textContent;
+      function ok() { b.textContent = "Copiado!"; setTimeout(function () { b.textContent = antigo; }, 1600); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(ok, function () { b.textContent = "Selecione e copie"; });
+      } else {
+        var t = document.createElement("textarea");
+        t.value = txt; document.body.appendChild(t); t.select();
+        try { document.execCommand("copy"); ok(); } catch (e) { b.textContent = "Selecione e copie"; }
+        document.body.removeChild(t);
+      }
+    });
+  });
 
   var pdf = document.getElementById("btnPDF");
   if(pdf) pdf.addEventListener("click", function(){ montarRelatorio(); window.print(); });

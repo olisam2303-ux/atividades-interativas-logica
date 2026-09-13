@@ -169,6 +169,24 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
 .check span{font-size:14.5px}
 .check.done{background:var(--ok-soft);border-color:var(--ok)}
 .progresso{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.dados{margin:18px 0;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
+.dados .cab{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+  padding:11px 14px;border-bottom:1px solid var(--line);background:var(--accent-soft)}
+.dados .nomeArq{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13.5px;font-weight:600;color:var(--accent)}
+.dados .acoes{display:flex;gap:8px}
+.dados .mini{font:inherit;font-size:12.5px;font-weight:600;padding:6px 11px;border-radius:8px;cursor:pointer;
+  border:1px solid var(--line);background:var(--bg);color:var(--ink);text-decoration:none;display:inline-block}
+.dados .mini:hover{border-color:var(--accent)}
+.dados pre{margin:0;padding:13px 15px;overflow-x:auto;font-family:ui-monospace,Menlo,Consolas,monospace;
+  font-size:12.5px;line-height:1.65;color:var(--ink);white-space:pre}
+.dados .obs{padding:9px 15px 12px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line)}
+@media print{.dados .acoes{display:none}}
+.proc{margin-top:16px;border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:10px;background:var(--card);padding:13px 15px}
+.proc h3{margin:0 0 7px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.proc ul{margin:0;padding-left:17px}
+.proc li{font-size:13.5px;line-height:1.55;color:var(--muted);margin:3px 0}
+.proc li b{color:var(--ink);font-weight:600}
 .avisoPDF{margin-top:14px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:10px;
   padding:13px 15px;font-size:14px}
 .avisoPDF b{color:var(--accent)}
@@ -248,6 +266,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   </section>
 
   <section>
+    <div class="proc">
+      <h3>Procedência deste material</h3>
+      <ul><li><b>Do material oficial da SEDUC-SP:</b> o cenário do RH da Conecta, a armadilha das vírgulas dentro dos campos, o filtro de mais de 3 anos de empresa e a coluna de faixa salarial.</li><li><b>Complemento desta página:</b> o roteiro manda ler <code>funcionarios.csv</code>, mas <b>não entrega o arquivo</b>. Ele foi gerado aqui exatamente como aparece no roteiro — com as aspas e as vírgulas internas que são o ponto da aula — e está disponível em <code>arquivos/funcionarios.csv</code>, ao lado desta página.</li></ul>
+    </div>
+  </section>
+
+  <section>
     <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
     <ul class="objetivos">
       <li><span class="tick">✓</span><span>Reconhecer as limitações do <code>.split(",")</code> em arquivos CSV reais.</span></li><li><span class="tick">✓</span><span>Ler dados com <code>csv.reader()</code>, respeitando campos entre aspas.</span></li><li><span class="tick">✓</span><span>Filtrar registros e calcular estatísticas sobre o grupo filtrado.</span></li><li><span class="tick">✓</span><span>Gerar um novo arquivo com <code>csv.writer()</code>, preservando campos com vírgulas.</span></li>
@@ -267,7 +292,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
 <section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>Quando a vírgula não separa</h2></div>
       <p class="lead">CSV é o formato universal de troca entre planilhas, bancos e ERPs. Mas nem toda vírgula é separador — e é aí que o fatiamento ingênuo falha.</p>
-      <div class="visual"><svg viewBox="0 0 560 326" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
+      <div class="visual"><svg viewBox="0 0 560 346" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
       <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
@@ -276,8 +301,8 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="296" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O arquivo funcionarios.csv</text><text x="20" y="52" class="sv-code sv-code-key">nome,departamento,salario,anos_empresa</text><text x="20" y="78" class="sv-code">"Silva, João",Tecnologia,8500.00,3</text><text x="20" y="104" class="sv-code">"Santos, Maria",RH,6200.00,7</text><text x="20" y="130" class="sv-code">"Oliveira, Pedro",Vendas,5800.00,2</text><text x="20" y="156" class="sv-code">"Costa, Ana","Tecnologia, Suporte",7100.00,5</text><text x="20" y="182" class="sv-code">"Lima, Carlos",RH,6500.00,9</text><text x="20" y="208" class="sv-code">"Ferreira, Julia",Vendas,5200.00,1</text><text x="20" y="234" class="sv-code"> </text><text x="20" y="260" class="sv-code sv-code-key">são 4 colunas — mas há vírgulas DENTRO de campos</text><text x="280" y="318" class="sv-legend">Repare nas aspas: elas existem justamente para marcar onde um campo começa e termina.</text>
-</svg></div><div class="visual"><svg viewBox="0 0 620 114" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="560" height="300" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O arquivo funcionarios.csv</text><text x="20" y="52" class="sv-code sv-code-key">nome,departamento,salario,anos_empresa</text><text x="20" y="78" class="sv-code">"Silva, João",Tecnologia,8500.00,3</text><text x="20" y="104" class="sv-code">"Santos, Maria",RH,6200.00,7</text><text x="20" y="130" class="sv-code">"Oliveira, Pedro",Vendas,5800.00,2</text><text x="20" y="156" class="sv-code">"Costa, Ana","Tecnologia, Suporte",7100.00,5</text><text x="20" y="182" class="sv-code">"Lima, Carlos",RH,6500.00,9</text><text x="20" y="208" class="sv-code">"Ferreira, Julia",Vendas,5200.00,1</text><text x="20" y="234" class="sv-code"> </text><text x="20" y="260" class="sv-code sv-code-key">são 4 colunas — mas há vírgulas DENTRO de campos</text><text x="280" y="312" class="sv-legend">Repare nas aspas: elas existem justamente para marcar onde um campo começa e</text><text x="280" y="328" class="sv-legend">termina.</text>
+</svg></div><div class="visual"><svg viewBox="0 0 620 116" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
       <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
@@ -289,8 +314,8 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   <g><rect x="0" y="0" width="176" height="74" rx="10" class="sv-box"/>
         <text x="88" y="42" class="sv-label">LER com csv.reader()</text></g><path d="M 184 37 L 212 37" class="sv-arrow" marker-end="url(#sv-head)"/><g><rect x="222" y="0" width="176" height="74" rx="10" class="sv-box"/>
         <text x="310" y="33" class="sv-label">FILTRAR anos &gt; 3 e</text><text x="310" y="51" class="sv-label">calcular a média</text></g><path d="M 406 37 L 434 37" class="sv-arrow" marker-end="url(#sv-head)"/><g><rect x="444" y="0" width="176" height="74" rx="10" class="sv-box"/>
-        <text x="532" y="33" class="sv-label">ESCREVER com</text><text x="532" y="51" class="sv-label">csv.writer()</text></g><text x="310" y="104" class="sv-legend">Os três momentos da integração — e a média é calculada só sobre o grupo já filtrado.</text>
-</svg></div><div class="visual"><svg viewBox="0 0 560 248" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
+        <text x="532" y="33" class="sv-label">ESCREVER com</text><text x="532" y="51" class="sv-label">csv.writer()</text></g><text x="310" y="102" class="sv-legend">Os três momentos da integração — e a média é calculada só sobre o grupo já filtrado.</text>
+</svg></div><div class="visual"><svg viewBox="0 0 560 268" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
       <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
@@ -299,8 +324,29 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="218" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O arquivo que precisa ser gerado</text><text x="20" y="52" class="sv-code sv-code-key">nome,departamento,salario,anos_empresa,faixa_salarial</text><text x="20" y="78" class="sv-code">"Santos, Maria",RH,6200.00,7,Abaixo da média</text><text x="20" y="104" class="sv-code">"Costa, Ana","Tecnologia, Suporte",7100.00,5,Acima da média</text><text x="20" y="130" class="sv-code">"Lima, Carlos",RH,6500.00,9,Abaixo da média</text><text x="20" y="156" class="sv-code"> </text><text x="20" y="182" class="sv-code sv-code-soft">uma coluna a mais · aspas preservadas onde havia vírgula</text><text x="280" y="240" class="sv-legend">Confiram: as aspas do arquivo final não foram digitadas por vocês — quem as colocou?</text>
+  <rect x="0" y="0" width="560" height="222" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O arquivo que precisa ser gerado</text><text x="20" y="52" class="sv-code sv-code-key">nome,departamento,salario,anos_empresa,faixa_salarial</text><text x="20" y="78" class="sv-code">"Santos, Maria",RH,6200.00,7,Abaixo da média</text><text x="20" y="104" class="sv-code">"Costa, Ana","Tecnologia, Suporte",7100.00,5,Acima da média</text><text x="20" y="130" class="sv-code">"Lima, Carlos",RH,6500.00,9,Abaixo da média</text><text x="20" y="156" class="sv-code"> </text><text x="20" y="182" class="sv-code sv-code-soft">uma coluna a mais · aspas preservadas onde havia vírgula</text><text x="280" y="234" class="sv-legend">Confiram: as aspas do arquivo final não foram digitadas por vocês — quem as</text><text x="280" y="250" class="sv-legend">colocou?</text>
 </svg></div>
+    </section>
+<section>
+      <div class="sec-head"><span class="n">ARQUIVO DE DADOS</span><h2>O arquivo desta atividade</h2></div>
+      <p class="lead">O roteiro usa este arquivo, mas não o entrega. Ele foi montado exatamente com os dados do próprio roteiro. Baixe ou copie o conteúdo para um arquivo de texto, na mesma pasta do seu programa.</p>
+      <div class="dados">
+        <div class="cab">
+          <span class="nomeArq">funcionarios.csv</span>
+          <span class="acoes">
+            <button type="button" class="mini" data-copiar="funcionarios.csv">Copiar conteúdo</button>
+            <a class="mini" href="arquivos/funcionarios.csv" download>Baixar</a>
+          </span>
+        </div>
+        <pre data-arquivo="funcionarios.csv">nome,departamento,salario,anos_empresa
+&quot;Silva, João&quot;,Tecnologia,8500.00,3
+&quot;Santos, Maria&quot;,RH,6200.00,7
+&quot;Oliveira, Pedro&quot;,Vendas,5800.00,2
+&quot;Costa, Ana&quot;,&quot;Tecnologia, Suporte&quot;,7100.00,5
+&quot;Lima, Carlos&quot;,RH,6500.00,9
+&quot;Ferreira, Julia&quot;,Vendas,5200.00,1</pre>
+        <div class="obs">Reparem nas <b>aspas</b>: elas existem porque há vírgulas <i>dentro</i> dos campos — em todos os nomes e no departamento da Ana. É exatamente isso que faz o <code>split(",")</code> da Etapa 1 falhar e devolver 5 pedaços onde deveriam existir 4 colunas.</div>
+      </div>
     </section>
 <section>
     <div class="comoBox">
@@ -466,6 +512,8 @@ print(linha.split(","))</div></div><div class="campoWrap" data-rel="campo" data-
 
     <h3>Referências</h3>
     <ul><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S20A4AP: “Integrador de dados com planilhas”. Produzido pela SEDUC-SP.</li><li>Apostila da disciplina — Capítulos 41 e 42: arquivos e formatos de dados.</li><li>Documentação oficial do Python — módulo <code>csv</code>: <code>reader()</code>, <code>writer()</code> e o parâmetro <code>delimiter</code>.</li><li>RFC 4180 — <i>Common Format and MIME Type for CSV Files</i>.</li></ul>
+    <h3>Procedência do material</h3>
+    <ul><li><b>Do material oficial da SEDUC-SP:</b> o cenário do RH da Conecta, a armadilha das vírgulas dentro dos campos, o filtro de mais de 3 anos de empresa e a coluna de faixa salarial.</li><li><b>Complemento desta página:</b> o roteiro manda ler <code>funcionarios.csv</code>, mas <b>não entrega o arquivo</b>. Ele foi gerado aqui exatamente como aparece no roteiro — com as aspas e as vírgulas internas que são o ponto da aula — e está disponível em <code>arquivos/funcionarios.csv</code>, ao lado desta página.</li></ul>
   </div>
 </div>
 
@@ -601,6 +649,24 @@ print(linha.split(","))</div></div><div class="campoWrap" data-rel="campo" data-
       });
     }
   }
+
+  Array.prototype.forEach.call(document.querySelectorAll("[data-copiar]"), function (b) {
+    b.addEventListener("click", function () {
+      var pre = document.querySelector('pre[data-arquivo="' + b.getAttribute("data-copiar") + '"]');
+      if (!pre) return;
+      var txt = pre.textContent;
+      var antigo = b.textContent;
+      function ok() { b.textContent = "Copiado!"; setTimeout(function () { b.textContent = antigo; }, 1600); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(ok, function () { b.textContent = "Selecione e copie"; });
+      } else {
+        var t = document.createElement("textarea");
+        t.value = txt; document.body.appendChild(t); t.select();
+        try { document.execCommand("copy"); ok(); } catch (e) { b.textContent = "Selecione e copie"; }
+        document.body.removeChild(t);
+      }
+    });
+  });
 
   var pdf = document.getElementById("btnPDF");
   if(pdf) pdf.addEventListener("click", function(){ montarRelatorio(); window.print(); });

@@ -169,6 +169,24 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
 .check span{font-size:14.5px}
 .check.done{background:var(--ok-soft);border-color:var(--ok)}
 .progresso{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.dados{margin:18px 0;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
+.dados .cab{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+  padding:11px 14px;border-bottom:1px solid var(--line);background:var(--accent-soft)}
+.dados .nomeArq{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13.5px;font-weight:600;color:var(--accent)}
+.dados .acoes{display:flex;gap:8px}
+.dados .mini{font:inherit;font-size:12.5px;font-weight:600;padding:6px 11px;border-radius:8px;cursor:pointer;
+  border:1px solid var(--line);background:var(--bg);color:var(--ink);text-decoration:none;display:inline-block}
+.dados .mini:hover{border-color:var(--accent)}
+.dados pre{margin:0;padding:13px 15px;overflow-x:auto;font-family:ui-monospace,Menlo,Consolas,monospace;
+  font-size:12.5px;line-height:1.65;color:var(--ink);white-space:pre}
+.dados .obs{padding:9px 15px 12px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line)}
+@media print{.dados .acoes{display:none}}
+.proc{margin-top:16px;border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:10px;background:var(--card);padding:13px 15px}
+.proc h3{margin:0 0 7px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.proc ul{margin:0;padding-left:17px}
+.proc li{font-size:13.5px;line-height:1.55;color:var(--muted);margin:3px 0}
+.proc li b{color:var(--ink);font-weight:600}
 .avisoPDF{margin-top:14px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:10px;
   padding:13px 15px;font-size:14px}
 .avisoPDF b{color:var(--accent)}
@@ -247,6 +265,8 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <p class="lead" style="color:var(--ink);font-size:15.5px">Vocês fazem parte de uma equipe que montou um pequeno sistema para organizar as tarefas de uma turma. <b>O programa funciona</b> — o problema é outro: as funções têm nomes genéricos como <code>f1</code>, <code>coisa</code> e <code>calc</code>, e a cada correção a equipe perde tempo tentando descobrir o que cada uma faz. O desafio é melhorar a clareza do código com boas práticas de nomeação e organizar a lógica em funções com e sem retorno.</p>
   </section>
 
+  
+
   <section>
     <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
     <ul class="objetivos">
@@ -267,7 +287,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
 <section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>De nome genérico a nome que explica</h2></div>
       <p class="lead">Um bom nome de função responde sozinho “o que isso faz?”. A regra prática é simples: &lt;b&gt;verbo + objeto&lt;/b&gt;, em snake_case, sem abreviações que só quem escreveu entende.</p>
-      <div class="visual"><svg viewBox="0 0 560 404" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
+      <div class="visual"><svg viewBox="0 0 560 424" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
       <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
@@ -276,8 +296,8 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="374" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O código de partida (propositalmente ruim)</text><text x="20" y="52" class="sv-code">tarefas = ["estudar", "treinar", "entregar trabalho"]</text><text x="20" y="78" class="sv-code"> </text><text x="20" y="104" class="sv-code sv-code-key">def f1(x):</text><text x="42" y="130" class="sv-code">for i in x:</text><text x="64" y="156" class="sv-code">print(i)</text><text x="20" y="182" class="sv-code"> </text><text x="20" y="208" class="sv-code sv-code-key">def coisa(x):</text><text x="42" y="234" class="sv-code">return len(x)</text><text x="20" y="260" class="sv-code"> </text><text x="20" y="286" class="sv-code sv-code-key">def calc(x):</text><text x="42" y="312" class="sv-code">if len(x) == 0: return "vazio"</text><text x="42" y="338" class="sv-code">return x[0]</text><text x="280" y="396" class="sv-legend">Rode este código primeiro: ele funciona. O problema não é o resultado — é ninguém conseguir ler.</text>
-</svg></div><div class="visual"><svg viewBox="0 0 560 300" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="560" height="378" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O código de partida (propositalmente ruim)</text><text x="20" y="52" class="sv-code">tarefas = ["estudar", "treinar", "entregar trabalho"]</text><text x="20" y="78" class="sv-code"> </text><text x="20" y="104" class="sv-code sv-code-key">def f1(x):</text><text x="42" y="130" class="sv-code">for i in x:</text><text x="64" y="156" class="sv-code">print(i)</text><text x="20" y="182" class="sv-code"> </text><text x="20" y="208" class="sv-code sv-code-key">def coisa(x):</text><text x="42" y="234" class="sv-code">return len(x)</text><text x="20" y="260" class="sv-code"> </text><text x="20" y="286" class="sv-code sv-code-key">def calc(x):</text><text x="42" y="312" class="sv-code">if len(x) == 0: return "vazio"</text><text x="42" y="338" class="sv-code">return x[0]</text><text x="280" y="390" class="sv-legend">Rode este código primeiro: ele funciona. O problema não é o resultado — é</text><text x="280" y="406" class="sv-legend">ninguém conseguir ler.</text>
+</svg></div><div class="visual"><svg viewBox="0 0 560 304" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
       <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
@@ -286,7 +306,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="270" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">As três regras de nomeação</text><text x="20" y="52" class="sv-code sv-code-key">1. VERBO + OBJETO</text><text x="42" y="78" class="sv-code sv-code-soft">exibir_tarefas, contar_tarefas, obter_primeira_tarefa</text><text x="20" y="104" class="sv-code"> </text><text x="20" y="130" class="sv-code sv-code-key">2. NADA de nome genérico</text><text x="42" y="156" class="sv-code sv-code-soft">f1, coisa, calc, processa, dados, x</text><text x="20" y="182" class="sv-code"> </text><text x="20" y="208" class="sv-code sv-code-key">3. snake_case</text><text x="42" y="234" class="sv-code sv-code-soft">tudo minúsculo, palavras separadas por _</text><text x="280" y="292" class="sv-legend">Vale para variáveis também: x e i viram lista_tarefas e tarefa.</text>
+  <rect x="0" y="0" width="560" height="274" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">As três regras de nomeação</text><text x="20" y="52" class="sv-code sv-code-key">1. VERBO + OBJETO</text><text x="42" y="78" class="sv-code sv-code-soft">exibir_tarefas, contar_tarefas, obter_primeira_tarefa</text><text x="20" y="104" class="sv-code"> </text><text x="20" y="130" class="sv-code sv-code-key">2. NADA de nome genérico</text><text x="42" y="156" class="sv-code sv-code-soft">f1, coisa, calc, processa, dados, x</text><text x="20" y="182" class="sv-code"> </text><text x="20" y="208" class="sv-code sv-code-key">3. snake_case</text><text x="42" y="234" class="sv-code sv-code-soft">tudo minúsculo, palavras separadas por _</text><text x="280" y="286" class="sv-legend">Vale para variáveis também: x e i viram lista_tarefas e tarefa.</text>
 </svg></div><div class="visual"><svg viewBox="0 0 454 162" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -502,6 +522,7 @@ Isso melhora a manutenção porque..."></textarea></div>
 
     <h3>Referências</h3>
     <ul><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B2S13A3AP: “Boas práticas de nomeação”. Situação fictícia produzida pela SEDUC-SP.</li><li>Apostila da disciplina — Capítulos 32 a 35: por que utilizar funções, criando funções, parâmetros e <code>return</code>.</li><li>PEP 8 — <i>Style Guide for Python Code</i>: convenções de nomeação (snake_case para funções e variáveis).</li><li>MENEZES, N. N. C. <i>Introdução à programação com Python</i>. São Paulo: Novatec, 2024.</li></ul>
+    
   </div>
 </div>
 
@@ -637,6 +658,24 @@ Isso melhora a manutenção porque..."></textarea></div>
       });
     }
   }
+
+  Array.prototype.forEach.call(document.querySelectorAll("[data-copiar]"), function (b) {
+    b.addEventListener("click", function () {
+      var pre = document.querySelector('pre[data-arquivo="' + b.getAttribute("data-copiar") + '"]');
+      if (!pre) return;
+      var txt = pre.textContent;
+      var antigo = b.textContent;
+      function ok() { b.textContent = "Copiado!"; setTimeout(function () { b.textContent = antigo; }, 1600); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(ok, function () { b.textContent = "Selecione e copie"; });
+      } else {
+        var t = document.createElement("textarea");
+        t.value = txt; document.body.appendChild(t); t.select();
+        try { document.execCommand("copy"); ok(); } catch (e) { b.textContent = "Selecione e copie"; }
+        document.body.removeChild(t);
+      }
+    });
+  });
 
   var pdf = document.getElementById("btnPDF");
   if(pdf) pdf.addEventListener("click", function(){ montarRelatorio(); window.print(); });
