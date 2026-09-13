@@ -42,6 +42,7 @@ formulário preenchível e geração do relatório em PDF direto pelo navegador.
 | 9 | Programando o Robô Chef: sua primeira receita com for | Google Colab (Python) |
 | 10 | Detetives de performance (O(n²) x O(n)) | Teste de mesa |
 | 11 | Ordenando listas com Bubble Sort | Teste de mesa |
+| 12 | Desafio: Jogo da Velha (matriz 3×3 e trincas) | Modelagem em texto |
 
 As atividades 4 e 6 vieram do AVA apenas com a lista de materiais, sem um
 problema definido; os exercícios foram construídos sobre o tema (operadores
