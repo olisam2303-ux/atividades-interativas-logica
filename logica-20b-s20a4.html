@@ -181,12 +181,6 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   font-size:12.5px;line-height:1.65;color:var(--ink);white-space:pre}
 .dados .obs{padding:9px 15px 12px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line)}
 @media print{.dados .acoes{display:none}}
-.proc{margin-top:16px;border:1px solid var(--line);border-left:3px solid var(--accent);
-  border-radius:10px;background:var(--card);padding:13px 15px}
-.proc h3{margin:0 0 7px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
-.proc ul{margin:0;padding-left:17px}
-.proc li{font-size:13.5px;line-height:1.55;color:var(--muted);margin:3px 0}
-.proc li b{color:var(--ink);font-weight:600}
 .avisoPDF{margin-top:14px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:10px;
   padding:13px 15px;font-size:14px}
 .avisoPDF b{color:var(--accent)}
@@ -265,12 +259,6 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <p class="lead" style="color:var(--ink);font-size:15.5px">O setor de RH da empresa <b>Conecta</b> exportou uma planilha de funcionários do sistema de gestão. O arquivo <code>funcionarios.csv</code> tem uma armadilha: <b>alguns nomes e um departamento contêm vírgulas</b>. O RH precisa de um novo arquivo, <code>relatorio_rh.csv</code>, só com os funcionários com <b>mais de 3 anos</b> de empresa e uma coluna extra indicando se o salário está acima ou abaixo da média <b>do grupo filtrado</b>.</p>
   </section>
 
-  <section>
-    <div class="proc">
-      <h3>Procedência deste material</h3>
-      <ul><li><b>Do material oficial da SEDUC-SP:</b> o cenário do RH da Conecta, a armadilha das vírgulas dentro dos campos, o filtro de mais de 3 anos de empresa e a coluna de faixa salarial.</li><li><b>Complemento desta página:</b> o roteiro manda ler <code>funcionarios.csv</code>, mas <b>não entrega o arquivo</b>. Ele foi gerado aqui exatamente como aparece no roteiro — com as aspas e as vírgulas internas que são o ponto da aula — e está disponível em <code>arquivos/funcionarios.csv</code>, ao lado desta página.</li></ul>
-    </div>
-  </section>
 
   <section>
     <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
@@ -512,8 +500,6 @@ print(linha.split(","))</div></div><div class="campoWrap" data-rel="campo" data-
 
     <h3>Referências</h3>
     <ul><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S20A4AP: “Integrador de dados com planilhas”. Produzido pela SEDUC-SP.</li><li>Apostila da disciplina — Capítulos 41 e 42: arquivos e formatos de dados.</li><li>Documentação oficial do Python — módulo <code>csv</code>: <code>reader()</code>, <code>writer()</code> e o parâmetro <code>delimiter</code>.</li><li>RFC 4180 — <i>Common Format and MIME Type for CSV Files</i>.</li></ul>
-    <h3>Procedência do material</h3>
-    <ul><li><b>Do material oficial da SEDUC-SP:</b> o cenário do RH da Conecta, a armadilha das vírgulas dentro dos campos, o filtro de mais de 3 anos de empresa e a coluna de faixa salarial.</li><li><b>Complemento desta página:</b> o roteiro manda ler <code>funcionarios.csv</code>, mas <b>não entrega o arquivo</b>. Ele foi gerado aqui exatamente como aparece no roteiro — com as aspas e as vírgulas internas que são o ponto da aula — e está disponível em <code>arquivos/funcionarios.csv</code>, ao lado desta página.</li></ul>
   </div>
 </div>
 

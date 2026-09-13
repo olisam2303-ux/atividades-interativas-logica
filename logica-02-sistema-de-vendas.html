@@ -181,12 +181,6 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   font-size:12.5px;line-height:1.65;color:var(--ink);white-space:pre}
 .dados .obs{padding:9px 15px 12px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line)}
 @media print{.dados .acoes{display:none}}
-.proc{margin-top:16px;border:1px solid var(--line);border-left:3px solid var(--accent);
-  border-radius:10px;background:var(--card);padding:13px 15px}
-.proc h3{margin:0 0 7px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
-.proc ul{margin:0;padding-left:17px}
-.proc li{font-size:13.5px;line-height:1.55;color:var(--muted);margin:3px 0}
-.proc li b{color:var(--ink);font-weight:600}
 .avisoPDF{margin-top:14px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:10px;
   padding:13px 15px;font-size:14px}
 .avisoPDF b{color:var(--accent)}
@@ -265,12 +259,6 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <p class="lead" style="color:var(--ink);font-size:15.5px">Vocês vão criar um sistema que calcula o valor final de uma venda com três regras: <b>5% de desconto</b> acima de R$ 100, <b>10% de desconto</b> acima de R$ 500, e <b>frete fixo de R$ 15</b> para compras abaixo de R$ 200. O programa deve mostrar subtotal, desconto, frete e total final.</p>
   </section>
 
-  <section>
-    <div class="proc">
-      <h3>Procedência deste material</h3>
-      <ul><li><b>Do Registro de Aula da SEDUC-SP</b> (Semana 2, Aula 2 — “Processamento de dados”): o cenário do sistema de vendas, as três regras (5% acima de R$ 100, 10% acima de R$ 500, frete fixo de R$ 15 abaixo de R$ 200), os três passos do algoritmo e as quatro saídas exigidas. <b>Esta semana não tem roteiro de atividade prática</b> — o card é a fonte completa.</li><li><b>Contradição dentro do próprio card:</b> o enunciado manda “criar um <b>algoritmo</b> que…”, mas a instrução de entrega diz “envie o <b>código de programação</b> aqui no AVA”. Como a Semana 2 ainda trabalha entrada, processamento e saída — e a linguagem só chega depois —, esta página pede o <b>algoritmo em pseudocódigo</b>. Quem quiser pode traduzir para Python ou Visualg e anexar como extra; as duas formas atendem.</li><li><b>Ambiguidade do enunciado, resolvida aqui:</b> o card não diz se o frete é decidido pelo <b>valor dos produtos</b> ou pelo <b>valor já com desconto</b>. Numa compra de R$ 210 isso muda o resultado em R$ 15. Esta página adota o <b>valor dos produtos (subtotal)</b> nas três regras, porque o card usa a mesma palavra — “compras” — nas três. Se o professor decidir o contrário, basta inverter a ordem das duas etapas no algoritmo.</li></ul>
-    </div>
-  </section>
 
   <section>
     <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
@@ -525,8 +513,6 @@ fimalgoritmo"></textarea></div>
 
     <h3>Referências</h3>
     <ul><li>Apostila da disciplina — Capítulos 14 a 16: if, if/else e if/elif/else.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 4.1 (instrução if).</li><li>SEDUC-SP — Registro da Aula 2, Semana 2 (sistema de vendas).</li></ul>
-    <h3>Procedência do material</h3>
-    <ul><li><b>Do Registro de Aula da SEDUC-SP</b> (Semana 2, Aula 2 — “Processamento de dados”): o cenário do sistema de vendas, as três regras (5% acima de R$ 100, 10% acima de R$ 500, frete fixo de R$ 15 abaixo de R$ 200), os três passos do algoritmo e as quatro saídas exigidas. <b>Esta semana não tem roteiro de atividade prática</b> — o card é a fonte completa.</li><li><b>Contradição dentro do próprio card:</b> o enunciado manda “criar um <b>algoritmo</b> que…”, mas a instrução de entrega diz “envie o <b>código de programação</b> aqui no AVA”. Como a Semana 2 ainda trabalha entrada, processamento e saída — e a linguagem só chega depois —, esta página pede o <b>algoritmo em pseudocódigo</b>. Quem quiser pode traduzir para Python ou Visualg e anexar como extra; as duas formas atendem.</li><li><b>Ambiguidade do enunciado, resolvida aqui:</b> o card não diz se o frete é decidido pelo <b>valor dos produtos</b> ou pelo <b>valor já com desconto</b>. Numa compra de R$ 210 isso muda o resultado em R$ 15. Esta página adota o <b>valor dos produtos (subtotal)</b> nas três regras, porque o card usa a mesma palavra — “compras” — nas três. Se o professor decidir o contrário, basta inverter a ordem das duas etapas no algoritmo.</li></ul>
   </div>
 </div>
 

@@ -181,12 +181,6 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   font-size:12.5px;line-height:1.65;color:var(--ink);white-space:pre}
 .dados .obs{padding:9px 15px 12px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line)}
 @media print{.dados .acoes{display:none}}
-.proc{margin-top:16px;border:1px solid var(--line);border-left:3px solid var(--accent);
-  border-radius:10px;background:var(--card);padding:13px 15px}
-.proc h3{margin:0 0 7px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
-.proc ul{margin:0;padding-left:17px}
-.proc li{font-size:13.5px;line-height:1.55;color:var(--muted);margin:3px 0}
-.proc li b{color:var(--ink);font-weight:600}
 .avisoPDF{margin-top:14px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:10px;
   padding:13px 15px;font-size:14px}
 .avisoPDF b{color:var(--accent)}
@@ -265,12 +259,6 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <p class="lead" style="color:var(--ink);font-size:15.5px">Vocês atuam como <b>Analista de Dados Jr.</b> e receberam a tarefa de analisar logs de um sistema legado. A missão é extrair as informações relevantes de <b>strings brutas</b> e transformá-las em um relatório estruturado, usando <b>slicing</b> (fatiamento) e <b>f-strings</b> (formatação).</p>
   </section>
 
-  <section>
-    <div class="proc">
-      <h3>Procedência deste material</h3>
-      <ul><li><b>Do material oficial da SEDUC-SP:</b> o cenário do analista de dados, a string de log a ser decomposta e os três formatos exigidos (fatiamento, moeda e percentual).</li><li><b>Correção aplicada a um erro do material oficial:</b> o roteiro apresenta a régua de <code>"RELATORIO-2024-01"</code> como “0 a 17” e “-1 a -18”. A string tem <b>17 caracteres</b>, então os índices corretos vão de <b>0 a 16</b> e de <b>-1 a -17</b> — é o que está no diagrama desta página. Conferir com <code>len()</code> no Python antes de aceitar qualquer régua é o primeiro passo da atividade.</li></ul>
-    </div>
-  </section>
 
   <section>
     <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
@@ -479,8 +467,6 @@ print(f"<span class="b">...</span>")</div></div><div class="campoWrap" data-rel=
 
     <h3>Referências</h3>
     <ul><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S19A3AP: “Slicing e formatação com f-strings”.</li><li>Apostila da disciplina — Capítulo 8 (strings) e Capítulo 11 (saída com print).</li><li>Documentação oficial do Python — <i>Format Specification Mini-Language</i> (formatação em f-strings).</li></ul>
-    <h3>Procedência do material</h3>
-    <ul><li><b>Do material oficial da SEDUC-SP:</b> o cenário do analista de dados, a string de log a ser decomposta e os três formatos exigidos (fatiamento, moeda e percentual).</li><li><b>Correção aplicada a um erro do material oficial:</b> o roteiro apresenta a régua de <code>"RELATORIO-2024-01"</code> como “0 a 17” e “-1 a -18”. A string tem <b>17 caracteres</b>, então os índices corretos vão de <b>0 a 16</b> e de <b>-1 a -17</b> — é o que está no diagrama desta página. Conferir com <code>len()</code> no Python antes de aceitar qualquer régua é o primeiro passo da atividade.</li></ul>
   </div>
 </div>
 
