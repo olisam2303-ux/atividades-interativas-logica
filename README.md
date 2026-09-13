@@ -46,6 +46,14 @@ formulário preenchível e geração do relatório em PDF direto pelo navegador.
 | 13 | Boas práticas de nomeação (refatoração de funções) | Python |
 | 14 | Gerenciador de tarefas em dois módulos | Python |
 
+### 3º bimestre
+
+| Semana | Atividade | Ferramenta |
+|---|---|---|
+| 15 | Percurso sequencial de vetores *(prática guiada A2)* | Python |
+| 15 | Investigando dados: média, busca e listas *(prática guiada A3)* | Python |
+| 15 | Sistema de análise de notas da turma *(registro A4)* | Python |
+
 A semana 14 chegou com o título de outra atividade (uma retrospectiva de
 Sprint) e sem os blocos de código do roteiro; a página segue o procedimento
 e as perguntas de consolidação, que são sobre a aplicação em Python, e traz

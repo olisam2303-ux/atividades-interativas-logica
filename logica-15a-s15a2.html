@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Percurso sequencial de vetores — Prática guiada S15A2 — Semana 15</title>
+<style>
+:root{
+  --bg:#f5f7f6; --surface:#ffffff; --surface-2:#eef2f1; --ink:#17222b; --muted:#5d6b75;
+  --border:#d9e1df; --border-strong:#c2cecb;
+  --accent:#136f78; --accent-ink:#ffffff; --accent-soft:#e0f0f1; --accent-line:#7fc0c6;
+  --ok:#1f7a4d; --ok-soft:#e3f3ea; --no:#a3401b; --no-soft:#fbeae2;
+  --amber:#8a5a12; --amber-soft:#fbf0dc;
+  --shadow:0 1px 2px rgba(16,32,38,.06), 0 8px 24px -18px rgba(16,32,38,.4);
+  --mono:ui-monospace,"Cascadia Mono","Consolas","SF Mono",Menlo,monospace;
+  --sans:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,"Helvetica Neue",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1519; --surface:#151f24; --surface-2:#1b262c; --ink:#e6edee; --muted:#95a4ac;
+    --border:#26333a; --border-strong:#33434b;
+    --accent:#4ab8c2; --accent-ink:#08161a; --accent-soft:#16333733; --accent-line:#2c6d74;
+    --ok:#5cc48b; --ok-soft:#15302399; --no:#e59468; --no-soft:#32201699;
+    --amber:#dda65b; --amber-soft:#2c241599;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -20px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1519; --surface:#151f24; --surface-2:#1b262c; --ink:#e6edee; --muted:#95a4ac;
+  --border:#26333a; --border-strong:#33434b;
+  --accent:#4ab8c2; --accent-ink:#08161a; --accent-soft:#16333733; --accent-line:#2c6d74;
+  --ok:#5cc48b; --ok-soft:#15302399; --no:#e59468; --no-soft:#32201699;
+  --amber:#dda65b; --amber-soft:#2c241599;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;margin:0}
+.wrap{max-width:900px;margin:0 auto;padding:36px 20px 140px}
+h1,h2,h3{margin:0;text-wrap:balance;font-weight:650}
+a{color:var(--accent)}
+
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.topo h1{font-size:31px;letter-spacing:-.015em;margin:10px 0 6px}
+.topo .sub{color:var(--muted);font-size:15px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.chip{font-family:var(--mono);font-size:11.5px;color:var(--muted);background:var(--surface);
+  border:1px solid var(--border);border-radius:999px;padding:5px 11px;white-space:nowrap}
+.chip b{color:var(--ink);font-weight:600}
+
+section{margin-top:34px}
+.sec-head{display:flex;align-items:baseline;gap:10px;padding-bottom:8px;border-bottom:2px solid var(--accent-line);margin-bottom:16px}
+.sec-head h2{font-size:19px}
+.sec-head .n{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--accent)}
+.lead{color:var(--muted);font-size:15px;margin:0 0 14px}
+
+/* objetivos */
+.objetivos{display:grid;gap:9px;margin:0;padding:0;list-style:none}
+.objetivos li{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.objetivos .tick{color:var(--ok);font-weight:700;flex:none}
+
+/* solução digital */
+.ferramenta{display:flex;gap:15px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:16px 18px;box-shadow:var(--shadow)}
+.ferramenta .marca{flex:none;width:46px;height:46px;border-radius:10px;background:var(--accent-soft);
+  border:1px solid var(--accent-line);display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:16px;font-weight:700;color:var(--accent)}
+.ferramenta .nome{font-size:16px;font-weight:650;margin-bottom:3px}
+.ferramenta .desc{font-size:14px;color:var(--muted)}
+.ferramenta .link{font-family:var(--mono);font-size:12.5px;margin-top:7px;word-break:break-all}
+
+/* visual */
+.visual{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 18px;
+  box-shadow:var(--shadow);overflow-x:auto}
+.visual + .visual{margin-top:14px}
+.visual .cap{font-size:13px;color:var(--muted);margin-top:12px;text-align:center}
+svg.sv{display:block;width:100%;height:auto;max-width:760px;margin:0 auto}
+.sv-box{fill:var(--surface-2);stroke:var(--border-strong);stroke-width:1.5}
+.sv-box-soft{fill:var(--surface);stroke-dasharray:5 4}
+.sv-box-ok{fill:var(--ok-soft);stroke:var(--ok)}
+.sv-box-no{fill:var(--no-soft);stroke:var(--no)}
+.sv-card{fill:var(--surface-2);stroke:var(--border-strong);stroke-width:1.5}
+.sv-diamond{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.8}
+.sv-label{fill:var(--ink);font-family:var(--sans);font-size:14.5px;text-anchor:middle}
+.sv-label.sv-small{font-size:13px}
+.sv-legend{fill:var(--muted);font-family:var(--sans);font-size:12.5px;text-anchor:middle;font-style:italic}
+.sv-range{fill:var(--muted);font-family:var(--mono);font-size:12px;text-anchor:middle}
+.sv-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-anchor:middle;font-weight:600}
+.sv-ok{fill:var(--ok)} .sv-no{fill:var(--no)}
+.sv-arrow{stroke:var(--border-strong);stroke-width:1.8;fill:none}
+.sv-arrow-soft{stroke:var(--border);stroke-width:1.4;stroke-dasharray:4 4}
+.sv-headfill{fill:var(--border-strong)} .sv-headfill-soft{fill:var(--border)}
+.sv-code{fill:var(--ink);font-family:var(--mono);font-size:14px}
+.sv-code-key{fill:var(--accent);font-weight:600}
+.sv-code-soft{fill:var(--muted)}
+.sv-code-title{fill:var(--muted);font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase}
+.sv-band{stroke-width:1.5}
+.sv-band-0{fill:var(--accent-soft);stroke:var(--accent-line)}
+.sv-band-1{fill:var(--ok-soft);stroke:var(--ok)}
+.sv-band-2{fill:var(--amber-soft);stroke:var(--amber)}
+.sv-band-3{fill:var(--no-soft);stroke:var(--no)}
+.sv-node{fill:var(--accent);stroke:var(--surface);stroke-width:1.5}
+.sv-link{stroke:var(--border-strong);stroke-width:1.6;fill:none}
+.sv-link-bold{stroke-width:3}
+.sv-ring{fill:none;stroke-dasharray:0}
+.sv-hub{fill:var(--accent);stroke:none}
+.sv-term{fill:var(--muted);stroke:none}
+.sv-mini{fill:var(--muted);font-family:var(--mono);font-size:10.5px;text-anchor:middle}
+.sv-left{text-anchor:start}
+.sv-card-key{fill:var(--accent);font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;
+  text-transform:uppercase;text-anchor:middle;font-weight:600}
+.sv-arrow-no{stroke:var(--no)}
+.sv-collision{fill:var(--no-soft);stroke:var(--no);stroke-width:2}
+.sv-boom{fill:var(--no);font-family:var(--sans);font-size:20px;font-weight:700;text-anchor:middle}
+.sv-token{fill:var(--amber-soft);stroke:var(--amber);stroke-width:1.5}
+.sv-token-txt{fill:var(--amber);font-family:var(--mono);font-size:11px;font-weight:700;text-anchor:middle;letter-spacing:.06em}
+.sv-wave{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-linejoin:round}
+.sv-guide{stroke:var(--border);stroke-width:1;stroke-dasharray:3 3}
+.sv-ray{stroke-width:3.5;stroke-linecap:round;fill:none}
+.sv-ray.sv-band-0{stroke:var(--accent)} .sv-ray.sv-band-1{stroke:var(--ok)} .sv-ray.sv-band-2{stroke:var(--amber)}
+
+.comoBox{background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:12px;padding:18px 20px}
+.comoBox h2{font-size:16px;margin-bottom:10px;color:var(--accent)}
+.comoList{margin:0;padding-left:0;list-style:none;display:grid;gap:9px}
+.comoList li{display:flex;gap:10px;font-size:14.5px;align-items:flex-start}
+.comoList .num{flex:none;width:20px;height:20px;border-radius:50%;background:var(--accent);color:var(--accent-ink);
+  font-family:var(--mono);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+
+.ident{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+
+.passo{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 18px 16px;
+  box-shadow:var(--shadow);margin-bottom:14px}
+.passo-top{display:flex;gap:12px;align-items:flex-start}
+.passo-num{flex:none;width:28px;height:28px;border-radius:8px;background:var(--accent);color:var(--accent-ink);
+  font-family:var(--mono);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.passo-txt{font-size:15.5px;font-weight:600;margin-bottom:0}
+.dica{margin:10px 0 0 40px;padding:9px 12px;background:var(--amber-soft);border-left:3px solid var(--amber);
+  border-radius:0 7px 7px 0;font-size:13.5px;color:var(--ink)}
+.dica b{color:var(--amber);font-weight:650}
+.campoWrap{margin:14px 0 0 40px}
+@media (max-width:600px){.dica,.campoWrap{margin-left:0}}
+
+label.f{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:5px;font-weight:600}
+input[type=text],textarea,select{width:100%;background:var(--surface-2);color:var(--ink);
+  border:1px solid var(--border-strong);border-radius:8px;padding:9px 11px;font-family:var(--sans);font-size:14.5px;
+  transition:border-color .12s, box-shadow .12s}
+textarea{resize:vertical;min-height:64px;line-height:1.5}
+textarea.cod{font-family:var(--mono);font-size:13.5px;min-height:200px;white-space:pre;overflow-wrap:normal;overflow-x:auto}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.hint{font-size:12.5px;color:var(--muted);margin-top:5px}
+
+.modelo{background:var(--surface-2);border:1px solid var(--border-strong);border-radius:10px;padding:14px 16px;
+  font-family:var(--mono);font-size:13.5px;white-space:pre;overflow-x:auto;color:var(--ink);margin-bottom:14px}
+.modelo .k{color:var(--accent);font-weight:600}
+.modelo .b{color:var(--muted)}
+
+.tabWrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--accent-soft);color:var(--accent);font-size:12px;letter-spacing:.04em;text-transform:uppercase;font-weight:650}
+td.fix{background:var(--surface-2);font-weight:600;white-space:nowrap}
+td input{border:none;background:transparent;padding:2px 0;font-size:14px}
+td input:focus{box-shadow:none;border-bottom:1px solid var(--accent)}
+table.criterios td:last-child{font-family:var(--mono);text-align:right;white-space:nowrap}
+
+.check{display:flex;gap:11px;align-items:flex-start;padding:10px 12px;border:1px solid var(--border);
+  border-radius:9px;background:var(--surface);margin-bottom:8px;cursor:pointer;transition:border-color .12s,background .12s}
+.check:hover{border-color:var(--accent-line)}
+.check input{flex:none;width:18px;height:18px;margin-top:2px;accent-color:var(--accent)}
+.check span{font-size:14.5px}
+.check.done{background:var(--ok-soft);border-color:var(--ok)}
+.progresso{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.avisoPDF{margin-top:14px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:10px;
+  padding:13px 15px;font-size:14px}
+.avisoPDF b{color:var(--accent)}
+
+.refs{margin:0;padding-left:20px;display:grid;gap:7px}
+.refs li{font-size:14px;color:var(--ink)}
+.refs li span{color:var(--muted)}
+
+.barra{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--border);
+  padding:11px 20px;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;
+  box-shadow:0 -6px 24px -18px rgba(0,0,0,.6);z-index:20}
+.btn{font-family:var(--sans);font-size:14px;font-weight:600;border-radius:9px;padding:10px 18px;border:1px solid var(--border-strong);
+  background:var(--surface-2);color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.status{font-size:12.5px;color:var(--muted);font-family:var(--mono);min-width:150px;text-align:center}
+
+/* ================= RELATÓRIO IMPRESSO (padrão roteiro de aula prática) ============= */
+#relatorio{display:none}
+@media print{
+  @page{size:A4;margin:25mm 20mm 20mm 25mm}
+  body{background:#fff;color:#000;font-family:"Times New Roman",Georgia,serif;font-size:12pt;line-height:1.5}
+  .wrap>*:not(#relatorio){display:none !important}
+  .barra{display:none !important}
+  #relatorio{display:block}
+  .wrap{max-width:none;padding:0;margin:0}
+
+  .folha{page-break-after:always;text-align:center}
+  .folha .inst{font-size:12pt;font-weight:bold;text-transform:uppercase;line-height:1.4}
+  .folha .meio{margin-top:70mm}
+  .folha .fim{margin-top:70mm;text-transform:uppercase}
+  .folha .tituloTrab{font-size:14pt;font-weight:bold;text-transform:uppercase;margin-top:6mm}
+  .folha .subtitulo{font-size:12pt;margin-top:2mm}
+  .folha .autores{font-size:12pt;margin-top:4mm}
+  .fr-nota{width:8.5cm;margin:14mm 0 0 auto;text-align:justify;font-size:10pt;line-height:1.3}
+  .fr-orient{width:8.5cm;margin:6mm 0 0 auto;text-align:left;font-size:10pt}
+
+  #roteiro h2.rtitulo{font-size:12pt;font-weight:bold;text-align:center;text-transform:uppercase;margin:0 0 8mm}
+  #roteiro .rlinha{font-size:12pt;margin-bottom:2mm}
+  #roteiro .rlinha b{text-transform:uppercase}
+  #roteiro h3{font-size:12pt;font-weight:bold;text-transform:uppercase;margin:7mm 0 3mm;page-break-after:avoid}
+  #roteiro p{margin:0 0 3mm;text-align:justify}
+  #roteiro ul{margin:0 0 3mm;padding-left:6mm}
+  #roteiro li{margin-bottom:1.5mm}
+  #roteiro .lista-obj{list-style:none;padding-left:0}
+  #roteiro .lista-obj li:before{content:"✓  ";font-weight:bold}
+  #roteiro .link{font-family:"Courier New",monospace;font-size:10.5pt;word-break:break-all}
+
+  #roteiro .item{margin-bottom:5mm;page-break-inside:avoid}
+  #roteiro .item .perg{font-weight:bold;margin-bottom:1.5mm}
+  #roteiro .item .rot{font-size:10.5pt;font-variant:small-caps;color:#333;margin-top:2mm}
+  #roteiro .item .resp{white-space:pre-wrap;border-bottom:1px dotted #999;padding-bottom:1mm;min-height:5mm}
+  #roteiro .item .resp.cod{font-family:"Courier New",monospace;font-size:10.5pt;white-space:pre;
+    border:1px solid #999;border-bottom:1px solid #999;padding:3mm;background:#f6f6f6}
+  #roteiro table{width:100%;border-collapse:collapse;font-size:10.5pt;margin-top:2mm}
+  #roteiro th,#roteiro td{border:1px solid #666;padding:1.5mm 2mm}
+  #roteiro th{background:#e8e8e8;color:#000;text-transform:none;font-variant:small-caps;letter-spacing:0}
+  #roteiro .checkline{margin-bottom:1.5mm;font-size:11pt}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="topo">
+    <div class="eyebrow">LÓGICA E LINGUAGEM DE PROGRAMAÇÃO</div>
+    <h1>Percurso sequencial de vetores</h1>
+    <div class="sub">Prática guiada S15A2 — Semana 15 · Aula 2 – Índice inicial, condição de parada e erro de limite</div>
+    <div class="chips"><span class="chip">Unidade <b>3 – Listas e percurso sequencial</b></span><span class="chip">Base: <b>Capítulos 25 a 27 — listas, métodos e percurso</b></span><span class="chip">Tempo: <b>35 a 40 min</b></span><span class="chip">Entrega: <b>Prática em sala (não entregue no AVA)</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S15A2</b></span></div>
+  </header>
+
+  <section>
+    <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que vocês vão resolver</h2></div>
+    <p class="lead" style="color:var(--ink);font-size:15.5px">Uma escola está desenvolvendo um sistema em Python para analisar notas de alunos. As notas ficam em uma lista e o programa precisa percorrê-la para exibir cada valor. <b>O sistema ainda não está pronto</b>: algumas partes do código estão incompletas ou incorretas. O grupo vai analisar, prever comportamentos e completar o código até chegar a uma versão funcional. Lista de trabalho: <code>notas = [7.0, 8.5, 6.0, 9.0, 5.5]</code>.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
+    <ul class="objetivos">
+      <li><span class="tick">✓</span><span>Identificar a quantidade de elementos, o primeiro e o último índice válido de uma lista.</span></li><li><span class="tick">✓</span><span>Definir corretamente o valor inicial da variável de índice.</span></li><li><span class="tick">✓</span><span>Escrever a condição de parada que percorre toda a lista sem estourar o limite.</span></li><li><span class="tick">✓</span><span>Explicar por que <code>&lt;=</code> na condição gera erro de índice.</span></li>
+    </ul>
+  </section>
+<section>
+    <div class="sec-head"><span class="n">SOLUÇÃO DIGITAL</span><h2>Ferramenta usada nesta aula</h2></div>
+    <div class="ferramenta">
+      <div class="marca">PY</div>
+      <div>
+        <div class="nome">Python (Colab ou IDE) + análise no papel</div>
+        <div class="desc">Os desafios são de <b>completar código</b>: em vários deles vocês precisam prever o comportamento antes de executar. Rodem no Python para confirmar cada resposta.</div>
+        <div class="link">https://colab.research.google.com/</div>
+      </div>
+    </div>
+  </section>
+<section>
+      <div class="sec-head"><span class="n">ENTENDA</span><h2>Índices: onde começa e onde termina</h2></div>
+      <p class="lead">Quase todo erro de percurso de lista vem de confundir &lt;b&gt;quantidade de elementos&lt;/b&gt; com &lt;b&gt;último índice válido&lt;/b&gt;. São números diferentes.</p>
+      <div class="visual"><svg viewBox="0 0 560 222" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+    </marker>
+    <marker id="sv-head-soft" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="560" height="192" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">A lista notas, posição por posição</text><text x="20" y="52" class="sv-code sv-code-key">índice:    0     1     2     3     4</text><text x="20" y="78" class="sv-code sv-code-key">valor:    7.0   8.5   6.0   9.0   5.5</text><text x="20" y="104" class="sv-code"> </text><text x="20" y="130" class="sv-code sv-code-soft">len(notas) = 5   ← quantidade de elementos</text><text x="20" y="156" class="sv-code sv-code-soft">último índice válido = 4   ← len - 1</text><text x="280" y="214" class="sv-legend">São 5 valores, mas o maior índice é 4. Essa diferença de 1 é a origem do erro do Desafio 4.</text>
+</svg></div><div class="visual"><svg viewBox="0 0 560 248" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+    </marker>
+    <marker id="sv-head-soft" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="560" height="218" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O esqueleto do percurso</text><text x="20" y="52" class="sv-code sv-code-key">i = ___</text><text x="20" y="78" class="sv-code sv-code-key">while i &lt; __________:</text><text x="42" y="104" class="sv-code">print(notas[i])</text><text x="42" y="130" class="sv-code">i += 1</text><text x="20" y="156" class="sv-code"> </text><text x="20" y="182" class="sv-code sv-code-soft">as duas lacunas decidem se o laço funciona</text><text x="280" y="240" class="sv-legend">Desafios 2 e 3: preencher essas duas lacunas.</text>
+</svg></div><div class="visual"><svg viewBox="0 0 660 300" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+    </marker>
+    <marker id="sv-head-soft" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
+    </marker>
+  </defs>
+  <polygon points="330,10 455,58 330,106 205,58" class="sv-diamond"/>
+     <text x="330" y="63" class="sv-label">i &lt; len(notas) ?</text>
+     <path d="M 205 58 L 131 58 L 131 186" class="sv-arrow" marker-end="url(#sv-head)"/>
+     <path d="M 455 58 L 529 58 L 529 186" class="sv-arrow" marker-end="url(#sv-head)"/>
+     <text x="149" y="46" class="sv-tag sv-ok">VERDADEIRO</text>
+     <text x="511" y="46" class="sv-tag sv-no" text-anchor="end">FALSO</text>
+     <rect x="8" y="196" width="246" height="72" rx="10" class="sv-box sv-box-ok"/>
+     <text x="131" y="228" class="sv-label">acessa notas[i] com</text><text x="131" y="246" class="sv-label">segurança</text>
+     <rect x="406" y="196" width="246" height="72" rx="10" class="sv-box sv-box-no"/>
+     <text x="529" y="237" class="sv-label">encerra o laço</text>
+     <text x="330" y="294" class="sv-legend">Com &lt;= no lugar de &lt;, o laço tenta acessar notas[5] — que não existe.</text>
+</svg></div>
+    </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S15A2</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+<section>
+    <div class="sec-head"><span class="n">PASSO 0</span><h2>Identificação</h2></div>
+    <p class="lead">Estes dados montam a capa e a folha de rosto do relatório em PDF.</p>
+    <div class="ident"><div><label class="f" for="id0">Escola</label>
+       <input type="text" id="id0" data-campo="id0" data-idk="escola"></div><div><label class="f" for="id1">Turma</label>
+       <input type="text" id="id1" data-campo="id1" data-idk="turma"></div><div><label class="f" for="id2">Nome do grupo</label>
+       <input type="text" id="id2" data-campo="id2" data-idk="grupo"></div><div><label class="f" for="id3">Professor(a)</label>
+       <input type="text" id="id3" data-campo="id3" data-idk="professor"></div><div><label class="f" for="id4">Integrantes (nomes completos)</label>
+       <input type="text" id="id4" data-campo="id4" data-idk="integrantes"></div><div><label class="f" for="id5">Data</label>
+       <input type="text" id="id5" data-campo="id5" data-idk="data"></div></div>
+  </section>
+<section>
+    <div class="sec-head"><span class="n">PROCEDIMENTOS</span><h2>Resolvam os cinco desafios</h2></div>
+    
+    <div class="passo">
+        <div class="passo-top">
+          <span class="passo-num">1</span>
+          <div class="passo-txt">Desafio 1 — Analisem a lista.</div>
+        </div>
+        <div class="dica"><b>Como pensar:</b> Contem os valores e prestem atenção: o índice do primeiro elemento não é 1.</div>
+        <div class="campoWrap" data-rel="campo" data-rotulo="D1 — quantidade de valores"><label class="f" for="c0">Quantos valores existem na lista?</label><input type="text" id="c0" data-campo="c0" placeholder=""></div><div class="campoWrap" data-rel="campo" data-rotulo="D1 — índice do primeiro"><label class="f" for="c1">Qual é o índice do primeiro valor?</label><input type="text" id="c1" data-campo="c1" placeholder=""></div><div class="campoWrap" data-rel="campo" data-rotulo="D1 — último índice válido"><label class="f" for="c2">Qual é o último índice válido?</label><input type="text" id="c2" data-campo="c2" placeholder=""></div>
+      </div><div class="passo">
+        <div class="passo-top">
+          <span class="passo-num">2</span>
+          <div class="passo-txt">Desafio 2 — Qual valor deve ser atribuído a i para o percurso começar corretamente?</div>
+        </div>
+        <div class="dica"><b>Como pensar:</b> O percurso precisa começar no primeiro elemento da lista — e vocês acabaram de descobrir qual é o índice dele.</div>
+        <div class="campoWrap" data-rel="campo" data-rotulo="D2 — valor inicial de i"><label class="f" for="c3">i = </label><input type="text" id="c3" data-campo="c3" placeholder=""></div><div class="campoWrap" data-rel="campo" data-rotulo="D2 — justificativa"><label class="f" for="c4">Por quê?</label><input type="text" id="c4" data-campo="c4" placeholder="Porque o primeiro elemento..."></div>
+      </div><div class="passo">
+        <div class="passo-top">
+          <span class="passo-num">3</span>
+          <div class="passo-txt">Desafio 3 — Completem a condição de parada.</div>
+        </div>
+        <div class="dica"><b>Como pensar:</b> A condição precisa deixar o laço rodar enquanto houver elemento válido — e parar exatamente quando acabar. Use <code>len()</code>.</div>
+        <div class="campoWrap" data-rel="campo" data-rotulo="D3 — condição de parada"><label class="f" for="c5">while i &lt; ______ :</label><input type="text" id="c5" data-campo="c5" placeholder=""></div><div class="campoWrap" data-rel="campo" data-rotulo="D3 — número de repetições"><label class="f" for="c6">Quantas vezes o laço executa?</label><input type="text" id="c6" data-campo="c6" placeholder=""></div>
+      </div><div class="passo">
+        <div class="passo-top">
+          <span class="passo-num">4</span>
+          <div class="passo-txt">Desafio 4 — Analisem este código com erro.</div>
+        </div>
+        <div class="dica"><b>Como pensar:</b> Simulem no papel: com i valendo 5, o que o Python tenta acessar? Depois rodem para confirmar a mensagem de erro.</div>
+        <div class="campoWrap"><div class="modelo">i = 0
+<span class="k">while</span> i <span class="k">&lt;=</span> len(notas):
+    print(notas[i])
+    i += 1</div></div><div class="campoWrap" data-rel="campo" data-rotulo="D4 — funciona?"><label class="f" for="c7">Esse código funciona corretamente?</label><select id="c7" data-campo="c7">
+      <option value="">— escolha —</option>
+      <option value="Sim">Sim</option><option value="Não">Não</option>
+    </select></div><div class="campoWrap" data-rel="campo" data-rotulo="D4 — momento do erro"><label class="f" for="c8">Em que momento ocorre o erro?</label><input type="text" id="c8" data-campo="c8" placeholder="Quando i vale..."></div><div class="campoWrap" data-rel="campo" data-rotulo="D4 — explicação do erro"><label class="f" for="c9">Por que o uso de &lt;= causa problema aqui?</label><textarea id="c9" data-campo="c9" rows="2" placeholder="Porque a lista tem 5 elementos, mas os índices vão de..."></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="D4 — mensagem de erro"><label class="f" for="c10">Qual mensagem de erro o Python mostrou?</label><input type="text" id="c10" data-campo="c10" placeholder="Ex.: IndexError: ..."></div>
+      </div><div class="passo">
+        <div class="passo-top">
+          <span class="passo-num">5</span>
+          <div class="passo-txt">Desafio 5 — Ampliem o programa.</div>
+        </div>
+        <div class="dica"><b>Como pensar:</b> Com o percurso correto funcionando, dá para resolver problemas maiores sem mudar a estrutura do laço — só o que acontece dentro dele.</div>
+        <div class="campoWrap" data-rel="campo" data-rotulo="D5 — contar notas"><label class="f" for="c11">Como contar quantas notas existem?</label><textarea id="c11" data-campo="c11" rows="2" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="D5 — maior nota"><label class="f" for="c12">Como identificar a maior nota?</label><textarea id="c12" data-campo="c12" rows="2" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="D5 — somar notas"><label class="f" for="c13">Como somar todas as notas?</label><textarea id="c13" data-campo="c13" rows="2" placeholder=""></textarea></div>
+      </div>
+  </section>
+<section>
+    <div class="sec-head"><span class="n">CONFIRA</span><h2>Checklist antes de gerar o PDF</h2></div>
+    <div class="progresso" id="progresso"></div>
+    <label class="check"><input type="checkbox" data-check="0"><span>Identificamos quantidade de valores, primeiro índice e último índice válido.</span></label><label class="check"><input type="checkbox" data-check="1"><span>Definimos o valor inicial de i e justificamos.</span></label><label class="check"><input type="checkbox" data-check="2"><span>Completamos a condição de parada usando len().</span></label><label class="check"><input type="checkbox" data-check="3"><span>Explicamos por que o &lt;= gera erro e registramos a mensagem do Python.</span></label><label class="check"><input type="checkbox" data-check="4"><span>Respondemos as três ampliações do Desafio 5.</span></label>
+    <div class="avisoPDF">
+      <b>Ao clicar em “Gerar PDF da resposta”</b>, o navegador monta o relatório completo no padrão de
+      roteiro de aula prática — com capa, folha de rosto, objetivos, procedimentos, as respostas do grupo e
+      as referências. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b>, salve como
+      <b>NOME_TURMA_S15A2</b> e envie no AVA.
+    </div>
+  </section>
+<section>
+    <div class="sec-head"><span class="n">AVALIAÇÃO</span><h2>Como esta atividade será avaliada</h2></div>
+    <div class="tabWrap"><table class="criterios">
+      <thead><tr><th>Critério</th><th>Pontos</th></tr></thead>
+      <tbody><tr><td>Análise correta dos índices da lista (Desafio 1)</td><td>2,0</td></tr><tr><td>Percurso completo e correto (Desafios 2 e 3)</td><td>3,0</td></tr><tr><td>Explicação correta do erro de limite (Desafio 4)</td><td>3,0</td></tr><tr><td>Propostas de ampliação coerentes (Desafio 5)</td><td>2,0</td></tr></tbody>
+    </table></div>
+  </section>
+<section>
+    <div class="sec-head"><span class="n">REFERÊNCIAS</span><h2>De onde veio o conteúdo desta aula</h2></div>
+    <ul class="refs"><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S15A2AP: “Percurso sequencial de vetores”.</li><li>Apostila da disciplina — Capítulos 25 a 27: listas, métodos de listas e percurso.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 5.1 (listas) e <code>len()</code>.</li></ul>
+  </section>
+
+  <div id="relatorio">
+
+  <div class="folha">
+    <div class="inst" data-fill="escola"></div>
+    <div class="inst">Curso Técnico em Desenvolvimento de Sistemas</div>
+    <div class="meio">
+      <div class="autores" data-fill="integrantes"></div>
+      <div class="tituloTrab">Roteiro de Aula Prática</div>
+      <div class="subtitulo">Lógica e Linguagem de Programação</div>
+      <div class="subtitulo">Percurso sequencial de vetores</div>
+    </div>
+    <div class="fim">
+      <div>São Paulo - SP</div>
+      <div>2026</div>
+    </div>
+  </div>
+
+  <div class="folha">
+    <div class="autores" data-fill="integrantes"></div>
+    <div class="meio">
+      <div class="tituloTrab">Roteiro de Aula Prática</div>
+      <div class="subtitulo">Percurso sequencial de vetores</div>
+      <div class="fr-nota">Roteiro de Atividade Prática apresentado ao componente curricular Lógica e Linguagem de Programação, como requisito parcial de avaliação do 3º bimestre.</div>
+      <div class="fr-orient" data-fill="professor"></div>
+      <div class="fr-orient" data-fill="turma"></div>
+      <div class="fr-orient" data-fill="data"></div>
+    </div>
+    <div class="fim">
+      <div>São Paulo - SP</div>
+      <div>2026</div>
+    </div>
+  </div>
+
+  <div id="roteiro">
+    <h2 class="rtitulo">Roteiro de Aula Prática</h2>
+    <div class="rlinha"><b>Nome da disciplina:</b> LÓGICA E LINGUAGEM DE PROGRAMAÇÃO</div>
+    <div class="rlinha"><b>Unidade:</b> 3 – Listas e percurso sequencial</div>
+    <div class="rlinha"><b>Aula:</b> 2 – Índice inicial, condição de parada e erro de limite</div>
+    <div class="rlinha"><b>Base teórica:</b> Capítulos 25 a 27 — listas, métodos e percurso</div>
+
+    <h3>Objetivos</h3>
+    <ul class="lista-obj"><li>Identificar a quantidade de elementos, o primeiro e o último índice válido de uma lista.</li><li>Definir corretamente o valor inicial da variável de índice.</li><li>Escrever a condição de parada que percorre toda a lista sem estourar o limite.</li><li>Explicar por que <code>&lt;=</code> na condição gera erro de índice.</li></ul>
+
+    <h3>Solução digital</h3>
+    <p>Python (Colab ou IDE) + análise no papel</p>
+    <p class="link">LINK SOLUÇÃO DIGITAL: https://colab.research.google.com/</p>
+    <p>Os desafios são de <b>completar código</b>: em vários deles vocês precisam prever o comportamento antes de executar. Rodem no Python para confirmar cada resposta.</p>
+
+    <h3>Procedimento / Atividade</h3>
+    <p><b>Atividade proposta:</b> Uma escola está desenvolvendo um sistema em Python para analisar notas de alunos. As notas ficam em uma lista e o programa precisa percorrê-la para exibir cada valor. <b>O sistema ainda não está pronto</b>: algumas partes do código estão incompletas ou incorretas. O grupo vai analisar, prever comportamentos e completar o código até chegar a uma versão funcional. Lista de trabalho: <code>notas = [7.0, 8.5, 6.0, 9.0, 5.5]</code>.</p>
+
+    <h3>Procedimentos para a realização da atividade</h3>
+    <div id="corpoRoteiro"></div>
+
+    <h3>Checklist de entrega</h3>
+    <div id="corpoChecklist"></div>
+
+    <h3>Critérios de avaliação</h3>
+    <table>
+      <thead><tr><th>Critério</th><th>Pontos</th></tr></thead>
+      <tbody><tr><td>Análise correta dos índices da lista (Desafio 1)</td><td>2,0</td></tr><tr><td>Percurso completo e correto (Desafios 2 e 3)</td><td>3,0</td></tr><tr><td>Explicação correta do erro de limite (Desafio 4)</td><td>3,0</td></tr><tr><td>Propostas de ampliação coerentes (Desafio 5)</td><td>2,0</td></tr></tbody>
+    </table>
+
+    <h3>Referências</h3>
+    <ul><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S15A2AP: “Percurso sequencial de vetores”.</li><li>Apostila da disciplina — Capítulos 25 a 27: listas, métodos de listas e percurso.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 5.1 (listas) e <code>len()</code>.</li></ul>
+  </div>
+</div>
+
+</div>
+
+<div class="barra">
+  <span class="status" id="status">salva sozinho neste computador</span>
+  <button class="btn" id="btnLimpar" type="button">Limpar tudo</button>
+  <button class="btn primary" id="btnPDF" type="button">Gerar PDF da resposta</button>
+</div>
+
+<script>
+(function(){
+  var CHAVE = "logica_s15a2";
+  var campos = document.querySelectorAll("[data-campo]");
+  var checks = document.querySelectorAll("[data-check]");
+  var status = document.getElementById("status");
+
+  function val(chave){
+    var el = document.querySelector('[data-idk="' + chave + '"]');
+    return el && el.value.trim() ? el.value.trim() : "";
+  }
+  function salvar(){
+    var dados = {};
+    campos.forEach(function(el){ dados[el.dataset.campo] = el.value; });
+    checks.forEach(function(el){ dados["chk_" + el.dataset.check] = el.checked ? "1" : ""; });
+    try{ localStorage.setItem(CHAVE, JSON.stringify(dados)); }catch(e){}
+    if(status){
+      status.textContent = "rascunho salvo";
+      clearTimeout(status._t);
+      status._t = setTimeout(function(){ status.textContent = "salva sozinho neste computador"; }, 1600);
+    }
+  }
+  function carregar(){
+    var bruto = null;
+    try{ bruto = localStorage.getItem(CHAVE); }catch(e){}
+    if(!bruto) return;
+    var dados;
+    try{ dados = JSON.parse(bruto); }catch(e){ return; }
+    campos.forEach(function(el){ if(dados[el.dataset.campo] != null) el.value = dados[el.dataset.campo]; });
+    checks.forEach(function(el){ el.checked = dados["chk_" + el.dataset.check] === "1"; });
+  }
+  function pintarChecks(){
+    var feitos = 0;
+    checks.forEach(function(el){
+      var linha = el.closest(".check");
+      if(el.checked){ linha.classList.add("done"); feitos++; } else { linha.classList.remove("done"); }
+    });
+    var p = document.getElementById("progresso");
+    if(p) p.textContent = feitos + " de " + checks.length + " itens conferidos";
+  }
+
+  campos.forEach(function(el){ el.addEventListener("input", salvar); el.addEventListener("change", salvar); });
+  checks.forEach(function(el){ el.addEventListener("change", function(){ pintarChecks(); salvar(); }); });
+
+  var limpar = document.getElementById("btnLimpar");
+  if(limpar) limpar.addEventListener("click", function(){
+    if(!confirm("Apagar tudo o que foi preenchido nesta página?")) return;
+    campos.forEach(function(el){ el.value = ""; });
+    checks.forEach(function(el){ el.checked = false; });
+    pintarChecks(); salvar();
+  });
+
+  function preencher(sel, texto){
+    document.querySelectorAll(sel).forEach(function(el){ el.textContent = texto; });
+  }
+
+  function montarRelatorio(){
+    // ---- capa e folha de rosto ----
+    var integrantes = val("integrantes") || val("grupo") || "___________________________";
+    preencher("[data-fill=escola]", val("escola") || "ESCOLA");
+    preencher("[data-fill=integrantes]", integrantes);
+    preencher("[data-fill=turma]", val("turma") ? "Turma: " + val("turma") : "");
+    preencher("[data-fill=professor]", val("professor") ? "Professor(a): " + val("professor") : "Professor(a): ___________________________");
+    preencher("[data-fill=data]", val("data") ? "Data de entrega: " + val("data") : "");
+
+    // ---- procedimentos: um item por passo ----
+    var alvo = document.getElementById("corpoRoteiro");
+    if(!alvo) return;
+    alvo.innerHTML = "";
+    var n = 0;
+    document.querySelectorAll(".passo").forEach(function(passo){
+      n++;
+      var item = document.createElement("div");
+      item.className = "item";
+      var perg = document.createElement("div");
+      perg.className = "perg";
+      perg.textContent = n + ". " + passo.querySelector(".passo-txt").textContent.trim();
+      item.appendChild(perg);
+
+      passo.querySelectorAll("[data-rel]").forEach(function(bloco){
+        if(bloco.dataset.rel === "campo"){
+          var el = bloco.querySelector("[data-campo]");
+          if(!el) return;
+          var rotulo = bloco.dataset.rotulo || "";
+          if(rotulo){
+            var r = document.createElement("div");
+            r.className = "rot";
+            r.textContent = rotulo;
+            item.appendChild(r);
+          }
+          var resp = document.createElement("div");
+          resp.className = "resp" + (el.classList.contains("cod") ? " cod" : "");
+          resp.textContent = (el.value || "").trim() || "(não preenchido)";
+          item.appendChild(resp);
+        } else if(bloco.dataset.rel === "tabela"){
+          if(bloco.dataset.rotulo){
+            var r2 = document.createElement("div");
+            r2.className = "rot";
+            r2.textContent = bloco.dataset.rotulo;
+            item.appendChild(r2);
+          }
+          var t = bloco.querySelector("table").cloneNode(true);
+          t.querySelectorAll("input").forEach(function(inp){
+            var td = inp.parentNode;
+            td.textContent = inp.value || "—";
+          });
+          item.appendChild(t);
+        }
+      });
+      alvo.appendChild(item);
+    });
+
+    // ---- checklist ----
+    var lista = document.getElementById("corpoChecklist");
+    if(lista){
+      lista.innerHTML = "";
+      checks.forEach(function(el){
+        var l = document.createElement("div");
+        l.className = "checkline";
+        l.textContent = (el.checked ? "[ X ]  " : "[    ]  ") + el.parentNode.querySelector("span").textContent;
+        lista.appendChild(l);
+      });
+    }
+  }
+
+  var pdf = document.getElementById("btnPDF");
+  if(pdf) pdf.addEventListener("click", function(){ montarRelatorio(); window.print(); });
+  window.addEventListener("beforeprint", montarRelatorio);
+
+  carregar(); pintarChecks();
+})();
+</script>
+</body>
+</html>
