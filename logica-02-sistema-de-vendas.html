@@ -169,20 +169,20 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
 .check span{font-size:14.5px}
 .check.done{background:var(--ok-soft);border-color:var(--ok)}
 .progresso{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-bottom:10px}
-.dados{margin:18px 0;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
+.dados{margin:18px 0;border:1px solid var(--border);border-radius:12px;background:var(--surface);overflow:hidden}
 .dados .cab{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
-  padding:11px 14px;border-bottom:1px solid var(--line);background:var(--accent-soft)}
+  padding:11px 14px;border-bottom:1px solid var(--border);background:var(--accent-soft)}
 .dados .nomeArq{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13.5px;font-weight:600;color:var(--accent)}
 .dados .acoes{display:flex;gap:8px}
 .dados .mini{font:inherit;font-size:12.5px;font-weight:600;padding:6px 11px;border-radius:8px;cursor:pointer;
-  border:1px solid var(--line);background:var(--bg);color:var(--ink);text-decoration:none;display:inline-block}
+  border:1px solid var(--border);background:var(--bg);color:var(--ink);text-decoration:none;display:inline-block}
 .dados .mini:hover{border-color:var(--accent)}
 .dados pre{margin:0;padding:13px 15px;overflow-x:auto;font-family:ui-monospace,Menlo,Consolas,monospace;
   font-size:12.5px;line-height:1.65;color:var(--ink);white-space:pre}
-.dados .obs{padding:9px 15px 12px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line)}
+.dados .obs{padding:9px 15px 12px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--border)}
 @media print{.dados .acoes{display:none}}
-.card-ava{margin:18px 0 0;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
-.card-ava .trilha{padding:9px 16px;border-bottom:1px solid var(--line);background:var(--accent-soft);
+.card-ava{margin:18px 0 0;border:1px solid var(--border);border-radius:12px;background:var(--surface);overflow:hidden}
+.card-ava .trilha{padding:9px 16px;border-bottom:1px solid var(--border);background:var(--accent-soft);
   font-size:11.5px;letter-spacing:.03em;color:var(--muted)}
 .card-ava .corpo{padding:16px 18px 18px}
 .card-ava h3{margin:0 0 4px;font-size:19px;line-height:1.3;color:var(--ink);font-weight:700}
@@ -191,18 +191,20 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
 .card-ava .bloco > .rot{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:5px}
 .card-ava .bloco p{margin:0;font-size:14px;line-height:1.6;color:var(--ink)}
 .card-ava ul,.card-ava ol{margin:0;padding-left:21px}
+.card-ava li ul{margin:3px 0 5px;padding-left:19px;list-style:circle}
 .card-ava li{font-size:14px;line-height:1.62;color:var(--ink);margin:2px 0}
-.card-ava .moldura{border:1px solid var(--line);border-radius:9px;padding:12px 14px;margin-top:13px}
+.card-ava .moldura{border:1px solid var(--border);border-radius:9px;padding:12px 14px 14px;margin-top:13px}
+.card-ava .moldura .bloco:first-of-type{margin-top:9px}
 .card-ava .fonte{margin-top:12px;font-size:11.5px;color:var(--muted);text-align:right;font-style:italic}
 .imgWrap{margin-top:6px}
-.imgCaixa{border:1.5px dashed var(--line);border-radius:11px;background:var(--card);padding:16px;text-align:center}
+.imgCaixa{border:1.5px dashed var(--border);border-radius:11px;background:var(--surface);padding:16px;text-align:center}
 .imgCaixa.temFoto{border-style:solid;padding:10px}
 .imgCaixa .conv{font-size:13.5px;color:var(--muted);line-height:1.55;margin:0 0 11px}
 .imgCaixa input[type=file]{display:none}
 .imgBtn{font:inherit;font-size:13.5px;font-weight:600;padding:9px 15px;border-radius:9px;cursor:pointer;
   border:1px solid var(--accent);background:var(--accent);color:#fff}
 .imgBtn:hover{filter:brightness(1.07)}
-.imgBtn.sec{background:var(--bg);color:var(--ink);border-color:var(--line);margin-left:7px}
+.imgBtn.sec{background:var(--bg);color:var(--ink);border-color:var(--border);margin-left:7px}
 .imgPreview{display:block;max-width:100%;max-height:420px;margin:0 auto 10px;border-radius:8px}
 .imgNome{font-size:12px;color:var(--muted);margin-top:4px;word-break:break-all}
 .avisoPDF{margin-top:14px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:10px;
