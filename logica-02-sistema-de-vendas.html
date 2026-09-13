@@ -181,6 +181,19 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   font-size:12.5px;line-height:1.65;color:var(--ink);white-space:pre}
 .dados .obs{padding:9px 15px 12px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line)}
 @media print{.dados .acoes{display:none}}
+.card-ava{margin:18px 0 0;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
+.card-ava .trilha{padding:9px 16px;border-bottom:1px solid var(--line);background:var(--accent-soft);
+  font-size:11.5px;letter-spacing:.03em;color:var(--muted)}
+.card-ava .corpo{padding:16px 18px 18px}
+.card-ava h3{margin:0 0 4px;font-size:19px;line-height:1.3;color:var(--ink);font-weight:700}
+.card-ava .chamada{margin:0 0 12px;font-size:14.5px;line-height:1.6;color:var(--ink)}
+.card-ava .bloco{margin-top:13px}
+.card-ava .bloco > .rot{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.card-ava .bloco p{margin:0;font-size:14px;line-height:1.6;color:var(--ink)}
+.card-ava ul,.card-ava ol{margin:0;padding-left:21px}
+.card-ava li{font-size:14px;line-height:1.62;color:var(--ink);margin:2px 0}
+.card-ava .moldura{border:1px solid var(--line);border-radius:9px;padding:12px 14px;margin-top:13px}
+.card-ava .fonte{margin-top:12px;font-size:11.5px;color:var(--muted);text-align:right;font-style:italic}
 .avisoPDF{margin-top:14px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:10px;
   padding:13px 15px;font-size:14px}
 .avisoPDF b{color:var(--accent)}
@@ -257,6 +270,19 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   <section>
     <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que vocês vão resolver</h2></div>
     <p class="lead" style="color:var(--ink);font-size:15.5px">Vocês vão criar um sistema que calcula o valor final de uma venda com três regras: <b>5% de desconto</b> acima de R$ 100, <b>10% de desconto</b> acima de R$ 500, e <b>frete fixo de R$ 15</b> para compras abaixo de R$ 200. O programa deve mostrar subtotal, desconto, frete e total final.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">COMO ESTÁ NO AVA</span><h2>O card desta atividade</h2></div>
+    <div class="card-ava">
+      <div class="trilha">Lógica e Linguagem de Programação – 1º Bimestre / Semana 2 (S2) – Conceitos de Entrada, Processamento e Saída / Aula 2: Processamento de dados / Registro da Aula 2</div>
+      <div class="corpo">
+        <h3>Sistema de vendas</h3>
+        <p class="chamada">Você vai criar um sistema para calcular o valor final de uma venda com as seguintes regras:</p>
+        <div class="bloco"><ul><li>Desconto de 5% para compras acima de R$100.</li><li>Desconto de 10% para compras acima de R$ 500.</li><li>Frete fixo de R$ 15 para compras abaixo de R$ 200.</li></ul></div><div class="bloco"><div class="rot">Crie um algoritmo que:</div><ol><li>leia o valor total dos produtos;</li><li>calcule o desconto apropriado;</li><li>adicione frete se necessário.</li></ol></div><div class="bloco"><div class="rot">E que também mostre:</div><ol><li>subtotal</li><li>desconto aplicado</li><li>valor do frete</li><li>total final</li></ol></div><div class="bloco"><div class="rot">Instruções de entrega:</div><p>Após finalizar a atividade, envie o código de programação aqui no AVA.</p></div>
+        
+      </div>
+    </div>
   </section>
 
 
