@@ -31,7 +31,7 @@ formulário preenchível e geração do relatório em PDF direto pelo navegador.
 | 3 | Sistema de classificação de idade | Cap. 16 — SE / SENÃO SE / SENÃO |
 | 4 | Melhoria contínua na prática: operadores relacionais | Cap. 12 — Comparações |
 | 5 | Calculadora de média com verificação de aprovação | Cap. 14 — SE |
-| 6 | Projeto guiado: simulador de desconto por idade | Cap. 12 e 15 — SE e SENÃO |
+| 6 | Projeto guiado: verificador de desconto do Cine Pipoca | Cap. 14 e 15 — SE e SENÃO |
 | 7 | Venda para um e-commerce de atacado | Cap. 15 — SE e SENÃO |
 
 ### 2º bimestre
@@ -76,10 +76,10 @@ que foi construído aqui — e que sai também no PDF gerado pelo aluno.
 |---|---|
 | 1 | O enunciado pede "considere possíveis problemas" sem dizer o que vale como resposta; os critérios de aceitação foram definidos aqui. |
 | 2 | O card fala em "código", o roteiro pede pseudocódigo — a página adota o pseudocódigo, que é o que a semana ensina. |
-| 3 | O enunciado não define entrega; formato, nome de arquivo e conteúdo obrigatório foram definidos aqui. |
-| 4 | O roteiro nunca foi disponibilizado. A atividade foi escrita a partir do tema oficial da aula e da situação-problema da própria aula (a autoescola). |
-| 5 | O enunciado oficial pede só a mensagem "Aprovado"; aqui o SENÃO é obrigatório e vale nota. |
-| 6 | O roteiro nunca foi disponibilizado — e o card repete, por engano, o título da Semana 4. O projeto foi montado a partir das três aulas da semana e das suas questões "Pause e responda". |
+| 3 | Nada a completar: o card traz o planejamento, a codificação, o teste mental e a entrega (Word, PDF ou foto do caderno). |
+| 4 | Roteiro oficial reproduzido na íntegra. O Exemplo 1 do roteiro traz `idade >= 1` com resultado anunciado FALSO — o número saiu truncado; a página usa `idade >= 18`, que é o coerente, e sinaliza o erro. |
+| 5 | O enunciado oficial pede só a mensagem "Aprovado"; por decisão do professor, o SENÃO com "Reprovado" é obrigatório e vale nota. |
+| 6 | Roteiro oficial reproduzido na íntegra. O card e o cabeçalho do roteiro repetem, por engano, o título da Semana 4; a página usa o nome da atividade real (Cine Pipoca) para não confundir as duas. |
 | 9, 10, 12 | A lista de materiais do card não corresponde à ferramenta que o roteiro pede; cada página diz qual vale. |
 | 14 | O card vem com o título de outra atividade (retrospectiva de Sprint) e o roteiro cita blocos de código que não foram incluídos; o código de referência foi escrito para preencher a lacuna. |
 | 19 | O roteiro erra a régua de índices da string; a página traz a régua correta (0 a 16 e −1 a −17, para 17 caracteres). |
