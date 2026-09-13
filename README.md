@@ -53,6 +53,9 @@ formulário preenchível e geração do relatório em PDF direto pelo navegador.
 | 15 | Percurso sequencial de vetores *(prática guiada A2)* | Python |
 | 15 | Investigando dados: média, busca e listas *(prática guiada A3)* | Python |
 | 15 | Sistema de análise de notas da turma *(registro A4)* | Python |
+| 16 | Aninhando laços para percorrer matrizes *(prática guiada A2)* | Python |
+| 16 | Agregando dados em matrizes *(prática guiada A3)* | Python |
+| 16 | Miniprojeto: Planilha de vendas *(registro A4)* | Python |
 
 A semana 14 chegou com o título de outra atividade (uma retrospectiva de
 Sprint) e sem os blocos de código do roteiro; a página segue o procedimento
