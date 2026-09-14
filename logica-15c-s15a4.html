@@ -301,12 +301,12 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="eyebrow">LÓGICA E LINGUAGEM DE PROGRAMAÇÃO</div>
     <h1>Sistema de análise de notas da turma</h1>
     <div class="sub">Registro de Aula S15A4 — Semana 15 · Aula 4 – Oficina prática: “Notas da turma”</div>
-    <div class="chips"><span class="chip">Unidade <b>15 (S15) – Vetores (arrays) unidimensionais</b></span><span class="chip">Base: <b>Capítulos 14, 20, 25 a 27 — decisões, while, listas e percurso</b></span><span class="chip">Tempo: <b>50 min</b></span><span class="chip">Entrega: <b>AVA (arquivo .py + parágrafo)</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S15A4</b></span></div>
+    <div class="chips"><span class="chip">Unidade <b>15 (S15) – Vetores (arrays) unidimensionais</b></span><span class="chip">Base: <b>Capítulos 14, 20, 25 a 27 — decisões, while, listas e percurso</b></span><span class="chip">Tempo: <b>45 min</b></span><span class="chip">Entrega: <b>AVA (arquivo .py + parágrafo) · individual</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S15A4</b></span></div>
   </header>
 
   <section>
     <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que vocês vão resolver</h2></div>
-    <p class="lead" style="color:var(--ink);font-size:15.5px">Uma escola precisa de um sistema em Python para analisar o desempenho de uma turma: o programa <b>lê várias notas</b>, guarda os valores em uma lista, <b>calcula a média</b> e <b>classifica</b> o resultado como satisfatório ou insatisfatório. É o tipo de problema que aparece em plataformas educacionais e boletins digitais — e integra tudo o que vocês praticaram nas aulas anteriores desta semana.</p>
+    <p class="lead" style="color:var(--ink);font-size:15.5px">Uma escola precisa de um sistema em Python para analisar o desempenho de uma turma: o programa <b>lê várias notas</b>, guarda os valores em uma lista, <b>calcula a média</b> e <b>classifica</b> o resultado como satisfatório ou insatisfatório. É o tipo de problema que aparece em plataformas educacionais e boletins digitais — e integra tudo o que você praticou nas aulas anteriores desta semana.</p>
   </section>
 
   <section>
@@ -325,7 +325,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   <section>
     <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
     <ul class="objetivos">
-      <li><span class="tick">✓</span><span>Ler várias notas usando repetição controlada por uma quantidade informada.</span></li><li><span class="tick">✓</span><span>Armazenar os valores lidos em uma lista.</span></li><li><span class="tick">✓</span><span>Percorrer a lista para calcular a soma e, a partir dela, a média da turma.</span></li><li><span class="tick">✓</span><span>Classificar o desempenho com uma estrutura condicional e explicar a solução construída.</span></li>
+      <li><span class="tick">✓</span><span>Produzir uma solução funcional que leia n notas, calcule a média e classifique o resultado.</span></li><li><span class="tick">✓</span><span>Utilizar a sintaxe da linguagem para criar vetores, definir tamanho e atribuir valores iniciais.</span></li><li><span class="tick">✓</span><span>Explorar com curiosidade diferentes formas de organizar, percorrer e interpretar dados em vetores.</span></li><li><span class="tick">✓</span><span>Ler várias notas usando repetição controlada por uma quantidade informada.</span></li><li><span class="tick">✓</span><span>Armazenar os valores lidos em uma lista.</span></li><li><span class="tick">✓</span><span>Percorrer a lista para calcular a soma e, a partir dela, a média da turma.</span></li><li><span class="tick">✓</span><span>Classificar o desempenho com uma estrutura condicional e explicar a solução construída.</span></li>
     </ul>
   </section>
 <section>
@@ -412,14 +412,14 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="passo">
         <div class="passo-top">
           <span class="passo-num">1</span>
-          <div class="passo-txt">Etapa 1 — Definam a quantidade de notas.</div>
+          <div class="passo-txt">Etapa 1 — Defina a quantidade de notas.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> Uma variável guarda quantas notas serão digitadas, e é ela que vai controlar quantas vezes o laço de leitura repete.</div>
         <div class="campoWrap" data-rel="campo" data-rotulo="Etapa 1 — leitura da quantidade"><label class="f" for="c0">Linha que lê a quantidade</label><input type="text" id="c0" data-campo="c0" placeholder="quantidade = int(input(...))"></div><div class="campoWrap" data-rel="campo" data-rotulo="Etapa 1 — por que converter"><label class="f" for="c1">Por que converter com int()?</label><input type="text" id="c1" data-campo="c1" placeholder="Porque input() devolve..."></div>
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">2</span>
-          <div class="passo-txt">Etapa 2 — Criem a lista e leiam cada nota dentro da repetição.</div>
+          <div class="passo-txt">Etapa 2 — Crie a lista e leia cada nota dentro da repetição.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> A lista começa vazia. A cada volta, o programa lê uma nota e acrescenta na lista — atenção ao tipo: notas podem ter casas decimais.</div>
         <div class="campoWrap" data-rel="campo" data-rotulo="Etapa 2 — leitura e armazenamento"><label class="f" for="c2">Trecho de leitura das notas</label><textarea id="c2" class="cod" data-campo="c2" rows="7" placeholder="notas = []
@@ -429,7 +429,7 @@ while i &lt; quantidade:
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">3</span>
-          <div class="passo-txt">Etapa 3 — Percorram a lista e calculem a soma.</div>
+          <div class="passo-txt">Etapa 3 — Percorra a lista e calcule a soma.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> É o mesmo padrão de acumulador da aula anterior: inicializa em zero e vai somando o valor de cada posição.</div>
         <div class="campoWrap" data-rel="campo" data-rotulo="Etapa 3 — soma"><label class="f" for="c3">Trecho do cálculo da soma</label><textarea id="c3" class="cod" data-campo="c3" rows="6" placeholder="soma = 0
@@ -437,14 +437,14 @@ while i &lt; quantidade:
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">4</span>
-          <div class="passo-txt">Etapa 4 — Calculem e exibam a média.</div>
+          <div class="passo-txt">Etapa 4 — Calcule e exiba a média.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> Dividam a soma pela quantidade de notas. Confiram: se a lista tem 4 notas, a divisão é por 4 — nunca por um número fixo.</div>
         <div class="campoWrap" data-rel="campo" data-rotulo="Etapa 4 — cálculo da média"><label class="f" for="c4">Linha do cálculo da média</label><input type="text" id="c4" data-campo="c4" placeholder="media = soma / ..."></div>
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">5</span>
-          <div class="passo-txt">Etapa 5 — Classifiquem o desempenho da turma.</div>
+          <div class="passo-txt">Etapa 5 — Classifique o desempenho da turma.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> Critério do roteiro: média maior ou igual a 7 é satisfatório; abaixo disso, insatisfatório. Use uma estrutura condicional.</div>
         <div class="campoWrap" data-rel="campo" data-rotulo="Etapa 5 — classificação"><label class="f" for="c5">Trecho da classificação</label><textarea id="c5" class="cod" data-campo="c5" rows="6" placeholder="if media &gt;= 7:
@@ -452,7 +452,7 @@ while i &lt; quantidade:
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">6</span>
-          <div class="passo-txt">Etapa 6 — Revisem e testem o programa completo.</div>
+          <div class="passo-txt">Etapa 6 — Revise e teste o programa completo.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> Testem com um caso satisfatório e um insatisfatório. Vale testar também a média exatamente 7, que é o limite do critério.</div>
         <div class="campoWrap tabWrap" data-rel="tabela" data-rotulo="Testes do sistema">
@@ -462,7 +462,7 @@ while i &lt; quantidade:
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">7</span>
-          <div class="passo-txt">Colem o código final completo.</div>
+          <div class="passo-txt">Cole o código final completo.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> É este código que vai no arquivo .py da entrega.</div>
         <div class="campoWrap" data-rel="campo" data-rotulo="Código final (.py)"><label class="f" for="c7">Programa completo</label><textarea id="c7" class="cod" data-campo="c7" rows="22" placeholder="quantidade = int(input('Quantas notas? '))
@@ -471,7 +471,7 @@ notas = []
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">8</span>
-          <div class="passo-txt">Escrevam o parágrafo explicativo da entrega.</div>
+          <div class="passo-txt">Escreva o parágrafo explicativo da entrega.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> O roteiro pede que o parágrafo cubra três pontos: como os dados foram armazenados, como a média foi calculada e como ocorreu a classificação.</div>
         <div class="campoWrap" data-rel="campo" data-rotulo="Parágrafo explicativo da solução"><label class="f" for="c9">Parágrafo explicativo</label><textarea id="c9" data-campo="c9" rows="6" placeholder="Nosso programa armazena as notas em... A média é calculada... A classificação acontece..."></textarea></div>
@@ -497,7 +497,7 @@ notas = []
   </section>
 <section>
     <div class="sec-head"><span class="n">REFERÊNCIAS</span><h2>De onde veio o conteúdo desta aula</h2></div>
-    <ul class="refs"><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S15A4AP: “Sistema de análise de notas da turma”.</li><li>Apostila da disciplina — Capítulos 14 e 20 (decisão e while) e 25 a 27 (listas e percurso).</li><li>Documentação oficial do Python — <i>Tutorial</i>, seções 4.2 e 5.1 (repetição e listas).</li></ul>
+    <ul class="refs"><li>ORESTES, Y. <i>Listas em Python: operações básicas</i>. Alura, 2026: alura.com.br/artigos/listas-no-python</li><li>PYTHON. <i>O tutorial do Python — 5. Estruturas de dados</i>: docs.python.org/pt-br/3/tutorial/datastructures.html</li><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S15A4AP: “Sistema de análise de notas da turma”.</li><li>Apostila da disciplina — Capítulos 14 e 20 (decisão e while) e 25 a 27 (listas e percurso).</li><li>Documentação oficial do Python — <i>Tutorial</i>, seções 4.2 e 5.1 (repetição e listas).</li></ul>
   </section>
 
   <a class="navGit" href="github-passo-a-passo.html">
@@ -558,7 +558,7 @@ notas = []
     <div class="rlinha"><b>Base teórica:</b> Capítulos 14, 20, 25 a 27 — decisões, while, listas e percurso</div>
 
     <h3>Objetivos</h3>
-    <ul class="lista-obj"><li>Ler várias notas usando repetição controlada por uma quantidade informada.</li><li>Armazenar os valores lidos em uma lista.</li><li>Percorrer a lista para calcular a soma e, a partir dela, a média da turma.</li><li>Classificar o desempenho com uma estrutura condicional e explicar a solução construída.</li></ul>
+    <ul class="lista-obj"><li>Produzir uma solução funcional que leia n notas, calcule a média e classifique o resultado.</li><li>Utilizar a sintaxe da linguagem para criar vetores, definir tamanho e atribuir valores iniciais.</li><li>Explorar com curiosidade diferentes formas de organizar, percorrer e interpretar dados em vetores.</li><li>Ler várias notas usando repetição controlada por uma quantidade informada.</li><li>Armazenar os valores lidos em uma lista.</li><li>Percorrer a lista para calcular a soma e, a partir dela, a média da turma.</li><li>Classificar o desempenho com uma estrutura condicional e explicar a solução construída.</li></ul>
 
     <h3>Solução digital</h3>
     <p>Visual Studio Code + Python.</p>
@@ -566,7 +566,7 @@ notas = []
     <p>A entrega tem <b>duas peças</b>: o arquivo <code>.py</code> com o código completo funcionando e um parágrafo explicando como a solução foi construída. Salvem o arquivo → Fazer download → .py Guardem a versão final no <b>repositório do grupo no GitHub</b>. <a href="github-passo-a-passo.html">Veja o passo a passo do GitHub</a>.</p>
 
     <h3>Procedimento / Atividade</h3>
-    <p><b>Atividade proposta:</b> Uma escola precisa de um sistema em Python para analisar o desempenho de uma turma: o programa <b>lê várias notas</b>, guarda os valores em uma lista, <b>calcula a média</b> e <b>classifica</b> o resultado como satisfatório ou insatisfatório. É o tipo de problema que aparece em plataformas educacionais e boletins digitais — e integra tudo o que vocês praticaram nas aulas anteriores desta semana.</p>
+    <p><b>Atividade proposta:</b> Uma escola precisa de um sistema em Python para analisar o desempenho de uma turma: o programa <b>lê várias notas</b>, guarda os valores em uma lista, <b>calcula a média</b> e <b>classifica</b> o resultado como satisfatório ou insatisfatório. É o tipo de problema que aparece em plataformas educacionais e boletins digitais — e integra tudo o que você praticou nas aulas anteriores desta semana.</p>
 
     <h3>Procedimentos para a realização da atividade</h3>
     <div id="corpoRoteiro"></div>
@@ -581,7 +581,7 @@ notas = []
     </table>
 
     <h3>Referências</h3>
-    <ul><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S15A4AP: “Sistema de análise de notas da turma”.</li><li>Apostila da disciplina — Capítulos 14 e 20 (decisão e while) e 25 a 27 (listas e percurso).</li><li>Documentação oficial do Python — <i>Tutorial</i>, seções 4.2 e 5.1 (repetição e listas).</li></ul>
+    <ul><li>ORESTES, Y. <i>Listas em Python: operações básicas</i>. Alura, 2026: alura.com.br/artigos/listas-no-python</li><li>PYTHON. <i>O tutorial do Python — 5. Estruturas de dados</i>: docs.python.org/pt-br/3/tutorial/datastructures.html</li><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S15A4AP: “Sistema de análise de notas da turma”.</li><li>Apostila da disciplina — Capítulos 14 e 20 (decisão e while) e 25 a 27 (listas e percurso).</li><li>Documentação oficial do Python — <i>Tutorial</i>, seções 4.2 e 5.1 (repetição e listas).</li></ul>
   </div>
 </div>
 

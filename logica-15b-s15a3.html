@@ -300,7 +300,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   <header class="topo">
     <div class="eyebrow">LÓGICA E LINGUAGEM DE PROGRAMAÇÃO</div>
     <h1>Investigando dados: média, busca e listas</h1>
-    <div class="sub">Prática guiada S15A3 — Semana 15 · Aula 3 – Soma, média, busca linear e extremos</div>
+    <div class="sub">Prática guiada S15A3 — Semana 15 · Aula 3 – Busca linear e estatísticas simples</div>
     <div class="chips"><span class="chip">Unidade <b>15 (S15) – Vetores (arrays) unidimensionais</b></span><span class="chip">Base: <b>Capítulos 25 a 27 — listas, métodos e percurso</b></span><span class="chip">Tempo: <b>40 a 45 min</b></span><span class="chip">Entrega: <b>Prática em sala (não entregue no AVA)</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S15A3</b></span></div>
   </header>
 
@@ -315,7 +315,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   <section>
     <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
     <ul class="objetivos">
-      <li><span class="tick">✓</span><span>Percorrer uma lista acumulando valores para calcular soma e média.</span></li><li><span class="tick">✓</span><span>Implementar uma busca linear, verificando se um valor existe na lista.</span></li><li><span class="tick">✓</span><span>Identificar maior e menor valor durante um único percurso.</span></li><li><span class="tick">✓</span><span>Justificar a inicialização das variáveis de acumulação e de extremos.</span></li>
+      <li><span class="tick">✓</span><span>Resolver um problema prático — a média de temperaturas — usando vetores.</span></li><li><span class="tick">✓</span><span>Utilizar a sintaxe da linguagem para criar vetores, definir tamanho e atribuir valores iniciais.</span></li><li><span class="tick">✓</span><span>Explorar com curiosidade diferentes formas de organizar, percorrer e interpretar dados em vetores.</span></li><li><span class="tick">✓</span><span>Percorrer uma lista acumulando valores para calcular soma e média.</span></li><li><span class="tick">✓</span><span>Implementar uma busca linear, verificando se um valor existe na lista.</span></li><li><span class="tick">✓</span><span>Identificar maior e menor valor durante um único percurso.</span></li><li><span class="tick">✓</span><span>Justificar a inicialização das variáveis de acumulação e de extremos.</span></li>
     </ul>
   </section>
 <section>
@@ -489,7 +489,7 @@ i = 0
   </section>
 <section>
     <div class="sec-head"><span class="n">REFERÊNCIAS</span><h2>De onde veio o conteúdo desta aula</h2></div>
-    <ul class="refs"><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S15A3AP: “Investigando dados: média, busca e listas”.</li><li>Apostila da disciplina — Capítulos 25 a 27: listas, métodos de listas e percurso.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 5.1 (listas).</li></ul>
+    <ul class="refs"><li>ORESTES, Y. <i>Listas em Python: operações básicas</i>. Alura, 2026: alura.com.br/artigos/listas-no-python</li><li>PYTHON. <i>O tutorial do Python — 5. Estruturas de dados</i>: docs.python.org/pt-br/3/tutorial/datastructures.html</li><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S15A3AP: “Investigando dados: média, busca e listas”.</li><li>Apostila da disciplina — Capítulos 25 a 27: listas, métodos de listas e percurso.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 5.1 (listas).</li></ul>
   </section>
 
   <a class="navGit" href="github-passo-a-passo.html">
@@ -546,11 +546,11 @@ i = 0
     <h2 class="rtitulo">Roteiro de Aula Prática</h2>
     <div class="rlinha"><b>Nome da disciplina:</b> LÓGICA E LINGUAGEM DE PROGRAMAÇÃO</div>
     <div class="rlinha"><b>Unidade:</b> 15 (S15) – Vetores (arrays) unidimensionais</div>
-    <div class="rlinha"><b>Aula:</b> 3 – Soma, média, busca linear e extremos</div>
+    <div class="rlinha"><b>Aula:</b> 3 – Busca linear e estatísticas simples</div>
     <div class="rlinha"><b>Base teórica:</b> Capítulos 25 a 27 — listas, métodos e percurso</div>
 
     <h3>Objetivos</h3>
-    <ul class="lista-obj"><li>Percorrer uma lista acumulando valores para calcular soma e média.</li><li>Implementar uma busca linear, verificando se um valor existe na lista.</li><li>Identificar maior e menor valor durante um único percurso.</li><li>Justificar a inicialização das variáveis de acumulação e de extremos.</li></ul>
+    <ul class="lista-obj"><li>Resolver um problema prático — a média de temperaturas — usando vetores.</li><li>Utilizar a sintaxe da linguagem para criar vetores, definir tamanho e atribuir valores iniciais.</li><li>Explorar com curiosidade diferentes formas de organizar, percorrer e interpretar dados em vetores.</li><li>Percorrer uma lista acumulando valores para calcular soma e média.</li><li>Implementar uma busca linear, verificando se um valor existe na lista.</li><li>Identificar maior e menor valor durante um único percurso.</li><li>Justificar a inicialização das variáveis de acumulação e de extremos.</li></ul>
 
     <h3>Solução digital</h3>
     <p>Visual Studio Code + Python.</p>
@@ -573,7 +573,7 @@ i = 0
     </table>
 
     <h3>Referências</h3>
-    <ul><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S15A3AP: “Investigando dados: média, busca e listas”.</li><li>Apostila da disciplina — Capítulos 25 a 27: listas, métodos de listas e percurso.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 5.1 (listas).</li></ul>
+    <ul><li>ORESTES, Y. <i>Listas em Python: operações básicas</i>. Alura, 2026: alura.com.br/artigos/listas-no-python</li><li>PYTHON. <i>O tutorial do Python — 5. Estruturas de dados</i>: docs.python.org/pt-br/3/tutorial/datastructures.html</li><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S15A3AP: “Investigando dados: média, busca e listas”.</li><li>Apostila da disciplina — Capítulos 25 a 27: listas, métodos de listas e percurso.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 5.1 (listas).</li></ul>
   </div>
 </div>
 
