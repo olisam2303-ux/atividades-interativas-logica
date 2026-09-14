@@ -44,7 +44,8 @@ formulário preenchível e geração do relatório em PDF direto pelo navegador.
 | 11 | Ordenando listas com Bubble Sort | Teste de mesa no papel |
 | 12 | Desafio: Jogo da Velha (matriz 3×3 e trincas) | Papel ou Bloco de Notas |
 | 13 | Boas práticas de nomeação (refatoração de funções) | VS Code + Python |
-| 14 | Gerenciador de tarefas em dois módulos | VS Code + Python |
+| 14 | Gerenciador de tarefas em dois módulos *(registro A3)* | VS Code + Python |
+| 14 | Code review em duplas: colaboração e qualidade *(registro A4)* | VS Code + Python |
 
 ### 3º bimestre
 

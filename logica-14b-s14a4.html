@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Percurso sequencial de vetores — Prática guiada S15A2 — Semana 15</title>
+<title>Code review em duplas: colaboração e qualidade — Registro de Aula S14A4 — Semana 14</title>
 <style>
 :root{
   --bg:#f5f7f6; --surface:#ffffff; --surface-2:#eef2f1; --ink:#17222b; --muted:#5d6b75;
@@ -299,14 +299,14 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
 
   <header class="topo">
     <div class="eyebrow">LÓGICA E LINGUAGEM DE PROGRAMAÇÃO</div>
-    <h1>Percurso sequencial de vetores</h1>
-    <div class="sub">Prática guiada S15A2 — Semana 15 · Aula 2 – Índice inicial, condição de parada e erro de limite</div>
-    <div class="chips"><span class="chip">Unidade <b>3 – Listas e percurso sequencial</b></span><span class="chip">Base: <b>Capítulos 25 a 27 — listas, métodos e percurso</b></span><span class="chip">Tempo: <b>35 a 40 min</b></span><span class="chip">Entrega: <b>Prática em sala (não entregue no AVA)</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S15A2</b></span></div>
+    <h1>Code review em duplas: colaboração e qualidade</h1>
+    <div class="sub">Registro de Aula S14A4 — Semana 14 · Aula 4 – Code review em duplas</div>
+    <div class="chips"><span class="chip">Unidade <b>14 (S14) – Revisão integrada &amp; modularização</b></span><span class="chip">Base: <b>Capítulos 32 a 40 — funções, módulos e legibilidade</b></span><span class="chip">Tempo: <b>45 min · em duplas</b></span><span class="chip">Entrega: <b>AVA (documento com as respostas)</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S14A4</b></span></div>
   </header>
 
   <section>
     <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que vocês vão resolver</h2></div>
-    <p class="lead" style="color:var(--ink);font-size:15.5px">Uma escola está desenvolvendo um sistema em Python para analisar notas de alunos. As notas ficam em uma lista e o programa precisa percorrê-la para exibir cada valor. <b>O sistema ainda não está pronto</b>: algumas partes do código estão incompletas ou incorretas. O grupo vai analisar, prever comportamentos e completar o código até chegar a uma versão funcional. Lista de trabalho: <code>notas = [7.0, 8.5, 6.0, 9.0, 5.5]</code>.</p>
+    <p class="lead" style="color:var(--ink);font-size:15.5px">O miniprojeto <b>To Do List</b> da aula anterior está em funcionamento. Em contextos profissionais, a etapa seguinte ao desenvolvimento não se limita à entrega: é necessário <b>revisar o código</b> com foco em qualidade, clareza e manutenção. Para isso existe uma prática amplamente usada, a <b>revisão de código</b> (<i>code review</i>), que ajuda a identificar melhorias, compartilhar boas práticas e aprimorar o trabalho em equipe. <br><br>Nesta atividade você exerce <b>dois papéis</b>: apresentar o seu código e oferecer feedback construtivo ao colega, com base em critérios objetivos.</p>
   </section>
 
   
@@ -315,7 +315,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   <section>
     <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
     <ul class="objetivos">
-      <li><span class="tick">✓</span><span>Identificar a quantidade de elementos, o primeiro e o último índice válido de uma lista.</span></li><li><span class="tick">✓</span><span>Definir corretamente o valor inicial da variável de índice.</span></li><li><span class="tick">✓</span><span>Escrever a condição de parada que percorre toda a lista sem estourar o limite.</span></li><li><span class="tick">✓</span><span>Explicar por que <code>&lt;=</code> na condição gera erro de índice.</span></li>
+      <li><span class="tick">✓</span><span>Apresentar a arquitetura de um projeto em módulos, explicando a responsabilidade de cada arquivo.</span></li><li><span class="tick">✓</span><span>Aplicar um checklist de qualidade para analisar código alheio de forma objetiva.</span></li><li><span class="tick">✓</span><span>Formular feedback técnico em forma de pergunta e de sugestão, em vez de afirmação acusatória.</span></li><li><span class="tick">✓</span><span>Receber crítica técnica sem se justificar, registrando o que pode ser aplicado depois.</span></li>
     </ul>
   </section>
 <section>
@@ -323,16 +323,16 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="ferramenta">
       <div class="marca">PY</div>
       <div>
-        <div class="nome">Visual Studio Code + Python, com análise no papel</div>
-        <div class="desc">Os desafios são de <b>completar código</b>: em vários deles vocês precisam prever o comportamento antes de executar. Rodem no Python para confirmar cada resposta. Guardem a versão final no <b>repositório do grupo no GitHub</b>. <a href="github-passo-a-passo.html">Veja o passo a passo do GitHub</a>.</div>
+        <div class="nome">Visual Studio Code + Python</div>
+        <div class="desc">Não há código novo a escrever: vocês vão <b>abrir no VS Code o projeto To Do List da aula anterior</b> — os arquivos <code>main.py</code> e <code>tarefas.py</code> — e revisar o código um do outro. Rodem o programa antes de apresentar, para mostrar as funcionalidades funcionando. Guardem a versão final no <b>repositório do grupo no GitHub</b>. <a href="github-passo-a-passo.html">Veja o passo a passo do GitHub</a>.</div>
         
       </div>
     </div>
   </section>
 <section>
-      <div class="sec-head"><span class="n">ENTENDA</span><h2>Índices: onde começa e onde termina</h2></div>
-      <p class="lead">Quase todo erro de percurso de lista vem de confundir &lt;b&gt;quantidade de elementos&lt;/b&gt; com &lt;b&gt;último índice válido&lt;/b&gt;. São números diferentes.</p>
-      <div class="visual"><svg viewBox="0 0 560 242" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
+      <div class="sec-head"><span class="n">ENTENDA</span><h2>Como funciona uma revisão de código</h2></div>
+      <p class="lead">A revisão tem duas pessoas e três partes. O que a torna profissional não é encontrar erros: é usar um critério combinado, para a conversa não virar questão de gosto.</p>
+      <div class="visual"><svg viewBox="0 0 620 154" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
       <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
@@ -341,8 +341,11 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="196" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">A lista notas, posição por posição</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">índice:    0     1     2     3     4</text><text x="20" y="78" class="sv-code sv-code-key" xml:space="preserve">valor:    7.0   8.5   6.0   9.0   5.5</text><text x="20" y="104" class="sv-code" xml:space="preserve"> </text><text x="20" y="130" class="sv-code sv-code-soft" xml:space="preserve">len(notas) = 5   ← quantidade de elementos</text><text x="20" y="156" class="sv-code sv-code-soft" xml:space="preserve">último índice válido = 4   ← len - 1</text><text x="280" y="208" class="sv-legend">São 5 valores, mas o maior índice é 4. Essa diferença de 1 é a origem do erro</text><text x="280" y="224" class="sv-legend">do Desafio 4.</text>
-</svg></div><div class="visual"><svg viewBox="0 0 560 252" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
+  <g><rect x="0" y="0" width="176" height="96" rx="10" class="sv-box"/>
+        <text x="88" y="26" class="sv-label">PARTE 1 apresentação</text><text x="88" y="44" class="sv-label">e análise — um</text><text x="88" y="62" class="sv-label">mostra, o outro</text><text x="88" y="80" class="sv-label">anota</text></g><path d="M 184 48 L 212 48" class="sv-arrow" marker-end="url(#sv-head)"/><g><rect x="222" y="0" width="176" height="96" rx="10" class="sv-box"/>
+        <text x="310" y="35" class="sv-label">PARTE 2 conversa de</text><text x="310" y="53" class="sv-label">feedback — perguntas</text><text x="310" y="71" class="sv-label">e sugestões</text></g><path d="M 406 48 L 434 48" class="sv-arrow" marker-end="url(#sv-head)"/><g><rect x="444" y="0" width="176" height="96" rx="10" class="sv-box"/>
+        <text x="532" y="35" class="sv-label">PARTE 3 inversão —</text><text x="532" y="53" class="sv-label">trocam de papel e</text><text x="532" y="71" class="sv-label">repetem</text></g><text x="310" y="124" class="sv-legend">Cada pessoa passa pelos dois lados. Quem só apresenta, ou quem só revisa, aprende metade</text><text x="310" y="140" class="sv-legend">da aula.</text>
+</svg></div><div class="visual"><svg viewBox="0 0 560 372" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
       <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
@@ -351,8 +354,8 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="222" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O esqueleto do percurso</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">i = ___</text><text x="20" y="78" class="sv-code sv-code-key" xml:space="preserve">while i &lt; __________:</text><text x="42" y="104" class="sv-code" xml:space="preserve">print(notas[i])</text><text x="42" y="130" class="sv-code" xml:space="preserve">i += 1</text><text x="20" y="156" class="sv-code" xml:space="preserve"> </text><text x="20" y="182" class="sv-code sv-code-soft" xml:space="preserve">as duas lacunas decidem se o laço funciona</text><text x="280" y="234" class="sv-legend">Desafios 2 e 3: preencher essas duas lacunas.</text>
-</svg></div><div class="visual"><svg viewBox="0 0 660 310" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="560" height="326" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O checklist de qualidade — os cinco critérios</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">1  Clareza dos nomes</text><text x="42" y="78" class="sv-code sv-code-soft" xml:space="preserve">   adicionar_tarefa diz mais do que at</text><text x="20" y="104" class="sv-code sv-code-key" xml:space="preserve">2  Tamanho das funções</text><text x="42" y="130" class="sv-code sv-code-soft" xml:space="preserve">   uma função para listar, outra para adicionar</text><text x="20" y="156" class="sv-code sv-code-key" xml:space="preserve">3  Comentários</text><text x="42" y="182" class="sv-code sv-code-soft" xml:space="preserve">   os trechos complexos estão explicados?</text><text x="20" y="208" class="sv-code sv-code-key" xml:space="preserve">4  Organização</text><text x="42" y="234" class="sv-code sv-code-soft" xml:space="preserve">   main.py conversa com o usuário · tarefas.py mexe nos dados</text><text x="20" y="260" class="sv-code sv-code-key" xml:space="preserve">5  Robustez</text><text x="42" y="286" class="sv-code sv-code-soft" xml:space="preserve">   e se o usuário digitar texto onde se pede número?</text><text x="280" y="338" class="sv-legend">É o checklist que separa revisão técnica de opinião pessoal. Toda observação na</text><text x="280" y="354" class="sv-legend">conversa precisa apontar para um destes cinco itens.</text>
+</svg></div><div class="visual"><svg viewBox="0 0 560 346" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
       <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
@@ -361,24 +364,14 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <polygon points="330,10 455,58 330,106 205,58" class="sv-diamond"/>
-     <text x="330" y="63" class="sv-label">i &lt; len(notas) ?</text>
-     <path d="M 205 58 L 131 58 L 131 186" class="sv-arrow" marker-end="url(#sv-head)"/>
-     <path d="M 455 58 L 529 58 L 529 186" class="sv-arrow" marker-end="url(#sv-head)"/>
-     <text x="149" y="46" class="sv-tag sv-ok">VERDADEIRO</text>
-     <text x="511" y="46" class="sv-tag sv-no" text-anchor="end">FALSO</text>
-     <rect x="8" y="196" width="246" height="72" rx="10" class="sv-box sv-box-ok"/>
-     <text x="131" y="228" class="sv-label">acessa notas[i] com</text><text x="131" y="246" class="sv-label">segurança</text>
-     <rect x="406" y="196" width="246" height="72" rx="10" class="sv-box sv-box-no"/>
-     <text x="529" y="237" class="sv-label">encerra o laço</text>
-     <text x="330" y="292" class="sv-legend">Com &lt;= no lugar de &lt;, o laço tenta acessar notas[5] — que não existe.</text>
+  <rect x="0" y="0" width="560" height="300" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">Como falar — e como não falar</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">em vez de afirmar, pergunte</text><text x="20" y="78" class="sv-code sv-code-soft" xml:space="preserve">✗ "esse nome está ruim"</text><text x="20" y="104" class="sv-code" xml:space="preserve">✓ "como o programa se comporta se o usuário digitar texto aqui?"</text><text x="20" y="130" class="sv-code" xml:space="preserve"> </text><text x="20" y="156" class="sv-code sv-code-key" xml:space="preserve">em vez de impor, sugira</text><text x="20" y="182" class="sv-code sv-code-soft" xml:space="preserve">✗ "troca x por indice_da_tarefa"</text><text x="20" y="208" class="sv-code" xml:space="preserve">✓ "considere renomear x para indice_da_tarefa — a intenção fica explícita"</text><text x="20" y="234" class="sv-code" xml:space="preserve"> </text><text x="20" y="260" class="sv-code sv-code-key" xml:space="preserve">comece sempre por um ponto forte de verdade</text><text x="280" y="312" class="sv-legend">A pergunta faz o outro pensar; a afirmação faz o outro se defender. É por isso</text><text x="280" y="328" class="sv-legend">que a técnica funciona.</text>
 </svg></div>
     </section>
 <section>
     <div class="comoBox">
       <h2>Como preencher este relatório</h2>
       <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S15A2</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S14A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
       </ol>
     </div>
   </section>
@@ -394,72 +387,82 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
        <input type="text" id="id5" data-campo="id5" data-idk="data"></div></div>
   </section>
 <section>
-    <div class="sec-head"><span class="n">PROCEDIMENTOS</span><h2>Resolvam os cinco desafios</h2></div>
+    <div class="sec-head"><span class="n">PROCEDIMENTOS</span><h2>Revisem o código um do outro</h2></div>
     
     <div class="passo">
         <div class="passo-top">
           <span class="passo-num">1</span>
-          <div class="passo-txt">Desafio 1 — Analisem a lista.</div>
+          <div class="passo-txt">Parte 1 — Como apresentador: preparem a demonstração.</div>
         </div>
-        <div class="dica"><b>Como pensar:</b> Contem os valores e prestem atenção: o índice do primeiro elemento não é 1.</div>
-        <div class="campoWrap" data-rel="campo" data-rotulo="D1 — quantidade de valores"><label class="f" for="c0">Quantos valores existem na lista?</label><input type="text" id="c0" data-campo="c0" placeholder=""></div><div class="campoWrap" data-rel="campo" data-rotulo="D1 — índice do primeiro"><label class="f" for="c1">Qual é o índice do primeiro valor?</label><input type="text" id="c1" data-campo="c1" placeholder=""></div><div class="campoWrap" data-rel="campo" data-rotulo="D1 — último índice válido"><label class="f" for="c2">Qual é o último índice válido?</label><input type="text" id="c2" data-campo="c2" placeholder=""></div>
+        <div class="dica"><b>Como pensar:</b> Abram o projeto no VS Code e <b>rodem o <code>main.py</code> antes de falar</b>. A apresentação tem quatro momentos, nesta ordem — o último é o mais importante, porque é onde vocês pedem ajuda de verdade.</div>
+        <div class="campoWrap" data-rel="campo" data-rotulo="Demonstração objetiva"><label class="f" for="c0">Demonstração — quais funcionalidades vocês mostraram em funcionamento?</label><textarea id="c0" data-campo="c0" rows="3" placeholder="Rodamos o main.py e mostramos: adicionar, listar, ..."></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="Explicação da arquitetura"><label class="f" for="c1">Arquitetura — com suas palavras, qual é a responsabilidade de cada arquivo?</label><textarea id="c1" data-campo="c1" rows="3" placeholder="O main.py é responsável por...
+O tarefas.py é responsável por..."></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="Ponto de destaque"><label class="f" for="c2">Ponto de destaque — que trecho vocês consideram bem estruturado, e por quê?</label><textarea id="c2" data-campo="c2" rows="3" placeholder="A função ... ficou boa porque..."></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="Ponto de incerteza"><label class="f" for="c3">Ponto de incerteza — sobre que trecho você tem dúvida e quer a opinião do colega?</label><textarea id="c3" data-campo="c3" rows="3" placeholder="Não tenho certeza se a melhor forma de ... é ..."></textarea></div>
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">2</span>
-          <div class="passo-txt">Desafio 2 — Qual valor deve ser atribuído a i para o percurso começar corretamente?</div>
+          <div class="passo-txt">Parte 1 — Como revisor: apliquem o checklist ao código do colega.</div>
         </div>
-        <div class="dica"><b>Como pensar:</b> O percurso precisa começar no primeiro elemento da lista — e vocês acabaram de descobrir qual é o índice dele.</div>
-        <div class="campoWrap" data-rel="campo" data-rotulo="D2 — valor inicial de i"><label class="f" for="c3">i = </label><input type="text" id="c3" data-campo="c3" placeholder=""></div><div class="campoWrap" data-rel="campo" data-rotulo="D2 — justificativa"><label class="f" for="c4">Por quê?</label><input type="text" id="c4" data-campo="c4" placeholder="Porque o primeiro elemento..."></div>
+        <div class="dica"><b>Como pensar:</b> Primeiro <b>escuta ativa</b>, anotando durante a apresentação. Depois leiam o código por alguns minutos e comparem a leitura com o que vocês anotaram. Marquem cada critério e escrevam a evidência — o trecho concreto que levou à conclusão.</div>
+        <div class="campoWrap tabWrap" data-rel="tabela" data-rotulo="Checklist de qualidade aplicado ao código do colega">
+    <label class="f">Checklist de qualidade aplicado ao código do colega</label>
+    <table><thead><tr><th>Critério</th><th>Atende?</th><th>Evidência — que trecho levou a essa conclusão</th></tr></thead><tbody><tr><td class="fix">1 · Clareza dos nomes</td><td><input type="text" data-campo="t4_0_1"></td><td><input type="text" data-campo="t4_0_2"></td></tr><tr><td class="fix">2 · Tamanho das funções</td><td><input type="text" data-campo="t4_1_1"></td><td><input type="text" data-campo="t4_1_2"></td></tr><tr><td class="fix">3 · Comentários</td><td><input type="text" data-campo="t4_2_1"></td><td><input type="text" data-campo="t4_2_2"></td></tr><tr><td class="fix">4 · Organização (main.py × tarefas.py)</td><td><input type="text" data-campo="t4_3_1"></td><td><input type="text" data-campo="t4_3_2"></td></tr><tr><td class="fix">5 · Robustez com entradas inesperadas</td><td><input type="text" data-campo="t4_4_1"></td><td><input type="text" data-campo="t4_4_2"></td></tr></tbody></table>
+  </div>
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">3</span>
-          <div class="passo-txt">Desafio 3 — Completem a condição de parada.</div>
+          <div class="passo-txt">Parte 2 — Como revisor: escrevam o feedback antes de falar.</div>
         </div>
-        <div class="dica"><b>Como pensar:</b> A condição precisa deixar o laço rodar enquanto houver elemento válido — e parar exatamente quando acabar. Use <code>len()</code>.</div>
-        <div class="campoWrap" data-rel="campo" data-rotulo="D3 — condição de parada"><label class="f" for="c5">while i &lt; ______ :</label><input type="text" id="c5" data-campo="c5" placeholder=""></div><div class="campoWrap" data-rel="campo" data-rotulo="D3 — número de repetições"><label class="f" for="c6">Quantas vezes o laço executa?</label><input type="text" id="c6" data-campo="c6" placeholder=""></div>
+        <div class="dica"><b>Como pensar:</b> Escrever antes evita o comentário solto. Sigam a ordem do roteiro: começar pelo positivo, depois perguntar, depois sugerir — e cada item precisa apontar para um critério do checklist.</div>
+        <div class="campoWrap" data-rel="campo" data-rotulo="Ponto forte"><label class="f" for="c5">Ponto forte observado (comece por aqui)</label><input type="text" id="c5" data-campo="c5" placeholder="Ex.: a organização da função de listagem está clara e facilita a leitura."></div><div class="campoWrap" data-rel="campo" data-rotulo="Pergunta de feedback"><label class="f" for="c6">Uma pergunta que convida à reflexão (não uma afirmação)</label><textarea id="c6" data-campo="c6" rows="2" placeholder="Ex.: como o programa se comporta se o usuário digitar um texto em vez de um número ao remover uma tarefa?"></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="Sugestão de melhoria"><label class="f" for="c7">Uma sugestão de melhoria (não uma imposição) — e a qual critério ela se liga</label><textarea id="c7" data-campo="c7" rows="3" placeholder="Ex.: considere renomear x para indice_da_tarefa. Critério 1 — clareza dos nomes."></textarea></div>
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">4</span>
-          <div class="passo-txt">Desafio 4 — Analisem este código com erro.</div>
+          <div class="passo-txt">Parte 2 — Como apresentador: recebam o feedback sem se justificar.</div>
         </div>
-        <div class="dica"><b>Como pensar:</b> Simulem no papel: com i valendo 5, o que o Python tenta acessar? Depois rodem para confirmar a mensagem de erro.</div>
-        <div class="campoWrap"><div class="modelo">i = 0
-<span class="k">while</span> i <span class="k">&lt;=</span> len(notas):
-    print(notas[i])
-    i += 1</div></div><div class="campoWrap" data-rel="campo" data-rotulo="D4 — funciona?"><label class="f" for="c7">Esse código funciona corretamente?</label><select id="c7" data-campo="c7">
-      <option value="">— escolha —</option>
-      <option value="Sim">Sim</option><option value="Não">Não</option>
-    </select></div><div class="campoWrap" data-rel="campo" data-rotulo="D4 — momento do erro"><label class="f" for="c8">Em que momento ocorre o erro?</label><input type="text" id="c8" data-campo="c8" placeholder="Quando i vale..."></div><div class="campoWrap" data-rel="campo" data-rotulo="D4 — explicação do erro"><label class="f" for="c9">Por que o uso de &lt;= causa problema aqui?</label><textarea id="c9" data-campo="c9" rows="2" placeholder="Porque a lista tem 5 elementos, mas os índices vão de..."></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="D4 — mensagem de erro"><label class="f" for="c10">Qual mensagem de erro o Python mostrou?</label><input type="text" id="c10" data-campo="c10" placeholder="Ex.: IndexError: ..."></div>
+        <div class="dica"><b>Como pensar:</b> Esta é a parte difícil. O roteiro é explícito: <b>ouçam, anotem e agradeçam</b> — nada de explicar por que está daquele jeito. A devolutiva é para coletar, não para defender. As justificativas podem vir depois, se ainda fizerem sentido.</div>
+        <div class="campoWrap" data-rel="campo" data-rotulo="Feedback recebido"><label class="f" for="c8">O que o colega apontou no seu código</label><textarea id="c8" data-campo="c8" rows="4" placeholder="Ponto forte:
+Pergunta:
+Sugestão:"></textarea></div>
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">5</span>
-          <div class="passo-txt">Desafio 5 — Ampliem o programa.</div>
+          <div class="passo-txt">Parte 3 — Invertam os papéis e repitam as partes 1 e 2.</div>
         </div>
-        <div class="dica"><b>Como pensar:</b> Com o percurso correto funcionando, dá para resolver problemas maiores sem mudar a estrutura do laço — só o que acontece dentro dele.</div>
-        <div class="campoWrap" data-rel="campo" data-rotulo="D5 — contar notas"><label class="f" for="c11">Como contar quantas notas existem?</label><textarea id="c11" data-campo="c11" rows="2" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="D5 — maior nota"><label class="f" for="c12">Como identificar a maior nota?</label><textarea id="c12" data-campo="c12" rows="2" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="D5 — somar notas"><label class="f" for="c13">Como somar todas as notas?</label><textarea id="c13" data-campo="c13" rows="2" placeholder=""></textarea></div>
+        <div class="dica"><b>Como pensar:</b> Quem apresentou agora revisa. Ao terminar, confirmem aqui que o ciclo completo foi feito pelos dois lados — é isso que a atividade avalia.</div>
+        <div class="campoWrap" data-rel="campo" data-rotulo="Inversão de papéis concluída"><label class="f" for="c9">As duas pessoas passaram pelos dois papéis?</label><select id="c9" data-campo="c9">
+      <option value="">— escolha —</option>
+      <option value="Sim — apresentamos e revisamos">Sim — apresentamos e revisamos</option><option value="Ainda não completamos a inversão">Ainda não completamos a inversão</option>
+    </select></div><div class="campoWrap" data-rel="campo" data-rotulo="Dupla de revisão"><label class="f" for="c10">Nome do colega com quem a dupla foi formada</label><input type="text" id="c10" data-campo="c10" placeholder="Nome completo"></div>
+      </div><div class="passo">
+        <div class="passo-top">
+          <span class="passo-num">6</span>
+          <div class="passo-txt">Perguntas de consolidação.</div>
+        </div>
+        <div class="dica"><b>Como pensar:</b> As três do roteiro. A terceira é a que dá nome à aula: sem critério combinado, revisão de código vira discussão de preferência.</div>
+        <div class="campoWrap" data-rel="campo" data-rotulo="Q1 — feedback mais útil"><label class="f" for="c11">Qual foi o feedback mais útil que você recebeu? Como ele pode melhorar seu código na próxima versão?</label><textarea id="c11" data-campo="c11" rows="3" placeholder="O mais útil foi... porque na próxima versão eu..."></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="Q2 — oferecer ou receber"><label class="f" for="c12">O que foi mais desafiador: oferecer feedback ou recebê-lo? Justifique.</label><textarea id="c12" data-campo="c12" rows="3" placeholder="Achei mais difícil... porque..."></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="Q3 — o papel do checklist"><label class="f" for="c13">Como o checklist tornou a conversa mais objetiva e menos baseada em opinião pessoal?</label><textarea id="c13" data-campo="c13" rows="3" placeholder="Sem o checklist, a conversa poderia virar... Com ele, cada comentário..."></textarea></div>
       </div>
   </section>
 <section>
     <div class="sec-head"><span class="n">CONFIRA</span><h2>Checklist antes de gerar o PDF</h2></div>
     <div class="progresso" id="progresso"></div>
-    <label class="check"><input type="checkbox" data-check="0"><span>Identificamos quantidade de valores, primeiro índice e último índice válido.</span></label><label class="check"><input type="checkbox" data-check="1"><span>Definimos o valor inicial de i e justificamos.</span></label><label class="check"><input type="checkbox" data-check="2"><span>Completamos a condição de parada usando len().</span></label><label class="check"><input type="checkbox" data-check="3"><span>Explicamos por que o &lt;= gera erro e registramos a mensagem do Python.</span></label><label class="check"><input type="checkbox" data-check="4"><span>Respondemos as três ampliações do Desafio 5.</span></label>
+    <label class="check"><input type="checkbox" data-check="0"><span>Rodamos o main.py e demonstramos as funcionalidades em funcionamento.</span></label><label class="check"><input type="checkbox" data-check="1"><span>Explicamos a responsabilidade de main.py e de tarefas.py com nossas palavras.</span></label><label class="check"><input type="checkbox" data-check="2"><span>Apontamos um ponto de destaque e um ponto de incerteza do nosso código.</span></label><label class="check"><input type="checkbox" data-check="3"><span>Preenchemos os cinco critérios do checklist com evidência, não com impressão.</span></label><label class="check"><input type="checkbox" data-check="4"><span>O feedback começou por um ponto forte, e trouxe uma pergunta e uma sugestão.</span></label><label class="check"><input type="checkbox" data-check="5"><span>Recebemos a devolutiva anotando e agradecendo, sem nos justificarmos na hora.</span></label><label class="check"><input type="checkbox" data-check="6"><span>Invertemos os papéis: as duas pessoas apresentaram e revisaram.</span></label><label class="check"><input type="checkbox" data-check="7"><span>Respondemos as três perguntas de consolidação.</span></label><label class="check"><input type="checkbox" data-check="8"><span>Vamos salvar o PDF como NOME_TURMA_S14A4 e enviar no AVA.</span></label>
     <div class="avisoPDF">
       <b>Ao clicar em “Gerar PDF da resposta”</b>, o navegador monta o relatório completo no padrão de
       roteiro de aula prática — com capa, folha de rosto, objetivos, procedimentos, as respostas do grupo e
       as referências. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b>, salve como
-      <b>NOME_TURMA_S15A2</b> e envie no AVA.
+      <b>NOME_TURMA_S14A4</b> e envie no AVA.
     </div>
   </section>
 <section>
     <div class="sec-head"><span class="n">AVALIAÇÃO</span><h2>Como esta atividade será avaliada</h2></div>
     <div class="tabWrap"><table class="criterios">
       <thead><tr><th>Critério</th><th>Pontos</th></tr></thead>
-      <tbody><tr><td>Análise correta dos índices da lista (Desafio 1)</td><td>2,0</td></tr><tr><td>Percurso completo e correto (Desafios 2 e 3)</td><td>3,0</td></tr><tr><td>Explicação correta do erro de limite (Desafio 4)</td><td>3,0</td></tr><tr><td>Propostas de ampliação coerentes (Desafio 5)</td><td>2,0</td></tr></tbody>
+      <tbody><tr><td>Apresentação completa: demonstração, arquitetura, destaque e incerteza</td><td>2,5</td></tr><tr><td>Checklist preenchido com evidência em cada critério</td><td>2,5</td></tr><tr><td>Feedback na forma pedida: ponto forte, pergunta e sugestão ligada ao checklist</td><td>2,5</td></tr><tr><td>Inversão de papéis concluída e perguntas de consolidação respondidas</td><td>2,5</td></tr></tbody>
     </table></div>
   </section>
 <section>
     <div class="sec-head"><span class="n">REFERÊNCIAS</span><h2>De onde veio o conteúdo desta aula</h2></div>
-    <ul class="refs"><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S15A2AP: “Percurso sequencial de vetores”.</li><li>Apostila da disciplina — Capítulos 25 a 27: listas, métodos de listas e percurso.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 5.1 (listas) e <code>len()</code>.</li></ul>
+    <ul class="refs"><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B2S14A4AP: “Code review em duplas: colaboração e qualidade”.</li><li>GOOGLE. <i>Code Review Guidelines</i>: google.github.io/eng-practices/review/</li><li>MARTIN, R. C. <i>Código limpo: habilidades práticas do agile software</i>. Rio de Janeiro: Alta Books, 2009.</li><li>HUNT, A.; THOMAS, D. <i>O programador pragmático: de aprendiz a mestre</i>. Porto Alegre: Bookman, 2019.</li></ul>
   </section>
 
   <a class="navGit" href="github-passo-a-passo.html">
@@ -468,14 +471,14 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
           <span>Criar a conta, publicar pelo VS Code ou pelo site, e o que colar no AVA</span></span>
       </a>
   <nav class="navAtiv">
-    <a class="" href="logica-14b-s14a4.html">
+    <a class="" href="logica-14-s14a3.html">
           <span class="rot">← Anterior · Semana 14</span>
-          <span class="tit">Code review em duplas: colaboração e qualidade</span>
+          <span class="tit">Gerenciador de tarefas em dois módulos</span>
         </a>
     <a class="meio" href="index.html">Todas as atividades</a>
-    <a class="dir" href="logica-15b-s15a3.html">
+    <a class="dir" href="logica-15a-s15a2.html">
           <span class="rot">Próxima · Semana 15 →</span>
-          <span class="tit">Investigando dados: média, busca e listas</span>
+          <span class="tit">Percurso sequencial de vetores</span>
         </a>
   </nav>
 
@@ -488,7 +491,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       <div class="autores" data-fill="integrantes"></div>
       <div class="tituloTrab">Roteiro de Aula Prática</div>
       <div class="subtitulo">Lógica e Linguagem de Programação</div>
-      <div class="subtitulo">Percurso sequencial de vetores</div>
+      <div class="subtitulo">Code review em duplas: colaboração e qualidade</div>
     </div>
     <div class="fim">
       <div>São Paulo - SP</div>
@@ -500,8 +503,8 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="autores" data-fill="integrantes"></div>
     <div class="meio">
       <div class="tituloTrab">Roteiro de Aula Prática</div>
-      <div class="subtitulo">Percurso sequencial de vetores</div>
-      <div class="fr-nota">Roteiro de Atividade Prática apresentado ao componente curricular Lógica e Linguagem de Programação, como requisito parcial de avaliação do 3º bimestre.</div>
+      <div class="subtitulo">Code review em duplas: colaboração e qualidade</div>
+      <div class="fr-nota">Roteiro de Aula Prática apresentado ao componente curricular Lógica e Linguagem de Programação, como requisito parcial de avaliação do 2º bimestre.</div>
       <div class="fr-orient" data-fill="professor"></div>
       <div class="fr-orient" data-fill="turma"></div>
       <div class="fr-orient" data-fill="data"></div>
@@ -515,20 +518,20 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   <div id="roteiro">
     <h2 class="rtitulo">Roteiro de Aula Prática</h2>
     <div class="rlinha"><b>Nome da disciplina:</b> LÓGICA E LINGUAGEM DE PROGRAMAÇÃO</div>
-    <div class="rlinha"><b>Unidade:</b> 3 – Listas e percurso sequencial</div>
-    <div class="rlinha"><b>Aula:</b> 2 – Índice inicial, condição de parada e erro de limite</div>
-    <div class="rlinha"><b>Base teórica:</b> Capítulos 25 a 27 — listas, métodos e percurso</div>
+    <div class="rlinha"><b>Unidade:</b> 14 (S14) – Revisão integrada &amp; modularização</div>
+    <div class="rlinha"><b>Aula:</b> 4 – Code review em duplas</div>
+    <div class="rlinha"><b>Base teórica:</b> Capítulos 32 a 40 — funções, módulos e legibilidade</div>
 
     <h3>Objetivos</h3>
-    <ul class="lista-obj"><li>Identificar a quantidade de elementos, o primeiro e o último índice válido de uma lista.</li><li>Definir corretamente o valor inicial da variável de índice.</li><li>Escrever a condição de parada que percorre toda a lista sem estourar o limite.</li><li>Explicar por que <code>&lt;=</code> na condição gera erro de índice.</li></ul>
+    <ul class="lista-obj"><li>Apresentar a arquitetura de um projeto em módulos, explicando a responsabilidade de cada arquivo.</li><li>Aplicar um checklist de qualidade para analisar código alheio de forma objetiva.</li><li>Formular feedback técnico em forma de pergunta e de sugestão, em vez de afirmação acusatória.</li><li>Receber crítica técnica sem se justificar, registrando o que pode ser aplicado depois.</li></ul>
 
     <h3>Solução digital</h3>
-    <p>Visual Studio Code + Python, com análise no papel.</p>
+    <p>Visual Studio Code + Python.</p>
     
-    <p>Os desafios são de <b>completar código</b>: em vários deles vocês precisam prever o comportamento antes de executar. Rodem no Python para confirmar cada resposta. Guardem a versão final no <b>repositório do grupo no GitHub</b>. <a href="github-passo-a-passo.html">Veja o passo a passo do GitHub</a>.</p>
+    <p>Não há código novo a escrever: vocês vão <b>abrir no VS Code o projeto To Do List da aula anterior</b> — os arquivos <code>main.py</code> e <code>tarefas.py</code> — e revisar o código um do outro. Rodem o programa antes de apresentar, para mostrar as funcionalidades funcionando. Guardem a versão final no <b>repositório do grupo no GitHub</b>. <a href="github-passo-a-passo.html">Veja o passo a passo do GitHub</a>.</p>
 
     <h3>Procedimento / Atividade</h3>
-    <p><b>Atividade proposta:</b> Uma escola está desenvolvendo um sistema em Python para analisar notas de alunos. As notas ficam em uma lista e o programa precisa percorrê-la para exibir cada valor. <b>O sistema ainda não está pronto</b>: algumas partes do código estão incompletas ou incorretas. O grupo vai analisar, prever comportamentos e completar o código até chegar a uma versão funcional. Lista de trabalho: <code>notas = [7.0, 8.5, 6.0, 9.0, 5.5]</code>.</p>
+    <p><b>Atividade proposta:</b> O miniprojeto <b>To Do List</b> da aula anterior está em funcionamento. Em contextos profissionais, a etapa seguinte ao desenvolvimento não se limita à entrega: é necessário <b>revisar o código</b> com foco em qualidade, clareza e manutenção. Para isso existe uma prática amplamente usada, a <b>revisão de código</b> (<i>code review</i>), que ajuda a identificar melhorias, compartilhar boas práticas e aprimorar o trabalho em equipe. <br><br>Nesta atividade você exerce <b>dois papéis</b>: apresentar o seu código e oferecer feedback construtivo ao colega, com base em critérios objetivos.</p>
 
     <h3>Procedimentos para a realização da atividade</h3>
     <div id="corpoRoteiro"></div>
@@ -539,11 +542,11 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <h3>Critérios de avaliação</h3>
     <table>
       <thead><tr><th>Critério</th><th>Pontos</th></tr></thead>
-      <tbody><tr><td>Análise correta dos índices da lista (Desafio 1)</td><td>2,0</td></tr><tr><td>Percurso completo e correto (Desafios 2 e 3)</td><td>3,0</td></tr><tr><td>Explicação correta do erro de limite (Desafio 4)</td><td>3,0</td></tr><tr><td>Propostas de ampliação coerentes (Desafio 5)</td><td>2,0</td></tr></tbody>
+      <tbody><tr><td>Apresentação completa: demonstração, arquitetura, destaque e incerteza</td><td>2,5</td></tr><tr><td>Checklist preenchido com evidência em cada critério</td><td>2,5</td></tr><tr><td>Feedback na forma pedida: ponto forte, pergunta e sugestão ligada ao checklist</td><td>2,5</td></tr><tr><td>Inversão de papéis concluída e perguntas de consolidação respondidas</td><td>2,5</td></tr></tbody>
     </table>
 
     <h3>Referências</h3>
-    <ul><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S15A2AP: “Percurso sequencial de vetores”.</li><li>Apostila da disciplina — Capítulos 25 a 27: listas, métodos de listas e percurso.</li><li>Documentação oficial do Python — <i>Tutorial</i>, seção 5.1 (listas) e <code>len()</code>.</li></ul>
+    <ul><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B2S14A4AP: “Code review em duplas: colaboração e qualidade”.</li><li>GOOGLE. <i>Code Review Guidelines</i>: google.github.io/eng-practices/review/</li><li>MARTIN, R. C. <i>Código limpo: habilidades práticas do agile software</i>. Rio de Janeiro: Alta Books, 2009.</li><li>HUNT, A.; THOMAS, D. <i>O programador pragmático: de aprendiz a mestre</i>. Porto Alegre: Bookman, 2019.</li></ul>
   </div>
 </div>
 
@@ -557,7 +560,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
 
 <script>
 (function(){
-  var CHAVE = "logica_s15a2";
+  var CHAVE = "logica_s14a4";
   var campos = document.querySelectorAll("[data-campo]");
   var checks = document.querySelectorAll("[data-check]");
   var status = document.getElementById("status");
