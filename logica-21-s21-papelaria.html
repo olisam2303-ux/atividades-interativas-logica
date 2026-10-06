@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Papelaria Ponto Certo — Aula interativa — Semana 21</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: caderno quadriculado no claro, lousa no escuro. Abas no topo; cada aba é uma bancada de trabalho (código à esquerda, execução à direita). */
+:root{
+  --bg:#f3f6fb; --grid:#dde5f2; --surface:#ffffff; --ink:#16233f; --muted:#55627d; --line:#c5d0e3;
+  --accent:#1f4fd8; --accent-ink:#ffffff; --hl:#ffe24a; --hl-ink:#16233f;
+  --ok:#127a4b; --ok-bg:#dcf3e6; --bad:#c22a2a; --bad-bg:#fbe1e1;
+  --term-bg:#101b2d; --term-fg:#e3ebf7; --term-muted:#8a9bb8; --term-in:#ffe24a;
+  --kw:#1f4fd8; --str:#9a4b00; --fn:#7a2a9a; --tag:#fff4b8; --tag-ink:#3d3200; --tag-line:#d9c552;
+  --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",Consolas,"Courier New",monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#12211d; --grid:#1a2f29; --surface:#1a2c27; --ink:#eaf2ec; --muted:#9db3a8; --line:#33514a;
+  --accent:#9cc8ff; --accent-ink:#0d1a16; --hl:#6a5a08; --hl-ink:#fff6c2;
+  --ok:#6fdc9f; --ok-bg:#173d2b; --bad:#ff9a9a; --bad-bg:#4a2222;
+  --term-bg:#0a1512; --term-fg:#e3efe8; --term-muted:#7f978c; --term-in:#ffe77a;
+  --kw:#9cc8ff; --str:#ffc27a; --fn:#e0a8f5; --tag:#3a3413; --tag-ink:#fff1b0; --tag-line:#7a6b1c;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#12211d; --grid:#1a2f29; --surface:#1a2c27; --ink:#eaf2ec; --muted:#9db3a8; --line:#33514a;
+  --accent:#9cc8ff; --accent-ink:#0d1a16; --hl:#6a5a08; --hl-ink:#fff6c2;
+  --ok:#6fdc9f; --ok-bg:#173d2b; --bad:#ff9a9a; --bad-bg:#4a2222;
+  --term-bg:#0a1512; --term-fg:#e3efe8; --term-muted:#7f978c; --term-in:#ffe77a;
+  --kw:#9cc8ff; --str:#ffc27a; --fn:#e0a8f5; --tag:#3a3413; --tag-ink:#fff1b0; --tag-line:#7a6b1c;
+  color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:700}
+h2{font-size:1.35rem;font-weight:700}
+h3{font-size:1rem;font-weight:700}
+p{margin:0}
+.eyebrow{font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.lede{max-width:66ch;color:var(--muted)}
+header{display:flex;flex-direction:column;gap:8px}
+code,.mono{font-family:var(--mono);font-size:.88em}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:6px;overflow-x:auto;background:var(--bg);padding-block:8px;border-bottom:2px solid var(--ink)}
+.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font-weight:600;white-space:nowrap}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+section.tab{display:flex;flex-direction:column;gap:16px}
+.panel{background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.seg{display:inline-flex;flex-wrap:wrap;border:1.5px solid var(--ink);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:var(--surface);padding:7px 12px;font-weight:600}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.btn{border:1.5px solid var(--ink);background:var(--surface);border-radius:8px;padding:7px 13px;font-weight:600}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:disabled{opacity:.45;cursor:default}
+select,input[type=text],textarea{background:var(--surface);border:1.5px solid var(--line);border-radius:8px;padding:7px 10px}
+label.inline{display:inline-flex;gap:6px;align-items:center;font-weight:600;font-size:.9rem}
+
+.roles{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.role{border:1.5px dashed var(--line);border-radius:8px;padding:6px 12px;font-size:.88rem;color:var(--muted);display:flex;flex-direction:column;line-height:1.25}
+.role b{font-family:var(--display);font-size:.98rem;color:var(--ink)}
+.role.on{background:var(--hl);color:var(--hl-ink);border:1.5px solid var(--hl-ink)}
+.role.on b{color:var(--hl-ink)}
+.arrow{color:var(--muted);font-weight:700}
+
+.bench{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:16px;align-items:start}
+.col{display:flex;flex-direction:column;gap:16px;min-width:0}
+@media (max-width:860px){.bench{grid-template-columns:minmax(0,1fr)}#simulador .bench>.col:first-child{order:2}.code{max-height:320px}.term .log{height:220px}}
+@media (max-width:600px){#simulador .seg{display:grid;grid-template-columns:1fr 1fr;width:100%}#simulador .seg button{text-align:left;line-height:1.25}.roles{gap:6px}.role{font-size:0;padding:4px 10px}.role b{font-size:.84rem}}
+
+.code{font-family:var(--mono);font-size:.82rem;line-height:1.7;overflow:auto;max-height:560px;position:relative;border:1.5px solid var(--line);border-radius:8px;padding-block:8px;background:var(--surface)}
+.code .ln{display:flex;white-space:pre;padding-right:14px;min-width:max-content}
+.code .ln i{flex:none;width:2.6em;text-align:right;padding-right:.9em;color:var(--muted);font-style:normal;opacity:.7;user-select:none}
+.code .ln.on{background:var(--hl);color:var(--hl-ink)}
+.code .ln.on span,.code .ln.on i{color:var(--hl-ink);opacity:1}
+.code .ln.miss{color:var(--bad);text-decoration:line-through}
+.k{color:var(--kw);font-weight:600}.s{color:var(--str)}.f{color:var(--fn)}
+
+.term{background:var(--term-bg);color:var(--term-fg);border-radius:10px;font-family:var(--mono);font-size:.84rem;display:flex;flex-direction:column;min-width:0}
+.term .log{height:270px;overflow:auto;padding:12px 14px;white-space:pre-wrap;word-break:break-word;line-height:1.55}
+.term .log b{color:var(--term-in);font-weight:600}
+.term .log .tnote{color:var(--term-muted);font-style:italic}
+.term .log .err{color:#ff9a9a}
+.term form{display:flex;gap:8px;align-items:center;border-top:1px solid var(--term-muted);padding:8px 10px;flex-wrap:wrap}
+.term form span{color:var(--term-muted);min-width:0}
+.term input{flex:1;min-width:90px;background:transparent;border:1px solid var(--term-muted);color:var(--term-in);border-radius:6px;padding:6px 8px;font-family:var(--mono)}
+.term input:disabled{opacity:.5}
+.term form button{background:var(--term-in);color:#1a1a00;border:0;border-radius:6px;padding:6px 12px;font-weight:700;font-family:var(--body)}
+.term form button:disabled{opacity:.4}
+
+.vars{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:6px 12px;align-items:center;font-family:var(--mono);font-size:.84rem}
+.vars dt{color:var(--muted)}.vars dd{margin:0;display:flex;flex-wrap:wrap;gap:6px;min-width:0}
+.frame{border:1.5px dashed var(--accent);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:8px}
+.frame>span{font-size:.78rem;font-weight:700;color:var(--accent)}
+.tag{background:var(--tag);color:var(--tag-ink);border:1.5px solid var(--tag-line);border-radius:4px 10px 10px 4px;padding:3px 10px 3px 8px;font-family:var(--mono);font-size:.82rem;display:inline-flex;gap:6px;align-items:center;position:relative}
+.tag small{font-size:.72rem;opacity:.75}
+.tag.seen{opacity:.45}
+.tag.cur{outline:3px solid var(--accent);outline-offset:2px}
+.tag.hit{background:var(--ok-bg);color:var(--ok);border-color:var(--ok)}
+.bool{border-radius:5px;padding:1px 7px;font-weight:600}
+.bool.t{background:var(--ok-bg);color:var(--ok)}.bool.f{background:var(--bad-bg);color:var(--bad)}
+.empty{color:var(--muted)}
+
+ul.todo{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+ul.todo li{display:flex;gap:8px;align-items:baseline}
+ul.todo li::before{content:"○";color:var(--muted);font-weight:700}
+ul.todo li.done{color:var(--ok)}ul.todo li.done::before{content:"✓";color:var(--ok)}
+
+.cond{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
+.cond div{border:1.5px solid var(--line);border-radius:8px;padding:8px 10px;display:flex;flex-direction:column;gap:3px;font-family:var(--mono);font-size:.82rem}
+.cond div.off{opacity:.4;text-decoration:line-through}
+.cond .op{border:0;justify-content:center;font-weight:700;padding-inline:2px}
+.note{background:var(--hl);color:var(--hl-ink);border-radius:8px;padding:10px 12px;font-weight:500;min-height:3.2em}
+.out{background:var(--term-bg);color:var(--term-fg);border-radius:8px;padding:10px 12px;font-family:var(--mono);font-size:.84rem;min-height:2.6em;white-space:pre-wrap}
+.out .err{color:#ff9a9a}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 11px;font-size:.86rem;font-family:var(--mono)}
+.chip.on{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.tags{display:flex;flex-wrap:wrap;gap:10px 8px;align-items:center}
+.chip:disabled{opacity:.35;cursor:default}
+.slot{border:1.5px dashed var(--line);border-radius:8px;padding:6px 12px;min-width:7.5em;text-align:center;font-weight:600}
+.slot.fill{border-style:solid;border-color:var(--ink)}
+.seq{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.cls{display:grid;grid-template-columns:minmax(0,1fr) max-content;gap:8px 12px;align-items:center}
+.cls code{overflow-x:auto;white-space:pre;display:block}
+@media (max-width:520px){.cls{grid-template-columns:minmax(0,1fr)}}
+select.ok{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}select.bad{border-color:var(--bad);background:var(--bad-bg)}
+.how{display:flex;flex-direction:column;gap:12px;max-width:780px}
+.how .panel{gap:8px}.how .head{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between}
+.how ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:5px}
+.how .warn{border-style:dashed;border-color:var(--accent)}
+ol.evo{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:8px}ol.evo b{font-family:var(--display)}
+.count{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.88rem}
+
+.ex pre{margin:0;font-family:var(--mono);font-size:.82rem;line-height:1.9;overflow-x:auto;border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;white-space:pre}
+.ex input.blank{font-family:var(--mono);font-size:.82rem;padding:3px 8px;border:1.5px dashed var(--accent);border-radius:6px;width:min(36ch,70vw)}
+.ex input.blank.ok{border:1.5px solid var(--ok);background:var(--ok-bg);color:var(--ok)}
+.ex input.blank.bad{border:1.5px solid var(--bad);background:var(--bad-bg)}
+.fb{font-size:.92rem;max-width:70ch}.fb.ok{color:var(--ok)}.fb.bad{color:var(--bad)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px}
+
+.q .opts{display:flex;flex-direction:column;gap:6px}
+.q .opts button{text-align:left;border:1.5px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 12px}
+.q .opts button.ok{background:var(--ok-bg);border-color:var(--ok);color:var(--ok);font-weight:600}
+.q .opts button.bad{background:var(--bad-bg);border-color:var(--bad);color:var(--bad)}
+.q .opts button:disabled{cursor:default}
+.check label{display:flex;gap:10px;align-items:flex-start;padding:5px 0}
+.check input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent)}
+textarea{width:100%;min-height:170px;resize:vertical;line-height:1.5}
+.three{display:flex;flex-direction:column;gap:6px}
+.three code{background:var(--tag);color:var(--tag-ink);border:1.5px solid var(--tag-line);border-radius:6px;padding:5px 10px;font-size:.84rem;overflow-x:auto;white-space:pre;display:block}
+@media (prefers-reduced-motion:no-preference){.code .ln,.role,.tag{transition:background-color .15s,opacity .15s}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="eyebrow">Estruturas de Repetição · Semana 21 · Aulas 1 a 4 · Python</span>
+  <h1>Papelaria Ponto Certo</h1>
+  <p class="lede">Depois que o usuário escolhe uma opção, quais etapas o programa executa antes de mostrar o resultado ou exibir o menu de novo? Acompanhe o mesmo programa crescer em quatro aulas, do menu que roda uma vez só até a papelaria que cadastra e consulta produtos.</p>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Partes da aula">
+  <button role="tab" data-tab="como" id="t-como">Como fazer</button>
+  <button role="tab" data-tab="simulador" id="t-simulador">Simulador</button>
+  <button role="tab" data-tab="fluxo" id="t-fluxo">Fluxo e validação</button>
+  <button role="tab" data-tab="busca" id="t-busca">Busca passo a passo</button>
+  <button role="tab" data-tab="codigo" id="t-codigo">Complete o código</button>
+  <button role="tab" data-tab="teste" id="t-teste">O que acontece se…</button>
+  <button role="tab" data-tab="entrega" id="t-entrega">Checklist e relato</button>
+</nav>
+
+<!-- COMO FAZER -->
+<section class="tab" id="como" role="tabpanel" hidden>
+  <p class="lede">A atividade tem seis partes. Faça na ordem abaixo, no celular ou no computador.</p>
+  <div class="how">
+    <div class="panel">
+      <div class="head"><h2>1. Simulador</h2><button class="btn primary" data-go="simulador">Abrir o simulador</button></div>
+      <ul>
+        <li>Escolha a versão do programa nos botões <b>Aula 1</b>, <b>Aula 2</b>, <b>Aula 3</b> e <b>Aula 4</b>. Comece pela Aula 1 e vá até a Aula 4.</li>
+        <li>Digite no campo do terminal e toque em <b>Enter</b>, como se estivesse usando o programa de verdade.</li>
+        <li>Acompanhe a linha destacada no código, que é a linha em execução, e o quadro <b>Memória do programa</b>, que mostra o valor de cada variável.</li>
+        <li>Cumpra todos os itens do <b>Roteiro de testes</b> de cada versão. Eles ficam marcados sozinhos quando você faz o teste.</li>
+        <li>Nas Aulas 1 e 2 o programa termina depois de uma escolha. Toque em <b>Reiniciar programa</b> para testar outra opção.</li>
+        <li>No preço, use ponto e não vírgula: <code>2.50</code>.</li>
+        <li>Para ver com calma, mude o <b>Ritmo</b> para “Linha por linha” e avance com <b>Próxima linha</b>.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <div class="head"><h2>2. Fluxo e validação</h2><button class="btn" data-go="fluxo">Abrir</button></div>
+      <ul>
+        <li>Ordene as quatro etapas do fluxo de execução.</li>
+        <li>Em “Que etapa é esta linha?”, escolha a etapa de cada linha de código.</li>
+        <li>No <b>Laboratório da validação</b>, digite 8, depois 1, depois 0. Em seguida troque <code>and</code> por <code>or</code> e teste a opção 1 de novo. Observe o que muda.</li>
+        <li>Classifique as frases em “Funções” ou “Validação”.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <div class="head"><h2>3. Busca passo a passo</h2><button class="btn" data-go="busca">Abrir</button></div>
+      <ul>
+        <li>Escolha um nome, por exemplo <code>caneta</code>, e toque em <b>Próximo passo</b> até o fim. Observe <code>i</code>, <code>encontrado</code> e a condição do <code>while</code>.</li>
+        <li>Repita com um produto que não existe (<code>grampeador</code>) e com <code>Caneta</code>, com maiúscula.</li>
+        <li>No campo <b>Código</b>, escolha cada um dos dois erros e veja o que acontece com o programa.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <div class="head"><h2>4. Complete o código</h2><button class="btn" data-go="codigo">Abrir</button></div>
+      <ul>
+        <li>Preencha as cinco lacunas e toque em <b>Verificar</b>. Tente antes de usar “Mostrar resposta”.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <div class="head"><h2>5. O que acontece se…</h2><button class="btn" data-go="teste">Abrir</button></div>
+      <ul>
+        <li>Responda as 14 situações. Leia a explicação que aparece depois de cada resposta.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <div class="head"><h2>6. Checklist e relato</h2><button class="btn" data-go="entrega">Abrir</button></div>
+      <ul>
+        <li>Marque no checklist o que o <b>seu</b> programa, feito no Python, já faz.</li>
+        <li>Escreva o relato de cinco a oito linhas explicando como o programa evoluiu na semana, do primeiro menu até cadastrar e consultar produtos.</li>
+        <li>Os cinco tópicos abaixo da caixa de texto ficam destacados quando aparecem no seu relato: menu, funções, decisão, repetição e funcionalidades.</li>
+        <li>Toque em <b>Copiar texto</b> e cole o relato no AVA.</li>
+      </ul>
+    </div>
+    <div class="panel warn">
+      <h3>Atenção</h3>
+      <p>O checklist e o rascunho do relato ficam salvos só no aparelho e no navegador que você usou. Os acertos das outras abas não são salvos nem enviados ao professor. O que vale como entrega é o relato postado no AVA.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SIMULADOR -->
+<section class="tab" id="simulador" role="tabpanel">
+  <div class="bar">
+    <div class="seg" role="group" aria-label="Versão do programa">
+      <button id="v1" aria-pressed="false">Aula 1 · menu simples</button>
+      <button id="v2" aria-pressed="false">Aula 2 · funções e validação</button>
+      <button id="v3" aria-pressed="false">Aula 3 · repetição e cadastro</button>
+      <button id="v4" aria-pressed="true">Aula 4 · preço e consulta</button>
+    </div>
+    <label class="inline" for="speed">Ritmo
+      <select id="speed">
+        <option value="passo">Linha por linha</option>
+        <option value="900">Devagar</option>
+        <option value="350" selected>Normal</option>
+        <option value="0">Direto</option>
+      </select>
+    </label>
+    <button class="btn primary" id="stepBtn" disabled>Próxima linha ▶</button>
+    <button class="btn" id="restart">Reiniciar programa</button>
+  </div>
+  <div class="roles">
+    <div class="role" id="r-ent"><b>Entrada</b>recebe a escolha</div>
+    <div class="role" id="r-val"><b>Validação</b>verifica a entrada</div>
+    <div class="role" id="r-dec"><b>Decisão</b>escolhe o caminho</div>
+    <div class="role" id="r-fun"><b>Função</b>executa uma tarefa</div>
+    <div class="role" id="r-sai"><b>Saída</b>apresenta o resultado</div>
+    <div class="role" id="r-rep"><b>Repetição</b>mantém o menu funcionando</div>
+  </div>
+  <div class="bench">
+    <div class="col">
+      <div class="code" id="simCode" aria-label="Código do programa"></div>
+    </div>
+    <div class="col">
+      <div class="term">
+        <div class="log" id="log" aria-live="polite"></div>
+        <form id="inForm" autocomplete="off">
+          <span id="promptEl"></span>
+          <input type="text" id="inField" aria-label="Entrada do programa" disabled placeholder="aguarde o programa pedir…">
+          <button id="inBtn" disabled>Enter</button>
+        </form>
+      </div>
+      <div class="panel">
+        <h3>Memória do programa</h3>
+        <div id="mem"></div>
+      </div>
+      <div class="panel">
+        <h3>Roteiro de testes</h3>
+        <ul class="todo" id="missions"></ul>
+        <p class="count">No preço, use ponto: <code>2.50</code>. Com vírgula o <code>float()</code> dá erro, igual no Python de verdade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLUXO -->
+<section class="tab" id="fluxo" role="tabpanel" hidden>
+  <div class="grid2">
+    <div class="panel">
+      <h2>Ordene o fluxo de execução</h2>
+      <p class="fb">Toque nas etapas na ordem em que o programa as executa.</p>
+      <div class="chips" id="ordPool"></div>
+      <div class="seq" id="ordSeq"></div>
+      <div class="bar"><button class="btn" id="ordReset">Limpar</button></div>
+      <p class="fb" id="ordFb"></p>
+    </div>
+    <div class="panel">
+      <h2>Que etapa é esta linha?</h2>
+      <div class="cls" id="cls"></div>
+      <p class="count" id="clsCount"></p>
+    </div>
+    <div class="panel">
+      <h2>Laboratório da validação</h2>
+      <p class="fb">Digite uma opção e veja cada parte da condição. Depois troque <code>and</code> por <code>or</code> e teste a opção 1.</p>
+      <div class="bar">
+        <label class="inline" for="labOp">opcao = <input type="text" id="labOp" value="8" size="6"></label>
+        <div class="seg" role="group" aria-label="Operador"><button id="labAnd" aria-pressed="true">and</button><button id="labOr" aria-pressed="false">or</button></div>
+      </div>
+      <div class="code" id="labCode"></div>
+      <div class="cond" id="labCond"></div>
+      <div class="out" id="labOut"></div>
+      <div class="note" id="labNote"></div>
+    </div>
+    <div class="panel">
+      <h2>Funções e validação têm papéis diferentes</h2>
+      <p class="fb">De qual das duas é cada frase?</p>
+      <div class="cls" id="fv"></div>
+      <p class="fb" id="fvFb"></p>
+    </div>
+  </div>
+</section>
+
+<!-- BUSCA -->
+<section class="tab" id="busca" role="tabpanel" hidden>
+  <div class="bar">
+    <label class="inline" for="nomeBusca">nome_busca =
+      <input type="text" id="nomeBusca" value="caneta" size="14">
+    </label>
+    <div class="chips" id="buscaChips"></div>
+  </div>
+  <div class="bar">
+    <label class="inline" for="variante">Código
+      <select id="variante">
+        <option value="ok">Correto</option>
+        <option value="noinc">Erro: esqueceu o i += 1</option>
+        <option value="nobound">Erro: sem i &lt; len(produtos)</option>
+      </select>
+    </label>
+    <button class="btn" id="bPrev">◀ Voltar</button>
+    <button class="btn primary" id="bNext">Próximo passo ▶</button>
+    <button class="btn" id="bReset">Do início</button>
+    <span class="count" id="bCount"></span>
+  </div>
+  <div class="bench">
+    <div class="col">
+      <div class="code" id="buscaCode"></div>
+      <div class="note" id="bNote" aria-live="polite"></div>
+    </div>
+    <div class="col">
+      <div class="panel">
+        <h3>produtos</h3>
+        <div class="tags" id="bTags"></div>
+        <dl class="vars" id="bVars"></dl>
+      </div>
+      <div class="panel">
+        <h3>A condição do while, agora</h3>
+        <div class="cond" id="bCond"></div>
+      </div>
+      <div class="panel">
+        <h3>Saída</h3>
+        <div class="out" id="bOut"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLETE -->
+<section class="tab" id="codigo" role="tabpanel" hidden>
+  <p class="lede">Preencha cada lacuna com a linha que falta. Espaços a mais ou a menos não contam como erro.</p>
+  <div class="grid2" id="exs"></div>
+</section>
+
+<!-- QUIZ -->
+<section class="tab" id="teste" role="tabpanel" hidden>
+  <div class="bar"><h2>O que acontece se…</h2><span class="count" id="score"></span><button class="btn" id="quizReset">Recomeçar</button></div>
+  <div class="grid2" id="quiz"></div>
+</section>
+
+<!-- ENTREGA -->
+<section class="tab" id="entrega" role="tabpanel" hidden>
+  <div class="grid2">
+    <div class="panel check">
+      <h2>O programa final faz tudo isto?</h2>
+      <span class="count" id="ckCount"></span>
+      <div id="ck"></div>
+    </div>
+    <div class="col">
+      <div class="panel">
+        <h2>Relato para o AVA</h2>
+        <p class="fb">Em cinco a oito linhas, explique como o programa evoluiu na semana, do primeiro menu até cadastrar e consultar produtos. Mostre que entendeu o processo, sem só listar etapas.</p>
+        <textarea id="relato" placeholder="No começo da semana o programa só mostrava um menu…"></textarea>
+        <div class="chips" id="topicos"></div>
+        <div class="bar"><span class="count" id="relCount"></span><button class="btn" id="copy">Copiar texto</button></div>
+      </div>
+      <div class="panel">
+        <h3>A evolução em quatro aulas</h3>
+        <ol class="evo">
+          <li><b>Aula 1.</b> Menu simples, executado uma vez: entrada, decisão e saída.</li>
+          <li><b>Aula 2.</b> O código é organizado em funções e a opção passa a ser validada.</li>
+          <li><b>Aula 3.</b> A repetição mantém o menu funcionando e o cadastro é ligado à opção 1.</li>
+          <li><b>Aula 4.</b> O preço é validado, a consulta é ligada à opção 2 e tudo é testado de novo.</li>
+        </ol>
+        <p class="fb">O programa cresce por etapas: a estrutura anterior é reaproveitada e cada nova funcionalidade é integrada ao menu.</p>
+      </div>
+      <div class="panel three">
+        <h3>Três trechos para não esquecer</h3>
+        <code>produtos.append((nome, preco))</code>
+        <code>while not preco_valido:</code>
+        <code>while i &lt; len(produtos) and not encontrado:</code>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const esc=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const RX=/("(?:[^"\\]|\\.)*")|\b(def|while|if|elif|else|not|and|True|False)\b|\b(print|input|float|len)\b/g;
+function hl(t){let o='',l=0,m;RX.lastIndex=0;while((m=RX.exec(t))){o+=esc(t.slice(l,m.index))+'<span class="'+(m[1]?'s':m[2]?'k':'f')+'">'+esc(m[0])+'</span>';l=RX.lastIndex}return o+esc(t.slice(l))}
+const pyF=n=>Number.isInteger(n)?n.toFixed(1):String(n);
+const pyS=s=>'"'+s+'"';
+const bool=b=>'<span class="bool '+(b?'t':'f')+'">'+(b?'True':'False')+'</span>';
+const tag=(p,i,cls)=>'<span class="tag '+(cls||'')+'"><small>['+i+']</small>('+esc(pyS(p[0]))+', '+pyF(p[1])+')</span>';
+let store={};try{store=JSON.parse(localStorage.getItem('ppc21')||'{}')||{}}catch(e){}
+const save=()=>{try{localStorage.setItem('ppc21',JSON.stringify(store))}catch(e){}};
+function renderCode(el,lines){el.innerHTML=lines.map((l,n)=>'<div class="ln'+(l[2]?' '+l[2]:'')+'" data-k="'+l[0]+'"><i>'+(n+1)+'</i><span>'+hl(l[1])+'</span></div>').join('')}
+function lightLine(el,key){el.querySelectorAll('.ln.on').forEach(x=>x.classList.remove('on'));if(!key)return;const ln=el.querySelector('[data-k="'+key+'"]');if(ln){ln.classList.add('on');el.scrollTop=Math.max(0,ln.offsetTop-el.clientHeight/2)}}
+
+/* ---------- abas ---------- */
+const tabs=[...document.querySelectorAll('.tabs button')];
+function showTab(name,push){if(!$(name)||!tabs.some(t=>t.dataset.tab===name))name='simulador';
+  tabs.forEach(t=>t.setAttribute('aria-selected',t.dataset.tab===name));
+  document.querySelectorAll('section.tab').forEach(s=>s.hidden=s.id!==name);
+  if(push){try{history.replaceState(null,'','#'+name)}catch(e){}}}
+tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab,true)));
+document.getElementById('como').addEventListener('click',e=>{const g=e.target.dataset.go;if(g){showTab(g,true);scrollTo(0,0)}});
+addEventListener('hashchange',()=>showTab((location.hash||'').slice(1)));
+showTab((location.hash||'').slice(1)||'simulador');
+
+/* ---------- simulador ---------- */
+const MENU3=[['','def mostrar_menu():'],['','    print("=== PAPELARIA PONTO CERTO ===")'],['','    print("1 - Cadastrar produto")'],['','    print("2 - Consultar produto")'],['','    print("0 - Sair")'],['','']];
+const MENU4=[['','def mostrar_menu(total):'],['','    print("=== PAPELARIA PONTO CERTO ===")'],['','    print(f"Produtos cadastrados: {total}")'],['','    print("1 - Cadastrar produto")'],['','    print("2 - Consultar produto")'],['','    print("0 - Sair")'],['','']];
+const CODE={
+1:[['p1','print("=== MENU ===")'],['p2','print("1 - Ver mensagem")'],['p3','print("0 - Sair")'],['',''],
+['opcao','opcao = input("Escolha: ")'],['',''],
+['if1','if opcao == "1":'],['msg','    print("Bem-vindo!")'],['',''],
+['if0','if opcao == "0":'],['enc','    print("Encerrando...")']],
+2:[['m_def','def mostrar_menu():'],['m1','    print("=== MENU ===")'],['m2','    print("1 - Ver mensagem")'],['m3','    print("0 - Sair")'],['',''],
+['g_def','def mostrar_mensagem():'],['g1','    print("Bem-vindo!")'],['',''],
+['menu','mostrar_menu()'],['',''],
+['opcao','opcao = input("Escolha: ")'],['',''],
+['if1','if opcao == "1":'],['call1','    mostrar_mensagem()'],['',''],
+['val','if opcao != "1" and opcao != "0":'],['invalida','    print("Opção inválida.")']],
+3:MENU3.concat([
+['c_def','def cadastrar_produto(produtos):'],
+['c_nome','    nome = input("Nome do produto: ")'],
+['c_preco','    preco = float(input("Preço do produto: "))'],
+['c_append','    produtos.append((nome, preco))'],
+['c_print','    print("Produto cadastrado com sucesso!")'],
+['',''],
+['init1','produtos = []'],['init2','continuar = True'],['',''],
+['while','while continuar:'],
+['menu','    mostrar_menu()'],
+['opcao','    opcao = input("Escolha uma opção: ")'],
+['if1','    if opcao == "1":'],
+['call1','        cadastrar_produto(produtos)'],
+['elif2','    elif opcao == "2":'],
+['call2','        print("Função de consulta ainda será implementada.")'],
+['elif0','    elif opcao == "0":'],
+['sair','        continuar = False'],
+['else','    else:'],
+['invalida','        print("Opção inválida.")']]),
+4:MENU4.concat([
+['c_def','def cadastrar_produto(produtos):'],
+['c_nome','    nome = input("Nome do produto: ")'],
+['c_pv','    preco_valido = False'],
+['c_while','    while not preco_valido:'],
+['c_preco','        preco = float(input("Preço do produto (maior que zero): "))'],
+['c_if','        if preco > 0:'],
+['c_true','            preco_valido = True'],
+['c_else','        else:'],
+['c_msg','            print("Preço inválido. Digite um valor maior que zero.")'],
+['c_append','    produtos.append((nome, preco))'],
+['c_print','    print("Produto cadastrado com sucesso!")'],
+['',''],
+['q_def','def consultar_produto(produtos):'],
+['q_nome','    nome_busca = input("Digite o nome do produto: ")'],
+['q_enc','    encontrado = False'],
+['q_i','    i = 0'],
+['q_while','    while i < len(produtos) and not encontrado:'],
+['q_if','        if produtos[i][0] == nome_busca:'],
+['q_print','            print(f"Produto encontrado: {produtos[i][0]} - R$ {produtos[i][1]:.2f}")'],
+['q_true','            encontrado = True'],
+['q_inc','        i += 1'],
+['q_ifnot','    if not encontrado:'],
+['q_nao','        print("Produto não encontrado.")'],
+['',''],
+['init1','produtos = []'],['init2','continuar = True'],['',''],
+['while','while continuar:'],
+['menu','    mostrar_menu(len(produtos))'],
+['opcao','    opcao = input("Escolha uma opção: ")'],
+['if1','    if opcao == "1":'],
+['call1','        cadastrar_produto(produtos)'],
+['elif2','    elif opcao == "2":'],
+['call2','        consultar_produto(produtos)'],
+['elif0','    elif opcao == "0":'],
+['sair','        continuar = False'],
+['else','    else:'],
+['invalida','        print("Opção inválida.")']])};
+const MISSIONS={
+1:[['op1','Escolha 1 e veja a mensagem'],['op0','Reinicie e escolha 0'],['op8','Reinicie e digite 8: o que o programa responde?']],
+2:[['op1','Escolha 1: o menu chama mostrar_mensagem()'],['op0','Reinicie e escolha 0: é reconhecida como válida'],['op8','Reinicie e digite 8: a validação avisa']],
+3:[['cad1','Cadastre um produto'],['cad2','Cadastre outro e veja os dois na mesma lista'],['op2','Escolha a opção 2'],['inv','Digite uma opção que não existe'],['sair','Encerre com a opção 0']],
+4:[['cad1','Cadastre um produto'],['cad2','Cadastre outro e veja os dois na mesma lista'],['preco','Tente um preço zero ou negativo'],['achou','Consulte um produto que existe'],['nao','Consulte um produto que não existe'],['inv','Digite uma opção que não existe'],['sair','Encerre com a opção 0']]};
+const ABORT={};function PyErr(m){this.m=m}
+let ver=4,runId=0,cancel=null,stepRes=null,inputRes=null,touched=false,done={};
+let G={},frame=null,curKey=null;
+const simCode=$('simCode'),log=$('log'),field=$('inField'),inBtn=$('inBtn'),promptEl=$('promptEl'),stepBtn=$('stepBtn'),speed=$('speed');
+
+function out(html,cls){const d=document.createElement('div');if(cls)d.className=cls;d.innerHTML=html;log.appendChild(d);log.scrollTop=log.scrollHeight}
+const print=t=>out(esc(t));
+function mark(id){if(!done[id]){done[id]=true;renderMissions()}}
+function renderMissions(){$('missions').innerHTML=MISSIONS[ver].map(m=>'<li class="'+(done[m[0]]?'done':'')+'">'+m[1]+'</li>').join('')}
+function val(v){if(typeof v==='boolean')return bool(v);if(typeof v==='number')return esc(pyF(v));if(typeof v==='string')return esc(pyS(v));return v}
+function renderMem(){
+  let h='<dl class="vars">';
+  if('produtos' in G){h+='<dt>produtos</dt><dd>'+(G.produtos.length?G.produtos.map((p,i)=>tag(p,i,frame&&frame.v.i===i&&frame.fn==='consultar_produto'?'cur':'')).join(''):'<span class="empty">[ ] lista vazia</span>')+'</dd>'}
+  if('continuar' in G)h+='<dt>continuar</dt><dd>'+bool(G.continuar)+'</dd>';
+  if('opcao' in G)h+='<dt>opcao</dt><dd>'+val(G.opcao)+'</dd>';
+  h+='</dl>';
+  if(!Object.keys(G).length)h='<p class="empty">Nenhuma variável criada ainda.</p>';
+  if(frame){h+='<div class="frame"><span>dentro de '+frame.fn+'('+(frame.a||'')+')</span><dl class="vars">';
+    const ks=Object.keys(frame.v);
+    h+=ks.length?ks.map(k=>'<dt>'+k+'</dt><dd>'+val(frame.v[k])+'</dd>').join(''):'<dt class="empty">sem variáveis locais ainda</dt><dd></dd>';
+    h+='</dl></div>'}
+  $('mem').innerHTML=h}
+const VAL=['val','invalida','else','c_pv','c_while','c_if','c_true','c_else','c_msg'];
+function paint(){
+  lightLine(simCode,curKey);
+  const ln=curKey&&CODE[ver].find(l=>l[0]===curKey);const t=ln?ln[1].trim():'';
+  const k=curKey||'',on={ent:t.includes('input('),val:VAL.includes(k),dec:/^(if|elif|else)\b/.test(t),fun:!!frame||(/^call|^menu/.test(k)&&!t.startsWith('print(')),sai:t.startsWith('print(')||k==='menu',rep:t.startsWith('while')};
+  for(const r in on)$('r-'+r).classList.toggle('on',on[r]);
+  renderMem()}
+function pause(){return new Promise((res,rej)=>{cancel=rej;
+  if(speed.value==='passo'){stepRes=res;stepBtn.disabled=false}else setTimeout(res,+speed.value)})}
+async function at(k){curKey=k;paint();await pause()}
+function doStep(){if(stepRes){const r=stepRes;stepRes=null;stepBtn.disabled=true;r()}}
+stepBtn.addEventListener('click',doStep);
+speed.addEventListener('change',()=>{if(speed.value!=='passo')doStep()});
+function input(p){return new Promise((res,rej)=>{cancel=rej;promptEl.textContent=p;field.disabled=false;inBtn.disabled=false;field.value='';field.placeholder='digite e tecle Enter';
+  if(touched)field.focus({preventScroll:true});
+  inputRes=v=>{out(esc(p)+'<b>'+esc(v)+'</b>');res(v)}})}
+$('inForm').addEventListener('submit',e=>{e.preventDefault();touched=true;if(!inputRes)return;const r=inputRes;inputRes=null;field.disabled=true;inBtn.disabled=true;promptEl.textContent='';field.placeholder='aguarde o programa pedir…';const v=field.value;field.value='';r(v)});
+function toFloat(s){const t=s.trim();if(!/^[+-]?(\d+\.?\d*|\.\d+)(e[+-]?\d+)?$/i.test(t))throw new PyErr("ValueError: could not convert string to float: '"+s+"'");return Number(t)}
+
+async function cadastrar(){
+  frame={fn:'cadastrar_produto',a:'produtos',v:{}};await at('c_def');
+  await at('c_nome');frame.v.nome=await input('Nome do produto: ');
+  if(ver===3){await at('c_preco');frame.v.preco=toFloat(await input('Preço do produto: '))}
+  else{
+    await at('c_pv');frame.v.preco_valido=false;
+    while(true){await at('c_while');if(frame.v.preco_valido)break;
+      await at('c_preco');frame.v.preco=toFloat(await input('Preço do produto (maior que zero): '));
+      await at('c_if');
+      if(frame.v.preco>0){await at('c_true');frame.v.preco_valido=true}
+      else{await at('c_else');await at('c_msg');print('Preço inválido. Digite um valor maior que zero.');mark('preco')}}}
+  await at('c_append');G.produtos.push([frame.v.nome,frame.v.preco]);
+  await at('c_print');print('Produto cadastrado com sucesso!');
+  mark('cad1');if(G.produtos.length>1)mark('cad2');
+  frame=null}
+async function consultar(){
+  const P=G.produtos;frame={fn:'consultar_produto',a:'produtos',v:{}};await at('q_def');
+  await at('q_nome');frame.v.nome_busca=await input('Digite o nome do produto: ');
+  await at('q_enc');frame.v.encontrado=false;
+  await at('q_i');frame.v.i=0;
+  while(true){await at('q_while');if(!(frame.v.i<P.length&&!frame.v.encontrado))break;
+    await at('q_if');
+    if(P[frame.v.i][0]===frame.v.nome_busca){
+      await at('q_print');print('Produto encontrado: '+P[frame.v.i][0]+' - R$ '+P[frame.v.i][1].toFixed(2));
+      await at('q_true');frame.v.encontrado=true;mark('achou')}
+    await at('q_inc');frame.v.i++}
+  await at('q_ifnot');
+  if(!frame.v.encontrado){await at('q_nao');print('Produto não encontrado.');mark('nao')}
+  frame=null}
+async function prog1(){
+  await at('p1');print('=== MENU ===');await at('p2');print('1 - Ver mensagem');await at('p3');print('0 - Sair');
+  await at('opcao');G.opcao=await input('Escolha: ');
+  await at('if1');if(G.opcao==='1'){await at('msg');print('Bem-vindo!');mark('op1')}
+  await at('if0');if(G.opcao==='0'){await at('enc');print('Encerrando...');mark('op0')}
+  if(G.opcao!=='1'&&G.opcao!=='0'){mark('op8');out('Nenhum if foi atendido: o programa não respondeu nada. Falta validar a entrada.','tnote')}}
+async function prog2(){
+  await at('menu');frame={fn:'mostrar_menu',v:{}};await at('m_def');await at('m1');print('=== MENU ===');await at('m2');print('1 - Ver mensagem');await at('m3');print('0 - Sair');frame=null;
+  await at('opcao');G.opcao=await input('Escolha: ');
+  await at('if1');if(G.opcao==='1'){await at('call1');frame={fn:'mostrar_mensagem',v:{}};await at('g_def');await at('g1');print('Bem-vindo!');frame=null;mark('op1')}
+  await at('val');
+  if(G.opcao!=='1'&&G.opcao!=='0'){await at('invalida');print('Opção inválida.');mark('op8')}
+  else if(G.opcao==='0'){mark('op0');out('"0" é uma opção válida, mas este código ainda não faz nada com ela.','tnote')}}
+async function programa(){
+  if(ver===1)return prog1();if(ver===2)return prog2();
+  await at('init1');G.produtos=[];
+  await at('init2');G.continuar=true;
+  while(true){
+    await at('while');if(!G.continuar)break;
+    await at('menu');
+    print('');print('=== PAPELARIA PONTO CERTO ===');if(ver===4)print('Produtos cadastrados: '+G.produtos.length);
+    print('1 - Cadastrar produto');print('2 - Consultar produto');print('0 - Sair');
+    await at('opcao');G.opcao=await input('Escolha uma opção: ');
+    await at('if1');
+    if(G.opcao==='1'){await at('call1');await cadastrar()}
+    else{await at('elif2');
+      if(G.opcao==='2'){await at('call2');if(ver===4)await consultar();else{print('Função de consulta ainda será implementada.');mark('op2')}}
+      else{await at('elif0');
+        if(G.opcao==='0'){await at('sair');G.continuar=false;mark('sair')}
+        else{await at('else');await at('invalida');print('Opção inválida.');mark('inv')}}}}}
+async function run(){
+  const id=++runId;if(cancel){const c=cancel;cancel=null;c(ABORT)}
+  stepRes=null;inputRes=null;stepBtn.disabled=true;field.disabled=true;inBtn.disabled=true;promptEl.textContent='';
+  G={};frame=null;curKey=null;log.innerHTML='';
+  out('$ python papelaria.py','tnote');
+  renderCode(simCode,CODE[ver]);simCode.scrollTop=simCode.scrollHeight;paint();
+  try{await programa();if(id!==runId)return;curKey=null;paint();
+    out(ver<3?'O código chegou à última linha e o programa terminou. Para ver o menu de novo é preciso executar outra vez: ainda falta a repetição.':'continuar ficou False: o while terminou e o programa foi encerrado. Use “Reiniciar programa” para rodar de novo.','tnote')}
+  catch(e){if(e===ABORT||id!==runId)return;
+    if(e instanceof PyErr){out(esc(e.m),'err');out('O programa parou com erro. Reinicie para tentar de novo.','tnote');frame=null;paint()}else throw e}}
+function setVer(v){ver=v;done={};[1,2,3,4].forEach(n=>$('v'+n).setAttribute('aria-pressed',v===n));renderMissions();run()}
+[1,2,3,4].forEach(n=>$('v'+n).addEventListener('click',()=>setVer(n)));
+$('restart').addEventListener('click',()=>{touched=true;run()});
+renderMissions();run();
+
+/* ---------- fluxo e validação ---------- */
+const ORD=['entrada','decisão','processamento','saída'],POOL=['saída','entrada','decisão','processamento'];let pick=[];
+function drawOrd(){
+  $('ordPool').innerHTML=POOL.map(p=>'<button class="chip" style="font-family:var(--body)" data-p="'+p+'"'+(pick.includes(p)?' disabled':'')+'>'+p+'</button>').join('');
+  $('ordSeq').innerHTML=[0,1,2,3].map(n=>'<span class="slot'+(pick[n]?' fill':'')+'">'+(pick[n]||(n+1)+'ª etapa')+'</span>').join('<span class="arrow">→</span>');
+  const fb=$('ordFb');if(pick.length<4){fb.className='fb';fb.textContent='';return}
+  const ok=pick.every((p,n)=>p===ORD[n]);fb.className='fb '+(ok?'ok':'bad');
+  fb.textContent=ok?'Certo. Quando o menu deve continuar, a repetição faz o fluxo voltar ao início.':'Ainda não. Pense: o programa precisa receber a escolha antes de decidir, e só mostra a resposta depois de executar a ação. Limpe e tente de novo.'}
+$('ordPool').addEventListener('click',e=>{const p=e.target.dataset.p;if(p&&!pick.includes(p)){pick.push(p);drawOrd()}});
+$('ordReset').addEventListener('click',()=>{pick=[];drawOrd()});drawOrd();
+function classify(el,items,opts,after){
+  el.innerHTML=items.map((it,n)=>(it[2]?'<code>'+hl(it[0])+'</code>':'<span>'+esc(it[0])+'</span>')+'<select id="'+el.id+n+'" aria-label="Resposta '+(n+1)+'"><option value="">escolha…</option>'+opts.map(o=>'<option>'+o+'</option>').join('')+'</select>').join('');
+  el.addEventListener('change',e=>{const n=+e.target.id.slice(el.id.length),v=e.target.value;e.target.className=v?(v===items[n][1]?'ok':'bad'):'';
+    after(items.filter((it,k)=>$(el.id+k).value===it[1]).length,items.length)})}
+classify($('cls'),[['opcao = input("Escolha: ")','Entrada',1],['if opcao == "1":','Decisão',1],['print("Bem-vindo!")','Saída',1],['if opcao != "1" and opcao != "0":','Validação',1],['mostrar_mensagem()','Função',1],['while continuar:','Repetição',1]],
+  ['Entrada','Validação','Decisão','Função','Saída','Repetição'],(c,t)=>{$('clsCount').textContent=c+' de '+t+' certas'});
+classify($('fv'),[['Organizam o código','Funções'],['Verifica a entrada','Validação'],['Separam responsabilidades','Funções'],['Impede opções não previstas','Validação'],['Facilitam alterações e reutilização','Funções'],['Orienta o usuário e aumenta a confiabilidade','Validação']],
+  ['Funções','Validação'],(c,t)=>{$('fvFb').className='fb'+(c===t?' ok':'');$('fvFb').textContent=c===t?'Funções organizam o programa; validações tornam sua execução mais confiável.':c+' de '+t+' certas'});
+let labOr=false;
+function drawLab(){const o=$('labOp').value,a=o!=='1',b=o!=='0',r=labOr?a||b:a&&b,op=labOr?'or':'and',q=esc(pyS(o));
+  renderCode($('labCode'),[['x','if opcao != "1" '+op+' opcao != "0":'],['y','    print("Opção inválida.")']]);
+  $('labCond').innerHTML='<div><span>opcao != "1"</span><span>'+q+' != "1"</span>'+bool(a)+'</div><div class="op">'+op+'</div><div><span>opcao != "0"</span><span>'+q+' != "0"</span>'+bool(b)+'</div><div class="op">=</div><div><span>é inválida?</span>'+bool(r)+'</div>';
+  $('labOut').innerHTML=r?'Opção inválida.':'<span style="color:var(--term-muted)">nada é impresso: a opção é aceita</span>';
+  const valid=o==='1'||o==='0';
+  $('labNote').textContent=labOr?(valid?'Com or, a opção "'+o+'" foi recusada só por ser diferente da outra opção válida. Toda entrada seria inválida. Por isso a condição usa and.':'Aqui or e and dão o mesmo resultado. Teste 1 ou 0 para ver a diferença.')
+    :(r?'É diferente de "1" e também diferente de "0": as duas partes são True ao mesmo tempo, então a opção não existe.':'Uma das partes é False, então o and dá False: a opção existe no menu.')}
+$('labOp').addEventListener('input',drawLab);
+$('labAnd').addEventListener('click',()=>{labOr=false;$('labAnd').setAttribute('aria-pressed',true);$('labOr').setAttribute('aria-pressed',false);drawLab()});
+$('labOr').addEventListener('click',()=>{labOr=true;$('labAnd').setAttribute('aria-pressed',false);$('labOr').setAttribute('aria-pressed',true);drawLab()});
+drawLab();
+
+/* ---------- busca passo a passo ---------- */
+const L=[['caderno',18.9],['lápis',1.5],['borracha',2],['caneta',3.2],['régua',4.75]];
+const BCODE={ok:[['enc','encontrado = False'],['i0','i = 0'],['while','while i < len(produtos) and not encontrado:'],['if','    if produtos[i][0] == nome_busca:'],['print','        print(f"Produto encontrado: {produtos[i][0]} - R$ {produtos[i][1]:.2f}")'],['true','        encontrado = True'],['inc','    i += 1'],['ifnot','if not encontrado:'],['nao','    print("Produto não encontrado.")']]};
+BCODE.noinc=BCODE.ok.map(l=>l[0]==='inc'?['inc','    i += 1','miss']:l);
+BCODE.nobound=BCODE.ok.map(l=>l[0]==='while'?['while','while not encontrado:']:l);
+let steps=[],si=0;
+function gen(nome,variant){
+  const S=[];let i=null,enc=null,o=[],hit=-1,loops=0;
+  const push=(line,note,x)=>S.push(Object.assign({line,i,enc,note,out:o.slice(),hit},x||{}));
+  enc=false;push('enc','No início, o produto ainda não foi encontrado.');
+  i=0;push('i0','A busca começa na posição 0, o primeiro produto da lista.');
+  while(true){
+    const a=i<L.length,b=!enc,c=variant==='nobound'?b:a&&b;
+    push('while',c?(variant==='nobound'?'O produto ainda não foi encontrado, então o laço continua. Ninguém conferiu se ainda há produtos.':'Ainda há produtos para verificar (i = '+i+') e nada foi encontrado: as duas partes são True, o laço continua.')
+      :(!b?'encontrado é True, então not encontrado é False. O laço termina sem olhar o resto da lista.':'i chegou a '+L.length+', o tamanho da lista. Não há mais produtos: o laço termina.'));
+    if(!c)break;
+    if(i>=L.length){push('if','produtos['+i+'] não existe: a lista só vai até a posição '+(L.length-1)+'. A parte i < len(produtos) evitava esse acesso inválido.',{err:'IndexError: list index out of range'});return S}
+    const eq=L[i][0]===nome;
+    push('if','Compara "'+L[i][0]+'" com "'+nome+'": '+(eq?'são iguais.':'são diferentes'+(L[i][0].toLowerCase()===nome.toLowerCase()?' (maiúsculas e minúsculas contam).':'.')),{cur:i});
+    if(eq){hit=i;o.push('Produto encontrado: '+L[i][0]+' - R$ '+L[i][1].toFixed(2));push('print','Mostra o nome e o preço com duas casas decimais.',{cur:i});
+      enc=true;push('true','encontrado recebe True. A busca não precisa continuar.',{cur:i})}
+    if(variant!=='noinc'){i++;push('inc','i aumenta para '+i+': próxima posição.')}
+    else if(!enc&&++loops>=3){push('while','Sem o i += 1, i fica em '+i+' para sempre. O programa compara o mesmo produto sem parar: laço infinito.',{err:'(o programa travou em um laço infinito)'});return S}
+  }
+  push('ifnot',enc?'encontrado é True, então not encontrado é False: a mensagem de “não encontrado” é pulada.':'A lista acabou e encontrado continua False.');
+  if(!enc){o.push('Produto não encontrado.');push('nao','O programa avisa que o produto não existe na lista.')}
+  push(null,'A função termina e o programa volta ao menu.');
+  return S}
+function drawBusca(){
+  const s=steps[si],v=$('variante').value;
+  lightLine($('buscaCode'),s.line);
+  $('bNote').textContent=s.note;
+  $('bTags').innerHTML=L.map((p,k)=>tag(p,k,k===s.hit?'hit':k===s.cur?'cur':(s.i!==null&&k<s.i?'seen':''))).join('');
+  $('bVars').innerHTML='<dt>nome_busca</dt><dd>'+esc(pyS($('nomeBusca').value))+'</dd><dt>encontrado</dt><dd>'+(s.enc===null?'<span class="empty">—</span>':bool(s.enc))+'</dd><dt>i</dt><dd>'+(s.i===null?'<span class="empty">—</span>':s.i+(s.i>=L.length?' <span class="empty">(fim da lista)</span>':''))+'</dd>';
+  if(s.i===null||s.enc===null)$('bCond').innerHTML='<span class="empty">As variáveis ainda estão sendo criadas.</span>';
+  else{const a=s.i<L.length,b=!s.enc,nb=v==='nobound';
+    $('bCond').innerHTML='<div class="'+(nb?'off':'')+'"><span>i &lt; len(produtos)</span><span>'+s.i+' &lt; '+L.length+'</span>'+bool(a)+'</div><div class="op">and</div><div><span>not encontrado</span><span>not '+(s.enc?'True':'False')+'</span>'+bool(b)+'</div><div class="op">=</div><div><span>'+(nb||(a&&b)?'continua':'para')+'</span>'+bool(nb?b:a&&b)+'</div>'}
+  $('bOut').innerHTML=(s.out.map(esc).join('\n')||'<span class="empty" style="color:var(--term-muted)">nada impresso ainda</span>')+(s.err?'\n<span class="err">'+esc(s.err)+'</span>':'');
+  $('bCount').textContent='passo '+(si+1)+' de '+steps.length;
+  $('bPrev').disabled=si===0;$('bNext').disabled=si===steps.length-1}
+function resetBusca(){const v=$('variante').value;renderCode($('buscaCode'),BCODE[v]);steps=gen($('nomeBusca').value,v);si=0;drawBusca()}
+$('buscaChips').innerHTML=['caneta','caderno','régua','grampeador','Caneta'].map(n=>'<button class="chip" data-n="'+n+'">'+n+'</button>').join('');
+$('buscaChips').addEventListener('click',e=>{const n=e.target.dataset.n;if(n){$('nomeBusca').value=n;resetBusca()}});
+$('nomeBusca').addEventListener('input',resetBusca);$('variante').addEventListener('change',resetBusca);
+$('bNext').addEventListener('click',()=>{if(si<steps.length-1){si++;drawBusca()}});
+$('bPrev').addEventListener('click',()=>{if(si>0){si--;drawBusca()}});
+$('bReset').addEventListener('click',()=>{si=0;drawBusca()});
+resetBusca();
+
+/* ---------- complete o código ---------- */
+const EX=[
+{t:'1. Guardar o produto na lista',pre:'def cadastrar_produto(produtos):\n    nome = input("Nome do produto: ")\n    preco = float(input("Preço do produto: "))\n\n    ',pos:'\n\n    print("Produto cadastrado com sucesso!")',
+ r:['produtos.append((nome,preco))'],show:'produtos.append((nome, preco))',dica:'Onde os dados são guardados? Na lista produtos, com append. Nome e preço vão juntos, entre parênteses.',
+ exp:'A função recebe a lista como parâmetro e adiciona nela. Se criasse uma lista nova a cada chamada, os produtos anteriores seriam perdidos.',
+ esp:v=>/append\(nome,preco\)/.test(v)?'Quase: append recebe um item só. Junte nome e preço em uma tupla, com dois pares de parênteses.':''},
+{t:'2. Ligar o cadastro ao menu',pre:'if opcao == "1":\n    ',pos:'',r:['cadastrar_produto(produtos)'],show:'cadastrar_produto(produtos)',dica:'Chame a função de cadastro pelo nome exato e entregue a lista a ela.',
+ exp:'Depois que a função termina, a repetição leva o programa de volta ao menu.',esp:v=>/^cadastrar_produto\(\)$/.test(v)?'Faltou entregar a lista: a função precisa de produtos entre os parênteses.':''},
+{t:'3. Repetir até o preço ser válido',pre:'preco_valido = False\n\nwhile ',pos:':\n    preco = float(input("Preço do produto (maior que zero): "))',r:['notpreco_valido','preco_valido==False'],show:'not preco_valido',dica:'Leia em voz alta: enquanto o preço ainda NÃO for válido…',
+ exp:'O programa continua pedindo o preço até receber um valor maior que zero. Só então preco_valido vira True e o laço termina.',esp:v=>v==='preco_valido'?'Assim o laço nem começa: preco_valido começa False. Falta negar a condição.':''},
+{t:'4. Ligar a consulta ao menu',pre:'elif opcao == "2":\n    ',pos:'',r:['consultar_produto(produtos)'],show:'consultar_produto(produtos)',dica:'Mesma ideia da opção 1, com a função de consulta.',
+ exp:'A estrutura do menu continua a mesma. Só uma nova função foi ligada à opção 2, e o fluxo volta ao menu depois.',esp:()=>''},
+{t:'5. A condição da busca',pre:'i = 0\n\nwhile ',pos:':',r:['i<len(produtos)andnotencontrado','notencontradoandi<len(produtos)'],show:'i < len(produtos) and not encontrado',dica:'São duas situações ao mesmo tempo: ainda há produtos para verificar E o produto ainda não foi encontrado.',
+ exp:'A primeira parte evita acessar uma posição que não existe. A segunda interrompe a busca assim que o produto é localizado.',esp:v=>/\bor\b|or/.test(v)&&!/and/.test(v)?'Com or o laço continuaria mesmo depois do fim da lista. As duas partes precisam ser verdadeiras juntas.':(/<=len/.test(v)?'Cuidado: com <= o i chega a len(produtos), posição que não existe.':'')}];
+$('exs').innerHTML=EX.map((e,n)=>'<div class="panel ex"><h3>'+e.t+'</h3><pre>'+hl(e.pre)+'<input class="blank" id="blank'+n+'" aria-label="Lacuna do exercício '+(n+1)+'" spellcheck="false" autocomplete="off">'+hl(e.pos)+'</pre><div class="bar"><button class="btn primary" data-ck="'+n+'">Verificar</button><button class="btn" data-sh="'+n+'">Mostrar resposta</button></div><p class="fb" id="fb'+n+'"></p></div>').join('');
+function checkEx(n){const e=EX[n],inp=$('blank'+n),fb=$('fb'+n),v=inp.value.replace(/\s+/g,'').replace(/:$/,'');
+  if(!v){fb.className='fb';fb.textContent='Escreva a linha que falta.';return}
+  const ok=e.r.includes(v);inp.classList.toggle('ok',ok);inp.classList.toggle('bad',!ok);
+  fb.className='fb '+(ok?'ok':'bad');fb.textContent=ok?'Certo. '+e.exp:(e.esp(v)||'Ainda não. '+e.dica)}
+$('exs').addEventListener('click',ev=>{const d=ev.target.dataset;
+  if(d.ck!==undefined)checkEx(+d.ck);
+  if(d.sh!==undefined){const n=+d.sh;$('blank'+n).value=EX[n].show;checkEx(n)}});
+$('exs').addEventListener('keydown',ev=>{if(ev.key==='Enter'&&ev.target.classList.contains('blank'))checkEx(+ev.target.id.slice(5))});
+
+/* ---------- quiz ---------- */
+const QZ=[
+['No caixa eletrônico, o programa recebe o pedido de saque, consulta o saldo, verifica se há valor disponível e mostra uma mensagem. Qual etapa define se o saque pode continuar?',['Entrada da opção','Decisão sobre o saldo','Repetição do menu'],1,'O programa compara o valor pedido com o saldo. Essa comparação escolhe o caminho: saque ou aviso.'],
+['Por que o código compara opcao com "1", entre aspas?',['Porque input() devolve um texto','Porque números não podem ser comparados','Porque as aspas deixam o programa mais rápido'],0,'A opção recebida por input() é um texto, então é comparada com outro texto.'],
+['No programa da Aula 1, o usuário escolhe 1 e vê “Bem-vindo!”. E depois?',['O menu aparece de novo','O programa pede outra opção','O programa termina'],2,'O menu da Aula 1 roda uma vez só. Para ele voltar, o mesmo fluxo precisa ser executado novamente: é a necessidade da repetição.'],
+['O programa foi organizado em funções. Isso impede que a opção 8 seja aceita?',['Sim, funções recusam opções desconhecidas','Não: funções organizam o código, quem verifica a entrada é a validação','Sim, desde que cada função tenha uma responsabilidade'],1,'Funções organizam o programa; validações tornam sua execução mais confiável. São papéis diferentes.'],
+['O que garante que o menu continue sendo exibido até o usuário escolher encerrar?',['O número de opções','A velocidade de digitação','A estrutura de repetição que envolve o menu'],2,'A repetição mantém o menu em execução até a opção de saída.'],
+['Depois de ligar a consulta à opção 2, por que testar de novo o cadastro e a saída?',['Para confirmar que a ampliação não prejudicou o que já funcionava','Porque o Python apaga funções antigas','Não é preciso: só a parte nova deve ser testada'],0,'Os testes percorrem todos os caminhos possíveis: opção válida, inválida, produto existente, inexistente e saída.'],
+['O usuário escolhe a opção 1 duas vezes seguidas. O que fica na lista?',['Só o segundo produto, porque a função cria uma lista nova','Dois produtos, na mesma lista','Nenhum, até escolher a opção 0'],1,'A mesma função é chamada duas vezes e adiciona à mesma lista recebida como parâmetro.'],
+['O usuário digita 7 no menu. O que o programa faz?',['Encerra com erro','Mostra “Opção inválida.” e volta ao menu','Cadastra um produto vazio'],1,'Nenhuma condição anterior é atendida, então o else é executado. O programa continua dentro da repetição.'],
+['O que faz o programa parar quando o usuário escolhe 0?',['A função sair() é chamada','continuar recebe False e a condição do while deixa de ser verdadeira','O else interrompe o programa'],1,'O while só repete enquanto continuar for True.'],
+['No cadastro da Aula 4, o usuário digita o preço -5. O que acontece?',['O produto é cadastrado com preço negativo','Aparece a mensagem de preço inválido e o preço é pedido de novo','O programa volta ao menu sem cadastrar'],1,'preco > 0 é falso, preco_valido continua False e o while repete. O append só acontece depois.'],
+['Alguém esqueceu a linha preco_valido = True. Qual é o efeito?',['O programa aceita qualquer preço','O programa pede o preço para sempre, mesmo com valores válidos','O produto é cadastrado duas vezes'],1,'Sem alterar a variável de controle, not preco_valido nunca deixa de ser verdadeiro.'],
+['Busca por um produto que NÃO existe. Qual parte da condição encerra o laço?',['i < len(produtos) fica falso','not encontrado fica falso','Nenhuma: o laço é infinito'],0,'i cresce até o tamanho da lista. encontrado continua False, por isso aparece “Produto não encontrado.”'],
+['Busca por um produto que está na posição 1 de uma lista com 5 itens. Quantos produtos são comparados?',['Cinco','Dois','Um'],1,'Posições 0 e 1. Quando encontrado vira True, not encontrado fica falso e o resto da lista não é verificado.'],
+['Por que cadastrar_produto recebe a lista como parâmetro?',['Para adicionar os novos produtos à mesma lista usada pelo programa','Porque toda função precisa de um parâmetro','Para apagar a lista antes de cada cadastro'],0,'Se uma lista nova fosse criada a cada chamada, os cadastros anteriores seriam perdidos.']];
+let qa={};
+function drawQuiz(){$('quiz').innerHTML=QZ.map((q,n)=>{const a=qa[n];return '<div class="panel q"><h3>'+(n+1)+'. '+esc(q[0])+'</h3><div class="opts">'+q[1].map((o,k)=>'<button data-q="'+n+'" data-o="'+k+'"'+(a!==undefined?' disabled':'')+' class="'+(a!==undefined?(k===q[2]?'ok':k===a?'bad':''):'')+'">'+esc(o)+'</button>').join('')+'</div>'+(a!==undefined?'<p class="fb">'+esc(q[3])+'</p>':'')+'</div>'}).join('');
+  const n=Object.keys(qa).length,c=Object.keys(qa).filter(k=>qa[k]===QZ[k][2]).length;
+  $('score').textContent=n?c+' de '+n+' certas · faltam '+(QZ.length-n):QZ.length+' situações para prever'}
+$('quiz').addEventListener('click',e=>{const d=e.target.dataset;if(d.q!==undefined&&qa[d.q]===undefined){qa[d.q]=+d.o;drawQuiz()}});
+$('quizReset').addEventListener('click',()=>{qa={};drawQuiz()});drawQuiz();
+
+/* ---------- checklist e relato ---------- */
+const CK=['O menu é exibido corretamente.','A opção do usuário é recebida.','A função de cadastro é chamada.','O produto é adicionado à lista.','Apenas preços maiores que zero são aceitos.','A consulta localiza produtos existentes.','O programa informa quando o produto não é encontrado.','Uma opção inválida é informada ao usuário.','O menu continua após cada operação.','A opção 0 encerra o programa.'];
+store.ck=store.ck||[];
+$('ck').innerHTML=CK.map((c,n)=>'<label><input type="checkbox" id="ck'+n+'"'+(store.ck[n]?' checked':'')+'><span>'+c+'</span></label>').join('');
+const ckCount=()=>{$('ckCount').textContent=CK.filter((c,n)=>store.ck[n]).length+' de '+CK.length+' conferidos no meu programa'};
+$('ck').addEventListener('change',e=>{store.ck[+e.target.id.slice(2)]=e.target.checked;save();ckCount()});ckCount();
+const TOP=[['organização do menu',/menu/i],['uso de funções',/fun[cç]/i],['estruturas de decisão',/decis|\bif\b|elif|else/i],['repetição',/repeti|while|la[cç]o/i],['funcionalidades implementadas',/cadastr|consult|valida/i]];
+const rel=$('relato');rel.value=store.rel||'';
+function drawRel(){const t=rel.value,w=(t.trim().match(/\S+/g)||[]).length;
+  $('topicos').innerHTML=TOP.map(x=>'<span class="chip'+(x[1].test(t)?' on':'')+'" style="font-family:var(--body)">'+x[0]+'</span>').join('');
+  $('relCount').textContent=w+' palavras · 5 a 8 linhas dão mais ou menos 60 a 110'}
+rel.addEventListener('input',()=>{store.rel=rel.value;save();drawRel()});drawRel();
+$('copy').addEventListener('click',()=>{const b=$('copy'),ok=()=>{b.textContent='Copiado';setTimeout(()=>b.textContent='Copiar texto',1500)};
+  try{navigator.clipboard.writeText(rel.value).then(ok,()=>{rel.focus();rel.select()})}catch(e){rel.focus();rel.select()}});
+})();
+</script>
+
+</body>
+</html>
