@@ -65,6 +65,12 @@ formulário preenchível e geração do relatório em PDF direto pelo navegador.
 | 20 | Gerador de relatório de estoque *(prática guiada A3)* | VS Code + Python |
 | 20 | Integrador de dados com planilhas *(registro A4)* | VS Code + Python (csv) |
 
+### 4º bimestre
+
+| Semana | Atividade | Ferramenta |
+|---|---|---|
+| 21 | Programando com menu no terminal *(aula interativa, Aulas 1 a 4)* | Navegador + VS Code + Python |
+
 ## Ferramentas do laboratório
 
 As atividades usam apenas o que está instalado nos computadores da escola e
