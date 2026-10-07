@@ -292,6 +292,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   #roteiro th{background:#e8e8e8;color:#000;text-transform:none;font-variant:small-caps;letter-spacing:0}
   #roteiro .checkline{margin-bottom:1.5mm;font-size:11pt}
 }
+
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;background:var(--bg);padding:8px 0;border-bottom:2px solid var(--border-strong);margin-bottom:6px}
+.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:1.5px solid var(--border-strong);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font-weight:600;white-space:nowrap;cursor:pointer;font:inherit}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+section.tab{display:flex;flex-direction:column;gap:16px}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -304,6 +311,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="chips"><span class="chip">Unidade <b>1 (S1) – Introdução à estrutura básica de programação</b></span><span class="chip">Base: <b>Capítulo 1 — O que é programação?</b></span><span class="chip">Tempo: <b>25 a 30 min</b></span><span class="chip">Entrega: <b>AVA</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S01A2</b></span></div>
   </header>
 
+  <nav class="tabs" role="tablist" aria-label="Partes da atividade">
+    <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
+    <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
+  </nav>
+
+<section class="tab" id="como" role="tabpanel">
   <section>
     <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que vocês vão resolver</h2></div>
     <p class="lead" style="color:var(--ink);font-size:15.5px">Escolham <b>uma</b> destas quatro situações do dia a dia e escrevam um algoritmo detalhado para ela: fazer um suco natural, trocar o pneu de uma bicicleta, organizar uma festa surpresa, ou preparar-se para uma prova. O algoritmo precisa ter entre <b>10 e 20 passos</b> numerados.</p>
@@ -375,6 +389,47 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       </ol>
     </div>
   </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>Como o algoritmo anda, passo a passo</h2></div>
+  <p class="lead">Um algoritmo sequencial é lido de cima para baixo, sem voltar atrás. Abaixo está o esqueleto do exemplo do suco natural: use a mesma forma para a situação que o grupo escolheu.</p>
+  <div class="visual">
+    <svg viewBox="0 0 560 400" class="sv" role="img" aria-label="Fluxograma sequencial: início, passos 1 a 3 em sequência, reticências para os demais passos, e fim">
+      <defs>
+        <marker id="fl-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="180" y="10" width="200" height="40" rx="20" class="sv-box-ok"/>
+      <text x="280" y="35" class="sv-label">INÍCIO</text>
+      <path d="M280 50 L280 72" class="sv-arrow" marker-end="url(#fl-head)"/>
+      <rect x="170" y="74" width="220" height="44" rx="8" class="sv-box"/>
+      <text x="280" y="101" class="sv-label">1. Pegar as frutas</text>
+      <path d="M280 118 L280 140" class="sv-arrow" marker-end="url(#fl-head)"/>
+      <rect x="170" y="142" width="220" height="44" rx="8" class="sv-box"/>
+      <text x="280" y="169" class="sv-label">2. Lavar as frutas</text>
+      <path d="M280 186 L280 208" class="sv-arrow" marker-end="url(#fl-head)"/>
+      <rect x="170" y="210" width="220" height="44" rx="8" class="sv-box"/>
+      <text x="280" y="237" class="sv-label">3. Bater no liquidificador</text>
+      <path d="M280 254 L280 276" class="sv-arrow" marker-end="url(#fl-head)"/>
+      <rect x="170" y="278" width="220" height="36" rx="8" class="sv-box-soft"/>
+      <text x="280" y="301" class="sv-label">... (até o passo 10 a 20)</text>
+      <path d="M280 314 L280 336" class="sv-arrow" marker-end="url(#fl-head)"/>
+      <rect x="180" y="338" width="200" height="40" rx="20" class="sv-box-ok"/>
+      <text x="280" y="363" class="sv-label">FIM</text>
+    </svg>
+    <div class="cap">Exemplo do suco natural, com o começo do algoritmo. A sua situação precisa ter entre 10 e 20 passos.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>Oval: marca o <b>início</b> e o <b>fim</b> do algoritmo.</span></li>
+      <li><span class="num">2</span><span>Retângulo: um <b>passo</b> — uma ação que alguém faz.</span></li>
+      <li><span class="num">3</span><span>Seta: a <b>ordem</b> em que os passos acontecem. Cada passo vem depois do anterior, e nenhum volta atrás nesta aula.</span></li>
+    </ol>
+  </div>
+</section>
+<section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
     <div class="sec-head"><span class="n">PASSO 0</span><h2>Identificação</h2></div>
     <p class="lead">Estes dados montam a capa e a folha de rosto do relatório em PDF.</p>
@@ -453,6 +508,7 @@ FIM"></textarea></div>
   </section>
 
   
+</section>
   <nav class="navAtiv">
     <span class="vazio"></span>
     <a class="meio" href="index.html">Todas as atividades</a>
@@ -751,6 +807,19 @@ FIM"></textarea></div>
   window.addEventListener("beforeprint", montarRelatorio);
 
   carregar(); pintarChecks();
+})();
+</script>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button'));
+  function show(name){
+    if(!document.getElementById(name)) name='como';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String(t.dataset.tab===name)); });
+    document.querySelectorAll('section.tab').forEach(function(s){ s.hidden = s.id!==name; });
+    window.scrollTo(0,0);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab); }); });
+  show('como');
 })();
 </script>
 </body>
