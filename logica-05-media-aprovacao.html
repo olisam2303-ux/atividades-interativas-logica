@@ -292,6 +292,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   #roteiro th{background:#e8e8e8;color:#000;text-transform:none;font-variant:small-caps;letter-spacing:0}
   #roteiro .checkline{margin-bottom:1.5mm;font-size:11pt}
 }
+
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;background:var(--bg);padding:8px 0;border-bottom:2px solid var(--border-strong);margin-bottom:6px}
+.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:1.5px solid var(--border-strong);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font-weight:600;white-space:nowrap;cursor:pointer;font:inherit}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+section.tab{display:flex;flex-direction:column;gap:16px}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -304,6 +311,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="chips"><span class="chip">Unidade <b>5 (S5) – Introdução às estruturas de decisão simples</b></span><span class="chip">Base: <b>Capítulo 14 — SE (e o SENÃO do Capítulo 15)</b></span><span class="chip">Tempo: <b>25 a 30 min</b></span><span class="chip">Entrega: <b>AVA (.doc ou .pdf)</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S05A2</b></span></div>
   </header>
 
+  <nav class="tabs" role="tablist" aria-label="Partes da atividade">
+    <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
+    <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
+  </nav>
+
+<section class="tab" id="como" role="tabpanel">
   <section>
     <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que vocês vão resolver</h2></div>
     <p class="lead" style="color:var(--ink);font-size:15.5px"><b>Calculadora de média com verificação de aprovação.</b> Criem um programa que leia <b>duas notas</b> de um aluno, calcule a média e verifique se ele foi aprovado ou não. A média para aprovação é <b>60</b> — as notas vão de 0 a 100. O programa deve exibir a média calculada e uma mensagem indicando se o aluno foi aprovado.</p>
@@ -385,6 +399,63 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       </ol>
     </div>
   </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>Primeiro calcula, depois decide</h2></div>
+  <p class="lead">O programa tem duas partes: uma sequência (ler, calcular, mostrar) e, no fim, uma única decisão. A decisão só acontece depois que a média já foi calculada.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 500" class="sv" role="img" aria-label="Fluxograma da média e aprovação: início, ler as duas notas, calcular a média, mostrar a média, pergunta se a média é maior ou igual a 60; se verdadeiro, aprovado; se falso, reprovado; depois mostrar a mensagem, fim">
+      <defs>
+        <marker id="fl5-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="70" y="8" width="200" height="36" rx="18" class="sv-box-ok"/>
+      <text x="170" y="31" class="sv-label sv-small">INÍCIO</text>
+      <path d="M170 44 L170 64" class="sv-arrow" marker-end="url(#fl5-head)"/>
+      <rect x="50" y="64" width="240" height="40" rx="8" class="sv-box"/>
+      <text x="170" y="89" class="sv-label sv-small">Ler as duas notas</text>
+      <path d="M170 104 L170 124" class="sv-arrow" marker-end="url(#fl5-head)"/>
+      <rect x="50" y="124" width="240" height="40" rx="8" class="sv-box"/>
+      <text x="170" y="149" class="sv-label sv-small">Calcular a média</text>
+      <path d="M170 164 L170 184" class="sv-arrow" marker-end="url(#fl5-head)"/>
+      <rect x="50" y="184" width="240" height="40" rx="8" class="sv-box"/>
+      <text x="170" y="209" class="sv-label sv-small">Mostrar a média</text>
+      <path d="M170 224 L170 236" class="sv-arrow" marker-end="url(#fl5-head)"/>
+
+      <polygon points="170,236 290,270 170,304 50,270" class="sv-diamond"/>
+      <text x="170" y="275" class="sv-label sv-small">média ≥ 60?</text>
+      <path d="M290 270 L380 270" class="sv-arrow" marker-end="url(#fl5-head)"/>
+      <text x="330" y="262" class="sv-tag sv-ok">V</text>
+      <rect x="380" y="250" width="230" height="40" rx="8" class="sv-box-ok"/>
+      <text x="495" y="275" class="sv-label sv-small">Aprovado</text>
+      <path d="M170 304 L170 340 L380 340" class="sv-arrow" marker-end="url(#fl5-head)"/>
+      <text x="180" y="320" class="sv-tag sv-no">F</text>
+      <rect x="380" y="320" width="230" height="40" rx="8" class="sv-box-no"/>
+      <text x="495" y="345" class="sv-label sv-small">Reprovado</text>
+
+      <path d="M610 270 L625 270" class="sv-arrow"/>
+      <path d="M610 340 L625 340" class="sv-arrow"/>
+      <path d="M625 270 L625 400" class="sv-arrow"/>
+      <path d="M625 400 L290 400" class="sv-arrow" marker-end="url(#fl5-head)"/>
+      <rect x="50" y="380" width="240" height="40" rx="8" class="sv-box"/>
+      <text x="170" y="405" class="sv-label sv-small">Mostrar a mensagem</text>
+      <path d="M170 420 L170 440" class="sv-arrow" marker-end="url(#fl5-head)"/>
+      <rect x="70" y="440" width="200" height="36" rx="18" class="sv-box-ok"/>
+      <text x="170" y="463" class="sv-label sv-small">FIM</text>
+    </svg>
+    <div class="cap">A condição é uma só: média maior ou igual a 60. Se for verdadeira, o caminho é "Aprovado"; se for falsa, "Reprovado". As duas saídas se encontram na mesma mensagem final.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>Retângulos sem decisão: passos da <b>sequência</b>, sempre executados nesta ordem.</span></li>
+      <li><span class="num">2</span><span>Losango: a <b>decisão</b>. Ele aparece depois do cálculo, porque precisa da média.</span></li>
+      <li><span class="num">3</span><span>Só um dos caminhos V ou F é executado; depois, o programa segue para a mesma saída.</span></li>
+    </ol>
+  </div>
+</section>
+<section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
     <div class="sec-head"><span class="n">PASSO 0</span><h2>Identificação</h2></div>
     <p class="lead">Estes dados montam a capa e a folha de rosto do relatório em PDF.</p>
@@ -479,6 +550,7 @@ fimalgoritmo"></textarea></div>
   </section>
 
   
+</section>
   <nav class="navAtiv">
     <a class="" href="logica-04-operadores-relacionais.html">
           <span class="rot">← Anterior · Semana 4</span>
@@ -780,6 +852,19 @@ fimalgoritmo"></textarea></div>
   window.addEventListener("beforeprint", montarRelatorio);
 
   carregar(); pintarChecks();
+})();
+</script>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button'));
+  function show(name){
+    if(!document.getElementById(name)) name='como';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String(t.dataset.tab===name)); });
+    document.querySelectorAll('section.tab').forEach(function(s){ s.hidden = s.id!==name; });
+    window.scrollTo(0,0);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab); }); });
+  show('como');
 })();
 </script>
 </body>
