@@ -292,6 +292,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   #roteiro th{background:#e8e8e8;color:#000;text-transform:none;font-variant:small-caps;letter-spacing:0}
   #roteiro .checkline{margin-bottom:1.5mm;font-size:11pt}
 }
+
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;background:var(--bg);padding:8px 0;border-bottom:2px solid var(--border-strong);margin-bottom:6px}
+.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:1.5px solid var(--border-strong);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font-weight:600;white-space:nowrap;cursor:pointer;font:inherit}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+section.tab{display:flex;flex-direction:column;gap:16px}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -304,6 +311,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="chips"><span class="chip">Unidade <b>7 (S7) – Introdução à estrutura de decisão composta</b></span><span class="chip">Base: <b>Capítulo 15 — SE e SENÃO</b></span><span class="chip">Tempo: <b>25 a 30 min</b></span><span class="chip">Entrega: <b>AVA (documento com o pseudocódigo)</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S07A1</b></span></div>
   </header>
 
+  <nav class="tabs" role="tablist" aria-label="Partes da atividade">
+    <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
+    <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
+  </nav>
+
+<section class="tab" id="como" role="tabpanel">
   <section>
     <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que vocês vão resolver</h2></div>
     <p class="lead" style="color:var(--ink);font-size:15.5px">Vocês fazem parte da equipe de desenvolvimento de um e-commerce de atacado. A regra é simples: <b>só libera a venda se o cliente tiver 18 anos ou mais</b>. Escrevam a lógica em pseudocódigo (Visualg) e rastreiem dois cenários: idade 43 e idade 10.</p>
@@ -372,6 +386,57 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       </ol>
     </div>
   </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>Um SE, dois caminhos</h2></div>
+  <p class="lead">Aqui há uma única pergunta, e exatamente um dos dois caminhos é executado: ou a venda é liberada, ou é bloqueada. Nunca os dois, nunca nenhum.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 420" class="sv" role="img" aria-label="Fluxograma da venda com restrição de idade: início, ler a idade, pergunta idade maior ou igual a 18; se verdadeiro, liberar a venda; se falso, bloquear a venda; depois mostrar a mensagem e fim">
+      <defs>
+        <marker id="fl7-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="70" y="8" width="200" height="36" rx="18" class="sv-box-ok"/>
+      <text x="170" y="31" class="sv-label sv-small">INÍCIO</text>
+      <path d="M170 44 L170 64" class="sv-arrow" marker-end="url(#fl7-head)"/>
+      <rect x="50" y="64" width="240" height="40" rx="8" class="sv-box"/>
+      <text x="170" y="89" class="sv-label sv-small">Ler a idade do cliente</text>
+      <path d="M170 104 L170 118" class="sv-arrow" marker-end="url(#fl7-head)"/>
+
+      <polygon points="170,118 290,152 170,186 50,152" class="sv-diamond"/>
+      <text x="170" y="157" class="sv-label sv-small">idade ≥ 18?</text>
+      <path d="M290 152 L380 152" class="sv-arrow" marker-end="url(#fl7-head)"/>
+      <text x="330" y="144" class="sv-tag sv-ok">V</text>
+      <rect x="380" y="132" width="230" height="40" rx="8" class="sv-box-ok"/>
+      <text x="495" y="157" class="sv-label sv-small">Liberar a venda</text>
+      <path d="M170 186 L170 230 L380 230" class="sv-arrow" marker-end="url(#fl7-head)"/>
+      <text x="180" y="218" class="sv-tag sv-no">F</text>
+      <rect x="380" y="210" width="230" height="40" rx="8" class="sv-box-no"/>
+      <text x="495" y="235" class="sv-label sv-small">Bloquear a venda</text>
+
+      <path d="M610 152 L625 152" class="sv-arrow"/>
+      <path d="M610 230 L625 230" class="sv-arrow"/>
+      <path d="M625 152 L625 330" class="sv-arrow"/>
+      <path d="M625 330 L290 330" class="sv-arrow" marker-end="url(#fl7-head)"/>
+      <rect x="50" y="310" width="240" height="40" rx="8" class="sv-box"/>
+      <text x="170" y="335" class="sv-label sv-small">Mostrar a mensagem</text>
+      <path d="M170 350 L170 370" class="sv-arrow" marker-end="url(#fl7-head)"/>
+      <rect x="70" y="370" width="200" height="36" rx="18" class="sv-box-ok"/>
+      <text x="170" y="393" class="sv-label sv-small">FIM</text>
+    </svg>
+    <div class="cap">Ao rastrear um cliente, siga a seta que a resposta da pergunta indica: V para a liberação, F para o bloqueio.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>O losango é a <b>condição</b> do SE. O caminho V é o bloco do SE; o caminho F é o bloco do SENÃO.</span></li>
+      <li><span class="num">2</span><span>Só um dos blocos é executado. Depois dele, o programa segue para a mesma saída.</span></li>
+      <li><span class="num">3</span><span>Ao rastrear, escreva o valor de cada variável antes de cada pergunta: é isso que mostra qual caminho foi seguido.</span></li>
+    </ol>
+  </div>
+</section>
+<section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
     <div class="sec-head"><span class="n">PASSO 0</span><h2>Identificação</h2></div>
     <p class="lead">Estes dados montam a capa e a folha de rosto do relatório em PDF.</p>
@@ -460,6 +525,7 @@ fimalgoritmo"></textarea></div>
   </section>
 
   
+</section>
   <nav class="navAtiv">
     <a class="" href="logica-06-validando-cadastro.html">
           <span class="rot">← Anterior · Semana 6</span>
@@ -761,6 +827,19 @@ fimalgoritmo"></textarea></div>
   window.addEventListener("beforeprint", montarRelatorio);
 
   carregar(); pintarChecks();
+})();
+</script>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button'));
+  function show(name){
+    if(!document.getElementById(name)) name='como';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String(t.dataset.tab===name)); });
+    document.querySelectorAll('section.tab').forEach(function(s){ s.hidden = s.id!==name; });
+    window.scrollTo(0,0);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab); }); });
+  show('como');
 })();
 </script>
 </body>
