@@ -292,6 +292,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   #roteiro th{background:#e8e8e8;color:#000;text-transform:none;font-variant:small-caps;letter-spacing:0}
   #roteiro .checkline{margin-bottom:1.5mm;font-size:11pt}
 }
+
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;background:var(--bg);padding:8px 0;border-bottom:2px solid var(--border-strong);margin-bottom:6px}
+.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:1.5px solid var(--border-strong);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font-weight:600;white-space:nowrap;cursor:pointer;font:inherit}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+section.tab{display:flex;flex-direction:column;gap:16px}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -304,6 +311,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="chips"><span class="chip">Unidade <b>2 (S2) – Conceitos de entrada, processamento e saída</b></span><span class="chip">Base: <b>Capítulos 14 a 16 — SE / SENÃO / SENÃO SE</b></span><span class="chip">Tempo: <b>35 a 40 min</b></span><span class="chip">Entrega: <b>AVA</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S02A2</b></span></div>
   </header>
 
+  <nav class="tabs" role="tablist" aria-label="Partes da atividade">
+    <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
+    <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
+  </nav>
+
+<section class="tab" id="como" role="tabpanel">
   <section>
     <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que vocês vão resolver</h2></div>
     <p class="lead" style="color:var(--ink);font-size:15.5px">Vocês vão criar um sistema que calcula o valor final de uma venda. O <b>desconto</b> segue duas faixas: 5% acima de R$ 100 e 10% acima de R$ 500. O <b>frete</b> tem dois regimes: compras <b>abaixo de R$ 200</b> pagam a taxa promocional fixa de <b>R$ 15</b>; a partir de R$ 200 o frete é o real, <b>calculado pela tabela dos Correios conforme o peso do pedido</b>. Por isso o programa agora lê <b>duas entradas</b>: o valor dos produtos e o peso. A saída continua sendo subtotal, desconto, frete e total final.</p>
@@ -481,6 +495,87 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       </ol>
     </div>
   </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>O caminho completo da venda</h2></div>
+  <p class="lead">Este é o algoritmo inteiro, de cima para baixo. São duas decisões independentes: primeiro o <b>desconto</b> (lado de cima), depois o <b>frete</b> (lado de baixo). Use a mesma ordem no seu pseudocódigo.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 700" class="sv" role="img" aria-label="Fluxograma do sistema de vendas: início, ler o subtotal, decisão do desconto testando primeiro subtotal maior que 500 e depois maior que 100, total igual a subtotal menos desconto, decisão do frete testando subtotal menor que 200, total mais frete, fim">
+      <defs>
+        <marker id="fl2-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="70" y="8" width="200" height="36" rx="18" class="sv-box-ok"/>
+      <text x="170" y="31" class="sv-label sv-small">INÍCIO</text>
+      <path d="M170 44 L170 64" class="sv-arrow" marker-end="url(#fl2-head)"/>
+      <rect x="50" y="64" width="240" height="40" rx="8" class="sv-box"/>
+      <text x="170" y="89" class="sv-label sv-small">Ler o subtotal</text>
+      <path d="M170 104 L170 118" class="sv-arrow" marker-end="url(#fl2-head)"/>
+
+      <polygon points="170,118 290,152 170,186 50,152" class="sv-diamond"/>
+      <text x="170" y="157" class="sv-label sv-small">subtotal &gt; 500?</text>
+      <path d="M290 152 L380 152" class="sv-arrow" marker-end="url(#fl2-head)"/>
+      <text x="330" y="144" class="sv-tag sv-ok">V</text>
+      <rect x="380" y="132" width="230" height="40" rx="8" class="sv-box-ok"/>
+      <text x="495" y="157" class="sv-label sv-small">desconto = 10%</text>
+      <path d="M170 186 L170 202" class="sv-arrow" marker-end="url(#fl2-head)"/>
+      <text x="180" y="198" class="sv-tag sv-no">F</text>
+
+      <polygon points="170,202 290,236 170,270 50,236" class="sv-diamond"/>
+      <text x="170" y="241" class="sv-label sv-small">subtotal &gt; 100?</text>
+      <path d="M290 236 L380 236" class="sv-arrow" marker-end="url(#fl2-head)"/>
+      <text x="330" y="228" class="sv-tag sv-ok">V</text>
+      <rect x="380" y="216" width="230" height="40" rx="8" class="sv-box-ok"/>
+      <text x="495" y="241" class="sv-label sv-small">desconto = 5%</text>
+      <path d="M170 270 L170 320 L380 320" class="sv-arrow" marker-end="url(#fl2-head)"/>
+      <text x="180" y="286" class="sv-tag sv-no">F</text>
+      <rect x="380" y="300" width="230" height="40" rx="8" class="sv-box"/>
+      <text x="495" y="325" class="sv-label sv-small">desconto = 0</text>
+
+      <path d="M610 152 L625 152" class="sv-arrow"/>
+      <path d="M610 236 L625 236" class="sv-arrow"/>
+      <path d="M610 320 L625 320" class="sv-arrow"/>
+      <path d="M625 152 L625 400" class="sv-arrow"/>
+      <path d="M625 400 L290 400" class="sv-arrow" marker-end="url(#fl2-head)"/>
+      <rect x="50" y="380" width="240" height="40" rx="8" class="sv-box"/>
+      <text x="170" y="405" class="sv-label sv-small">total = subtotal − desconto</text>
+      <path d="M170 420 L170 438" class="sv-arrow" marker-end="url(#fl2-head)"/>
+
+      <polygon points="170,438 290,472 170,506 50,472" class="sv-diamond"/>
+      <text x="170" y="477" class="sv-label sv-small">subtotal &lt; 200?</text>
+      <path d="M290 472 L380 472" class="sv-arrow" marker-end="url(#fl2-head)"/>
+      <text x="330" y="464" class="sv-tag sv-ok">V</text>
+      <rect x="380" y="452" width="230" height="40" rx="8" class="sv-box-ok"/>
+      <text x="495" y="477" class="sv-label sv-small">frete = R$ 15</text>
+      <path d="M170 506 L170 530 L380 530" class="sv-arrow" marker-end="url(#fl2-head)"/>
+      <text x="180" y="520" class="sv-tag sv-no">F</text>
+      <rect x="380" y="510" width="230" height="40" rx="8" class="sv-box-no"/>
+      <text x="495" y="535" class="sv-label sv-small">frete = tabela dos Correios</text>
+
+      <path d="M610 472 L625 472" class="sv-arrow"/>
+      <path d="M610 530 L625 530" class="sv-arrow"/>
+      <path d="M625 472 L625 600" class="sv-arrow"/>
+      <path d="M625 600 L290 600" class="sv-arrow" marker-end="url(#fl2-head)"/>
+      <rect x="50" y="580" width="240" height="40" rx="8" class="sv-box"/>
+      <text x="170" y="605" class="sv-label sv-small">total = total + frete</text>
+      <path d="M170 620 L170 642" class="sv-arrow" marker-end="url(#fl2-head)"/>
+      <rect x="70" y="642" width="200" height="36" rx="18" class="sv-box-ok"/>
+      <text x="170" y="665" class="sv-label sv-small">FIM</text>
+    </svg>
+    <div class="cap">Desconto primeiro, frete depois. As faixas do desconto são testadas da maior para a menor: se testássemos "maior que 100" antes, uma compra de R$ 600 nunca chegaria ao 10%.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>Oval: <b>início</b> e <b>fim</b> do algoritmo.</span></li>
+      <li><span class="num">2</span><span>Retângulo: uma <b>ação</b> (ler, calcular ou mostrar um valor).</span></li>
+      <li><span class="num">3</span><span>Losango: uma <b>pergunta</b> que tem resposta sim ou não.</span></li>
+      <li><span class="num">4</span><span><b>V</b> e <b>F</b> marcam o caminho quando a pergunta é <b>verdadeira</b> ou <b>falsa</b>. Só um dos caminhos é executado.</span></li>
+    </ol>
+  </div>
+</section>
+<section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
     <div class="sec-head"><span class="n">PASSO 0</span><h2>Identificação</h2></div>
     <p class="lead">Estes dados montam a capa e a folha de rosto do relatório em PDF.</p>
@@ -596,6 +691,7 @@ fimalgoritmo"></textarea></div>
   </section>
 
   
+</section>
   <nav class="navAtiv">
     <a class="" href="logica-01-primeiro-algoritmo.html">
           <span class="rot">← Anterior · Semana 1</span>
@@ -897,6 +993,19 @@ fimalgoritmo"></textarea></div>
   window.addEventListener("beforeprint", montarRelatorio);
 
   carregar(); pintarChecks();
+})();
+</script>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button'));
+  function show(name){
+    if(!document.getElementById(name)) name='como';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String(t.dataset.tab===name)); });
+    document.querySelectorAll('section.tab').forEach(function(s){ s.hidden = s.id!==name; });
+    window.scrollTo(0,0);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab); }); });
+  show('como');
 })();
 </script>
 </body>
