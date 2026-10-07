@@ -292,6 +292,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   #roteiro th{background:#e8e8e8;color:#000;text-transform:none;font-variant:small-caps;letter-spacing:0}
   #roteiro .checkline{margin-bottom:1.5mm;font-size:11pt}
 }
+
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;background:var(--bg);padding:8px 0;border-bottom:2px solid var(--border-strong);margin-bottom:6px}
+.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:1.5px solid var(--border-strong);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font-weight:600;white-space:nowrap;cursor:pointer;font:inherit}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+section.tab{display:flex;flex-direction:column;gap:16px}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -304,6 +311,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="chips"><span class="chip">Unidade <b>1 – Estrutura básica · Atividades práticas: criação de programas</b></span><span class="chip">Base: <b>Capítulos 14 e 15 — SE e SENÃO</b></span><span class="chip">Tempo: <b>45 min</b></span><span class="chip">Entrega: <b>AVA</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S06A1</b></span></div>
   </header>
 
+  <nav class="tabs" role="tablist" aria-label="Partes da atividade">
+    <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
+    <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
+  </nav>
+
+<section class="tab" id="como" role="tabpanel">
   <section>
     <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que vocês vão resolver</h2></div>
     <p class="lead" style="color:var(--ink);font-size:15.5px">O cinema local, <b>“Cine Pipoca”</b>, quer modernizar seu sistema de bilheteria. Atualmente o processo é todo manual, e os funcionários precisam calcular os descontos de idade para cada cliente, o que causa filas e, às vezes, erros. Você foi chamado como jovem desenvolvedor(a) de sistemas para criar o <b>primeiro protótipo</b> de um algoritmo que automatize essa verificação. <br><br>Sua tarefa é desenhar a lógica de um programa que identifique se um cliente tem direito a desconto com base na idade, preparando o terreno para um sistema mais rápido e eficiente. <b>Vamos desenhar a solução antes mesmo de escrever qualquer código.</b></p>
@@ -395,6 +409,64 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       </ol>
     </div>
   </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>Duas perguntas, um mesmo resultado</h2></div>
+  <p class="lead">A regra do desconto tem uma palavra que muda tudo: <b>ou</b>. Basta uma das duas condições ser verdadeira para o cliente ter desconto. Por isso o fluxo tem duas perguntas, e as duas levam para o mesmo lugar.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 480" class="sv" role="img" aria-label="Fluxograma do verificador de desconto: início, ler a idade, pergunta idade menor ou igual a 12; se verdadeiro, tem desconto; se falso, pergunta idade maior ou igual a 60; se verdadeiro, tem desconto; se falso, sem desconto; depois mostrar a mensagem e fim">
+      <defs>
+        <marker id="fl6-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="70" y="8" width="200" height="36" rx="18" class="sv-box-ok"/>
+      <text x="170" y="31" class="sv-label sv-small">INÍCIO</text>
+      <path d="M170 44 L170 64" class="sv-arrow" marker-end="url(#fl6-head)"/>
+      <rect x="50" y="64" width="240" height="40" rx="8" class="sv-box"/>
+      <text x="170" y="89" class="sv-label sv-small">Ler a idade do cliente</text>
+      <path d="M170 104 L170 118" class="sv-arrow" marker-end="url(#fl6-head)"/>
+
+      <polygon points="170,118 290,152 170,186 50,152" class="sv-diamond"/>
+      <text x="170" y="157" class="sv-label sv-small">idade ≤ 12?</text>
+      <path d="M290 152 L380 152" class="sv-arrow" marker-end="url(#fl6-head)"/>
+      <text x="330" y="144" class="sv-tag sv-ok">V</text>
+      <rect x="380" y="132" width="230" height="40" rx="8" class="sv-box-ok"/>
+      <text x="495" y="157" class="sv-label sv-small">Tem desconto</text>
+      <path d="M170 186 L170 202" class="sv-arrow" marker-end="url(#fl6-head)"/>
+      <text x="180" y="198" class="sv-tag sv-no">F</text>
+
+      <polygon points="170,202 290,236 170,270 50,236" class="sv-diamond"/>
+      <text x="170" y="241" class="sv-label sv-small">idade ≥ 60?</text>
+      <path d="M290 236 L340 236 L340 152" class="sv-arrow"/>
+      <text x="312" y="228" class="sv-tag sv-ok">V</text>
+      <path d="M170 270 L170 300 L380 300" class="sv-arrow" marker-end="url(#fl6-head)"/>
+      <text x="180" y="286" class="sv-tag sv-no">F</text>
+      <rect x="380" y="280" width="230" height="40" rx="8" class="sv-box-no"/>
+      <text x="495" y="305" class="sv-label sv-small">Sem desconto</text>
+
+      <path d="M610 152 L625 152" class="sv-arrow"/>
+      <path d="M610 300 L625 300" class="sv-arrow"/>
+      <path d="M625 152 L625 380" class="sv-arrow"/>
+      <path d="M625 380 L290 380" class="sv-arrow" marker-end="url(#fl6-head)"/>
+      <rect x="50" y="360" width="240" height="40" rx="8" class="sv-box"/>
+      <text x="170" y="385" class="sv-label sv-small">Mostrar a mensagem</text>
+      <path d="M170 400 L170 420" class="sv-arrow" marker-end="url(#fl6-head)"/>
+      <rect x="70" y="420" width="200" height="36" rx="18" class="sv-box-ok"/>
+      <text x="170" y="443" class="sv-label sv-small">FIM</text>
+    </svg>
+    <div class="cap">Se a primeira pergunta for verdadeira, o cliente já ganha o desconto e não precisa ser testado de novo. Só quem é falso nas duas perguntas paga inteiro.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>Cada losango é uma <b>pergunta</b>. V e F indicam o caminho quando ela é verdadeira ou falsa.</span></li>
+      <li><span class="num">2</span><span>Duas setas V chegando no mesmo bloco significam <b>ou</b>: basta uma condição ser verdadeira.</span></li>
+      <li><span class="num">3</span><span>O caminho F da última pergunta é o que muitas pessoas esquecem: é o que acontece com quem <b>não</b> tem desconto.</span></li>
+    </ol>
+  </div>
+</section>
+<section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
     <div class="sec-head"><span class="n">PASSO 0</span><h2>Identificação</h2></div>
     <p class="lead">Estes dados montam a capa e a folha de rosto do relatório em PDF.</p>
@@ -517,6 +589,7 @@ Saídas possíveis: ..."></textarea></div>
   </section>
 
   
+</section>
   <nav class="navAtiv">
     <a class="" href="logica-05-media-aprovacao.html">
           <span class="rot">← Anterior · Semana 5</span>
@@ -818,6 +891,19 @@ Saídas possíveis: ..."></textarea></div>
   window.addEventListener("beforeprint", montarRelatorio);
 
   carregar(); pintarChecks();
+})();
+</script>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button'));
+  function show(name){
+    if(!document.getElementById(name)) name='como';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String(t.dataset.tab===name)); });
+    document.querySelectorAll('section.tab').forEach(function(s){ s.hidden = s.id!==name; });
+    window.scrollTo(0,0);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab); }); });
+  show('como');
 })();
 </script>
 </body>
