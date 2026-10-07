@@ -292,6 +292,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   #roteiro th{background:#e8e8e8;color:#000;text-transform:none;font-variant:small-caps;letter-spacing:0}
   #roteiro .checkline{margin-bottom:1.5mm;font-size:11pt}
 }
+
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;background:var(--bg);padding:8px 0;border-bottom:2px solid var(--border-strong);margin-bottom:6px}
+.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:1.5px solid var(--border-strong);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font-weight:600;white-space:nowrap;cursor:pointer;font:inherit}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+section.tab{display:flex;flex-direction:column;gap:16px}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -304,6 +311,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="chips"><span class="chip">Unidade <b>1 – Estrutura básica · Atividades práticas: criação de programas</b></span><span class="chip">Base: <b>Capítulo 12 — Comparações</b></span><span class="chip">Tempo: <b>45 min</b></span><span class="chip">Entrega: <b>AVA</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S04A1</b></span></div>
   </header>
 
+  <nav class="tabs" role="tablist" aria-label="Partes da atividade">
+    <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
+    <button role="tab" data-tab="simulador" id="t-simulador" aria-selected="false">Simulador</button>
+    <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
+  </nav>
+
+<section class="tab" id="como" role="tabpanel">
   <section>
     <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que vocês vão resolver</h2></div>
     <p class="lead" style="color:var(--ink);font-size:15.5px">Imagine que você trabalha em uma <b>empresa de desenvolvimento</b> e precisa criar um <b>sistema de aprovação de crédito</b>. O sistema precisa comparar salários, idades, scores de crédito e outros valores para tomar decisões. Mas como o computador sabe se um valor é maior, menor ou igual a outro? <br><br>Os <b>operadores relacionais</b> são fundamentais para criar qualquer sistema que tome decisões. Hoje você aprenderá a usar essas ferramentas essenciais da programação — e, no <b>Exercício 3</b>, vai aplicá-las exatamente nesse sistema de crédito, analisando quatro pedidos reais da financeira.</p>
@@ -427,6 +441,82 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       </ol>
     </div>
   </section>
+</section>
+<style>
+.cmp-linha{display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center}
+.cmp-linha .f{font-weight:600}
+.cmp-in{font:inherit;padding:8px 10px;border:1.5px solid var(--border-strong);border-radius:8px;background:var(--surface);color:var(--ink);min-width:110px}
+.cmp-resultado{margin:16px 0;padding:14px 16px;border-radius:12px;background:var(--surface-2);font-size:17px}
+.cmp-v{color:var(--ok);font-weight:700}
+.cmp-f{color:var(--no);font-weight:700}
+.cmp-tabela{width:100%;border-collapse:collapse;font-size:14px}
+.cmp-tabela th,.cmp-tabela td{border:1px solid var(--border);padding:7px 10px;text-align:left}
+.cmp-tabela th{background:var(--surface-2)}
+.cmp-sel td{background:var(--accent-soft)}
+</style>
+<section class="tab" id="simulador" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">SIMULADOR</span><h2>Compare dois valores e veja o resultado</h2></div>
+  <p class="lead">Escolha dois valores e um operador. O simulador mostra o resultado da comparação (VERDADEIRO ou FALSO) e também todos os operadores para os mesmos valores. Experimente trocar os números e veja o que muda.</p>
+  <div class="visual">
+    <div class="cmp-linha">
+      <label class="f" for="cmpA">Valor A</label>
+      <input type="number" id="cmpA" value="3500" class="cmp-in">
+      <label class="f" for="cmpOp">Operador</label>
+      <select id="cmpOp" class="cmp-in">
+        <option value="==">== (igual a)</option>
+        <option value="!=">!= (diferente de)</option>
+        <option value=">" selected>&gt; (maior que)</option>
+        <option value="<">&lt; (menor que)</option>
+        <option value=">=">&gt;= (maior ou igual)</option>
+        <option value="<=">&lt;= (menor ou igual)</option>
+      </select>
+      <label class="f" for="cmpB">Valor B</label>
+      <input type="number" id="cmpB" value="2000" class="cmp-in">
+    </div>
+    <div class="cmp-resultado" id="cmpRes" aria-live="polite"></div>
+    <table class="cmp-tabela">
+      <thead><tr><th>Operador</th><th>Significa</th><th>Resultado com estes valores</th></tr></thead>
+      <tbody id="cmpTab"></tbody>
+    </table>
+    <div class="cap">Para o sistema de crédito do Exercício 3, pense: o salário (A) é maior que o valor mínimo (B)? A resposta é sempre VERDADEIRO ou FALSO.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o simulador</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>O operador fica <b>entre</b> os dois valores: <code>A &gt; B</code> pergunta "A é maior que B?".</span></li>
+      <li><span class="num">2</span><span>O resultado é sempre <b>VERDADEIRO</b> ou <b>FALSO</b>. Nunca é outro número.</span></li>
+      <li><span class="num">3</span><span>Atenção ao <b>=</b> e ao <b>==</b>: um sinal só <b>guarda</b> um valor; dois sinais <b>comparam</b> dois valores.</span></li>
+    </ol>
+  </div>
+  <script>
+  (function(){
+    var OPS = [
+      ['==', 'igual a', function(a,b){ return a === b; }],
+      ['!=', 'diferente de', function(a,b){ return a !== b; }],
+      ['>',  'maior que', function(a,b){ return a > b; }],
+      ['<',  'menor que', function(a,b){ return a < b; }],
+      ['>=', 'maior ou igual a', function(a,b){ return a >= b; }],
+      ['<=', 'menor ou igual a', function(a,b){ return a <= b; }]
+    ];
+    var elA = document.getElementById('cmpA'), elB = document.getElementById('cmpB'), elOp = document.getElementById('cmpOp');
+    var out = document.getElementById('cmpRes'), tab = document.getElementById('cmpTab');
+    function atualizar(){
+      var a = parseFloat(elA.value), b = parseFloat(elB.value);
+      if (isNaN(a) || isNaN(b)) { out.textContent = 'Digite os dois valores.'; tab.innerHTML = ''; return; }
+      var escolhido = OPS.filter(function(o){ return o[0] === elOp.value; })[0];
+      var r = escolhido[2](a, b);
+      out.innerHTML = '<b>' + a + ' ' + elOp.value + ' ' + b + '</b> &nbsp;→&nbsp; <span class="' + (r ? 'cmp-v' : 'cmp-f') + '">' + (r ? 'VERDADEIRO' : 'FALSO') + '</span>';
+      tab.innerHTML = OPS.map(function(o){
+        var rr = o[2](a, b);
+        return '<tr' + (o[0] === elOp.value ? ' class="cmp-sel"' : '') + '><td><code>' + o[0] + '</code></td><td>' + o[1] + '</td><td>' + (rr ? 'VERDADEIRO' : 'FALSO') + '</td></tr>';
+      }).join('');
+    }
+    [elA, elB, elOp].forEach(function(el){ el.addEventListener('input', atualizar); el.addEventListener('change', atualizar); });
+    atualizar();
+  })();
+  </script>
+</section>
+<section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
     <div class="sec-head"><span class="n">PASSO 0</span><h2>Identificação</h2></div>
     <p class="lead">Estes dados montam a capa e a folha de rosto do relatório em PDF.</p>
@@ -516,6 +606,7 @@ Diego: reprovado por..., embora tenha..."></textarea></div><div class="campoWrap
   </section>
 
   
+</section>
   <nav class="navAtiv">
     <a class="" href="logica-03-classificacao-idade.html">
           <span class="rot">← Anterior · Semana 3</span>
@@ -817,6 +908,19 @@ Diego: reprovado por..., embora tenha..."></textarea></div><div class="campoWrap
   window.addEventListener("beforeprint", montarRelatorio);
 
   carregar(); pintarChecks();
+})();
+</script>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button'));
+  function show(name){
+    if(!document.getElementById(name)) name='como';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String(t.dataset.tab===name)); });
+    document.querySelectorAll('section.tab').forEach(function(s){ s.hidden = s.id!==name; });
+    window.scrollTo(0,0);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab); }); });
+  show('como');
 })();
 </script>
 </body>
