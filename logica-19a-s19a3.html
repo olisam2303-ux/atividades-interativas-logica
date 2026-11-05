@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -340,18 +340,8 @@ section.tab{display:flex;flex-direction:column;gap:16px}
     </div>
   </section>
 <section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S19A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
-<section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>A régua da string</h2></div>
-      <p class="lead">Toda string tem duas numerações ao mesmo tempo: da esquerda para a direita começando em &lt;b&gt;0&lt;/b&gt;, e da direita para a esquerda começando em &lt;b&gt;-1&lt;/b&gt;. Saber ler as duas é o que torna o fatiamento previsível.</p>
+      <p class="lead">Toda string tem duas numerações ao mesmo tempo: da esquerda para a direita começando em <b>0</b>, e da direita para a esquerda começando em <b>-1</b>. Saber ler as duas é o que torna o fatiamento previsível.</p>
       <div class="visual"><svg viewBox="0 0 560 242" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -361,7 +351,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="196" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">A régua de "RELATORIO-2024-01"</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">  R   E   L   A   T   O   R   I   O   -   2   0   2   4   -   0   1</text><text x="20" y="78" class="sv-code" xml:space="preserve">  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16</text><text x="20" y="104" class="sv-code" xml:space="preserve">-17 -16 -15 -14 -13 -12 -11 -10  -9  -8  -7  -6  -5  -4  -3  -2  -1</text><text x="20" y="130" class="sv-code" xml:space="preserve"> </text><text x="20" y="156" class="sv-code sv-code-soft" xml:space="preserve">índice negativo = índice positivo − comprimento</text><text x="280" y="208" class="sv-legend">Conte os caracteres antes de confiar em qualquer índice — é esse o primeiro</text><text x="280" y="224" class="sv-legend">exercício.</text>
+  <rect x="0" y="0" width="560" height="196" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">A régua de "CAIXA-07" (exemplo)</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">  C   A   I   X   A   -   0   7</text><text x="20" y="78" class="sv-code" xml:space="preserve">  0   1   2   3   4   5   6   7</text><text x="20" y="104" class="sv-code" xml:space="preserve"> -8  -7  -6  -5  -4  -3  -2  -1</text><text x="20" y="130" class="sv-code" xml:space="preserve"> </text><text x="20" y="156" class="sv-code sv-code-soft" xml:space="preserve">que conta liga as duas linhas? (Parte 1)</text><text x="280" y="208" class="sv-legend">Na Parte 1, façam a mesma régua para "RELATORIO-2024-01",</text><text x="280" y="224" class="sv-legend">no caderno, contando os caracteres antes de tudo.</text>
 </svg></div><div class="visual"><svg viewBox="0 0 560 320" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -381,9 +371,91 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="274" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O log do cenário real, decomposto</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">"TRF-2024-09-30-GABRIEL.SOUZA-4890.75"</text><text x="20" y="78" class="sv-code" xml:space="preserve"> </text><text x="20" y="104" class="sv-code sv-code-soft" xml:space="preserve">TRF              → tipo de operação</text><text x="20" y="130" class="sv-code sv-code-soft" xml:space="preserve">2024-09-30       → data do evento</text><text x="20" y="156" class="sv-code sv-code-soft" xml:space="preserve">GABRIEL.SOUZA    → responsável</text><text x="20" y="182" class="sv-code sv-code-soft" xml:space="preserve">4890.75          → valor total</text><text x="20" y="208" class="sv-code" xml:space="preserve"> </text><text x="20" y="234" class="sv-code sv-code-key" xml:space="preserve">alvo: Transferência | Data: 30/09/2024 | Responsável: Gabriel Souza | Valor: R$ 4.890,75</text><text x="280" y="286" class="sv-legend">Cada campo exige duas coisas: o fatiamento certo e uma transformação de</text><text x="280" y="302" class="sv-legend">formato.</text>
+  <rect x="0" y="0" width="560" height="274" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O log do cenário real, decomposto</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">"TRF-2024-09-30-GABRIEL.SOUZA-4890.75"</text><text x="20" y="78" class="sv-code" xml:space="preserve"> </text><text x="20" y="104" class="sv-code sv-code-soft" xml:space="preserve">TRF              → tipo de operação</text><text x="20" y="130" class="sv-code sv-code-soft" xml:space="preserve">2024-09-30       → data do evento</text><text x="20" y="156" class="sv-code sv-code-soft" xml:space="preserve">GABRIEL.SOUZA    → responsável</text><text x="20" y="182" class="sv-code sv-code-soft" xml:space="preserve">4890.75          → valor total</text><text x="20" y="208" class="sv-code" xml:space="preserve"> </text><text x="20" y="234" class="sv-code sv-code-key" xml:space="preserve">alvo: Transferência | Data: 30/09/2024 |</text><text x="20" y="258" class="sv-code sv-code-key" xml:space="preserve">      Responsável: Gabriel Souza | Valor: R$ 4.890,75</text><text x="280" y="286" class="sv-legend">Cada campo exige duas coisas: o fatiamento certo e uma transformação de</text><text x="280" y="302" class="sv-legend">formato.</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S19A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>Do log bruto ao relatório</h2></div>
+  <p class="lead">A Parte 3 tem um laço: vocês passam pelos quatro campos do log, um de cada vez. Para cada campo, primeiro acham onde ele começa e termina na régua, depois fatiam e, quando precisa, transformam o formato. Só no fim, com os quatro campos prontos, a f-string monta a linha.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 410" class="sv" role="img" aria-label="Fluxograma da decomposição do log: início; log recebe a string bruta; enquanto faltar algum campo, achar o início e o fim do campo na régua, fatiar com log de início a fim e, se precisar, transformar o formato; guardar o campo e voltar. Quando não faltar campo, montar a linha com uma f-string e conferir se bate com o formato pedido; se não, corrigir; se sim, fim">
+      <defs>
+        <marker id="fl19a-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="100" y="8" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="200" y="29" class="sv-label sv-small">INÍCIO</text>
+      <path d="M200 40 L200 54" class="sv-arrow" marker-end="url(#fl19a-head)"/>
+      <rect x="60" y="54" width="280" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="75" class="sv-label sv-small">log ← a string bruta</text>
+      <path d="M200 86 L200 106" class="sv-arrow" marker-end="url(#fl19a-head)"/>
+
+      <polygon points="200,106 320,136 200,166 80,136" class="sv-diamond"/>
+      <text x="200" y="132" class="sv-label sv-small">Ainda falta</text>
+      <text x="200" y="148" class="sv-label sv-small">algum campo?</text>
+      <path d="M320 136 L400 136" class="sv-arrow" marker-end="url(#fl19a-head)"/>
+      <text x="346" y="128" class="sv-tag sv-ok">V</text>
+
+      <rect x="400" y="113" width="220" height="46" rx="8" class="sv-box"/>
+      <text x="510" y="132" class="sv-label sv-small">Achar início e fim</text>
+      <text x="510" y="149" class="sv-label sv-small">do campo na régua</text>
+      <path d="M510 159 L510 175" class="sv-arrow" marker-end="url(#fl19a-head)"/>
+      <rect x="400" y="175" width="220" height="32" rx="8" class="sv-box-no"/>
+      <text x="510" y="196" class="sv-label sv-small">Fatiar: log[início:fim]</text>
+      <path d="M510 207 L510 225" class="sv-arrow" marker-end="url(#fl19a-head)"/>
+      <polygon points="510,225 610,255 510,285 410,255" class="sv-diamond"/>
+      <text x="510" y="251" class="sv-label sv-small">Precisa</text>
+      <text x="510" y="267" class="sv-label sv-small">transformar?</text>
+      <path d="M510 285 L510 303" class="sv-arrow" marker-end="url(#fl19a-head)"/>
+      <text x="520" y="299" class="sv-tag sv-ok">V</text>
+      <rect x="400" y="303" width="220" height="32" rx="8" class="sv-box"/>
+      <text x="510" y="324" class="sv-label sv-small">Transformar o formato</text>
+      <path d="M410 255 L384 255 L384 351 L506 351" class="sv-arrow" marker-end="url(#fl19a-head)"/>
+      <text x="394" y="247" class="sv-tag sv-no">F</text>
+      <path d="M510 335 L510 359" class="sv-arrow" marker-end="url(#fl19a-head)"/>
+      <rect x="400" y="359" width="220" height="32" rx="8" class="sv-box-ok"/>
+      <text x="510" y="380" class="sv-label sv-small">Guardar o campo</text>
+      <path d="M620 375 L632 375 L632 98 L204 98" class="sv-arrow sv-arrow-soft" marker-end="url(#fl19a-head)"/>
+      <text x="580" y="92" class="sv-tag sv-no">próximo campo</text>
+
+      <path d="M200 166 L200 184" class="sv-arrow" marker-end="url(#fl19a-head)"/>
+      <text x="210" y="180" class="sv-tag sv-no">F</text>
+      <rect x="60" y="184" width="280" height="46" rx="8" class="sv-box"/>
+      <text x="200" y="203" class="sv-label sv-small">Montar a linha com</text>
+      <text x="200" y="220" class="sv-label sv-small">uma f-string</text>
+      <path d="M200 230 L200 248" class="sv-arrow" marker-end="url(#fl19a-head)"/>
+      <polygon points="200,248 320,278 200,308 80,278" class="sv-diamond"/>
+      <text x="200" y="274" class="sv-label sv-small">Bate com o</text>
+      <text x="200" y="290" class="sv-label sv-small">formato pedido?</text>
+      <path d="M80 278 L30 278 L30 207 L56 207" class="sv-arrow sv-arrow-soft" marker-end="url(#fl19a-head)"/>
+      <text x="56" y="270" class="sv-tag sv-no">F</text>
+      <text x="44" y="300" class="sv-tag sv-no">corrigir</text>
+      <path d="M200 308 L200 326" class="sv-arrow" marker-end="url(#fl19a-head)"/>
+      <text x="210" y="322" class="sv-tag sv-ok">V</text>
+      <rect x="100" y="326" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="200" y="347" class="sv-label sv-small">FIM</text>
+    </svg>
+    <div class="cap">A caixa laranja é o slicing: a mesma notação vale para os quatro campos, só mudam os números. O losango “Precisa transformar?” lembra que alguns campos só ficam prontos depois de mudar de ordem, de maiúsculas ou de formato.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>A primeira caixa do laço depende da régua da Parte 1: sem saber contar os índices, não há como achar onde cada campo começa e termina.</span></li>
+      <li><span class="num">2</span><span>Cada volta pelo laço preenche uma linha da tabela da Parte 3: a lógica de slicing vai na caixa laranja, e a transformação, na caixa de baixo.</span></li>
+      <li><span class="num">3</span><span>Lembrem a regra do fatiamento: o índice de fim <b>não</b> entra no trecho.</span></li>
+      <li><span class="num">4</span><span>A conferência final é caractere a caractere: um espaço ou uma barra fora do lugar já faz a seta “corrigir” ser seguida.</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
