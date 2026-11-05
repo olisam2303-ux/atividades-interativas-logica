@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -350,16 +350,6 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       </div>
     </div>
   </section>
-<section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S12A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
 <section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>O tabuleiro como matriz</h2></div>
       <p class="lead">Cada posição de 1 a 9 corresponde a um par (linha, coluna). Essa tradução é o que transforma um tabuleiro desenhado em uma estrutura que o programa consegue manipular.</p>
@@ -410,6 +400,85 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   <rect x="0" y="0" width="560" height="248" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">Fluxo de uma rodada</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">1. Solicitar a posição (1..9) do jogador da vez</text><text x="20" y="78" class="sv-code sv-code-key" xml:space="preserve">2. Validar: está no intervalo? a célula está vazia?</text><text x="42" y="104" class="sv-code sv-code-soft" xml:space="preserve">se inválida, pedir outra posição</text><text x="20" y="130" class="sv-code sv-code-key" xml:space="preserve">3. Atualizar a matriz com X ou O</text><text x="20" y="156" class="sv-code sv-code-key" xml:space="preserve">4. Checar vitória nas 8 trincas</text><text x="20" y="182" class="sv-code sv-code-key" xml:space="preserve">5. Sem vitória e ainda há '.' → passa a vez</text><text x="42" y="208" class="sv-code sv-code-soft" xml:space="preserve">sem vitória e sem '.' → empate</text><text x="280" y="260" class="sv-legend">A validação vem ANTES da atualização — é isso que impede o jogo de entrar em</text><text x="280" y="276" class="sv-legend">estado inválido.</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S12A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>Uma partida, jogada a jogada</h2></div>
+  <p class="lead">O fluxograma mostra a partida inteira. Cada volta pela seta da esquerda é uma jogada nova. São três perguntas, sempre na mesma ordem: a jogada é válida? formou trinca? ainda há casa vazia? A resposta de cada uma decide se o jogo continua, se alguém venceu ou se deu empate.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 520" class="sv" role="img" aria-label="Fluxograma de uma partida de jogo da velha: início com o tabuleiro vazio e vez do X; pedir a posição de 1 a 9; se a posição for inválida ou a casa estiver ocupada, pede outra; se for válida, marca X ou O na matriz e pergunta se formou trinca; se sim, fim com vitória do jogador da vez; se não, pergunta se ainda há casa vazia; se não, fim com empate; se sim, passa a vez e volta a pedir uma posição">
+      <defs>
+        <marker id="fl12-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="110" y="8" width="240" height="34" rx="17" class="sv-box-ok"/>
+      <text x="230" y="30" class="sv-label sv-small">INÍCIO: tabuleiro vazio</text>
+      <path d="M230 42 L230 58" class="sv-arrow" marker-end="url(#fl12-head)"/>
+      <rect x="130" y="58" width="200" height="34" rx="8" class="sv-box"/>
+      <text x="230" y="80" class="sv-label sv-small">Vez do X</text>
+      <path d="M230 92 L230 116" class="sv-arrow" marker-end="url(#fl12-head)"/>
+      <rect x="130" y="116" width="200" height="34" rx="8" class="sv-box"/>
+      <text x="230" y="138" class="sv-label sv-small">Pedir a posição (1 a 9)</text>
+      <path d="M230 150 L230 166" class="sv-arrow" marker-end="url(#fl12-head)"/>
+
+      <polygon points="230,166 350,200 230,234 110,200" class="sv-diamond"/>
+      <text x="230" y="196" class="sv-label sv-small">Posição válida e</text>
+      <text x="230" y="212" class="sv-label sv-small">casa vazia?</text>
+      <path d="M110 200 L64 200 L64 133 L126 133" class="sv-arrow sv-arrow-soft" marker-end="url(#fl12-head)"/>
+      <text x="96" y="192" class="sv-tag sv-no">F</text>
+      <text x="70" y="168" class="sv-tag sv-no" text-anchor="start">pede</text>
+      <text x="70" y="182" class="sv-tag sv-no" text-anchor="start">outra</text>
+
+      <path d="M230 234 L230 250" class="sv-arrow" marker-end="url(#fl12-head)"/>
+      <text x="240" y="247" class="sv-tag sv-ok">V</text>
+      <rect x="110" y="250" width="240" height="34" rx="8" class="sv-box"/>
+      <text x="230" y="272" class="sv-label sv-small">Marcar X ou O na matriz</text>
+      <path d="M230 284 L230 300" class="sv-arrow" marker-end="url(#fl12-head)"/>
+
+      <polygon points="230,300 340,334 230,368 120,334" class="sv-diamond"/>
+      <text x="230" y="339" class="sv-label sv-small">Formou trinca?</text>
+      <path d="M340 334 L440 334" class="sv-arrow" marker-end="url(#fl12-head)"/>
+      <text x="360" y="326" class="sv-tag sv-ok">V</text>
+      <rect x="440" y="317" width="170" height="34" rx="17" class="sv-box-ok"/>
+      <text x="525" y="339" class="sv-label sv-small">FIM: vitória da vez</text>
+
+      <path d="M230 368 L230 384" class="sv-arrow" marker-end="url(#fl12-head)"/>
+      <text x="240" y="381" class="sv-tag sv-no">F</text>
+      <polygon points="230,384 340,418 230,452 120,418" class="sv-diamond"/>
+      <text x="230" y="414" class="sv-label sv-small">Ainda há</text>
+      <text x="230" y="430" class="sv-label sv-small">casa vazia?</text>
+      <path d="M340 418 L440 418" class="sv-arrow" marker-end="url(#fl12-head)"/>
+      <text x="360" y="410" class="sv-tag sv-no">F</text>
+      <rect x="440" y="401" width="170" height="34" rx="17" class="sv-box-no"/>
+      <text x="525" y="423" class="sv-label sv-small">FIM: empate</text>
+
+      <path d="M230 452 L230 468" class="sv-arrow" marker-end="url(#fl12-head)"/>
+      <text x="240" y="465" class="sv-tag sv-ok">V</text>
+      <rect x="110" y="468" width="240" height="34" rx="8" class="sv-box"/>
+      <text x="230" y="490" class="sv-label sv-small">Passar a vez (X ↔ O)</text>
+      <path d="M110 485 L30 485 L30 104 L226 104" class="sv-arrow sv-arrow-soft" marker-end="url(#fl12-head)"/>
+      <text x="36" y="300" class="sv-tag sv-no" text-anchor="start">próxima</text>
+      <text x="36" y="314" class="sv-tag sv-no" text-anchor="start">jogada</text>
+    </svg>
+    <div class="cap">Repare na ordem: a matriz só é alterada depois que a jogada passa pela validação. E o empate só é testado quando não houve vitória, porque a última jogada pode completar uma trinca e encher o tabuleiro ao mesmo tempo.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>O primeiro losango usa as <b>regras de validação</b> do Passo 2. Enquanto a jogada for inválida, a seta curta pede outra posição e a matriz não muda.</span></li>
+      <li><span class="num">2</span><span>O segundo losango aplica a <b>regra de vitória</b> do Passo 4 às trincas do tabuleiro: três símbolos iguais e nenhum deles vazio.</span></li>
+      <li><span class="num">3</span><span>O terceiro losango só é testado quando ninguém venceu. Se não sobrou casa vazia, é empate.</span></li>
+      <li><span class="num">4</span><span>Para a minipartida do Passo 8, sigam o desenho com o dedo: cada volta pela seta da esquerda é uma linha da tabela de jogadas.</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
@@ -489,7 +558,7 @@ X   .   .</div></div><div class="campoWrap" data-rel="campo" data-rotulo="Exerc�
           <span class="passo-num">7</span>
           <div class="passo-txt">Parte 3 — Descrevam o fluxo de uma rodada, em itens claros.</div>
         </div>
-        <div class="dica"><b>Como pensar:</b> Use o terceiro diagrama como base, mas escrevam com as palavras de vocês. A ordem importa: o que precisa acontecer antes de quê?</div>
+        <div class="dica"><b>Como pensar:</b> Usem o quadro “Fluxo de uma rodada” (aba Como fazer) e a aba Fluxograma como base, mas escrevam com as palavras de vocês. A ordem importa: o que precisa acontecer antes de quê?</div>
         <div class="campoWrap" data-rel="campo" data-rotulo="Fluxo da rodada"><label class="f" for="c12">Fluxo da rodada</label><textarea id="c12" data-campo="c12" rows="5" placeholder="1. Solicitar...
 2. Validar...
 3. ..."></textarea></div>
