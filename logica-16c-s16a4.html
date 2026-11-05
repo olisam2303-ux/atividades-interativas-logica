@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -340,18 +340,8 @@ section.tab{display:flex;flex-direction:column;gap:16px}
     </div>
   </section>
 <section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S16A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
-<section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>A mesma matriz, lida de dois jeitos</h2></div>
-      <p class="lead">Total por vendedor e total por mês usam exatamente os mesmos números — o que muda é &lt;b&gt;qual laço fica por fora&lt;/b&gt;. Essa é a ideia central do miniprojeto.</p>
+      <p class="lead">Total por vendedor e total por mês usam exatamente os mesmos números — o que muda é <b>qual laço fica por fora</b>. Essa é a ideia central do miniprojeto.</p>
       <div class="visual"><svg viewBox="0 0 560 252" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -361,7 +351,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="222" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">A matriz vendas</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">              mês 0    mês 1    mês 2</text><text x="20" y="78" class="sv-code" xml:space="preserve">vendedor 0 →  1200     1500     1100</text><text x="20" y="104" class="sv-code" xml:space="preserve">vendedor 1 →  1000     1300     1400</text><text x="20" y="130" class="sv-code" xml:space="preserve">vendedor 2 →   900     1700     1600</text><text x="20" y="156" class="sv-code" xml:space="preserve"> </text><text x="20" y="182" class="sv-code sv-code-key" xml:space="preserve">vendas[2][1] = 1700   ← vendedor 2, mês 1</text><text x="280" y="234" class="sv-legend">Três linhas (vendedores) por três colunas (meses) — nove valores no total.</text>
+  <rect x="0" y="0" width="560" height="222" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">A matriz vendas</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">              mês 0    mês 1    mês 2</text><text x="20" y="78" class="sv-code" xml:space="preserve">vendedor 0 →  1200     1500     1100</text><text x="20" y="104" class="sv-code" xml:space="preserve">vendedor 1 →  1000     1300     1400</text><text x="20" y="130" class="sv-code" xml:space="preserve">vendedor 2 →   900     1700     1600</text><text x="20" y="156" class="sv-code" xml:space="preserve"> </text><text x="20" y="182" class="sv-code sv-code-key" xml:space="preserve">vendas[2][1] = 1700   ← vendedor 2, mês 1</text><text x="280" y="234" class="sv-legend">O primeiro índice escolhe o vendedor; o segundo, o mês.</text>
 </svg></div><div class="visual"><svg viewBox="0 0 690 162" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -402,6 +392,101 @@ section.tab{display:flex;flex-direction:column;gap:16px}
         <text x="532" y="33" class="sv-label">IDENTIFICAR o melhor</text><text x="532" y="51" class="sv-label">vendedor</text></g><text x="310" y="102" class="sv-legend">O melhor vendedor sai de uma comparação entre os totais já calculados na Etapa 2.</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S16A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>O miniprojeto do começo ao fim</h2></div>
+  <p class="lead">O programa é uma sequência de etapas, cada uma reaproveitando o que a anterior produziu. As Etapas 1 a 4 são blocos que vocês já sabem montar com laços aninhados. O desenho detalha duas partes novas: a <b>conferência</b> dos totais e a <b>busca do melhor vendedor</b> da Etapa 5.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 618" class="sv" role="img" aria-label="Fluxograma do miniprojeto de vendas: início; Etapa 1 exibe a matriz; Etapa 2 calcula o total de cada vendedor; Etapa 3, o total de cada mês; Etapa 4, o total geral. Se os três totais não conferem, procurar erro de índice e revisar a partir da Etapa 2. Se conferem, melhor recebe 0, k recebe 1 e, enquanto houver vendedor, compara o total do vendedor k com o do melhor; se for maior, melhor recebe k; k aumenta 1 e volta. Quando acabam os vendedores, mostra o melhor vendedor e termina">
+      <defs>
+        <marker id="fl16c-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="70" y="8" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="170" y="29" class="sv-label sv-small">INÍCIO</text>
+      <path d="M170 40 L170 54" class="sv-arrow" marker-end="url(#fl16c-head)"/>
+      <rect x="50" y="54" width="240" height="32" rx="8" class="sv-box"/>
+      <text x="170" y="75" class="sv-label sv-small">Etapa 1: exibir a matriz</text>
+      <path d="M170 86 L170 100" class="sv-arrow" marker-end="url(#fl16c-head)"/>
+      <rect x="50" y="100" width="240" height="32" rx="8" class="sv-box"/>
+      <text x="170" y="121" class="sv-label sv-small">Etapa 2: total de cada vendedor</text>
+      <path d="M170 132 L170 146" class="sv-arrow" marker-end="url(#fl16c-head)"/>
+      <rect x="50" y="146" width="240" height="32" rx="8" class="sv-box"/>
+      <text x="170" y="167" class="sv-label sv-small">Etapa 3: total de cada mês</text>
+      <path d="M170 178 L170 192" class="sv-arrow" marker-end="url(#fl16c-head)"/>
+      <rect x="50" y="192" width="240" height="32" rx="8" class="sv-box"/>
+      <text x="170" y="213" class="sv-label sv-small">Etapa 4: total geral</text>
+      <path d="M170 224 L170 240" class="sv-arrow" marker-end="url(#fl16c-head)"/>
+
+      <polygon points="170,240 290,270 170,300 50,270" class="sv-diamond"/>
+      <text x="170" y="266" class="sv-label sv-small">Os totais</text>
+      <text x="170" y="282" class="sv-label sv-small">conferem?</text>
+      <path d="M290 270 L380 270" class="sv-arrow" marker-end="url(#fl16c-head)"/>
+      <text x="320" y="262" class="sv-tag sv-no">F</text>
+      <rect x="380" y="253" width="240" height="34" rx="8" class="sv-box-no"/>
+      <text x="500" y="275" class="sv-label sv-small">Procurar o erro de índice</text>
+      <path d="M500 253 L500 116 L294 116" class="sv-arrow sv-arrow-soft" marker-end="url(#fl16c-head)"/>
+      <text x="540" y="184" class="sv-tag sv-no">revisar</text>
+
+      <path d="M170 300 L170 318" class="sv-arrow" marker-end="url(#fl16c-head)"/>
+      <text x="180" y="314" class="sv-tag sv-ok">V</text>
+      <text x="470" y="370" class="sv-tag sv-ok">ETAPA 5 — MELHOR VENDEDOR</text>
+      <rect x="50" y="318" width="240" height="32" rx="8" class="sv-box"/>
+      <text x="170" y="339" class="sv-label sv-small">melhor ← 0   (um índice)</text>
+      <path d="M170 350 L170 364" class="sv-arrow" marker-end="url(#fl16c-head)"/>
+      <rect x="50" y="364" width="240" height="32" rx="8" class="sv-box"/>
+      <text x="170" y="385" class="sv-label sv-small">k ← 1</text>
+      <path d="M170 396 L170 414" class="sv-arrow" marker-end="url(#fl16c-head)"/>
+
+      <polygon points="170,414 290,446 170,478 50,446" class="sv-diamond"/>
+      <text x="170" y="442" class="sv-label sv-small">Ainda há</text>
+      <text x="170" y="458" class="sv-label sv-small">vendedor k?</text>
+      <path d="M290 446 L380 446" class="sv-arrow" marker-end="url(#fl16c-head)"/>
+      <text x="320" y="438" class="sv-tag sv-no">F</text>
+      <rect x="380" y="429" width="240" height="34" rx="8" class="sv-box"/>
+      <text x="500" y="451" class="sv-label sv-small">Mostrar o melhor vendedor</text>
+      <path d="M500 463 L500 474" class="sv-arrow" marker-end="url(#fl16c-head)"/>
+      <rect x="420" y="474" width="160" height="28" rx="14" class="sv-box-ok"/>
+      <text x="500" y="493" class="sv-label sv-small">FIM</text>
+
+      <path d="M170 478 L170 494" class="sv-arrow" marker-end="url(#fl16c-head)"/>
+      <text x="180" y="490" class="sv-tag sv-ok">V</text>
+      <polygon points="170,494 300,526 170,558 40,526" class="sv-diamond"/>
+      <text x="170" y="522" class="sv-label sv-small">total do vendedor k &gt;</text>
+      <text x="170" y="538" class="sv-label sv-small">total do melhor?</text>
+      <path d="M300 526 L380 526" class="sv-arrow" marker-end="url(#fl16c-head)"/>
+      <text x="320" y="518" class="sv-tag sv-ok">V</text>
+      <rect x="380" y="511" width="240" height="32" rx="8" class="sv-box-ok"/>
+      <text x="500" y="532" class="sv-label sv-small">melhor ← k</text>
+      <path d="M500 543 L500 590 L274 590" class="sv-arrow" marker-end="url(#fl16c-head)"/>
+
+      <path d="M170 558 L170 574" class="sv-arrow" marker-end="url(#fl16c-head)"/>
+      <text x="180" y="570" class="sv-tag sv-no">F</text>
+      <rect x="70" y="574" width="200" height="32" rx="8" class="sv-box"/>
+      <text x="170" y="595" class="sv-label sv-small">k ← k + 1</text>
+      <path d="M70 590 L24 590 L24 406 L166 406" class="sv-arrow sv-arrow-soft" marker-end="url(#fl16c-head)"/>
+      <text x="40" y="576" class="sv-tag sv-no">próximo</text>
+    </svg>
+    <div class="cap">A disputa começa com o vendedor 0 como “melhor até agora” e compara os outros com ele, um por um. Repare que a caixa verde guarda k, a posição do vendedor, e não o valor vendido.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>Cada caixa das Etapas 1 a 4 esconde um par de laços aninhados, como os da 16b. Na Etapa 3, o laço de fora é o dos meses.</span></li>
+      <li><span class="num">2</span><span>O losango “Os totais conferem?” é a checagem da Etapa 4. Se falhar, a seta tracejada manda revisar a partir da Etapa 2: o erro está em algum índice.</span></li>
+      <li><span class="num">3</span><span>A Etapa 5 não percorre a matriz de novo: ela compara os totais que a Etapa 2 já calculou. Por isso tem um laço só.</span></li>
+      <li><span class="num">4</span><span>No final, “melhor” é uma posição. Para mostrar o valor vendido, o programa usa essa posição para buscar o total certo.</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
