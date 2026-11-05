@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%E2%9C%8F%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <title>Detetives de performance — Registro de Aula S10A3 — Semana 10</title>
 <style>
 :root{
@@ -292,6 +293,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   #roteiro th{background:#e8e8e8;color:#000;text-transform:none;font-variant:small-caps;letter-spacing:0}
   #roteiro .checkline{margin-bottom:1.5mm;font-size:11pt}
 }
+
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;background:var(--bg);padding:8px 0;border-bottom:2px solid var(--border-strong);margin-bottom:6px}
+.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:1.5px solid var(--border-strong);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font-weight:600;white-space:nowrap;cursor:pointer;font:inherit}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+section.tab{display:flex;flex-direction:column;gap:16px}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -303,13 +311,18 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="sub">Registro de Aula S10A3 — Semana 10 · Aula 3 – Complexidade e otimização</div>
     <div class="chips"><span class="chip">Unidade <b>10 (S10) – Estruturas de Repetição Aninhadas</b></span><span class="chip">Base: <b>Capítulos 21 a 27 — laços, laços aninhados e listas</b></span><span class="chip">Tempo: <b>45 a 50 min</b></span><span class="chip">Entrega: <b>AVA (doc, pdf ou imagem)</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S10A3</b></span></div>
   </header>
+  <nav class="tabs" role="tablist" aria-label="Partes da atividade">
+    <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
+    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
+  </nav>
 
-  <section>
+<section class="tab" id="como" role="tabpanel">
+<section>
     <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que vocês vão resolver</h2></div>
     <p class="lead" style="color:var(--ink);font-size:15.5px">Vocês são desenvolvedores júnior em uma startup. O sistema de busca do e-commerce está lento e a equipe precisa descobrir por quê. Há <b>dois algoritmos</b> propostos para encontrar produtos duplicados no estoque: um usa <b>loops aninhados — O(n²)</b>, o outro usa uma <b>estrutura auxiliar — O(n)</b>. A missão do grupo é rastrear os dois na mão, contar as comparações de cada um e entender por que um é mais eficiente. Lista de teste: <code>[10, 20, 30, 20, 50]</code>.</p>
   </section>
-
-  <section>
+<section>
     <div class="card-ava">
       <div class="trilha">Lógica e Linguagem de Programação – 2º Bimestre / Semana 10 (S10) – Estruturas de Repetição Aninhadas / Aula 3: Complexidade e otimização / Registro da Aula (S10A3)</div>
       <div class="corpo">
@@ -320,9 +333,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       </div>
     </div>
   </section>
-
-
-  <section>
+<section>
     <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
     <ul class="objetivos">
       <li><span class="tick">✓</span><span>Rastrear manualmente a execução de dois algoritmos (teste de mesa), registrando cada comparação.</span></li><li><span class="tick">✓</span><span>Diferenciar um algoritmo O(n²), com loops aninhados, de um algoritmo O(n), com estrutura auxiliar.</span></li><li><span class="tick">✓</span><span>Compreender a notação Big-O como previsão de desempenho conforme a entrada cresce.</span></li><li><span class="tick">✓</span><span>Justificar a escolha de um algoritmo pelo custo que ele terá em escala real.</span></li>
@@ -339,6 +350,16 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       </div>
     </div>
   </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S10A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="diagrama" role="tabpanel" hidden>
 <section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>Dois caminhos para o mesmo resultado</h2></div>
       <p class="lead">Os dois algoritmos encontram o mesmo duplicado (o 20). O que muda é o &lt;b&gt;preço&lt;/b&gt; que cada um cobra em número de comparações — e esse preço cresce de formas muito diferentes.</p>
@@ -389,14 +410,8 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       </g><text x="345" y="156" class="sv-legend">O mesmo problema, a mesma resposta: o que muda é quanto o computador precisa trabalhar.</text>
 </svg></div>
     </section>
-<section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S10A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
+</section>
+<section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
     <div class="sec-head"><span class="n">PASSO 0</span><h2>Identificação</h2></div>
     <p class="lead">Estes dados montam a capa e a folha de rosto do relatório em PDF.</p>
@@ -507,8 +522,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="sec-head"><span class="n">REFERÊNCIAS</span><h2>De onde veio o conteúdo desta aula</h2></div>
     <ul class="refs"><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B2S10A3AP: “Detetives de performance”. Situação fictícia produzida pela SEDUC-SP.</li><li>Apostila da disciplina — Capítulos 21 a 27: laços, laços aninhados e listas.</li><li>CORMEN, T. H. et al. <i>Algoritmos: teoria e prática</i>. Rio de Janeiro: LTC — cap. 1 a 3 (análise de algoritmos e notação assintótica).</li></ul>
   </section>
-
-  
+</section>
   <nav class="navAtiv">
     <a class="" href="logica-09-s09a1.html">
           <span class="rot">← Anterior · Semana 9</span>
@@ -810,6 +824,19 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   window.addEventListener("beforeprint", montarRelatorio);
 
   carregar(); pintarChecks();
+})();
+</script>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button'));
+  function show(name){
+    if(!document.getElementById(name)) name='como';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String(t.dataset.tab===name)); });
+    document.querySelectorAll('section.tab').forEach(function(s){ s.hidden = s.id!==name; });
+    window.scrollTo(0,0);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab); }); });
+  show('como');
 })();
 </script>
 </body>

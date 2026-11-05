@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%E2%9C%8F%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <title>Ordenando listas com Bubble Sort — Registro de Aula S11A3 — Semana 11</title>
 <style>
 :root{
@@ -292,6 +293,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   #roteiro th{background:#e8e8e8;color:#000;text-transform:none;font-variant:small-caps;letter-spacing:0}
   #roteiro .checkline{margin-bottom:1.5mm;font-size:11pt}
 }
+
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;background:var(--bg);padding:8px 0;border-bottom:2px solid var(--border-strong);margin-bottom:6px}
+.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:1.5px solid var(--border-strong);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font-weight:600;white-space:nowrap;cursor:pointer;font:inherit}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+section.tab{display:flex;flex-direction:column;gap:16px}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -303,13 +311,18 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="sub">Registro de Aula S11A3 — Semana 11 · Aula 3 – Ordenação Bubble Sort</div>
     <div class="chips"><span class="chip">Unidade <b>11 (S11) – Vetores (arrays unidimensionais)</b></span><span class="chip">Base: <b>Capítulos 25 a 27 — listas, métodos de listas e percurso</b></span><span class="chip">Tempo: <b>45 min</b></span><span class="chip">Entrega: <b>AVA (arquivo de texto)</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S11A3</b></span></div>
   </header>
+  <nav class="tabs" role="tablist" aria-label="Partes da atividade">
+    <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
+    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
+  </nav>
 
-  <section>
+<section class="tab" id="como" role="tabpanel">
+<section>
     <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que vocês vão resolver</h2></div>
     <p class="lead" style="color:var(--ink);font-size:15.5px">Você e sua <b>dupla</b> são a equipe de controle de qualidade de um software. Uma parte crítica do sistema precisa ordenar listas de números, e o algoritmo escolhido foi o <b>Bubble Sort</b>. A tarefa de vocês é executar um <b>teste de mesa</b> manual para rastrear o comportamento do algoritmo e garantir que ele funcione como esperado. Vetor de teste: <code>[40, 20, 50, 10]</code>.</p>
   </section>
-
-  <section>
+<section>
     <div class="card-ava">
       <div class="trilha">Lógica e Linguagem de Programação – 2º Bimestre / Semana 11 (S11) – Vetores (arrays unidimensionais) / Aula 3: Ordenação Bubble Sort / Registro da Aula (S11A3)</div>
       <div class="corpo">
@@ -320,9 +333,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       </div>
     </div>
   </section>
-
-
-  <section>
+<section>
     <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
     <ul class="objetivos">
       <li><span class="tick">✓</span><span>Codificar e rastrear trocas adjacentes.</span></li><li><span class="tick">✓</span><span>Manipular vetores (criar, percorrer, alterar, ordenar) no desenvolvimento de estruturas de seleção.</span></li><li><span class="tick">✓</span><span>Rastrear manualmente o funcionamento do Bubble Sort, identificando comparações e trocas.</span></li><li><span class="tick">✓</span><span>Reconhecer que, ao fim de cada passada, o maior elemento restante chega à sua posição final.</span></li><li><span class="tick">✓</span><span>Concluir quantas passadas são necessárias para ordenar um vetor de n elementos.</span></li><li><span class="tick">✓</span><span>Relacionar o número de comparações à complexidade O(n²) do algoritmo.</span></li><li><span class="tick">✓</span><span>Aplicar análise crítica e foco para identificar o caminho mais eficiente na resolução de problemas simples, utilizando vetores.</span></li>
@@ -339,6 +350,16 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       </div>
     </div>
   </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S11A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="diagrama" role="tabpanel" hidden>
 <section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>Como o Bubble Sort “borbulha”</h2></div>
       <p class="lead">O algoritmo compara sempre dois vizinhos. Se estiverem fora de ordem, troca. A cada passada completa, o maior elemento que ainda restava sobe até o fim e trava naquela posição — daí o nome.</p>
@@ -387,14 +408,8 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   <rect x="0" y="0" width="560" height="222" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">A regra das passadas</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">1ª passada: compara 3 pares → trava o 50</text><text x="20" y="78" class="sv-code sv-code-key" xml:space="preserve">2ª passada: compara 2 pares → trava o 40</text><text x="20" y="104" class="sv-code sv-code-key" xml:space="preserve">3ª passada: compara 1 par  → trava o resto</text><text x="20" y="130" class="sv-code" xml:space="preserve"> </text><text x="20" y="156" class="sv-code sv-code-soft" xml:space="preserve">para n elementos, são necessárias n − 1 passadas</text><text x="20" y="182" class="sv-code sv-code-soft" xml:space="preserve">com n = 4  →  3 passadas</text><text x="280" y="234" class="sv-legend">Repare que cada passada compara um par a menos: o fim do vetor já está</text><text x="280" y="250" class="sv-legend">ordenado.</text>
 </svg></div>
     </section>
-<section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S11A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
+</section>
+<section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
     <div class="sec-head"><span class="n">PASSO 0</span><h2>Identificação</h2></div>
     <p class="lead">Estes dados montam a capa e a folha de rosto do relatório em PDF.</p>
@@ -505,8 +520,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="sec-head"><span class="n">REFERÊNCIAS</span><h2>De onde veio o conteúdo desta aula</h2></div>
     <ul class="refs"><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B2S11A3AP: “Ordenando listas com Bubble Sort”.</li><li>Apostila da disciplina — Capítulos 25 a 27: listas, métodos de listas e percurso.</li><li>FARIAS, R. <i>Aula 05 – Ordenação e pesquisa</i>. COS 121: estruturas de dados e algoritmos. UFRJ: cos.ufrj.br/~rfarias/cos121/aula_05.html</li><li>GATTO, E. C. <i>Algoritmos de ordenação: Bubble Sort</i>. Embarcados, 16 ago. 2017: embarcados.com.br/algoritmos-de-ordenacao-bubble-sort/</li><li>CORMEN, T. H. et al. <i>Algoritmos: teoria e prática</i>. Rio de Janeiro: LTC — cap. 2 (ordenação e análise de algoritmos).</li></ul>
   </section>
-
-  
+</section>
   <nav class="navAtiv">
     <a class="" href="logica-10-s10a3.html">
           <span class="rot">← Anterior · Semana 10</span>
@@ -808,6 +822,19 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   window.addEventListener("beforeprint", montarRelatorio);
 
   carregar(); pintarChecks();
+})();
+</script>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button'));
+  function show(name){
+    if(!document.getElementById(name)) name='como';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String(t.dataset.tab===name)); });
+    document.querySelectorAll('section.tab').forEach(function(s){ s.hidden = s.id!==name; });
+    window.scrollTo(0,0);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab); }); });
+  show('como');
 })();
 </script>
 </body>

@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%E2%9C%8F%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <title>Revisão por pares e feedback assertivo — Registro de Aula S17A4 — Semana 17</title>
 <style>
 :root{
@@ -292,6 +293,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   #roteiro th{background:#e8e8e8;color:#000;text-transform:none;font-variant:small-caps;letter-spacing:0}
   #roteiro .checkline{margin-bottom:1.5mm;font-size:11pt}
 }
+
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;background:var(--bg);padding:8px 0;border-bottom:2px solid var(--border-strong);margin-bottom:6px}
+.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:1.5px solid var(--border-strong);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font-weight:600;white-space:nowrap;cursor:pointer;font:inherit}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+section.tab{display:flex;flex-direction:column;gap:16px}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -303,16 +311,18 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="sub">Registro de Aula S17A4 — Semana 17 · Aula 4 – Auditoria de código e comunicação técnica</div>
     <div class="chips"><span class="chip">Unidade <b>3 – Qualidade de código e trabalho em equipe</b></span><span class="chip">Base: <b>Capítulos 32 a 36 — funções, parâmetros, return e escopo de variáveis</b></span><span class="chip">Tempo: <b>50 min</b></span><span class="chip">Entrega: <b>AVA (documento em PDF)</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S17A4</b></span></div>
   </header>
+  <nav class="tabs" role="tablist" aria-label="Partes da atividade">
+    <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
+    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
+  </nav>
 
-  <section>
+<section class="tab" id="como" role="tabpanel">
+<section>
     <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que vocês vão resolver</h2></div>
     <p class="lead" style="color:var(--ink);font-size:15.5px">A loja de eletrônicos adorou o sistema de <b>“Caixa Rápido”</b> que vocês desenvolveram na aula passada. Antes de colocá-lo em produção, a gerência de TI exigiu uma <b>auditoria de qualidade</b>. Você será o <b>Revisor Técnico</b> do código do seu colega, e ele revisará o seu. O objetivo é garantir que as boas práticas de programação foram seguidas — e treinar a forma de comunicar isso.</p>
   </section>
-
-  
-
-
-  <section>
+<section>
     <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
     <ul class="objetivos">
       <li><span class="tick">✓</span><span>Avaliar o código de outra pessoa usando um checklist técnico objetivo.</span></li><li><span class="tick">✓</span><span>Diferenciar escopo global de parâmetros de função ao analisar um algoritmo.</span></li><li><span class="tick">✓</span><span>Formular feedback assertivo: um elogio técnico e duas sugestões de melhoria.</span></li><li><span class="tick">✓</span><span>Receber críticas de forma aberta e identificar o que aplicar no próprio código.</span></li>
@@ -329,6 +339,16 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       </div>
     </div>
   </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S17A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="diagrama" role="tabpanel" hidden>
 <section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>Como se escreve um bom feedback técnico</h2></div>
       <p class="lead">A diferença entre um comentário que melhora o código e um que gera atrito quase nunca está no &lt;b&gt;conteúdo&lt;/b&gt; — está na &lt;b&gt;forma&lt;/b&gt;. Feedback assertivo descreve o que foi observado e propõe, em vez de mandar.</p>
@@ -382,14 +402,8 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       </g><text x="345" y="156" class="sv-legend">O objetivo do parecer é melhorar o código — não vencer uma discussão.</text>
 </svg></div>
     </section>
-<section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S17A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
+</section>
+<section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
     <div class="sec-head"><span class="n">PASSO 0</span><h2>Identificação</h2></div>
     <p class="lead">Estes dados montam a capa e a folha de rosto do relatório em PDF.</p>
@@ -490,8 +504,7 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="sec-head"><span class="n">REFERÊNCIAS</span><h2>De onde veio o conteúdo desta aula</h2></div>
     <ul class="refs"><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S17A4AP: “Revisão por pares e feedback assertivo”. Situação fictícia produzida pela SEDUC-SP.</li><li>Apostila da disciplina — Capítulos 32 a 36: funções, parâmetros, <code>return</code> e escopo de variáveis.</li><li>PEP 8 — <i>Style Guide for Python Code</i>: convenções de nomeação e legibilidade.</li></ul>
   </section>
-
-  
+</section>
   <nav class="navAtiv">
     <a class="" href="logica-16c-s16a4.html">
           <span class="rot">← Anterior · Semana 16</span>
@@ -793,6 +806,19 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   window.addEventListener("beforeprint", montarRelatorio);
 
   carregar(); pintarChecks();
+})();
+</script>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button'));
+  function show(name){
+    if(!document.getElementById(name)) name='como';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String(t.dataset.tab===name)); });
+    document.querySelectorAll('section.tab').forEach(function(s){ s.hidden = s.id!==name; });
+    window.scrollTo(0,0);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab); }); });
+  show('como');
 })();
 </script>
 </body>

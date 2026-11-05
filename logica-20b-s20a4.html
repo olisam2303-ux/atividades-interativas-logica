@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%E2%9C%8F%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <title>Integrador de dados com planilhas — Registro de Aula S20A4 — Semana 20</title>
 <style>
 :root{
@@ -292,6 +293,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   #roteiro th{background:#e8e8e8;color:#000;text-transform:none;font-variant:small-caps;letter-spacing:0}
   #roteiro .checkline{margin-bottom:1.5mm;font-size:11pt}
 }
+
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;background:var(--bg);padding:8px 0;border-bottom:2px solid var(--border-strong);margin-bottom:6px}
+.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:1.5px solid var(--border-strong);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font-weight:600;white-space:nowrap;cursor:pointer;font:inherit}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+section.tab{display:flex;flex-direction:column;gap:16px}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -303,16 +311,18 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="sub">Registro de Aula S20A4 — Semana 20 · Aula 4 – Leitura e escrita de CSV com a biblioteca padrão</div>
     <div class="chips"><span class="chip">Unidade <b>3 – Arquivos e interoperabilidade</b></span><span class="chip">Base: <b>Capítulos 41 e 42 — arquivos e formatos de dados</b></span><span class="chip">Tempo: <b>50 min</b></span><span class="chip">Entrega: <b>AVA (roteiro preenchido, individual)</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S20A4</b></span></div>
   </header>
+  <nav class="tabs" role="tablist" aria-label="Partes da atividade">
+    <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
+    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
+  </nav>
 
-  <section>
+<section class="tab" id="como" role="tabpanel">
+<section>
     <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que vocês vão resolver</h2></div>
     <p class="lead" style="color:var(--ink);font-size:15.5px">O setor de RH da empresa <b>Conecta</b> exportou uma planilha de funcionários do sistema de gestão. O arquivo <code>funcionarios.csv</code> tem uma armadilha: <b>alguns nomes e um departamento contêm vírgulas</b>. O RH precisa de um novo arquivo, <code>relatorio_rh.csv</code>, só com os funcionários com <b>mais de 3 anos</b> de empresa e uma coluna extra indicando se o salário está acima ou abaixo da média <b>do grupo filtrado</b>.</p>
   </section>
-
-  
-
-
-  <section>
+<section>
     <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
     <ul class="objetivos">
       <li><span class="tick">✓</span><span>Reconhecer as limitações do <code>.split(",")</code> em arquivos CSV reais.</span></li><li><span class="tick">✓</span><span>Ler dados com <code>csv.reader()</code>, respeitando campos entre aspas.</span></li><li><span class="tick">✓</span><span>Filtrar registros e calcular estatísticas sobre o grupo filtrado.</span></li><li><span class="tick">✓</span><span>Gerar um novo arquivo com <code>csv.writer()</code>, preservando campos com vírgulas.</span></li>
@@ -329,6 +339,37 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       </div>
     </div>
   </section>
+<section>
+      <div class="sec-head"><span class="n">ARQUIVO DE DADOS</span><h2>O arquivo desta atividade</h2></div>
+      <p class="lead">O roteiro usa este arquivo, mas não o entrega. Ele foi montado exatamente com os dados do próprio roteiro. Baixe ou copie o conteúdo para um arquivo de texto, na mesma pasta do seu programa.</p>
+      <div class="dados">
+        <div class="cab">
+          <span class="nomeArq">funcionarios.csv</span>
+          <span class="acoes">
+            <button type="button" class="mini" data-copiar="funcionarios.csv">Copiar conteúdo</button>
+            <a class="mini" href="arquivos/funcionarios.csv" download>Baixar</a>
+          </span>
+        </div>
+        <pre data-arquivo="funcionarios.csv">nome,departamento,salario,anos_empresa
+&quot;Silva, João&quot;,Tecnologia,8500.00,3
+&quot;Santos, Maria&quot;,RH,6200.00,7
+&quot;Oliveira, Pedro&quot;,Vendas,5800.00,2
+&quot;Costa, Ana&quot;,&quot;Tecnologia, Suporte&quot;,7100.00,5
+&quot;Lima, Carlos&quot;,RH,6500.00,9
+&quot;Ferreira, Julia&quot;,Vendas,5200.00,1</pre>
+        <div class="obs">Reparem nas <b>aspas</b>: elas existem porque há vírgulas <i>dentro</i> dos campos — em todos os nomes e no departamento da Ana. É exatamente isso que faz o <code>split(",")</code> da Etapa 1 falhar e devolver 5 pedaços onde deveriam existir 4 colunas.</div>
+      </div>
+    </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S20A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="diagrama" role="tabpanel" hidden>
 <section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>Quando a vírgula não separa</h2></div>
       <p class="lead">CSV é o formato universal de troca entre planilhas, bancos e ERPs. Mas nem toda vírgula é separador — e é aí que o fatiamento ingênuo falha.</p>
@@ -367,35 +408,8 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   <rect x="0" y="0" width="560" height="222" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O arquivo que precisa ser gerado</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">nome,departamento,salario,anos_empresa,faixa_salarial</text><text x="20" y="78" class="sv-code" xml:space="preserve">"Santos, Maria",RH,6200.00,7,Abaixo da média</text><text x="20" y="104" class="sv-code" xml:space="preserve">"Costa, Ana","Tecnologia, Suporte",7100.00,5,Acima da média</text><text x="20" y="130" class="sv-code" xml:space="preserve">"Lima, Carlos",RH,6500.00,9,Abaixo da média</text><text x="20" y="156" class="sv-code" xml:space="preserve"> </text><text x="20" y="182" class="sv-code sv-code-soft" xml:space="preserve">uma coluna a mais · aspas preservadas onde havia vírgula</text><text x="280" y="234" class="sv-legend">Confiram: as aspas do arquivo final não foram digitadas por vocês — quem as</text><text x="280" y="250" class="sv-legend">colocou?</text>
 </svg></div>
     </section>
-<section>
-      <div class="sec-head"><span class="n">ARQUIVO DE DADOS</span><h2>O arquivo desta atividade</h2></div>
-      <p class="lead">O roteiro usa este arquivo, mas não o entrega. Ele foi montado exatamente com os dados do próprio roteiro. Baixe ou copie o conteúdo para um arquivo de texto, na mesma pasta do seu programa.</p>
-      <div class="dados">
-        <div class="cab">
-          <span class="nomeArq">funcionarios.csv</span>
-          <span class="acoes">
-            <button type="button" class="mini" data-copiar="funcionarios.csv">Copiar conteúdo</button>
-            <a class="mini" href="arquivos/funcionarios.csv" download>Baixar</a>
-          </span>
-        </div>
-        <pre data-arquivo="funcionarios.csv">nome,departamento,salario,anos_empresa
-&quot;Silva, João&quot;,Tecnologia,8500.00,3
-&quot;Santos, Maria&quot;,RH,6200.00,7
-&quot;Oliveira, Pedro&quot;,Vendas,5800.00,2
-&quot;Costa, Ana&quot;,&quot;Tecnologia, Suporte&quot;,7100.00,5
-&quot;Lima, Carlos&quot;,RH,6500.00,9
-&quot;Ferreira, Julia&quot;,Vendas,5200.00,1</pre>
-        <div class="obs">Reparem nas <b>aspas</b>: elas existem porque há vírgulas <i>dentro</i> dos campos — em todos os nomes e no departamento da Ana. É exatamente isso que faz o <code>split(",")</code> da Etapa 1 falhar e devolver 5 pedaços onde deveriam existir 4 colunas.</div>
-      </div>
-    </section>
-<section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S20A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
+</section>
+<section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
     <div class="sec-head"><span class="n">PASSO 0</span><h2>Identificação</h2></div>
     <p class="lead">Estes dados montam a capa e a folha de rosto do relatório em PDF.</p>
@@ -486,7 +500,7 @@ print(linha.split(","))</div></div><div class="campoWrap" data-rel="campo" data-
     <div class="sec-head"><span class="n">REFERÊNCIAS</span><h2>De onde veio o conteúdo desta aula</h2></div>
     <ul class="refs"><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S20A4AP: “Integrador de dados com planilhas”. Produzido pela SEDUC-SP.</li><li>Apostila da disciplina — Capítulos 41 e 42: arquivos e formatos de dados.</li><li>Documentação oficial do Python — módulo <code>csv</code>: <code>reader()</code>, <code>writer()</code> e o parâmetro <code>delimiter</code>.</li><li>RFC 4180 — <i>Common Format and MIME Type for CSV Files</i>.</li></ul>
   </section>
-
+</section>
   <a class="navGit" href="github-passo-a-passo.html">
         <span class="ic">GIT</span>
         <span><b>Como entregar no GitHub</b>
@@ -790,6 +804,19 @@ print(linha.split(","))</div></div><div class="campoWrap" data-rel="campo" data-
   window.addEventListener("beforeprint", montarRelatorio);
 
   carregar(); pintarChecks();
+})();
+</script>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button'));
+  function show(name){
+    if(!document.getElementById(name)) name='como';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String(t.dataset.tab===name)); });
+    document.querySelectorAll('section.tab').forEach(function(s){ s.hidden = s.id!==name; });
+    window.scrollTo(0,0);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab); }); });
+  show('como');
 })();
 </script>
 </body>

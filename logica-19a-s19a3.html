@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%E2%9C%8F%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <title>Slicing e formatação com f-strings — Prática guiada S19A3 — Semana 19</title>
 <style>
 :root{
@@ -292,6 +293,13 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   #roteiro th{background:#e8e8e8;color:#000;text-transform:none;font-variant:small-caps;letter-spacing:0}
   #roteiro .checkline{margin-bottom:1.5mm;font-size:11pt}
 }
+
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;background:var(--bg);padding:8px 0;border-bottom:2px solid var(--border-strong);margin-bottom:6px}
+.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:1.5px solid var(--border-strong);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font-weight:600;white-space:nowrap;cursor:pointer;font:inherit}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+section.tab{display:flex;flex-direction:column;gap:16px}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -303,16 +311,18 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
     <div class="sub">Prática guiada S19A3 — Semana 19 · Aula 3 – Fatiamento de strings e formatação de saída</div>
     <div class="chips"><span class="chip">Unidade <b>3 – Manipulação de texto</b></span><span class="chip">Base: <b>Capítulo 8 — strings (e Capítulo 11 — saída com print)</b></span><span class="chip">Tempo: <b>40 a 45 min</b></span><span class="chip">Entrega: <b>Prática em sala (não entregue no AVA)</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S19A3</b></span></div>
   </header>
+  <nav class="tabs" role="tablist" aria-label="Partes da atividade">
+    <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
+    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
+  </nav>
 
-  <section>
+<section class="tab" id="como" role="tabpanel">
+<section>
     <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que vocês vão resolver</h2></div>
     <p class="lead" style="color:var(--ink);font-size:15.5px">Vocês atuam como <b>Analista de Dados Jr.</b> e receberam a tarefa de analisar logs de um sistema legado. A missão é extrair as informações relevantes de <b>strings brutas</b> e transformá-las em um relatório estruturado, usando <b>slicing</b> (fatiamento) e <b>f-strings</b> (formatação).</p>
   </section>
-
-  
-
-
-  <section>
+<section>
     <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
     <ul class="objetivos">
       <li><span class="tick">✓</span><span>Mapear índices positivos e negativos de uma string.</span></li><li><span class="tick">✓</span><span>Extrair trechos de uma string usando notação de fatiamento.</span></li><li><span class="tick">✓</span><span>Formatar números como moeda e percentual com f-strings.</span></li><li><span class="tick">✓</span><span>Decompor uma string bruta de log e remontá-la como relatório legível.</span></li>
@@ -329,6 +339,16 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
       </div>
     </div>
   </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S19A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="diagrama" role="tabpanel" hidden>
 <section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>A régua da string</h2></div>
       <p class="lead">Toda string tem duas numerações ao mesmo tempo: da esquerda para a direita começando em &lt;b&gt;0&lt;/b&gt;, e da direita para a esquerda começando em &lt;b&gt;-1&lt;/b&gt;. Saber ler as duas é o que torna o fatiamento previsível.</p>
@@ -364,14 +384,8 @@ table.criterios td:last-child{font-family:var(--mono);text-align:right;white-spa
   <rect x="0" y="0" width="560" height="274" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O log do cenário real, decomposto</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">"TRF-2024-09-30-GABRIEL.SOUZA-4890.75"</text><text x="20" y="78" class="sv-code" xml:space="preserve"> </text><text x="20" y="104" class="sv-code sv-code-soft" xml:space="preserve">TRF              → tipo de operação</text><text x="20" y="130" class="sv-code sv-code-soft" xml:space="preserve">2024-09-30       → data do evento</text><text x="20" y="156" class="sv-code sv-code-soft" xml:space="preserve">GABRIEL.SOUZA    → responsável</text><text x="20" y="182" class="sv-code sv-code-soft" xml:space="preserve">4890.75          → valor total</text><text x="20" y="208" class="sv-code" xml:space="preserve"> </text><text x="20" y="234" class="sv-code sv-code-key" xml:space="preserve">alvo: Transferência | Data: 30/09/2024 | Responsável: Gabriel Souza | Valor: R$ 4.890,75</text><text x="280" y="286" class="sv-legend">Cada campo exige duas coisas: o fatiamento certo e uma transformação de</text><text x="280" y="302" class="sv-legend">formato.</text>
 </svg></div>
     </section>
-<section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S19A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
+</section>
+<section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
     <div class="sec-head"><span class="n">PASSO 0</span><h2>Identificação</h2></div>
     <p class="lead">Estes dados montam a capa e a folha de rosto do relatório em PDF.</p>
@@ -453,7 +467,7 @@ print(f"<span class="b">...</span>")</div></div><div class="campoWrap" data-rel=
     <div class="sec-head"><span class="n">REFERÊNCIAS</span><h2>De onde veio o conteúdo desta aula</h2></div>
     <ul class="refs"><li>SEDUC-SP — Roteiro de Atividade Prática SISANO1C1B3S19A3AP: “Slicing e formatação com f-strings”.</li><li>Apostila da disciplina — Capítulo 8 (strings) e Capítulo 11 (saída com print).</li><li>Documentação oficial do Python — <i>Format Specification Mini-Language</i> (formatação em f-strings).</li></ul>
   </section>
-
+</section>
   <a class="navGit" href="github-passo-a-passo.html">
         <span class="ic">GIT</span>
         <span><b>Como entregar no GitHub</b>
@@ -760,6 +774,19 @@ print(f"<span class="b">...</span>")</div></div><div class="campoWrap" data-rel=
   window.addEventListener("beforeprint", montarRelatorio);
 
   carregar(); pintarChecks();
+})();
+</script>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button'));
+  function show(name){
+    if(!document.getElementById(name)) name='como';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String(t.dataset.tab===name)); });
+    document.querySelectorAll('section.tab').forEach(function(s){ s.hidden = s.id!==name; });
+    window.scrollTo(0,0);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab); }); });
+  show('como');
 })();
 </script>
 </body>
