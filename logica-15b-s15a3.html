@@ -529,7 +529,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
         <div class="dica"><b>Como pensar:</b> É o mesmo esqueleto da aula anterior. Depois de completar, expliquem por que essa condição não deixa o índice estourar.</div>
         <div class="campoWrap"><div class="modelo">i = <span class="b">___</span>
 <span class="k">while</span> i &lt; <span class="b">__________</span>:
-    print(temperaturas[i])
+    print(···)   # o valor da posição i: é a lacuna do Desafio 3
     i += 1</div></div><div class="campoWrap" data-rel="campo" data-rotulo="D2 — i inicial"><label class="f" for="c3">Valor inicial de i</label><input type="text" id="c3" data-campo="c3" placeholder=""></div><div class="campoWrap" data-rel="campo" data-rotulo="D2 — condição"><label class="f" for="c4">Condição de parada</label><input type="text" id="c4" data-campo="c4" placeholder=""></div><div class="campoWrap" data-rel="campo" data-rotulo="D2 — justificativa"><label class="f" for="c5">Por que essa condição evita erros?</label><textarea id="c5" data-campo="c5" rows="2" placeholder=""></textarea></div>
       </div><div class="passo">
         <div class="passo-top">
@@ -537,9 +537,10 @@ section.tab{display:flex;flex-direction:column;gap:16px}
           <div class="passo-txt">Desafio 3 — Completem o cálculo da soma.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> A cada volta, o acumulador recebe o valor da posição atual. Qual expressão representa “o valor da posição atual”?</div>
-        <div class="campoWrap"><div class="modelo">soma = 0
-i = 0
-<span class="k">while</span> i &lt; len(temperaturas):
+        <div class="campoWrap"><div class="modelo"># ··· = o que vocês completaram no Desafio 2
+soma = 0
+i = ···
+<span class="k">while</span> i &lt; ···:
     soma = soma + <span class="b">__________</span>
     i += 1</div></div><div class="campoWrap" data-rel="campo" data-rotulo="D3 — lacuna da soma"><label class="f" for="c6">O que vai na lacuna?</label><input type="text" id="c6" data-campo="c6" placeholder=""></div><div class="campoWrap" data-rel="campo" data-rotulo="D3 — soma final"><label class="f" for="c7">Qual o valor final da soma?</label><input type="text" id="c7" data-campo="c7" placeholder=""></div>
       </div><div class="passo">
@@ -555,11 +556,12 @@ i = 0
           <div class="passo-txt">Desafio 5 — Completem a busca linear.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> A comparação precisa confrontar o valor da posição atual com o valor procurado. Pensem também: o que acontece quando o valor aparece duas vezes?</div>
-        <div class="campoWrap"><div class="modelo">procurada = 24
+        <div class="campoWrap"><div class="modelo"># ··· = o que vocês completaram nos Desafios 2 e 3
+procurada = 24
 encontrou = False
-i = 0
-<span class="k">while</span> i &lt; len(temperaturas):
-    <span class="k">if</span> temperaturas[i] == <span class="b">__________</span>:
+i = ···
+<span class="k">while</span> i &lt; ···:
+    <span class="k">if</span> ··· == <span class="b">__________</span>:
         encontrou = True
     i += 1</div></div><div class="campoWrap" data-rel="campo" data-rotulo="D5 — lacuna da busca"><label class="f" for="c10">O que vai na lacuna?</label><input type="text" id="c10" data-campo="c10" placeholder=""></div><div class="campoWrap" data-rel="campo" data-rotulo="D5 — como funciona a busca"><label class="f" for="c11">Como esse código realiza uma busca linear?</label><textarea id="c11" data-campo="c11" rows="2" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="D5 — por que percorrer posição a posição"><label class="f" for="c12">Por que o vetor precisa ser percorrido posição por posição?</label><textarea id="c12" data-campo="c12" rows="2" placeholder=""></textarea></div>
       </div><div class="passo">
