@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -340,18 +340,8 @@ section.tab{display:flex;flex-direction:column;gap:16px}
     </div>
   </section>
 <section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S18A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
-<section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>Um acumulador que não acumula</h2></div>
-      <p class="lead">O gabarito esperado é &lt;b&gt;385.0&lt;/b&gt; (110 + 220 + 55). O código devolve muito menos. O erro não é de sintaxe — o programa roda sem reclamar. É um &lt;b&gt;erro semântico&lt;/b&gt;: faz algo diferente do que deveria.</p>
+      <p class="lead">O gabarito esperado é <b>385.0</b>. O código devolve muito menos. O erro não é de sintaxe — o programa roda sem reclamar. É um <b>erro semântico</b>: faz algo diferente do que deveria.</p>
       <div class="visual"><svg viewBox="0 0 560 330" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -361,7 +351,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="300" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O código defeituoso</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">def processar_fechamento_caixa(vendas_do_dia):</text><text x="42" y="78" class="sv-code" xml:space="preserve">total_acumulado = 0.0</text><text x="42" y="104" class="sv-code" xml:space="preserve">taxa_imposto = 0.10</text><text x="42" y="130" class="sv-code sv-code-key" xml:space="preserve">for valor_venda in vendas_do_dia:</text><text x="64" y="156" class="sv-code" xml:space="preserve">imposto = valor_venda * taxa_imposto</text><text x="64" y="182" class="sv-code sv-code-key" xml:space="preserve">total_acumulado = valor_venda + imposto   ← ERRO</text><text x="42" y="208" class="sv-code" xml:space="preserve">return total_acumulado</text><text x="20" y="234" class="sv-code" xml:space="preserve"> </text><text x="20" y="260" class="sv-code sv-code-soft" xml:space="preserve">vendas_teste = [100.0, 200.0, 50.0]   → esperado: 385.0</text><text x="280" y="312" class="sv-legend">O programa executa sem erro nenhum. O problema aparece só no valor devolvido.</text>
+  <rect x="0" y="0" width="560" height="300" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O código com defeito (em que linha?)</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">def processar_fechamento_caixa(vendas_do_dia):</text><text x="42" y="78" class="sv-code" xml:space="preserve">total_acumulado = 0.0</text><text x="42" y="104" class="sv-code" xml:space="preserve">taxa_imposto = 0.10</text><text x="42" y="130" class="sv-code sv-code-key" xml:space="preserve">for valor_venda in vendas_do_dia:</text><text x="64" y="156" class="sv-code" xml:space="preserve">imposto = valor_venda * taxa_imposto</text><text x="64" y="182" class="sv-code" xml:space="preserve">total_acumulado = valor_venda + imposto</text><text x="42" y="208" class="sv-code" xml:space="preserve">return total_acumulado</text><text x="20" y="234" class="sv-code" xml:space="preserve"> </text><text x="20" y="260" class="sv-code sv-code-soft" xml:space="preserve">vendas_teste = [100.0, 200.0, 50.0]   → esperado: 385.0</text><text x="280" y="312" class="sv-legend">O programa executa sem erro nenhum. O problema aparece só no valor devolvido.</text>
 </svg></div><div class="visual"><svg viewBox="0 0 700 236" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -377,7 +367,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
         <path d="M 326 25 L 372 25" class="sv-arrow" marker-end="url(#sv-head)"/>
         <text x="348" y="16" class="sv-tag sv-ok">V</text>
         <rect x="380" y="0" width="280" height="50" rx="9" class="sv-box sv-box-ok"/>
-        <text x="520" y="30" class="sv-label sv-small">total = 110.0</text>
+        <text x="520" y="30" class="sv-label sv-small">total = ?</text>
         <path d="M 160 52 L 160 68" class="sv-arrow sv-arrow-soft" marker-end="url(#sv-head-soft)"/>
            <text x="172" y="64" class="sv-tag sv-no">falso ↓</text>
       </g><g>
@@ -386,7 +376,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
         <path d="M 326 91 L 372 91" class="sv-arrow" marker-end="url(#sv-head)"/>
         <text x="348" y="82" class="sv-tag sv-ok">V</text>
         <rect x="380" y="66" width="280" height="50" rx="9" class="sv-box sv-box-ok"/>
-        <text x="520" y="96" class="sv-label sv-small">total = 220.0 · perdeu os 110</text>
+        <text x="520" y="96" class="sv-label sv-small">total = ?</text>
         <path d="M 160 118 L 160 134" class="sv-arrow sv-arrow-soft" marker-end="url(#sv-head-soft)"/>
            <text x="172" y="130" class="sv-tag sv-no">falso ↓</text>
       </g><g>
@@ -395,9 +385,9 @@ section.tab{display:flex;flex-direction:column;gap:16px}
         <path d="M 326 157 L 372 157" class="sv-arrow" marker-end="url(#sv-head)"/>
         <text x="348" y="148" class="sv-tag sv-ok">V</text>
         <rect x="380" y="132" width="280" height="50" rx="9" class="sv-box sv-box-ok"/>
-        <text x="520" y="154" class="sv-label sv-small">total = 55.0 · é isso que</text><text x="520" y="170" class="sv-label sv-small">retorna</text>
+        <text x="520" y="154" class="sv-label sv-small">total = ?</text><text x="520" y="170" class="sv-label sv-small"></text>
         
-      </g><text x="350" y="218" class="sv-legend">A cada volta o total é REESCRITO, não somado. Por isso sobra apenas a última venda processada.</text>
+      </g><text x="350" y="218" class="sv-legend">Preencham com o que o depurador mostrar (Passo 4) e comparem com a análise de mesa.</text>
 </svg></div><div class="visual"><svg viewBox="0 0 454 162" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -417,9 +407,90 @@ section.tab{display:flex;flex-direction:column;gap:16px}
         <text x="345" y="26" class="sv-card-key">+=</text>
         <text x="345" y="52" class="sv-label">Acumulação</text>
         <text x="345" y="88.5" class="sv-legend sv-small">soma o novo valor ao que já</text><text x="345" y="103.5" class="sv-legend sv-small">estava guardado</text>
-      </g><text x="227" y="156" class="sv-legend">Um caractere de diferença — e a função devolve 55.0 em vez de 385.0.</text>
+      </g><text x="227" y="156" class="sv-legend">Qual dos dois o laço do caixa precisa? O depurador vai mostrar.</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S18A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>O método da depuração</h2></div>
+  <p class="lead">Este fluxograma não descreve o código do caixa: descreve <b>o trabalho de vocês</b> para encontrar o defeito. Repare que ele tem dois laços. O de dentro avança uma linha por vez até algo divergir. O de fora corrige e testa de novo, até o resultado bater com o gabarito.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 546" class="sv" role="img" aria-label="Fluxograma do método de depuração: início; análise de mesa com o total esperado em cada ciclo; executar no modo normal; se o resultado for 385.0, fim, o teste passou. Se não, colocar o breakpoint no for e iniciar com F5; avançar uma linha com F10; comparar o painel de variáveis com a tabela de mesa; se ainda não divergiu, avançar outra linha; se divergiu, achou a linha: interromper, corrigir e executar de novo">
+      <defs>
+        <marker id="fl18a-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="100" y="8" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="200" y="29" class="sv-label sv-small">INÍCIO</text>
+      <path d="M200 40 L200 54" class="sv-arrow" marker-end="url(#fl18a-head)"/>
+      <rect x="70" y="54" width="260" height="46" rx="8" class="sv-box"/>
+      <text x="200" y="73" class="sv-label sv-small">Análise de mesa: total</text>
+      <text x="200" y="90" class="sv-label sv-small">esperado em cada ciclo</text>
+      <text x="420" y="80" class="sv-tag sv-ok">PASSO 1</text>
+      <path d="M200 100 L200 120" class="sv-arrow" marker-end="url(#fl18a-head)"/>
+      <rect x="70" y="120" width="260" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="141" class="sv-label sv-small">Executar (modo normal)</text>
+      <text x="420" y="140" class="sv-tag sv-ok">PASSO 2</text>
+      <path d="M200 152 L200 168" class="sv-arrow" marker-end="url(#fl18a-head)"/>
+
+      <polygon points="200,168 320,198 200,228 80,198" class="sv-diamond"/>
+      <text x="200" y="203" class="sv-label sv-small">Resultado = 385.0 ?</text>
+      <path d="M320 198 L400 198" class="sv-arrow" marker-end="url(#fl18a-head)"/>
+      <text x="346" y="190" class="sv-tag sv-ok">V</text>
+      <rect x="400" y="181" width="200" height="34" rx="17" class="sv-box-ok"/>
+      <text x="500" y="203" class="sv-label sv-small">FIM: teste passou</text>
+
+      <path d="M200 228 L200 246" class="sv-arrow" marker-end="url(#fl18a-head)"/>
+      <text x="210" y="242" class="sv-tag sv-no">F</text>
+      <rect x="70" y="246" width="260" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="267" class="sv-label sv-small">Breakpoint no for · F5 (Debug)</text>
+      <text x="420" y="266" class="sv-tag sv-ok">PASSO 3</text>
+      <path d="M200 278 L200 298" class="sv-arrow" marker-end="url(#fl18a-head)"/>
+      <rect x="70" y="298" width="260" height="32" rx="8" class="sv-box-no"/>
+      <text x="200" y="319" class="sv-label sv-small">F10: avançar uma linha</text>
+      <text x="420" y="318" class="sv-tag sv-ok">PASSO 4</text>
+      <path d="M200 330 L200 344" class="sv-arrow" marker-end="url(#fl18a-head)"/>
+      <rect x="70" y="344" width="260" height="46" rx="8" class="sv-box"/>
+      <text x="200" y="363" class="sv-label sv-small">Comparar o painel de</text>
+      <text x="200" y="380" class="sv-label sv-small">variáveis com a tabela</text>
+      <path d="M200 390 L200 406" class="sv-arrow" marker-end="url(#fl18a-head)"/>
+
+      <polygon points="200,406 320,436 200,466 80,436" class="sv-diamond"/>
+      <text x="200" y="432" class="sv-label sv-small">Divergiu do</text>
+      <text x="200" y="448" class="sv-label sv-small">esperado?</text>
+      <path d="M80 436 L30 436 L30 290 L196 290" class="sv-arrow sv-arrow-soft" marker-end="url(#fl18a-head)"/>
+      <text x="56" y="428" class="sv-tag sv-no">F</text>
+      <text x="60" y="454" class="sv-tag sv-no">próxima linha</text>
+
+      <path d="M200 466 L200 484" class="sv-arrow" marker-end="url(#fl18a-head)"/>
+      <text x="210" y="480" class="sv-tag sv-ok">V</text>
+      <rect x="70" y="484" width="260" height="46" rx="8" class="sv-box-ok"/>
+      <text x="200" y="503" class="sv-label sv-small">Achou a linha: parar o</text>
+      <text x="200" y="520" class="sv-label sv-small">depurador e corrigir</text>
+      <text x="420" y="510" class="sv-tag sv-ok">PASSOS 5 E 6</text>
+      <path d="M330 507 L620 507 L620 112 L204 112" class="sv-arrow sv-arrow-soft" marker-end="url(#fl18a-head)"/>
+      <text x="590" y="300" class="sv-tag sv-no">revalidar</text>
+    </svg>
+    <div class="cap">O losango de cima é o teste unitário: ele só diz <i>se</i> há erro. O losango de baixo, alimentado pelo depurador, diz <i>onde</i> está o erro. É essa dupla que a terceira questão do registro pede para comentar.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>A análise de mesa vem <b>antes</b> de qualquer ferramenta: sem saber o valor esperado em cada ciclo, não há com o que comparar no depurador.</span></li>
+      <li><span class="num">2</span><span>A caixa laranja é o <b>Step Over (F10)</b>. Cada volta pela seta “próxima linha” é um clique no F10 e uma linha da tabela do Passo 4.</span></li>
+      <li><span class="num">3</span><span>O losango de baixo pergunta se o painel de variáveis já ficou diferente da tabela de mesa. A primeira vez que a resposta for “sim” aponta a linha do defeito.</span></li>
+      <li><span class="num">4</span><span>Depois da correção, a seta “revalidar” volta à execução normal. O trabalho só termina pelo caminho “teste passou”.</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
@@ -492,7 +563,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
           <span class="passo-num">7</span>
           <div class="passo-txt">Registro — Rastreamento lógico.</div>
         </div>
-        <div class="dica"><b>Como pensar:</b> Expliquem detalhadamente por que o <code>=</code> no lugar do <code>+=</code> fez a função devolver apenas o processamento da <b>última</b> venda da lista.</div>
+        <div class="dica"><b>Como pensar:</b> Expliquem detalhadamente por que a linha defeituosa fez a função devolver um valor tão menor que o esperado. Usem a tabela do depurador como prova.</div>
         <div class="campoWrap" data-rel="campo" data-rotulo="Registro 1 — rastreamento lógico"><label class="f" for="c12">Resposta</label><textarea id="c12" data-campo="c12" rows="4" placeholder=""></textarea></div>
       </div><div class="passo">
         <div class="passo-top">
@@ -513,7 +584,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
 <section>
     <div class="sec-head"><span class="n">CONFIRA</span><h2>Checklist antes de gerar o PDF</h2></div>
     <div class="progresso" id="progresso"></div>
-    <label class="check"><input type="checkbox" data-check="0"><span>Fizemos a análise de mesa antes de abrir o depurador.</span></label><label class="check"><input type="checkbox" data-check="1"><span>Registramos o resultado obtido e confirmamos que não há mensagem de erro.</span></label><label class="check"><input type="checkbox" data-check="2"><span>O breakpoint foi colocado na linha do laço e o programa rodou em modo debug.</span></label><label class="check"><input type="checkbox" data-check="3"><span>A tabela de rastreamento mostra o total sendo reescrito a cada ciclo.</span></label><label class="check"><input type="checkbox" data-check="4"><span>Identificamos a linha exata do defeito e explicamos a causa.</span></label><label class="check"><input type="checkbox" data-check="5"><span>Após a correção, o resultado é 385.0.</span></label><label class="check"><input type="checkbox" data-check="6"><span>As três questões do registro foram respondidas.</span></label><label class="check"><input type="checkbox" data-check="7"><span>Vamos salvar o PDF como NOME_TURMA_S18A3 e enviar no AVA.</span></label>
+    <label class="check"><input type="checkbox" data-check="0"><span>Fizemos a análise de mesa antes de abrir o depurador.</span></label><label class="check"><input type="checkbox" data-check="1"><span>Registramos o resultado obtido e confirmamos que não há mensagem de erro.</span></label><label class="check"><input type="checkbox" data-check="2"><span>O breakpoint foi colocado na linha do laço e o programa rodou em modo debug.</span></label><label class="check"><input type="checkbox" data-check="3"><span>A tabela de rastreamento mostra o total depois de cada ciclo, como o depurador exibiu.</span></label><label class="check"><input type="checkbox" data-check="4"><span>Identificamos a linha exata do defeito e explicamos a causa.</span></label><label class="check"><input type="checkbox" data-check="5"><span>Após a correção, o resultado é 385.0.</span></label><label class="check"><input type="checkbox" data-check="6"><span>As três questões do registro foram respondidas.</span></label><label class="check"><input type="checkbox" data-check="7"><span>Vamos salvar o PDF como NOME_TURMA_S18A3 e enviar no AVA.</span></label>
     <div class="avisoPDF">
       <b>Ao clicar em “Gerar PDF da resposta”</b>, o navegador monta o relatório completo no padrão de
       roteiro de aula prática — com capa, folha de rosto, objetivos, procedimentos, as respostas do grupo e
