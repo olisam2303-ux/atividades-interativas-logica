@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -340,18 +340,8 @@ section.tab{display:flex;flex-direction:column;gap:16px}
     </div>
   </section>
 <section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S16A2</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
-<section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>Uma matriz é uma lista de listas</h2></div>
-      <p class="lead">Para chegar a um valor são precisos &lt;b&gt;dois índices&lt;/b&gt;: o primeiro escolhe a linha, o segundo escolhe a posição dentro dela.</p>
+      <p class="lead">Para chegar a um valor são precisos <b>dois índices</b>: o primeiro escolhe a linha, o segundo escolhe a posição dentro dela.</p>
       <div class="visual"><svg viewBox="0 0 560 278" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -361,7 +351,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="248" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">A matriz notas</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">            col 0   col 1   col 2</text><text x="20" y="78" class="sv-code" xml:space="preserve">linha 0  →    7       8       6</text><text x="20" y="104" class="sv-code" xml:space="preserve">linha 1  →    5       9       7</text><text x="20" y="130" class="sv-code" xml:space="preserve">linha 2  →    8       6      10</text><text x="20" y="156" class="sv-code" xml:space="preserve"> </text><text x="20" y="182" class="sv-code sv-code-key" xml:space="preserve">notas[1][1] = 9    ← linha 1, coluna 1</text><text x="20" y="208" class="sv-code sv-code-soft" xml:space="preserve">notas[2][2] = 10   ← última linha, última coluna</text><text x="280" y="260" class="sv-legend">O primeiro índice é a linha (a turma); o segundo é a coluna (o aluno).</text>
+  <rect x="0" y="0" width="560" height="248" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">Exemplo: a matriz estoque (2 lojas × 4 produtos)</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">            col 0   col 1   col 2   col 3</text><text x="20" y="78" class="sv-code" xml:space="preserve">linha 0  →    3       0       5       2</text><text x="20" y="104" class="sv-code" xml:space="preserve">linha 1  →    1       4       0       6</text><text x="20" y="130" class="sv-code" xml:space="preserve"> </text><text x="20" y="156" class="sv-code" xml:space="preserve"> </text><text x="20" y="182" class="sv-code sv-code-key" xml:space="preserve">estoque[1][3] = 6   ← linha 1, coluna 3</text><text x="20" y="208" class="sv-code sv-code-soft" xml:space="preserve">estoque[0][2] = 5   ← linha 0, coluna 2</text><text x="280" y="260" class="sv-legend">1º índice: a linha (a loja) · 2º índice: a coluna (o produto). Na Etapa 1, usem notas.</text>
 </svg></div><div class="visual"><svg viewBox="0 0 560 320" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -371,9 +361,86 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="274" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">Os dois laços e seus papéis</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">for i in range(len(notas)):</text><text x="42" y="78" class="sv-code sv-code-soft" xml:space="preserve">i percorre as LINHAS</text><text x="42" y="104" class="sv-code sv-code-key" xml:space="preserve">for j in range(len(notas[i])):</text><text x="64" y="130" class="sv-code sv-code-soft" xml:space="preserve">j percorre as COLUNAS daquela linha</text><text x="64" y="156" class="sv-code" xml:space="preserve">print(notas[i][j])</text><text x="20" y="182" class="sv-code" xml:space="preserve"> </text><text x="20" y="208" class="sv-code sv-code-soft" xml:space="preserve">len(notas)     = quantas linhas</text><text x="20" y="234" class="sv-code sv-code-soft" xml:space="preserve">len(notas[i])  = quantas colunas na linha i</text><text x="280" y="286" class="sv-legend">O laço de dentro roda inteiro a cada volta do laço de fora — por isso todos os</text><text x="280" y="302" class="sv-legend">valores são visitados.</text>
+  <rect x="0" y="0" width="560" height="274" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">Os dois laços e seus papéis</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">for i in range(len(notas)):</text><text x="42" y="78" class="sv-code sv-code-soft" xml:space="preserve">i percorre o quê? (Etapa 3)</text><text x="42" y="104" class="sv-code sv-code-key" xml:space="preserve">for j in range(len(notas[i])):</text><text x="64" y="130" class="sv-code sv-code-soft" xml:space="preserve">e j? (Etapa 3)</text><text x="64" y="156" class="sv-code" xml:space="preserve">print(notas[i][j])</text><text x="20" y="182" class="sv-code" xml:space="preserve"> </text><text x="20" y="208" class="sv-code sv-code-soft" xml:space="preserve">len(notas)     = ?</text><text x="20" y="234" class="sv-code sv-code-soft" xml:space="preserve">len(notas[i])  = ?    por que o [i]? (Etapa 3)</text><text x="280" y="286" class="sv-legend">Rodem o código e contem: quantas vezes o print executa no total?</text><text x="280" y="302" class="sv-legend">Esse número ajuda na reflexão da Etapa 7.</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S16A2</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>Um laço dentro do outro, de novo</h2></div>
+  <p class="lead">É a mesma forma do algoritmo lento da Semana 10 e do Bubble Sort da 11: duas setas de volta, uma dentro da outra. A diferença é o que os índices escolhem. Aqui, <code>notas[i][j]</code> usa os <b>dois</b> índices ao mesmo tempo para chegar a um único valor.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 516" class="sv" role="img" aria-label="Fluxograma do percurso da matriz notas com dois laços: início, i recebe 0, pergunta se i é menor que o tamanho de notas; se não, fim. Se sim, j recebe 0 e pergunta se j é menor que o tamanho de notas na posição i; se não, i aumenta 1 e volta para a primeira pergunta. Se sim, mostra notas na posição i, j, j aumenta 1 e volta para a segunda pergunta">
+      <defs>
+        <marker id="fl16a-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="130" y="8" width="200" height="34" rx="17" class="sv-box-ok"/>
+      <text x="230" y="30" class="sv-label sv-small">INÍCIO</text>
+      <path d="M230 42 L230 56" class="sv-arrow" marker-end="url(#fl16a-head)"/>
+      <rect x="130" y="56" width="200" height="34" rx="8" class="sv-box"/>
+      <text x="230" y="78" class="sv-label sv-small">i ← 0</text>
+      <path d="M230 90 L230 112" class="sv-arrow" marker-end="url(#fl16a-head)"/>
+
+      <polygon points="230,112 340,146 230,180 120,146" class="sv-diamond"/>
+      <text x="230" y="151" class="sv-label sv-small">i &lt; len(notas) ?</text>
+      <path d="M120 146 L40 146 L40 487 L130 487" class="sv-arrow" marker-end="url(#fl16a-head)"/>
+      <text x="104" y="138" class="sv-tag sv-no">F</text>
+      <rect x="130" y="470" width="200" height="34" rx="17" class="sv-box-ok"/>
+      <text x="230" y="492" class="sv-label sv-small">FIM</text>
+
+      <path d="M230 180 L230 196" class="sv-arrow" marker-end="url(#fl16a-head)"/>
+      <text x="240" y="193" class="sv-tag sv-ok">V</text>
+      <rect x="130" y="196" width="200" height="34" rx="8" class="sv-box"/>
+      <text x="230" y="218" class="sv-label sv-small">j ← 0</text>
+      <path d="M230 230 L230 250" class="sv-arrow" marker-end="url(#fl16a-head)"/>
+
+      <polygon points="230,250 350,286 230,322 110,286" class="sv-diamond"/>
+      <text x="230" y="291" class="sv-label sv-small">j &lt; len(notas[i]) ?</text>
+      <path d="M350 286 L440 286" class="sv-arrow" marker-end="url(#fl16a-head)"/>
+      <text x="370" y="278" class="sv-tag sv-no">F</text>
+      <rect x="440" y="269" width="170" height="34" rx="8" class="sv-box"/>
+      <text x="525" y="291" class="sv-label sv-small">i ← i + 1</text>
+      <path d="M525 269 L525 102 L234 102" class="sv-arrow sv-arrow-soft" marker-end="url(#fl16a-head)"/>
+      <text x="532" y="186" class="sv-tag sv-no" text-anchor="start">laço</text>
+      <text x="532" y="200" class="sv-tag sv-no" text-anchor="start">de fora</text>
+
+      <path d="M230 322 L230 338" class="sv-arrow" marker-end="url(#fl16a-head)"/>
+      <text x="240" y="335" class="sv-tag sv-ok">V</text>
+      <rect x="130" y="338" width="200" height="34" rx="8" class="sv-box-no"/>
+      <text x="230" y="360" class="sv-label sv-small">mostrar notas[i][j]</text>
+      <path d="M230 372 L230 388" class="sv-arrow" marker-end="url(#fl16a-head)"/>
+      <rect x="130" y="388" width="200" height="34" rx="8" class="sv-box"/>
+      <text x="230" y="410" class="sv-label sv-small">j ← j + 1</text>
+      <path d="M130 405 L72 405 L72 240 L226 240" class="sv-arrow sv-arrow-soft" marker-end="url(#fl16a-head)"/>
+      <text x="96" y="318" class="sv-tag sv-no">laço</text>
+      <text x="96" y="332" class="sv-tag sv-no">de dentro</text>
+
+      <rect x="400" y="338" width="220" height="62" rx="8" class="sv-box-ok"/>
+      <text x="510" y="358" class="sv-label sv-small">Etapas 4 e 6: a soma e a</text>
+      <text x="510" y="375" class="sv-label sv-small">disputa do maior entram</text>
+      <text x="510" y="392" class="sv-label sv-small">aqui, no lugar do mostrar</text>
+      <path d="M400 360 L334 356" class="sv-arrow sv-arrow-soft"/>
+    </svg>
+    <div class="cap">A caixa laranja fica dentro das duas setas de volta, por isso roda uma vez para cada combinação de i e j. O contador de fora só anda quando o laço de dentro termina a sua rodada inteira.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>Cada <code>for ... in range(...)</code> do código vira três peças no desenho: o valor inicial (← 0), o losango e o “+ 1” antes da seta de volta.</span></li>
+      <li><span class="num">2</span><span>Sigam o desenho com o dedo para as duas primeiras voltas do laço de fora e anotem os pares (i, j) que passam pela caixa laranja. Isso ajuda a responder o papel de cada índice na Etapa 3.</span></li>
+      <li><span class="num">3</span><span>Comparem os dois losangos: o de dentro usa <code>notas[i]</code>, o de fora usa só <code>notas</code>. Por que o de dentro depende de <code>i</code>?</span></li>
+      <li><span class="num">4</span><span>Na Etapa 7, troquem <code>i</code> por <code>j</code> no código, rodem e comparem a saída com a ordem que o desenho prevê. O que mudou?</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
