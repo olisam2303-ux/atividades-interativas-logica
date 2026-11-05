@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -351,18 +351,8 @@ section.tab{display:flex;flex-direction:column;gap:16px}
     </div>
   </section>
 <section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S09A1</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
-<section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>A anatomia de uma receita com for</h2></div>
-      <p class="lead">Cada parte do cabeçalho tem um papel na receita. Entender os cinco pedaços é o que permite escrever qualquer &lt;code&gt;for&lt;/code&gt; depois.</p>
+      <p class="lead">Cada parte do cabeçalho tem um papel na receita. Entender os cinco pedaços é o que permite escrever qualquer <code>for</code> depois.</p>
       <div class="visual"><svg viewBox="0 0 560 278" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -398,6 +388,70 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   <rect x="0" y="0" width="560" height="222" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O escopo: o que é repetido</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">for ingrediente in ingredientes_a_picar:</text><text x="42" y="78" class="sv-code" xml:space="preserve">print(f"Robô Chef está picando: {ingrediente}")</text><text x="42" y="104" class="sv-code sv-code-soft" xml:space="preserve">↑ indentado = dentro do laço, repete</text><text x="20" y="130" class="sv-code" xml:space="preserve"> </text><text x="20" y="156" class="sv-code" xml:space="preserve">print("A receita acabou.")</text><text x="20" y="182" class="sv-code sv-code-soft" xml:space="preserve">↑ sem recuo = fora do laço, roda uma vez só</text><text x="280" y="234" class="sv-legend">Em Python é o recuo (a indentação) que define o bloco — não há “fimpara”.</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S09A1</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>Uma volta para cada ingrediente</h2></div>
+  <p class="lead">No <code>for</code>, quem controla a repetição é a própria lista. Antes de cada volta o losango pergunta se ainda falta algum ingrediente. Se falta, o próximo item vai para a variável <code>ingrediente</code> e o bloco indentado roda. Quando a lista acaba, o programa segue adiante.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 330" class="sv" role="img" aria-label="Fluxograma do laço for do Robô Chef: início, criar a lista de ingredientes, pergunta se falta algum ingrediente; se verdadeiro, guardar o próximo item em ingrediente e mostrar que o robô está picando esse ingrediente, com seta de volta para a pergunta; se falso, mostrar que a receita acabou e fim">
+      <defs>
+        <marker id="fl9-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="70" y="8" width="200" height="36" rx="18" class="sv-box-ok"/>
+      <text x="170" y="31" class="sv-label sv-small">INÍCIO</text>
+      <path d="M170 44 L170 64" class="sv-arrow" marker-end="url(#fl9-head)"/>
+      <rect x="50" y="64" width="240" height="40" rx="8" class="sv-box"/>
+      <text x="170" y="89" class="sv-label sv-small">Criar a lista ingredientes_a_picar</text>
+      <path d="M170 104 L170 118" class="sv-arrow" marker-end="url(#fl9-head)"/>
+
+      <polygon points="170,118 290,156 170,194 50,156" class="sv-diamond"/>
+      <text x="170" y="152" class="sv-label sv-small">Falta algum</text>
+      <text x="170" y="168" class="sv-label sv-small">ingrediente?</text>
+      <path d="M170 194 L170 214" class="sv-arrow" marker-end="url(#fl9-head)"/>
+      <text x="180" y="208" class="sv-tag sv-ok">V</text>
+      <rect x="50" y="214" width="240" height="40" rx="8" class="sv-box"/>
+      <text x="170" y="239" class="sv-label sv-small">ingrediente ← próximo da lista</text>
+      <path d="M170 254 L170 270" class="sv-arrow" marker-end="url(#fl9-head)"/>
+      <rect x="50" y="270" width="240" height="48" rx="8" class="sv-box"/>
+      <text x="170" y="290" class="sv-label sv-small">Mostrar “Robô Chef está</text>
+      <text x="170" y="308" class="sv-label sv-small">picando: {ingrediente}”</text>
+      <path d="M50 294 L20 294 L20 156 L50 156" class="sv-arrow sv-arrow-soft" marker-end="url(#fl9-head)"/>
+      <text x="24" y="230" class="sv-tag sv-no">repete</text>
+
+      <path d="M290 156 L380 156" class="sv-arrow" marker-end="url(#fl9-head)"/>
+      <text x="330" y="148" class="sv-tag sv-no">F</text>
+      <rect x="380" y="136" width="230" height="40" rx="8" class="sv-box"/>
+      <text x="495" y="161" class="sv-label sv-small">Seguir para depois do for</text>
+      <path d="M495 176 L495 204" class="sv-arrow" marker-end="url(#fl9-head)"/>
+      <rect x="380" y="204" width="230" height="36" rx="18" class="sv-box-ok"/>
+      <text x="495" y="227" class="sv-label sv-small">FIM</text>
+
+      <rect x="330" y="262" width="300" height="56" rx="8" class="sv-box-no"/>
+      <text x="480" y="284" class="sv-label sv-small">Bloco indentado = escopo do for:</text>
+      <text x="480" y="302" class="sv-label sv-small">só ele roda a cada volta</text>
+      <path d="M330 290 L296 290" class="sv-arrow sv-arrow-soft"/>
+    </svg>
+    <div class="cap">Com cinco ingredientes na lista, o caminho V é seguido cinco vezes, uma por item e na ordem da lista. Na sexta pergunta não sobra nenhum ingrediente, e o caminho F tira o programa do laço.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>O losango é o <b>cabeçalho</b> do <code>for</code>: <code>for ingrediente in ingredientes_a_picar:</code>. Ele é testado antes de cada volta.</span></li>
+      <li><span class="num">2</span><span>A primeira caixa do caminho <b>V</b> é o que o <code>for</code> faz sozinho: coloca o próximo item da lista na variável de controle. Vocês não escrevem essa linha.</span></li>
+      <li><span class="num">3</span><span>A caixa seguinte é o <b>bloco indentado</b>. Só o que está recuado embaixo dos dois-pontos fica dentro da seta de volta.</span></li>
+      <li><span class="num">4</span><span>Diferente do <code>enquanto</code> da Semana 8, aqui não existe contador para atualizar: a lista termina sozinha, por isso o <code>for</code> não cai em loop infinito.</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
