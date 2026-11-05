@@ -372,7 +372,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="274" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">As três regras de nomeação</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">1. VERBO + OBJETO</text><text x="42" y="78" class="sv-code sv-code-soft" xml:space="preserve">exibir_tarefas, contar_tarefas, obter_primeira_tarefa</text><text x="20" y="104" class="sv-code" xml:space="preserve"> </text><text x="20" y="130" class="sv-code sv-code-key" xml:space="preserve">2. NADA de nome genérico</text><text x="42" y="156" class="sv-code sv-code-soft" xml:space="preserve">f1, coisa, calc, processa, dados, x</text><text x="20" y="182" class="sv-code" xml:space="preserve"> </text><text x="20" y="208" class="sv-code sv-code-key" xml:space="preserve">3. snake_case</text><text x="42" y="234" class="sv-code sv-code-soft" xml:space="preserve">tudo minúsculo, palavras separadas por _</text><text x="280" y="286" class="sv-legend">Vale para variáveis também: x e i viram lista_tarefas e tarefa.</text>
+  <rect x="0" y="0" width="560" height="274" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">As três regras de nomeação</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">1. VERBO + OBJETO</text><text x="42" y="78" class="sv-code sv-code-soft" xml:space="preserve">calcular_media, mostrar_notas, buscar_aluno</text><text x="20" y="104" class="sv-code" xml:space="preserve"> </text><text x="20" y="130" class="sv-code sv-code-key" xml:space="preserve">2. NADA de nome genérico</text><text x="42" y="156" class="sv-code sv-code-soft" xml:space="preserve">f1, coisa, calc, processa, dados, x</text><text x="20" y="182" class="sv-code" xml:space="preserve"> </text><text x="20" y="208" class="sv-code sv-code-key" xml:space="preserve">3. snake_case</text><text x="42" y="234" class="sv-code sv-code-soft" xml:space="preserve">tudo minúsculo, palavras separadas por _</text><text x="280" y="286" class="sv-legend">Vale para variáveis também: num sistema de notas, n e v virariam lista_notas e nota.</text>
 </svg></div><div class="visual"><svg viewBox="0 0 454 162" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -386,12 +386,12 @@ section.tab{display:flex;flex-direction:column;gap:16px}
         <rect x="0" y="0" width="218" height="130" rx="11" class="sv-box sv-band-0"/>
         <text x="109" y="26" class="sv-card-key">Sem retorno</text>
         <text x="109" y="52" class="sv-label">Procedimento</text>
-        <text x="109" y="81" class="sv-legend sv-small">só executa uma ação — ex.:</text><text x="109" y="96" class="sv-legend sv-small">exibir_tarefas() imprime e</text><text x="109" y="111" class="sv-legend sv-small">pronto</text>
+        <text x="109" y="81" class="sv-legend sv-small">só executa uma ação — ex.:</text><text x="109" y="96" class="sv-legend sv-small">mostrar_notas() imprime e</text><text x="109" y="111" class="sv-legend sv-small">pronto</text>
       </g><g>
         <rect x="236" y="0" width="218" height="130" rx="11" class="sv-box sv-band-1"/>
         <text x="345" y="26" class="sv-card-key">Com retorno</text>
         <text x="345" y="52" class="sv-label">Devolve um valor</text>
-        <text x="345" y="81" class="sv-legend sv-small">quem chamou usa o resultado —</text><text x="345" y="96" class="sv-legend sv-small">ex.: contar_tarefas() devolve</text><text x="345" y="111" class="sv-legend sv-small">um número</text>
+        <text x="345" y="81" class="sv-legend sv-small">quem chamou usa o resultado —</text><text x="345" y="96" class="sv-legend sv-small">ex.: calcular_media() devolve</text><text x="345" y="111" class="sv-legend sv-small">um número</text>
       </g><text x="227" y="156" class="sv-legend">Regra prática: função que só mostra algo na tela geralmente não precisa retornar nada.</text>
 </svg></div>
     </section>
@@ -527,27 +527,28 @@ section.tab{display:flex;flex-direction:column;gap:16px}
           <div class="passo-txt">Melhore também os nomes das variáveis.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> Os parâmetros <code>x</code> e o item do laço <code>i</code> não dizem nada. O que eles representam de verdade neste programa?</div>
-        <div class="campoWrap" data-rel="campo" data-rotulo="Variável x renomeada"><label class="f" for="c5">x vira…</label><input type="text" id="c5" data-campo="c5" placeholder="lista_tarefas"></div><div class="campoWrap" data-rel="campo" data-rotulo="Variável i renomeada"><label class="f" for="c6">i vira…</label><input type="text" id="c6" data-campo="c6" placeholder="tarefa"></div>
+        <div class="campoWrap" data-rel="campo" data-rotulo="Variável x renomeada"><label class="f" for="c5">x vira…</label><input type="text" id="c5" data-campo="c5" placeholder="um nome que diga o que ela guarda"></div><div class="campoWrap" data-rel="campo" data-rotulo="Variável i renomeada"><label class="f" for="c6">i vira…</label><input type="text" id="c6" data-campo="c6" placeholder="um nome para cada item"></div>
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">5</span>
           <div class="passo-txt">Reorganize o programa e cole a versão final.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> A ordem pedida é: mostrar a lista, depois a quantidade, depois a primeira tarefa. O programa principal deve ficar “limpo” — só chamadas de função, sem lógica solta.</div>
-        <div class="campoWrap"><div class="modelo"><span class="k">def</span> exibir_tarefas(lista_tarefas):
+        <div class="campoWrap"><div class="modelo"><span class="k">def</span> <span class="b">nome_da_funcao_1</span>(<span class="b">parametro</span>):
     <span class="b">...</span>
 
-<span class="k">def</span> contar_tarefas(lista_tarefas):
+<span class="k">def</span> <span class="b">nome_da_funcao_2</span>(<span class="b">parametro</span>):
     <span class="b">...</span>
 
-<span class="k">def</span> obter_primeira_tarefa(lista_tarefas):
+<span class="k">def</span> <span class="b">nome_da_funcao_3</span>(<span class="b">parametro</span>):
     <span class="b">...</span>
 
 <span class="b"># programa principal — só chamadas</span>
 tarefas = ["estudar", "treinar", "entregar trabalho"]
-<span class="b">...</span></div></div><div class="campoWrap" data-rel="campo" data-rotulo="Programa final (.py)"><label class="f" for="c7">Programa final em Python</label><textarea id="c7" class="cod" data-campo="c7" rows="20" placeholder="def exibir_tarefas(lista_tarefas):
-    for tarefa in lista_tarefas:
-        print(tarefa)
+<span class="b">...</span></div></div><div class="campoWrap" data-rel="campo" data-rotulo="Programa final (.py)"><label class="f" for="c7">Programa final em Python</label><textarea id="c7" class="cod" data-campo="c7" rows="20" placeholder="def nome_que_explica(parametro_que_explica):
+    ...
+
+# programa principal — só chamadas
 ..."></textarea></div>
       </div><div class="passo">
         <div class="passo-top">
