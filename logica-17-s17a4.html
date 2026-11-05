@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -340,18 +340,8 @@ section.tab{display:flex;flex-direction:column;gap:16px}
     </div>
   </section>
 <section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S17A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
-<section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>Como se escreve um bom feedback técnico</h2></div>
-      <p class="lead">A diferença entre um comentário que melhora o código e um que gera atrito quase nunca está no &lt;b&gt;conteúdo&lt;/b&gt; — está na &lt;b&gt;forma&lt;/b&gt;. Feedback assertivo descreve o que foi observado e propõe, em vez de mandar.</p>
+      <p class="lead">A diferença entre um comentário que melhora o código e um que gera atrito quase nunca está no <b>conteúdo</b> — está na <b>forma</b>. Feedback assertivo descreve o que foi observado e propõe, em vez de mandar.</p>
       <div class="visual"><svg viewBox="0 0 620 116" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -402,6 +392,102 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       </g><text x="345" y="156" class="sv-legend">O objetivo do parecer é melhorar o código — não vencer uma discussão.</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S17A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>O caminho de quem revisa e é revisado</h2></div>
+  <p class="lead">A revisão tem dois laços. No primeiro, vocês passam pelos itens do checklist um a um, sempre anotando a evidência. No segundo, depois da conversa, decidem sobre cada sugestão recebida. Entre os dois fica o parecer escrito, que segue a fórmula do diagrama da aba Como fazer.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 690" class="sv" role="img" aria-label="Fluxograma da revisão por pares: início; trocar os códigos com a dupla; enquanto houver item no checklist, ler o código, marcar se atende e anotar onde está; depois, escrever um elogio técnico e duas sugestões no formato observação, pergunta e justificativa; conversar com a dupla; para cada sugestão recebida, decidir se faz sentido aplicar no próprio código, anotando o que muda ou por que não; quando não houver mais sugestões, responder as três questões do relatório e terminar">
+      <defs>
+        <marker id="fl17-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="100" y="8" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="200" y="29" class="sv-label sv-small">INÍCIO</text>
+      <path d="M200 40 L200 54" class="sv-arrow" marker-end="url(#fl17-head)"/>
+      <rect x="60" y="54" width="280" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="75" class="sv-label sv-small">Trocar os códigos com a dupla</text>
+      <text x="480" y="74" class="sv-tag sv-ok">PASSO 1</text>
+      <path d="M200 86 L200 106" class="sv-arrow" marker-end="url(#fl17-head)"/>
+
+      <polygon points="200,106 320,136 200,166 80,136" class="sv-diamond"/>
+      <text x="200" y="132" class="sv-label sv-small">Ainda há item</text>
+      <text x="200" y="148" class="sv-label sv-small">no checklist?</text>
+      <path d="M320 136 L380 136" class="sv-arrow" marker-end="url(#fl17-head)"/>
+      <text x="346" y="128" class="sv-tag sv-ok">V</text>
+      <rect x="380" y="113" width="240" height="46" rx="8" class="sv-box"/>
+      <text x="500" y="132" class="sv-label sv-small">Atende? Anotar onde</text>
+      <text x="500" y="149" class="sv-label sv-small">(linha, nome da função)</text>
+      <path d="M500 113 L500 98 L204 98" class="sv-arrow sv-arrow-soft" marker-end="url(#fl17-head)"/>
+      <text x="560" y="176" class="sv-tag sv-ok">PASSO 2</text>
+
+      <path d="M200 166 L200 184" class="sv-arrow" marker-end="url(#fl17-head)"/>
+      <text x="210" y="180" class="sv-tag sv-no">F</text>
+      <rect x="60" y="184" width="280" height="32" rx="8" class="sv-box-ok"/>
+      <text x="200" y="205" class="sv-label sv-small">Escrever 1 elogio técnico</text>
+      <path d="M200 216 L200 230" class="sv-arrow" marker-end="url(#fl17-head)"/>
+      <rect x="60" y="230" width="280" height="46" rx="8" class="sv-box-no"/>
+      <text x="200" y="249" class="sv-label sv-small">2 sugestões: observação →</text>
+      <text x="200" y="266" class="sv-label sv-small">pergunta → justificativa</text>
+      <text x="480" y="236" class="sv-tag sv-ok">PASSO 3</text>
+      <path d="M200 276 L200 290" class="sv-arrow" marker-end="url(#fl17-head)"/>
+      <rect x="60" y="290" width="280" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="311" class="sv-label sv-small">Conversar com a dupla</text>
+      <path d="M200 322 L200 342" class="sv-arrow" marker-end="url(#fl17-head)"/>
+
+      <rect x="60" y="342" width="280" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="363" class="sv-label sv-small">Ouvir uma sugestão recebida</text>
+      <text x="480" y="362" class="sv-tag sv-ok">PASSO 4</text>
+      <path d="M200 374 L200 390" class="sv-arrow" marker-end="url(#fl17-head)"/>
+      <polygon points="200,390 320,420 200,450 80,420" class="sv-diamond"/>
+      <text x="200" y="416" class="sv-label sv-small">Faz sentido aplicar</text>
+      <text x="200" y="432" class="sv-label sv-small">no meu código?</text>
+      <path d="M320 420 L380 420" class="sv-arrow" marker-end="url(#fl17-head)"/>
+      <text x="346" y="412" class="sv-tag sv-ok">V</text>
+      <rect x="380" y="397" width="240" height="46" rx="8" class="sv-box-ok"/>
+      <text x="500" y="416" class="sv-label sv-small">Vai aplicar: anotar</text>
+      <text x="500" y="433" class="sv-label sv-small">o que vai mudar</text>
+      <path d="M500 443 L500 514 L204 514" class="sv-arrow" marker-end="url(#fl17-head)"/>
+      <path d="M200 450 L200 466" class="sv-arrow" marker-end="url(#fl17-head)"/>
+      <text x="210" y="462" class="sv-tag sv-no">F</text>
+      <rect x="60" y="466" width="280" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="487" class="sv-label sv-small">Não vai: anotar o porquê</text>
+      <path d="M200 498 L200 522" class="sv-arrow" marker-end="url(#fl17-head)"/>
+
+      <polygon points="200,522 320,552 200,582 80,552" class="sv-diamond"/>
+      <text x="200" y="548" class="sv-label sv-small">Ainda há sugestão</text>
+      <text x="200" y="564" class="sv-label sv-small">recebida?</text>
+      <path d="M80 552 L30 552 L30 334 L196 334" class="sv-arrow sv-arrow-soft" marker-end="url(#fl17-head)"/>
+      <text x="56" y="544" class="sv-tag sv-ok">V</text>
+      <path d="M200 582 L200 600" class="sv-arrow" marker-end="url(#fl17-head)"/>
+      <text x="210" y="596" class="sv-tag sv-no">F</text>
+      <rect x="60" y="600" width="280" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="621" class="sv-label sv-small">Responder as 3 questões</text>
+      <text x="480" y="620" class="sv-tag sv-ok">RELATÓRIO</text>
+      <path d="M200 632 L200 648" class="sv-arrow" marker-end="url(#fl17-head)"/>
+      <rect x="100" y="648" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="200" y="669" class="sv-label sv-small">FIM</text>
+    </svg>
+    <div class="cap">O primeiro laço só termina quando todos os itens do checklist têm evidência. O parecer vem depois, e a conversa só depois do parecer: escrever antes de falar é o que evita o comentário solto.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>A caixa da direita, no Passo 2, é uma linha da tabela do checklist: “Atende?” e “Onde vi isso no código”. Sem a evidência, o item não está pronto.</span></li>
+      <li><span class="num">2</span><span>A caixa laranja segue a fórmula da aba Como fazer. Cada sugestão precisa passar pelas três partes, nessa ordem.</span></li>
+      <li><span class="num">3</span><span>No Passo 4 os papéis se invertem: agora é a vez de vocês ouvirem. Os dois caminhos do losango são aceitos, desde que tenham uma justificativa.</span></li>
+      <li><span class="num">4</span><span>As respostas do relatório saem do que ficou registrado nos passos anteriores: a dificuldade de leitura, a forma do feedback e a sugestão que vocês decidiram aplicar.</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
