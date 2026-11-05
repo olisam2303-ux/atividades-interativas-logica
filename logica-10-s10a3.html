@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -351,18 +351,8 @@ section.tab{display:flex;flex-direction:column;gap:16px}
     </div>
   </section>
 <section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S10A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
-<section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>Dois caminhos para o mesmo resultado</h2></div>
-      <p class="lead">Os dois algoritmos encontram o mesmo duplicado (o 20). O que muda é o &lt;b&gt;preço&lt;/b&gt; que cada um cobra em número de comparações — e esse preço cresce de formas muito diferentes.</p>
+      <p class="lead">Os dois algoritmos encontram o mesmo duplicado (o 20). O que muda é o <b>preço</b> que cada um cobra em número de comparações — e esse preço cresce de formas muito diferentes.</p>
       <div class="visual"><svg viewBox="0 0 560 252" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -410,6 +400,137 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       </g><text x="345" y="156" class="sv-legend">O mesmo problema, a mesma resposta: o que muda é quanto o computador precisa trabalhar.</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S10A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>Um laço dentro do outro × um laço só</h2></div>
+  <p class="lead">Os dois algoritmos procuram o mesmo duplicado na lista <code>[10, 20, 30, 20, 50]</code>. Comparem o desenho: no lento há <b>duas setas de volta</b>, uma dentro da outra; no rápido há <b>uma só</b>. É essa segunda seta, a do laço interno, que faz o número de comparações crescer ao quadrado.</p>
+
+  <div class="visual">
+    <svg viewBox="0 0 640 520" class="sv" role="img" aria-label="Fluxograma do algoritmo lento O(n ao quadrado): início, i recebe 1, pergunta se i é menor ou igual a 5; se falso, fim. Se verdadeiro, j recebe i mais 1 e pergunta se j é menor ou igual a 5; se falso, i aumenta 1 e volta para a pergunta de i. Se verdadeiro, compara lista de i com lista de j; se iguais, marca duplicado; nos dois casos j aumenta 1 e volta para a pergunta de j">
+      <defs>
+        <marker id="fl10a-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <text x="320" y="16" class="sv-tag sv-no">ALGORITMO LENTO — O(n²)</text>
+      <rect x="130" y="26" width="200" height="34" rx="17" class="sv-box-ok"/>
+      <text x="230" y="48" class="sv-label sv-small">INÍCIO</text>
+      <path d="M230 60 L230 72" class="sv-arrow" marker-end="url(#fl10a-head)"/>
+      <rect x="130" y="72" width="200" height="34" rx="8" class="sv-box"/>
+      <text x="230" y="94" class="sv-label sv-small">i ← 1</text>
+      <path d="M230 106 L230 124" class="sv-arrow" marker-end="url(#fl10a-head)"/>
+
+      <polygon points="230,124 330,156 230,188 130,156" class="sv-diamond"/>
+      <text x="230" y="161" class="sv-label sv-small">i ≤ 5 ?</text>
+      <path d="M130 156 L40 156 L40 494 L130 494" class="sv-arrow" marker-end="url(#fl10a-head)"/>
+      <text x="112" y="148" class="sv-tag sv-no">F</text>
+      <rect x="130" y="477" width="200" height="34" rx="17" class="sv-box-ok"/>
+      <text x="230" y="499" class="sv-label sv-small">FIM</text>
+
+      <path d="M230 188 L230 202" class="sv-arrow" marker-end="url(#fl10a-head)"/>
+      <text x="240" y="199" class="sv-tag sv-ok">V</text>
+      <rect x="130" y="202" width="200" height="34" rx="8" class="sv-box"/>
+      <text x="230" y="224" class="sv-label sv-small">j ← i + 1</text>
+      <path d="M230 236 L230 256" class="sv-arrow" marker-end="url(#fl10a-head)"/>
+
+      <polygon points="230,256 330,288 230,320 130,288" class="sv-diamond"/>
+      <text x="230" y="293" class="sv-label sv-small">j ≤ 5 ?</text>
+      <path d="M330 288 L440 288" class="sv-arrow" marker-end="url(#fl10a-head)"/>
+      <text x="350" y="280" class="sv-tag sv-no">F</text>
+      <rect x="440" y="271" width="170" height="34" rx="8" class="sv-box"/>
+      <text x="525" y="293" class="sv-label sv-small">i ← i + 1</text>
+      <path d="M525 271 L525 114 L234 114" class="sv-arrow sv-arrow-soft" marker-end="url(#fl10a-head)"/>
+      <text x="532" y="200" class="sv-tag sv-no" text-anchor="start">próxima</text>
+      <text x="532" y="214" class="sv-tag sv-no" text-anchor="start">passada</text>
+
+      <path d="M230 320 L230 336" class="sv-arrow" marker-end="url(#fl10a-head)"/>
+      <text x="240" y="333" class="sv-tag sv-ok">V</text>
+      <polygon points="230,336 350,370 230,404 110,370" class="sv-diamond"/>
+      <text x="230" y="375" class="sv-label sv-small">lista[i] = lista[j] ?</text>
+      <path d="M350 370 L440 370" class="sv-arrow" marker-end="url(#fl10a-head)"/>
+      <text x="370" y="362" class="sv-tag sv-ok">V</text>
+      <rect x="440" y="353" width="170" height="34" rx="8" class="sv-box-no"/>
+      <text x="525" y="375" class="sv-label sv-small">Marcar duplicado</text>
+      <path d="M525 387 L525 437 L332 437" class="sv-arrow" marker-end="url(#fl10a-head)"/>
+
+      <path d="M230 404 L230 420" class="sv-arrow" marker-end="url(#fl10a-head)"/>
+      <text x="240" y="417" class="sv-tag sv-no">F</text>
+      <rect x="130" y="420" width="200" height="34" rx="8" class="sv-box"/>
+      <text x="230" y="442" class="sv-label sv-small">j ← j + 1</text>
+      <path d="M130 437 L72 437 L72 246 L226 246" class="sv-arrow sv-arrow-soft" marker-end="url(#fl10a-head)"/>
+      <text x="78" y="340" class="sv-tag sv-no" text-anchor="start">compara</text>
+      <text x="78" y="354" class="sv-tag sv-no" text-anchor="start">o próximo</text>
+    </svg>
+    <div class="cap">A seta de volta da esquerda (laço interno, j) roda inteira a cada passada da seta da direita (laço externo, i). Com 5 elementos, as passadas fazem 4 + 3 + 2 + 1 comparações.</div>
+  </div>
+
+  <div class="visual">
+    <svg viewBox="0 0 640 440" class="sv" role="img" aria-label="Fluxograma do algoritmo rápido O(n): início, criar a lista numerosVistos vazia, pergunta se ainda há elemento; se falso, fim. Se verdadeiro, pega o próximo elemento e pergunta se ele já está em numerosVistos; se sim, marca duplicado; se não, adiciona o elemento em numerosVistos; nos dois casos volta para a pergunta">
+      <defs>
+        <marker id="fl10b-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <text x="320" y="16" class="sv-tag sv-ok">ALGORITMO RÁPIDO — O(n)</text>
+      <rect x="130" y="26" width="200" height="34" rx="17" class="sv-box-ok"/>
+      <text x="230" y="48" class="sv-label sv-small">INÍCIO</text>
+      <path d="M230 60 L230 72" class="sv-arrow" marker-end="url(#fl10b-head)"/>
+      <rect x="110" y="72" width="240" height="34" rx="8" class="sv-box"/>
+      <text x="230" y="94" class="sv-label sv-small">numerosVistos ← lista vazia</text>
+      <path d="M230 106 L230 124" class="sv-arrow" marker-end="url(#fl10b-head)"/>
+
+      <polygon points="230,124 330,158 230,192 130,158" class="sv-diamond"/>
+      <text x="230" y="154" class="sv-label sv-small">Ainda há</text>
+      <text x="230" y="170" class="sv-label sv-small">elemento?</text>
+      <path d="M330 158 L525 158 L525 182" class="sv-arrow" marker-end="url(#fl10b-head)"/>
+      <text x="350" y="150" class="sv-tag sv-no">F</text>
+      <rect x="440" y="182" width="170" height="34" rx="17" class="sv-box-ok"/>
+      <text x="525" y="204" class="sv-label sv-small">FIM</text>
+
+      <path d="M230 192 L230 208" class="sv-arrow" marker-end="url(#fl10b-head)"/>
+      <text x="240" y="205" class="sv-tag sv-ok">V</text>
+      <rect x="110" y="208" width="240" height="34" rx="8" class="sv-box"/>
+      <text x="230" y="230" class="sv-label sv-small">elemento ← próximo da lista</text>
+      <path d="M230 242 L230 258" class="sv-arrow" marker-end="url(#fl10b-head)"/>
+
+      <polygon points="230,258 350,294 230,330 110,294" class="sv-diamond"/>
+      <text x="230" y="290" class="sv-label sv-small">elemento já está</text>
+      <text x="230" y="306" class="sv-label sv-small">em numerosVistos?</text>
+      <path d="M350 294 L440 294" class="sv-arrow" marker-end="url(#fl10b-head)"/>
+      <text x="370" y="286" class="sv-tag sv-ok">V</text>
+      <rect x="440" y="277" width="170" height="34" rx="8" class="sv-box-no"/>
+      <text x="525" y="299" class="sv-label sv-small">Marcar duplicado</text>
+
+      <path d="M230 330 L230 346" class="sv-arrow" marker-end="url(#fl10b-head)"/>
+      <text x="240" y="343" class="sv-tag sv-no">F</text>
+      <rect x="110" y="346" width="240" height="34" rx="8" class="sv-box"/>
+      <text x="230" y="368" class="sv-label sv-small">Adicionar em numerosVistos</text>
+
+      <path d="M525 311 L525 404 L230 404" class="sv-arrow"/>
+      <path d="M230 380 L230 404 L72 404 L72 114 L226 114" class="sv-arrow sv-arrow-soft" marker-end="url(#fl10b-head)"/>
+      <text x="78" y="262" class="sv-tag sv-no" text-anchor="start">próximo</text>
+      <text x="78" y="276" class="sv-tag sv-no" text-anchor="start">elemento</text>
+    </svg>
+    <div class="cap">Uma única seta de volta: cada elemento passa uma vez pela pergunta. Com 5 elementos, são 5 consultas a numerosVistos.</div>
+  </div>
+
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler os fluxogramas</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>Cada <b>seta de volta</b> é um laço. Contem quantas existem em cada desenho: duas no lento, uma no rápido.</span></li>
+      <li><span class="num">2</span><span>No lento, a seta da esquerda fica <b>dentro</b> da seta da direita: para cada volta do <code>i</code>, o <code>j</code> percorre o resto da lista inteiro. É o “aninhado”.</span></li>
+      <li><span class="num">3</span><span>No teste de mesa, cada passagem pelo losango <b>lista[i] = lista[j]?</b> ou <b>já está em numerosVistos?</b> é uma comparação. É isso que vocês contam nos Passos 2 a 5.</span></li>
+      <li><span class="num">4</span><span>No rápido, a lista <code>numerosVistos</code> é a “memória” do algoritmo: em vez de comparar com todos, ele consulta o que já viu.</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
