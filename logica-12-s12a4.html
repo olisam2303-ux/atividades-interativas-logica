@@ -362,7 +362,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="196" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">Tabuleiro e mapeamento</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">(1) (2) (3)        1→(1,1)  2→(1,2)  3→(1,3)</text><text x="20" y="78" class="sv-code sv-code-key" xml:space="preserve">(4) (5) (6)        4→(2,1)  5→(2,2)  6→(2,3)</text><text x="20" y="104" class="sv-code sv-code-key" xml:space="preserve">(7) (8) (9)        7→(3,1)  8→(3,2)  9→(3,3)</text><text x="20" y="130" class="sv-code" xml:space="preserve"> </text><text x="20" y="156" class="sv-code sv-code-soft" xml:space="preserve">célula vazia = .     jogador 1 = X     jogador 2 = O</text><text x="280" y="208" class="sv-legend">Repare no padrão: a linha avança a cada três posições; a coluna se repete de</text><text x="280" y="224" class="sv-legend">três em três.</text>
+  <rect x="0" y="0" width="560" height="196" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">Tabuleiro e mapeamento</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">(1) (2) (3)        1→(1,1)  2→(1,2)  3→(1,3)</text><text x="20" y="78" class="sv-code sv-code-key" xml:space="preserve">(4) (5) (6)        4→(2,1)  5→( ? )  6→( ? )</text><text x="20" y="104" class="sv-code sv-code-key" xml:space="preserve">(7) (8) (9)        7→( ? )  8→( ? )  9→( ? )</text><text x="20" y="130" class="sv-code sv-code-soft" xml:space="preserve">as posições com ? vocês completam no Passo 1</text><text x="20" y="156" class="sv-code sv-code-soft" xml:space="preserve">célula vazia = .     jogador 1 = X     jogador 2 = O</text><text x="280" y="208" class="sv-legend">Repare no padrão: a linha avança a cada três posições; a coluna se repete de</text><text x="280" y="224" class="sv-legend">três em três.</text>
 </svg></div><div class="visual"><svg viewBox="0 0 690 162" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -375,19 +375,19 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   <g>
         <rect x="0" y="0" width="218" height="130" rx="11" class="sv-box sv-band-0"/>
         <text x="109" y="26" class="sv-card-key">Linhas</text>
-        <text x="109" y="52" class="sv-label">3 trincas</text>
-        <text x="109" y="96" class="sv-legend sv-small">(1,2,3) · (4,5,6) · (7,8,9)</text>
+        <text x="109" y="52" class="sv-label">quantas?</text>
+        <text x="109" y="96" class="sv-legend sv-small">exemplo: (1,2,3) · …</text>
       </g><g>
         <rect x="236" y="0" width="218" height="130" rx="11" class="sv-box sv-band-1"/>
         <text x="345" y="26" class="sv-card-key">Colunas</text>
-        <text x="345" y="52" class="sv-label">3 trincas</text>
-        <text x="345" y="96" class="sv-legend sv-small">(1,4,7) · (2,5,8) · (3,6,9)</text>
+        <text x="345" y="52" class="sv-label">quantas?</text>
+        <text x="345" y="96" class="sv-legend sv-small">exemplo: (1,4,7) · …</text>
       </g><g>
         <rect x="472" y="0" width="218" height="130" rx="11" class="sv-box sv-band-2"/>
         <text x="581" y="26" class="sv-card-key">Diagonais</text>
-        <text x="581" y="52" class="sv-label">2 trincas</text>
-        <text x="581" y="96" class="sv-legend sv-small">(1,5,9) · (3,5,7)</text>
-      </g><text x="345" y="156" class="sv-legend">3 + 3 + 2 = 8 combinações de vitória. É contra essas oito que toda jogada é verificada.</text>
+        <text x="581" y="52" class="sv-label">quantas?</text>
+        <text x="581" y="96" class="sv-legend sv-small">exemplo: (1,5,9) · …</text>
+      </g><text x="345" y="156" class="sv-legend">Completem as outras no Passo 3. Toda jogada é verificada contra todas essas combinações.</text>
 </svg></div><div class="visual"><svg viewBox="0 0 560 294" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
