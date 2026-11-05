@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -351,18 +351,8 @@ section.tab{display:flex;flex-direction:column;gap:16px}
     </div>
   </section>
 <section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S13A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
-<section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>De nome genérico a nome que explica</h2></div>
-      <p class="lead">Um bom nome de função responde sozinho “o que isso faz?”. A regra prática é simples: &lt;b&gt;verbo + objeto&lt;/b&gt;, em snake_case, sem abreviações que só quem escreveu entende.</p>
+      <p class="lead">Um bom nome de função responde sozinho “o que isso faz?”. A regra prática é simples: <b>verbo + objeto</b>, em snake_case, sem abreviações que só quem escreveu entende.</p>
       <div class="visual"><svg viewBox="0 0 560 424" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -405,6 +395,89 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       </g><text x="227" y="156" class="sv-legend">Regra prática: função que só mostra algo na tela geralmente não precisa retornar nada.</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S13A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>O programa principal só chama</h2></div>
+  <p class="lead">Num programa modular, o programa principal fica enxuto: ele cria os dados e <b>chama</b> as funções na ordem certa. Cada função faz um trabalho e volta. Algumas voltam <b>trazendo um valor</b>, que o programa principal guarda numa variável. Outras só fazem a ação e voltam de mãos vazias.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 500" class="sv" role="img" aria-label="Fluxograma do programa modular: à esquerda, o programa principal cria a lista de tarefas, chama a função que mostra as tarefas, que não tem retorno; depois guarda em total o que a função que conta as tarefas devolve; depois guarda em primeira o que a função que pega a primeira tarefa devolve, ou um aviso se a lista estiver vazia; por fim mostra o total e a primeira tarefa">
+      <defs>
+        <marker id="fl13-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <text x="155" y="20" class="sv-tag sv-ok">PROGRAMA PRINCIPAL</text>
+      <text x="500" y="20" class="sv-tag sv-no">FUNÇÕES</text>
+
+      <rect x="55" y="34" width="200" height="34" rx="17" class="sv-box-ok"/>
+      <text x="155" y="56" class="sv-label sv-small">INÍCIO</text>
+      <path d="M155 68 L155 86" class="sv-arrow" marker-end="url(#fl13-head)"/>
+      <rect x="40" y="86" width="230" height="34" rx="8" class="sv-box"/>
+      <text x="155" y="108" class="sv-label sv-small">Criar a lista de tarefas</text>
+      <path d="M155 120 L155 146" class="sv-arrow" marker-end="url(#fl13-head)"/>
+
+      <rect x="40" y="146" width="230" height="46" rx="8" class="sv-box"/>
+      <text x="155" y="165" class="sv-label sv-small">Chamar a função que</text>
+      <text x="155" y="182" class="sv-label sv-small">mostra as tarefas</text>
+      <path d="M270 158 L380 158" class="sv-arrow" marker-end="url(#fl13-head)"/>
+      <text x="325" y="151" class="sv-tag sv-ok">chama</text>
+      <rect x="380" y="140" width="240" height="58" rx="8" class="sv-box-no"/>
+      <text x="500" y="160" class="sv-label sv-small">SEM retorno</text>
+      <text x="500" y="178" class="sv-label sv-small">percorre e imprime cada uma</text>
+      <path d="M380 182 L274 182" class="sv-arrow sv-arrow-soft" marker-end="url(#fl13-head)"/>
+      <text x="325" y="198" class="sv-tag sv-no">volta vazia</text>
+      <path d="M155 192 L155 232" class="sv-arrow" marker-end="url(#fl13-head)"/>
+
+      <rect x="40" y="232" width="230" height="46" rx="8" class="sv-box"/>
+      <text x="155" y="251" class="sv-label sv-small">total ← função que</text>
+      <text x="155" y="268" class="sv-label sv-small">conta as tarefas</text>
+      <path d="M270 244 L380 244" class="sv-arrow" marker-end="url(#fl13-head)"/>
+      <text x="325" y="237" class="sv-tag sv-ok">chama</text>
+      <rect x="380" y="226" width="240" height="58" rx="8" class="sv-box-ok"/>
+      <text x="500" y="246" class="sv-label sv-small">COM retorno</text>
+      <text x="500" y="264" class="sv-label sv-small">devolve a quantidade</text>
+      <path d="M380 268 L274 268" class="sv-arrow sv-arrow-soft" marker-end="url(#fl13-head)"/>
+      <text x="325" y="284" class="sv-tag sv-ok">devolve nº</text>
+      <path d="M155 278 L155 318" class="sv-arrow" marker-end="url(#fl13-head)"/>
+
+      <rect x="40" y="318" width="230" height="46" rx="8" class="sv-box"/>
+      <text x="155" y="337" class="sv-label sv-small">primeira ← função que</text>
+      <text x="155" y="354" class="sv-label sv-small">pega a 1ª tarefa</text>
+      <path d="M270 330 L380 330" class="sv-arrow" marker-end="url(#fl13-head)"/>
+      <text x="325" y="323" class="sv-tag sv-ok">chama</text>
+      <rect x="380" y="306" width="240" height="72" rx="8" class="sv-box-ok"/>
+      <text x="500" y="326" class="sv-label sv-small">COM retorno</text>
+      <text x="500" y="344" class="sv-label sv-small">devolve a 1ª tarefa</text>
+      <text x="500" y="362" class="sv-label sv-small">(ou um aviso, se vazia)</text>
+      <path d="M380 354 L274 354" class="sv-arrow sv-arrow-soft" marker-end="url(#fl13-head)"/>
+      <text x="325" y="370" class="sv-tag sv-ok">devolve texto</text>
+      <path d="M155 364 L155 400" class="sv-arrow" marker-end="url(#fl13-head)"/>
+
+      <rect x="40" y="400" width="230" height="34" rx="8" class="sv-box"/>
+      <text x="155" y="422" class="sv-label sv-small">Mostrar total e primeira</text>
+      <path d="M155 434 L155 452" class="sv-arrow" marker-end="url(#fl13-head)"/>
+      <rect x="55" y="452" width="200" height="34" rx="17" class="sv-box-ok"/>
+      <text x="155" y="474" class="sv-label sv-small">FIM</text>
+    </svg>
+    <div class="cap">Só as caixas da esquerda são o programa principal, e nenhuma delas tem laço ou decisão solta: o trabalho pesado fica dentro das funções. Repare que só as chamadas COM retorno aparecem com uma variável recebendo o resultado (←).</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>Seta cheia para a direita: o programa principal <b>chama</b> a função e espera ela terminar.</span></li>
+      <li><span class="num">2</span><span>Seta tracejada para a esquerda: a função <b>volta</b>. Na caixa laranja ela volta sem valor (só imprimiu). Nas verdes, volta com um <code>return</code>.</span></li>
+      <li><span class="num">3</span><span>No Passo 3, confiram no código de vocês: a função tem <code>return</code> com um valor? É isso que a seta “devolve” representa.</span></li>
+      <li><span class="num">4</span><span>No Passo 5, o programa final de vocês deve ter esta mesma cara: as funções em cima e, embaixo, só as chamadas, na ordem do fluxograma.</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
