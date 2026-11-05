@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -357,23 +357,13 @@ Tablet,8,5
 Fone de Ouvido,2,8
 Mochila,25,10
 Carregador,1,15</pre>
-        <div class="obs">São os mesmos seis produtos da tabela do roteiro, com quantidade e mínimo. Salvem com esse nome, na mesma pasta do programa. <b>Confiram antes de programar:</b> três produtos estão com o estoque abaixo do mínimo.</div>
+        <div class="obs">São os mesmos seis produtos da tabela do roteiro, com quantidade e mínimo. Salvem com esse nome, na mesma pasta do programa. <b>Confiram antes de programar</b> quais produtos estão com o estoque abaixo do mínimo: é a tabela do Passo 3.</div>
       </div>
     </section>
 <section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S20A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
-<section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>Dois arquivos, dois comportamentos</h2></div>
-      <p class="lead">A diferença entre os dois não é técnica, é de &lt;b&gt;propósito&lt;/b&gt;: um é uma fotografia do estoque de hoje; o outro é um histórico que não pode perder o passado.</p>
-      <div class="visual"><svg viewBox="0 0 454 162" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
+      <p class="lead">A diferença entre os dois não é técnica, é de <b>propósito</b>: um é uma fotografia do estoque de hoje; o outro é um histórico que não pode perder o passado.</p>
+      <div class="visual"><svg viewBox="0 0 454 178" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
       <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
@@ -392,7 +382,7 @@ Carregador,1,15</pre>
         <text x="345" y="26" class="sv-card-key">historico_alertas.txt</text>
         <text x="345" y="52" class="sv-label">Registro acumulado</text>
         <text x="345" y="81" class="sv-legend sv-small">cresce a cada execução ·</text><text x="345" y="96" class="sv-legend sv-small">perder o passado é perder a</text><text x="345" y="111" class="sv-legend sv-small">auditoria</text>
-      </g><text x="227" y="156" class="sv-legend">Antes de escolher o modo, responda: este arquivo substitui o anterior ou continua de onde parou?</text>
+      </g><text x="227" y="156" class="sv-legend">Antes de escolher o modo, responda: este arquivo</text><text x="227" y="172" class="sv-legend">substitui o anterior ou continua de onde parou?</text>
 </svg></div><div class="visual"><svg viewBox="0 0 560 346" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -415,6 +405,87 @@ Carregador,1,15</pre>
   <rect x="0" y="0" width="560" height="274" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O formato do relatório</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">=== RELATÓRIO DE ESTOQUE - DISTRIBUIDORA ALFA ===</text><text x="20" y="78" class="sv-code" xml:space="preserve">Notebook............12 unidades</text><text x="20" y="104" class="sv-code" xml:space="preserve">Smartphone..........3 unidades</text><text x="20" y="130" class="sv-code sv-code-soft" xml:space="preserve">...</text><text x="20" y="156" class="sv-code" xml:space="preserve">Total de produtos: 6</text><text x="20" y="182" class="sv-code" xml:space="preserve"> </text><text x="20" y="208" class="sv-code sv-code-soft" xml:space="preserve">os pontos preenchem até uma largura fixa</text><text x="20" y="234" class="sv-code sv-code-soft" xml:space="preserve">f"{produto:.&lt;20}{quantidade} unidades"</text><text x="280" y="286" class="sv-legend">O alinhamento por pontos é feito pela própria f-string — não precisa contar</text><text x="280" y="302" class="sv-legend">espaço na mão.</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S20A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>O script final, da leitura aos dois arquivos</h2></div>
+  <p class="lead">O script lê o estoque uma vez e escreve em dois arquivos. Cada arquivo é aberto num modo, e esses modos aparecem como “?” nas caixas laranja, porque escolhê-los é o Passo 1. Dentro do laço, cada produto vira uma linha do relatório e, se estiver abaixo do mínimo, é separado para o histórico.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 512" class="sv" role="img" aria-label="Fluxograma do script final: início; ler estoque.csv; abrir relatorio_estoque.txt no modo escolhido no Passo 1; escrever o cabeçalho; enquanto houver produto, escrever a linha com pontos e, se a quantidade for menor que o mínimo, separar para alerta; quando acabarem os produtos, escrever o total, abrir historico_alertas.txt no modo escolhido no Passo 1, gravar cada alerta com a data e terminar">
+      <defs>
+        <marker id="fl20a-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="100" y="8" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="200" y="29" class="sv-label sv-small">INÍCIO</text>
+      <path d="M200 40 L200 54" class="sv-arrow" marker-end="url(#fl20a-head)"/>
+      <rect x="60" y="54" width="280" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="75" class="sv-label sv-small">Ler estoque.csv</text>
+      <path d="M200 86 L200 100" class="sv-arrow" marker-end="url(#fl20a-head)"/>
+      <rect x="60" y="100" width="280" height="46" rx="8" class="sv-box-no"/>
+      <text x="200" y="119" class="sv-label sv-small">Abrir relatorio_estoque.txt</text>
+      <text x="200" y="136" class="sv-label sv-small">no modo ?   (Passo 1)</text>
+      <path d="M200 146 L200 160" class="sv-arrow" marker-end="url(#fl20a-head)"/>
+      <rect x="60" y="160" width="280" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="181" class="sv-label sv-small">Escrever o cabeçalho</text>
+      <path d="M200 192 L200 212" class="sv-arrow" marker-end="url(#fl20a-head)"/>
+
+      <polygon points="200,212 320,242 200,272 80,242" class="sv-diamond"/>
+      <text x="200" y="238" class="sv-label sv-small">Ainda há</text>
+      <text x="200" y="254" class="sv-label sv-small">produto?</text>
+      <path d="M320 242 L400 242" class="sv-arrow" marker-end="url(#fl20a-head)"/>
+      <text x="346" y="234" class="sv-tag sv-no">F</text>
+      <rect x="400" y="225" width="220" height="34" rx="8" class="sv-box"/>
+      <text x="510" y="247" class="sv-label sv-small">Escrever o total</text>
+      <path d="M510 259 L510 275" class="sv-arrow" marker-end="url(#fl20a-head)"/>
+      <rect x="400" y="275" width="220" height="46" rx="8" class="sv-box-no"/>
+      <text x="510" y="294" class="sv-label sv-small">Abrir historico_alertas</text>
+      <text x="510" y="311" class="sv-label sv-small">no modo ?   (Passo 1)</text>
+      <path d="M510 321 L510 337" class="sv-arrow" marker-end="url(#fl20a-head)"/>
+      <rect x="400" y="337" width="220" height="46" rx="8" class="sv-box"/>
+      <text x="510" y="356" class="sv-label sv-small">Gravar cada alerta</text>
+      <text x="510" y="373" class="sv-label sv-small">com a data</text>
+      <path d="M510 383 L510 399" class="sv-arrow" marker-end="url(#fl20a-head)"/>
+      <rect x="430" y="399" width="160" height="32" rx="16" class="sv-box-ok"/>
+      <text x="510" y="420" class="sv-label sv-small">FIM</text>
+
+      <path d="M200 272 L200 290" class="sv-arrow" marker-end="url(#fl20a-head)"/>
+      <text x="210" y="286" class="sv-tag sv-ok">V</text>
+      <rect x="60" y="290" width="280" height="46" rx="8" class="sv-box"/>
+      <text x="200" y="309" class="sv-label sv-small">Escrever a linha do produto</text>
+      <text x="200" y="326" class="sv-label sv-small">com o preenchimento de pontos</text>
+      <path d="M200 336 L200 352" class="sv-arrow" marker-end="url(#fl20a-head)"/>
+      <polygon points="200,352 320,382 200,412 80,382" class="sv-diamond"/>
+      <text x="200" y="378" class="sv-label sv-small">quantidade</text>
+      <text x="200" y="394" class="sv-label sv-small">&lt; mínimo?</text>
+      <path d="M200 412 L200 430" class="sv-arrow" marker-end="url(#fl20a-head)"/>
+      <text x="210" y="426" class="sv-tag sv-ok">V</text>
+      <rect x="60" y="430" width="280" height="32" rx="8" class="sv-box-ok"/>
+      <text x="200" y="451" class="sv-label sv-small">Separar para alerta</text>
+      <path d="M80 382 L44 382 L44 478 L196 478" class="sv-arrow" marker-end="url(#fl20a-head)"/>
+      <text x="62" y="374" class="sv-tag sv-no">F</text>
+      <path d="M200 462 L200 494 L24 494 L24 204 L196 204" class="sv-arrow sv-arrow-soft" marker-end="url(#fl20a-head)"/>
+      <text x="120" y="506" class="sv-tag sv-no">próximo produto</text>
+    </svg>
+    <div class="cap">Os dois arquivos aparecem em pontos diferentes do desenho: o relatório é aberto antes do laço, e o histórico, depois. As duas caixas laranja são onde a escolha do modo faz diferença: uma delas não pode apagar o que já existe.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>As duas caixas laranja são as decisões do Passo 1. Coloquem nelas os modos que vocês escolheram e confiram se a justificativa combina com o propósito de cada arquivo.</span></li>
+      <li><span class="num">2</span><span>A linha do produto (Passo 2) é escrita em <b>toda</b> volta. O alerta (Passo 3) só é separado quando o losango responde V.</span></li>
+      <li><span class="num">3</span><span>No Passo 4, rodem o script duas vezes e sigam o desenho de novo: o que a segunda execução faz em cada caixa laranja?</span></li>
+      <li><span class="num">4</span><span>A ordem das caixas responde a uma parte da pergunta do Passo 5. A outra parte, o <b>porquê</b>, fica com vocês.</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
@@ -464,13 +535,13 @@ Carregador,1,15</pre>
           <div class="passo-txt">Executem o programa duas vezes e observem o histórico.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> Essa é a parte que só se aprende vendo: rodem, abram o arquivo, rodem de novo e abram outra vez.</div>
-        <div class="campoWrap" data-rel="campo" data-rotulo="Q3a — segunda execução"><label class="f" for="c9">O que acontece com historico_alertas.txt na segunda execução?</label><textarea id="c9" data-campo="c9" rows="2" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="Q3b — trocando a por w"><label class="f" for="c10">E se vocês trocassem o modo &quot;a&quot; por &quot;w&quot; nos alertas?</label><textarea id="c10" data-campo="c10" rows="2" placeholder=""></textarea></div>
+        <div class="campoWrap" data-rel="campo" data-rotulo="Q3a — segunda execução"><label class="f" for="c9">O que acontece com historico_alertas.txt na segunda execução?</label><textarea id="c9" data-campo="c9" rows="2" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="Q3b — trocando o modo do histórico"><label class="f" for="c10">E se vocês usassem no histórico o mesmo modo do relatório?</label><textarea id="c10" data-campo="c10" rows="2" placeholder=""></textarea></div>
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">5</span>
           <div class="passo-txt">Unam leitura e escrita em um único script.</div>
         </div>
-        <div class="dica"><b>Como pensar:</b> O script final lê os dados de <code>estoque.csv</code>, gera o relatório com modo <code>"w"</code> e registra os alertas com modo <code>"a"</code>.</div>
+        <div class="dica"><b>Como pensar:</b> O script final lê os dados de <code>estoque.csv</code>, gera o relatório e registra os alertas, cada arquivo no modo que vocês escolheram no Passo 1.</div>
         <div class="campoWrap" data-rel="campo" data-rotulo="Script final unificado"><label class="f" for="c11">Script completo</label><textarea id="c11" class="cod" data-campo="c11" rows="20" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="Q4a — ordem das operações"><label class="f" for="c12">Qual é a ordem correta das operações e por que ela importa?</label><textarea id="c12" data-campo="c12" rows="3" placeholder=""></textarea></div>
       </div><div class="passo">
         <div class="passo-top">
