@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -340,18 +340,8 @@ section.tab{display:flex;flex-direction:column;gap:16px}
     </div>
   </section>
 <section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S18A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
-<section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>O ciclo red · green · refactor</h2></div>
-      <p class="lead">A ordem é contraintuitiva de propósito: primeiro se escreve o teste que &lt;b&gt;falha&lt;/b&gt;, depois o mínimo de código para ele passar, e só então se melhora o código — com a rede de segurança do teste já aprovado.</p>
+      <p class="lead">A ordem é contraintuitiva de propósito: primeiro se escreve o teste que <b>falha</b>, depois o mínimo de código para ele passar, e só então se melhora o código — com a rede de segurança do teste já aprovado.</p>
       <div class="visual"><svg viewBox="0 0 620 132" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -388,7 +378,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
         <rect x="0" y="0" width="218" height="130" rx="11" class="sv-box sv-band-0"/>
         <text x="109" y="26" class="sv-card-key">Red</text>
         <text x="109" y="52" class="sv-label">Falhar por bom motivo</text>
-        <text x="109" y="88.5" class="sv-legend sv-small">a função nem existe ainda — o</text><text x="109" y="103.5" class="sv-legend sv-small">erro esperado é NameError</text>
+        <text x="109" y="88.5" class="sv-legend sv-small">a função nem existe ainda:</text><text x="109" y="103.5" class="sv-legend sv-small">que erro o Python vai dar?</text>
       </g><g>
         <rect x="236" y="0" width="218" height="130" rx="11" class="sv-box sv-band-1"/>
         <text x="345" y="26" class="sv-card-key">Green</text>
@@ -402,6 +392,96 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       </g><text x="345" y="156" class="sv-legend">Cada fase tem uma regra própria. Pular a fase red é o erro mais comum de quem está aprendendo.</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S18A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>O ciclo TDD, com todas as voltas</h2></div>
+  <p class="lead">Cada fase termina rodando o teste, e cada uma espera um resultado diferente. A fase red quer ver o teste <b>falhar</b>. A green quer ver <b>passar</b>. A refactor quer ver <b>continuar passando</b>. Se o resultado não for o esperado, a seta da direita manda ajustar e rodar de novo. A seta da esquerda é o kata: o ciclo recomeça para a próxima operação.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 664" class="sv" role="img" aria-label="Fluxograma do ciclo TDD: início com a operação soma; fase red, escrever o teste da operação; rodar e perguntar se falhou pelo motivo certo; se não, ajustar o teste. Se sim, fase green, escrever o mínimo de código; rodar e perguntar se passou; se não, ajustar o código. Se sim, fase refactor, nomes claros e docstring; rodar e perguntar se continua verde; se não, desfazer o que quebrou. Se sim, perguntar se falta alguma operação; se sim, volta à fase red com a próxima; se não, fim">
+      <defs>
+        <marker id="fl18b-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="100" y="8" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="200" y="29" class="sv-label sv-small">INÍCIO: operação soma</text>
+      <path d="M200 40 L200 106" class="sv-arrow" marker-end="url(#fl18b-head)"/>
+
+      <rect x="60" y="106" width="280" height="46" rx="8" class="sv-box-no"/>
+      <text x="200" y="125" class="sv-label sv-small">RED: escrever o teste</text>
+      <text x="200" y="142" class="sv-label sv-small">da operação</text>
+      <path d="M200 152 L200 168" class="sv-arrow" marker-end="url(#fl18b-head)"/>
+      <polygon points="200,168 320,200 200,232 80,200" class="sv-diamond"/>
+      <text x="200" y="196" class="sv-label sv-small">Rodar: falhou pelo</text>
+      <text x="200" y="212" class="sv-label sv-small">motivo certo?</text>
+      <path d="M320 200 L400 200" class="sv-arrow" marker-end="url(#fl18b-head)"/>
+      <text x="346" y="192" class="sv-tag sv-no">F</text>
+      <rect x="400" y="183" width="200" height="34" rx="8" class="sv-box"/>
+      <text x="500" y="205" class="sv-label sv-small">Ajustar o teste</text>
+      <path d="M500 183 L500 129 L344 129" class="sv-arrow sv-arrow-soft" marker-end="url(#fl18b-head)"/>
+
+      <path d="M200 232 L200 250" class="sv-arrow" marker-end="url(#fl18b-head)"/>
+      <text x="210" y="246" class="sv-tag sv-ok">V</text>
+      <rect x="60" y="250" width="280" height="46" rx="8" class="sv-box-ok"/>
+      <text x="200" y="269" class="sv-label sv-small">GREEN: o mínimo de</text>
+      <text x="200" y="286" class="sv-label sv-small">código para passar</text>
+      <path d="M200 296 L200 312" class="sv-arrow" marker-end="url(#fl18b-head)"/>
+      <polygon points="200,312 320,344 200,376 80,344" class="sv-diamond"/>
+      <text x="200" y="340" class="sv-label sv-small">Rodar: o teste</text>
+      <text x="200" y="356" class="sv-label sv-small">passou?</text>
+      <path d="M320 344 L400 344" class="sv-arrow" marker-end="url(#fl18b-head)"/>
+      <text x="346" y="336" class="sv-tag sv-no">F</text>
+      <rect x="400" y="327" width="200" height="34" rx="8" class="sv-box"/>
+      <text x="500" y="349" class="sv-label sv-small">Ajustar o código</text>
+      <path d="M500 327 L500 273 L344 273" class="sv-arrow sv-arrow-soft" marker-end="url(#fl18b-head)"/>
+
+      <path d="M200 376 L200 394" class="sv-arrow" marker-end="url(#fl18b-head)"/>
+      <text x="210" y="390" class="sv-tag sv-ok">V</text>
+      <rect x="60" y="394" width="280" height="46" rx="8" class="sv-box"/>
+      <text x="200" y="413" class="sv-label sv-small">REFACTOR: nomes claros</text>
+      <text x="200" y="430" class="sv-label sv-small">e docstring</text>
+      <path d="M200 440 L200 456" class="sv-arrow" marker-end="url(#fl18b-head)"/>
+      <polygon points="200,456 320,488 200,520 80,488" class="sv-diamond"/>
+      <text x="200" y="484" class="sv-label sv-small">Rodar: continua</text>
+      <text x="200" y="500" class="sv-label sv-small">verde?</text>
+      <path d="M320 488 L400 488" class="sv-arrow" marker-end="url(#fl18b-head)"/>
+      <text x="346" y="480" class="sv-tag sv-no">F</text>
+      <rect x="400" y="471" width="200" height="34" rx="8" class="sv-box"/>
+      <text x="500" y="493" class="sv-label sv-small">Desfazer o que quebrou</text>
+      <path d="M500 471 L500 417 L344 417" class="sv-arrow sv-arrow-soft" marker-end="url(#fl18b-head)"/>
+
+      <path d="M200 520 L200 538" class="sv-arrow" marker-end="url(#fl18b-head)"/>
+      <text x="210" y="534" class="sv-tag sv-ok">V</text>
+      <polygon points="200,538 320,568 200,598 80,568" class="sv-diamond"/>
+      <text x="200" y="564" class="sv-label sv-small">Falta alguma</text>
+      <text x="200" y="580" class="sv-label sv-small">operação?</text>
+      <path d="M80 568 L24 568 L24 80 L196 80" class="sv-arrow sv-arrow-soft" marker-end="url(#fl18b-head)"/>
+      <text x="56" y="560" class="sv-tag sv-ok">V</text>
+      <text x="110" y="72" class="sv-tag sv-ok">próxima: subtração</text>
+      <path d="M200 598 L200 616" class="sv-arrow" marker-end="url(#fl18b-head)"/>
+      <text x="210" y="612" class="sv-tag sv-no">F</text>
+      <rect x="100" y="616" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="200" y="637" class="sv-label sv-small">FIM</text>
+    </svg>
+    <div class="cap">Repare que o primeiro losango é o único em que “falhou” é a resposta boa. Um teste que passa de primeira, antes de existir a função, não está testando nada.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>Os Passos 1 e 2 correspondem ao primeiro losango. Antes de rodar, escrevam a previsão de vocês: que motivo seria o “certo” para esse teste falhar?</span></li>
+      <li><span class="num">2</span><span>Na fase green, a seta “Ajustar o código” não autoriza a acrescentar funcionalidade: só o que o teste exige.</span></li>
+      <li><span class="num">3</span><span>A seta da fase refactor é a prevenção de regressão da terceira questão do parecer: se o teste ficar vermelho, a mudança é desfeita.</span></li>
+      <li><span class="num">4</span><span>O Passo 5 é a seta da esquerda: o mesmo ciclo, com as mesmas três paradas, para a subtração.</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
@@ -431,7 +511,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
           <div class="passo-txt">Fase RED — executem e registrem o erro real.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> O teste precisa falhar por um motivo <b>legítimo</b>: a função não existe. Copiem a mensagem do traceback.</div>
-        <div class="campoWrap" data-rel="campo" data-rotulo="RED — tipo do erro"><label class="f" for="c1">Tipo do erro</label><input type="text" id="c1" data-campo="c1" placeholder="Ex.: NameError"></div><div class="campoWrap" data-rel="campo" data-rotulo="RED — mensagem do traceback"><label class="f" for="c2">Mensagem completa</label><input type="text" id="c2" data-campo="c2" placeholder=""></div><div class="campoWrap" data-rel="campo" data-rotulo="RED — previsão confirmada?"><label class="f" for="c3">A previsão de vocês estava certa?</label><select id="c3" data-campo="c3">
+        <div class="campoWrap" data-rel="campo" data-rotulo="RED — tipo do erro"><label class="f" for="c1">Tipo do erro</label><input type="text" id="c1" data-campo="c1" placeholder="Ex.: o nome que aparece antes dos dois-pontos no traceback"></div><div class="campoWrap" data-rel="campo" data-rotulo="RED — mensagem do traceback"><label class="f" for="c2">Mensagem completa</label><input type="text" id="c2" data-campo="c2" placeholder=""></div><div class="campoWrap" data-rel="campo" data-rotulo="RED — previsão confirmada?"><label class="f" for="c3">A previsão de vocês estava certa?</label><select id="c3" data-campo="c3">
       <option value="">— escolha —</option>
       <option value="Sim">Sim</option><option value="Não">Não</option>
     </select></div>
@@ -442,7 +522,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
         </div>
         <div class="dica"><b>Como pensar:</b> Menor quantidade de código possível: nada de validações, mensagens ou funcionalidades extras que o teste não exija.</div>
         <div class="campoWrap"><div class="modelo"><span class="k">def</span> somar(a, b):
-    <span class="k">return</span> a + b</div></div><div class="campoWrap" data-rel="campo" data-rotulo="GREEN — função somar"><label class="f" for="c4">Sua função somar</label><textarea id="c4" class="cod" data-campo="c4" rows="4" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="GREEN — saída do teste"><label class="f" for="c5">Mensagem que apareceu ao rodar</label><input type="text" id="c5" data-campo="c5" placeholder="Teste de Soma: PASSOU!"></div>
+    <span class="k">return</span> <span class="b">__________</span></div></div><div class="campoWrap" data-rel="campo" data-rotulo="GREEN — função somar"><label class="f" for="c4">Sua função somar</label><textarea id="c4" class="cod" data-campo="c4" rows="4" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="GREEN — saída do teste"><label class="f" for="c5">Mensagem que apareceu ao rodar</label><input type="text" id="c5" data-campo="c5" placeholder="Copiem a mensagem exibida no terminal"></div>
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">4</span>
