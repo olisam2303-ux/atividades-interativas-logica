@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -351,18 +351,8 @@ section.tab{display:flex;flex-direction:column;gap:16px}
     </div>
   </section>
 <section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S14A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
-<section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>Dois arquivos, duas responsabilidades</h2></div>
-      <p class="lead">A ideia central da semana: quem &lt;b&gt;fala com o usuário&lt;/b&gt; não é quem &lt;b&gt;mexe nos dados&lt;/b&gt;. Essa separação é o que permite trocar o menu sem tocar na lógica — e vice-versa.</p>
+      <p class="lead">A ideia central da semana: quem <b>fala com o usuário</b> não é quem <b>mexe nos dados</b>. Essa separação é o que permite trocar o menu sem tocar na lógica — e vice-versa.</p>
       <div class="visual"><svg viewBox="0 0 454 162" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -405,6 +395,89 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   <rect x="0" y="0" width="560" height="274" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O detalhe que engana: numeração x índice</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">o usuário vê:      1, 2, 3</text><text x="20" y="78" class="sv-code sv-code-key" xml:space="preserve">a lista guarda em: 0, 1, 2</text><text x="20" y="104" class="sv-code" xml:space="preserve"> </text><text x="20" y="130" class="sv-code sv-code-key" xml:space="preserve">indice = numero - 1</text><text x="42" y="156" class="sv-code sv-code-soft" xml:space="preserve">sempre converta ANTES de acessar a lista</text><text x="20" y="182" class="sv-code" xml:space="preserve"> </text><text x="20" y="208" class="sv-code sv-code-key" xml:space="preserve">enumerate(lista, start=1)</text><text x="42" y="234" class="sv-code sv-code-soft" xml:space="preserve">numera a exibição começando em 1</text><text x="280" y="286" class="sv-legend">Contar a partir de 1 é natural para quem usa; contar a partir de 0 é como a</text><text x="280" y="302" class="sv-legend">lista funciona. O código faz a ponte.</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S14A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>O menu decide, o módulo de lógica executa</h2></div>
+  <p class="lead">O <code>main.py</code> é um laço: mostra o menu, lê a opção e decide para onde ir. Quando a opção mexe nos dados, ele <b>chama uma função de <code>tarefas.py</code></b> e depois volta ao menu. Só a opção de sair quebra o laço.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 470" class="sv" role="img" aria-label="Fluxograma do gerenciador de tarefas: em main.py, início, mostrar o menu, ler a opção e perguntar qual opção. Opção 1 chama adicionar_tarefa, 2 chama listar_tarefas, 3 chama marcar_concluida, 4 chama remover_tarefa, todas funções do módulo tarefas.py. Outra opção mostra opção inválida. Todas voltam ao menu. A opção 5 sai do programa">
+      <defs>
+        <marker id="fl14-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <text x="140" y="16" class="sv-tag sv-ok">main.py — INTERFACE</text>
+      <rect x="345" y="58" width="270" height="240" rx="12" class="sv-box sv-box-soft"/>
+      <text x="480" y="76" class="sv-tag sv-ok">tarefas.py — LÓGICA</text>
+
+      <rect x="40" y="28" width="200" height="34" rx="17" class="sv-box-ok"/>
+      <text x="140" y="50" class="sv-label sv-small">INÍCIO</text>
+      <path d="M140 62 L140 88" class="sv-arrow" marker-end="url(#fl14-head)"/>
+      <rect x="40" y="88" width="200" height="34" rx="8" class="sv-box"/>
+      <text x="140" y="110" class="sv-label sv-small">Mostrar o menu</text>
+      <path d="M140 122 L140 140" class="sv-arrow" marker-end="url(#fl14-head)"/>
+      <rect x="40" y="140" width="200" height="34" rx="8" class="sv-box"/>
+      <text x="140" y="162" class="sv-label sv-small">Ler a opção</text>
+      <path d="M140 174 L140 200" class="sv-arrow" marker-end="url(#fl14-head)"/>
+
+      <polygon points="140,200 230,240 140,280 50,240" class="sv-diamond"/>
+      <text x="140" y="245" class="sv-label sv-small">Qual opção?</text>
+      <path d="M230 240 L270 240" class="sv-arrow"/>
+      <path d="M270 100 L270 400" class="sv-arrow"/>
+
+      <path d="M270 100 L360 100" class="sv-arrow" marker-end="url(#fl14-head)"/>
+      <text x="300" y="93" class="sv-tag sv-ok">1</text>
+      <rect x="360" y="84" width="240" height="32" rx="8" class="sv-box-ok"/>
+      <text x="480" y="105" class="sv-label sv-small">adicionar_tarefa(nome)</text>
+
+      <path d="M270 158 L360 158" class="sv-arrow" marker-end="url(#fl14-head)"/>
+      <text x="300" y="151" class="sv-tag sv-ok">2</text>
+      <rect x="360" y="142" width="240" height="32" rx="8" class="sv-box-ok"/>
+      <text x="480" y="163" class="sv-label sv-small">listar_tarefas()</text>
+
+      <path d="M270 216 L360 216" class="sv-arrow" marker-end="url(#fl14-head)"/>
+      <text x="300" y="209" class="sv-tag sv-ok">3</text>
+      <rect x="360" y="200" width="240" height="32" rx="8" class="sv-box-ok"/>
+      <text x="480" y="221" class="sv-label sv-small">marcar_concluida(número)</text>
+
+      <path d="M270 274 L360 274" class="sv-arrow" marker-end="url(#fl14-head)"/>
+      <text x="300" y="267" class="sv-tag sv-ok">4</text>
+      <rect x="360" y="258" width="240" height="32" rx="8" class="sv-box-ok"/>
+      <text x="480" y="279" class="sv-label sv-small">remover_tarefa(número)</text>
+
+      <path d="M270 340 L360 340" class="sv-arrow" marker-end="url(#fl14-head)"/>
+      <text x="306" y="333" class="sv-tag sv-no">outra</text>
+      <rect x="360" y="324" width="240" height="32" rx="8" class="sv-box-no"/>
+      <text x="480" y="345" class="sv-label sv-small">Mostrar “Opção inválida”</text>
+
+      <path d="M270 400 L360 400" class="sv-arrow" marker-end="url(#fl14-head)"/>
+      <text x="300" y="393" class="sv-tag sv-ok">5</text>
+      <rect x="360" y="384" width="240" height="32" rx="16" class="sv-box-ok"/>
+      <text x="480" y="405" class="sv-label sv-small">FIM: “Até logo!”</text>
+
+      <path d="M600 100 L626 100 M600 158 L626 158 M600 216 L626 216 M600 274 L626 274 M600 340 L626 340" class="sv-arrow sv-arrow-soft"/>
+      <path d="M626 100 L626 446 L20 446 L20 105 L36 105" class="sv-arrow sv-arrow-soft" marker-end="url(#fl14-head)"/>
+      <text x="200" y="440" class="sv-tag sv-no">volta ao menu</text>
+    </svg>
+    <div class="cap">Tudo o que está fora do quadro tracejado é o main.py: menu, leitura e decisão. Tudo o que está dentro é o tarefas.py, e o main.py só chega até lá por meio do import. O main.py pede o nome ou o número antes de chamar a função.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>O laço começa em <b>Mostrar o menu</b>. A seta tracejada de baixo devolve o programa para lá depois de cada opção. É o <code>while True</code>.</span></li>
+      <li><span class="num">2</span><span>O losango <b>Qual opção?</b> é a cadeia de <code>if / elif / else</code>. A saída “outra” é o <code>else</code>.</span></li>
+      <li><span class="num">3</span><span>As caixas verdes dentro do quadro tracejado são as funções de <code>tarefas.py</code>. Na Parte 1 elas ainda não existem: no lugar delas ficam as mensagens “[em breve]”.</span></li>
+      <li><span class="num">4</span><span>Só a opção de sair não tem seta de volta: ela executa o <code>break</code> e o laço termina. O número de cada opção muda conforme o menu cresce de 3 para 5 opções.</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
@@ -434,7 +507,7 @@ lista_de_tarefas = []</div></div><div class="campoWrap" data-rel="campo" data-ro
           <span class="passo-num">2</span>
           <div class="passo-txt">Parte 1 — Montem o menu em main.py e testem a fundação.</div>
         </div>
-        <div class="dica"><b>Como pensar:</b> Neste momento as opções ainda mostram mensagens temporárias. Rodem <code>python3 main.py</code> e testem as opções 1, 2 e 3 antes de seguir.</div>
+        <div class="dica"><b>Como pensar:</b> Neste momento as opções ainda mostram mensagens temporárias. Rodem <code>python main.py</code> e testem as opções 1, 2 e 3 antes de seguir.</div>
         <div class="campoWrap"><div class="modelo"><span class="b"># main.py — módulo de interface (versão da Parte 1)</span>
 <span class="k">while</span> True:
     print("\n=== GERENCIADOR DE TAREFAS ===")
