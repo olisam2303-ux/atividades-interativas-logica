@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -339,16 +339,6 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       </div>
     </div>
   </section>
-<section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S14A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
 <section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>Como funciona uma revisão de código</h2></div>
       <p class="lead">A revisão tem duas pessoas e três partes. O que a torna profissional não é encontrar erros: é usar um critério combinado, para a conversa não virar questão de gosto.</p>
@@ -387,6 +377,89 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   <rect x="0" y="0" width="560" height="300" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">Como falar — e como não falar</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">em vez de afirmar, pergunte</text><text x="20" y="78" class="sv-code sv-code-soft" xml:space="preserve">✗ "esse nome está ruim"</text><text x="20" y="104" class="sv-code" xml:space="preserve">✓ "como o programa se comporta se o usuário digitar texto aqui?"</text><text x="20" y="130" class="sv-code" xml:space="preserve"> </text><text x="20" y="156" class="sv-code sv-code-key" xml:space="preserve">em vez de impor, sugira</text><text x="20" y="182" class="sv-code sv-code-soft" xml:space="preserve">✗ "troca x por indice_da_tarefa"</text><text x="20" y="208" class="sv-code" xml:space="preserve">✓ "considere renomear x para indice_da_tarefa — a intenção fica explícita"</text><text x="20" y="234" class="sv-code" xml:space="preserve"> </text><text x="20" y="260" class="sv-code sv-code-key" xml:space="preserve">comece sempre por um ponto forte de verdade</text><text x="280" y="312" class="sv-legend">A pergunta faz o outro pensar; a afirmação faz o outro se defender. É por isso</text><text x="280" y="328" class="sv-legend">que a técnica funciona.</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S14A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>Quem faz o quê, e quando</h2></div>
+  <p class="lead">A revisão de código é um processo com dois papéis. Cada coluna mostra o que um deles faz. As setas que cruzam de uma coluna para a outra são os momentos em que o trabalho passa de mão. No fim, a dupla troca de papel e o ciclo recomeça.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 566" class="sv" role="img" aria-label="Fluxograma da revisão de código em duas colunas, apresentador e revisor: o apresentador roda o main.py e apresenta a demonstração, a arquitetura, um ponto de destaque e um ponto de incerteza; o revisor escuta e anota, depois lê o código e aplica o checklist com evidência, e escreve o feedback começando por um ponto forte, depois uma pergunta e uma sugestão; o apresentador ouve, anota e agradece sem se justificar. Se os dois ainda não passaram pelos dois papéis, eles invertem os papéis e recomeçam. Quando os dois passaram, respondem as perguntas de consolidação e terminam">
+      <defs>
+        <marker id="fl14b-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="8" y="22" width="304" height="538" rx="12" class="sv-box sv-box-soft"/>
+      <rect x="320" y="22" width="304" height="538" rx="12" class="sv-box sv-box-soft"/>
+      <text x="160" y="14" class="sv-tag sv-ok">APRESENTADOR</text>
+      <text x="472" y="14" class="sv-tag sv-no">REVISOR</text>
+
+      <rect x="70" y="30" width="190" height="32" rx="16" class="sv-box-ok"/>
+      <text x="165" y="51" class="sv-label sv-small">INÍCIO: dupla formada</text>
+      <path d="M165 62 L165 96" class="sv-arrow" marker-end="url(#fl14b-head)"/>
+
+      <rect x="30" y="96" width="270" height="46" rx="8" class="sv-box"/>
+      <text x="165" y="115" class="sv-label sv-small">Rodar o main.py e apresentar:</text>
+      <text x="165" y="132" class="sv-label sv-small">demonstração · arquitetura</text>
+      <path d="M300 119 L338 119" class="sv-arrow" marker-end="url(#fl14b-head)"/>
+
+      <rect x="338" y="96" width="270" height="46" rx="8" class="sv-box"/>
+      <text x="473" y="115" class="sv-label sv-small">Escutar e anotar</text>
+      <text x="473" y="132" class="sv-label sv-small">durante a apresentação</text>
+      <path d="M473 142 L473 168" class="sv-arrow" marker-end="url(#fl14b-head)"/>
+
+      <rect x="338" y="168" width="270" height="46" rx="8" class="sv-box"/>
+      <text x="473" y="187" class="sv-label sv-small">Ler o código e aplicar o</text>
+      <text x="473" y="204" class="sv-label sv-small">checklist, com evidência</text>
+      <path d="M473 214 L473 240" class="sv-arrow" marker-end="url(#fl14b-head)"/>
+
+      <rect x="338" y="240" width="270" height="46" rx="8" class="sv-box-no"/>
+      <text x="473" y="259" class="sv-label sv-small">Escrever o feedback: ponto</text>
+      <text x="473" y="276" class="sv-label sv-small">forte → pergunta → sugestão</text>
+      <path d="M473 286 L473 299 L165 299 L165 312" class="sv-arrow" marker-end="url(#fl14b-head)"/>
+      <text x="320" y="293" class="sv-tag sv-no">devolutiva</text>
+
+      <rect x="30" y="312" width="270" height="46" rx="8" class="sv-box-ok"/>
+      <text x="165" y="331" class="sv-label sv-small">Ouvir, anotar e agradecer</text>
+      <text x="165" y="348" class="sv-label sv-small">(sem se justificar)</text>
+      <path d="M165 358 L165 384" class="sv-arrow" marker-end="url(#fl14b-head)"/>
+
+      <polygon points="165,384 290,418 165,452 40,418" class="sv-diamond"/>
+      <text x="165" y="414" class="sv-label sv-small">Os dois já fizeram</text>
+      <text x="165" y="430" class="sv-label sv-small">os dois papéis?</text>
+      <path d="M290 418 L338 418" class="sv-arrow" marker-end="url(#fl14b-head)"/>
+      <text x="308" y="410" class="sv-tag sv-no">F</text>
+      <rect x="338" y="401" width="270" height="34" rx="8" class="sv-box"/>
+      <text x="473" y="423" class="sv-label sv-small">Inverter os papéis (Parte 3)</text>
+      <path d="M608 418 L632 418 L632 78 L169 78" class="sv-arrow sv-arrow-soft" marker-end="url(#fl14b-head)"/>
+      <text x="400" y="72" class="sv-tag sv-no">quem revisou agora apresenta</text>
+
+      <path d="M165 452 L165 470" class="sv-arrow" marker-end="url(#fl14b-head)"/>
+      <text x="175" y="466" class="sv-tag sv-ok">V</text>
+      <rect x="30" y="470" width="270" height="34" rx="8" class="sv-box"/>
+      <text x="165" y="492" class="sv-label sv-small">Responder a consolidação</text>
+      <path d="M165 504 L165 522" class="sv-arrow" marker-end="url(#fl14b-head)"/>
+      <rect x="70" y="522" width="190" height="32" rx="16" class="sv-box-ok"/>
+      <text x="165" y="543" class="sv-label sv-small">FIM</text>
+    </svg>
+    <div class="cap">O apresentador só fala na primeira caixa da coluna dele. Depois disso, ele apenas escuta. E o revisor só fala depois de escrever o feedback: o checklist vem antes da conversa.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>A primeira caixa do apresentador inclui os quatro momentos do Passo 1: demonstração, arquitetura, ponto de destaque e ponto de incerteza.</span></li>
+      <li><span class="num">2</span><span>A coluna do revisor corresponde aos Passos 2 e 3: primeiro a evidência no checklist, depois o feedback escrito, na ordem ponto forte → pergunta → sugestão.</span></li>
+      <li><span class="num">3</span><span>A seta “devolutiva” é o único momento de conversa. Do lado de quem recebe, a caixa é verde por uma razão: ouvir sem se defender é a habilidade da aula.</span></li>
+      <li><span class="num">4</span><span>O losango só deixa sair quando <b>as duas pessoas</b> passaram pelos dois lados. Até lá, a seta tracejada traz a dupla de volta ao começo, com os papéis trocados.</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
