@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -340,18 +340,8 @@ section.tab{display:flex;flex-direction:column;gap:16px}
     </div>
   </section>
 <section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S15A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
-<section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>Processar enquanto percorre</h2></div>
-      <p class="lead">O percurso é o mesmo da aula anterior. O que muda é o que acontece &lt;b&gt;dentro&lt;/b&gt; do laço: acumular, comparar, ou marcar que encontrou algo.</p>
+      <p class="lead">O percurso é o mesmo da aula anterior. O que muda é o que acontece <b>dentro</b> do laço: acumular, comparar, ou marcar que encontrou algo.</p>
       <div class="visual"><svg viewBox="0 0 560 242" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -361,7 +351,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="196" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">A lista temperaturas</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">índice:   0    1    2    3    4    5    6</text><text x="20" y="78" class="sv-code sv-code-key" xml:space="preserve">valor:   22   25   21   24   26   23   22</text><text x="20" y="104" class="sv-code" xml:space="preserve"> </text><text x="20" y="130" class="sv-code sv-code-soft" xml:space="preserve">7 valores · índices de 0 a 6</text><text x="20" y="156" class="sv-code sv-code-soft" xml:space="preserve">repare que o 22 aparece duas vezes</text><text x="280" y="208" class="sv-legend">Valores repetidos importam na busca linear: o que o código faz ao encontrar o</text><text x="280" y="224" class="sv-legend">segundo?</text>
+  <rect x="0" y="0" width="560" height="196" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">Exemplo: a lista chuva (mm por dia)</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">índice:   0    1    2    3    4</text><text x="20" y="78" class="sv-code sv-code-key" xml:space="preserve">valor:   12    0    5    0    8</text><text x="20" y="104" class="sv-code" xml:space="preserve"> </text><text x="20" y="130" class="sv-code sv-code-soft" xml:space="preserve">5 valores · índices de 0 a 4</text><text x="20" y="156" class="sv-code sv-code-soft" xml:space="preserve">repare que o 0 aparece duas vezes</text><text x="280" y="208" class="sv-legend">Valores repetidos importam na busca linear: o que o código faz ao encontrar o</text><text x="280" y="224" class="sv-legend">segundo?</text>
 </svg></div><div class="visual"><svg viewBox="0 0 700 236" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -407,9 +397,107 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="196" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">Por que maior e menor começam em temperaturas[0]</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">maior = temperaturas[0]</text><text x="20" y="78" class="sv-code sv-code-key" xml:space="preserve">menor = temperaturas[0]</text><text x="20" y="104" class="sv-code" xml:space="preserve"> </text><text x="20" y="130" class="sv-code sv-code-soft" xml:space="preserve">começar em 0 daria errado: nenhuma temperatura é menor que 0</text><text x="20" y="156" class="sv-code sv-code-soft" xml:space="preserve">começar com o 1º valor garante um ponto de partida real</text><text x="280" y="208" class="sv-legend">A cada volta, compara-se o valor atual com o campeão até agora — e troca-se se</text><text x="280" y="224" class="sv-legend">necessário.</text>
+  <rect x="0" y="0" width="560" height="196" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">Por que maior e menor começam em temperaturas[0]</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">maior = temperaturas[0]</text><text x="20" y="78" class="sv-code sv-code-key" xml:space="preserve">menor = temperaturas[0]</text><text x="20" y="104" class="sv-code" xml:space="preserve"> </text><text x="20" y="130" class="sv-code sv-code-soft" xml:space="preserve">e se começassem em 0? daria certo para maior? e para menor?</text><text x="20" y="156" class="sv-code sv-code-soft" xml:space="preserve">respondam no Desafio 6</text><text x="280" y="208" class="sv-legend">A cada volta, o valor atual disputa com o “campeão até agora”. Quando ele vence,</text><text x="280" y="224" class="sv-legend">o que muda? (Desafio 6)</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S15A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>Um percurso, quatro tarefas</h2></div>
+  <p class="lead">É o mesmo percurso da 15a, mas agora cada volta faz quatro coisas com o <b>valor atual</b>: soma, confere se é o procurado, disputa com o maior e disputa com o menor. A média fica <b>fora</b> do laço: só dá para calculá-la depois que a soma terminou. As caixas laranja são lacunas dos desafios.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 626" class="sv" role="img" aria-label="Fluxograma do percurso da lista temperaturas: início; soma recebe 0 e encontrou recebe falso; maior e menor recebem o primeiro valor; i recebe o valor inicial do Desafio 2; enquanto i for um índice válido, soma recebe soma mais o valor atual, que é a lacuna do Desafio 3; se o valor atual for o procurado, encontrou recebe verdadeiro; se o valor atual for maior que maior, maior recebe o valor atual; se for menor que menor, menor recebe o valor atual; i aumenta 1 e volta. Quando i deixa de ser válido, média recebe soma dividida pela quantidade, que é a lacuna do Desafio 4, e o programa termina">
+      <defs>
+        <marker id="fl15b-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="100" y="8" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="200" y="29" class="sv-label sv-small">INÍCIO</text>
+      <path d="M200 40 L200 54" class="sv-arrow" marker-end="url(#fl15b-head)"/>
+      <rect x="70" y="54" width="260" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="75" class="sv-label sv-small">soma ← 0 · encontrou ← False</text>
+      <path d="M200 86 L200 100" class="sv-arrow" marker-end="url(#fl15b-head)"/>
+      <rect x="70" y="100" width="260" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="121" class="sv-label sv-small">maior ← menor ← 1º valor</text>
+      <path d="M200 132 L200 146" class="sv-arrow" marker-end="url(#fl15b-head)"/>
+      <rect x="70" y="146" width="260" height="32" rx="8" class="sv-box-no"/>
+      <text x="200" y="167" class="sv-label sv-small">i ← ?   (Desafio 2)</text>
+      <path d="M200 178 L200 194" class="sv-arrow" marker-end="url(#fl15b-head)"/>
+
+      <polygon points="200,194 330,228 200,262 70,228" class="sv-diamond"/>
+      <text x="200" y="224" class="sv-label sv-small">i ainda é um</text>
+      <text x="200" y="240" class="sv-label sv-small">índice válido?</text>
+      <path d="M330 228 L390 228" class="sv-arrow" marker-end="url(#fl15b-head)"/>
+      <text x="356" y="220" class="sv-tag sv-no">F</text>
+      <rect x="390" y="205" width="230" height="46" rx="8" class="sv-box-no"/>
+      <text x="505" y="224" class="sv-label sv-small">media ← soma / ?</text>
+      <text x="505" y="241" class="sv-label sv-small">(Desafio 4)</text>
+      <path d="M505 251 L505 275" class="sv-arrow" marker-end="url(#fl15b-head)"/>
+      <rect x="420" y="275" width="170" height="32" rx="16" class="sv-box-ok"/>
+      <text x="505" y="296" class="sv-label sv-small">FIM</text>
+
+      <path d="M200 262 L200 280" class="sv-arrow" marker-end="url(#fl15b-head)"/>
+      <text x="210" y="276" class="sv-tag sv-ok">V</text>
+      <rect x="70" y="280" width="260" height="34" rx="8" class="sv-box-no"/>
+      <text x="200" y="302" class="sv-label sv-small">soma ← soma + ?   (Desafio 3)</text>
+      <path d="M200 314 L200 328" class="sv-arrow" marker-end="url(#fl15b-head)"/>
+
+      <polygon points="200,328 330,360 200,392 70,360" class="sv-diamond"/>
+      <text x="200" y="356" class="sv-label sv-small">valor atual é</text>
+      <text x="200" y="372" class="sv-label sv-small">o procurado?</text>
+      <path d="M330 360 L390 360" class="sv-arrow" marker-end="url(#fl15b-head)"/>
+      <text x="356" y="352" class="sv-tag sv-ok">V</text>
+      <rect x="390" y="343" width="230" height="34" rx="8" class="sv-box-ok"/>
+      <text x="505" y="365" class="sv-label sv-small">encontrou ← True</text>
+      <path d="M505 377 L505 402 L204 402" class="sv-arrow" marker-end="url(#fl15b-head)"/>
+      <path d="M200 392 L200 412" class="sv-arrow" marker-end="url(#fl15b-head)"/>
+      <text x="210" y="408" class="sv-tag sv-no">F</text>
+
+      <polygon points="200,412 330,444 200,476 70,444" class="sv-diamond"/>
+      <text x="200" y="449" class="sv-label sv-small">valor atual &gt; maior?</text>
+      <path d="M330 444 L390 444" class="sv-arrow" marker-end="url(#fl15b-head)"/>
+      <text x="356" y="436" class="sv-tag sv-ok">V</text>
+      <rect x="390" y="427" width="230" height="34" rx="8" class="sv-box-ok"/>
+      <text x="505" y="449" class="sv-label sv-small">maior ← valor atual</text>
+      <path d="M505 461 L505 486 L204 486" class="sv-arrow" marker-end="url(#fl15b-head)"/>
+      <path d="M200 476 L200 496" class="sv-arrow" marker-end="url(#fl15b-head)"/>
+      <text x="210" y="492" class="sv-tag sv-no">F</text>
+
+      <polygon points="200,496 330,528 200,560 70,528" class="sv-diamond"/>
+      <text x="200" y="533" class="sv-label sv-small">valor atual &lt; menor?</text>
+      <path d="M330 528 L390 528" class="sv-arrow" marker-end="url(#fl15b-head)"/>
+      <text x="356" y="520" class="sv-tag sv-ok">V</text>
+      <rect x="390" y="511" width="230" height="34" rx="8" class="sv-box-ok"/>
+      <text x="505" y="533" class="sv-label sv-small">menor ← valor atual</text>
+      <path d="M505 545 L505 570 L204 570" class="sv-arrow" marker-end="url(#fl15b-head)"/>
+      <path d="M200 560 L200 580" class="sv-arrow" marker-end="url(#fl15b-head)"/>
+      <text x="210" y="576" class="sv-tag sv-no">F</text>
+
+      <rect x="70" y="580" width="260" height="34" rx="8" class="sv-box"/>
+      <text x="200" y="602" class="sv-label sv-small">i ← i + 1</text>
+      <path d="M70 597 L24 597 L24 186 L196 186" class="sv-arrow sv-arrow-soft" marker-end="url(#fl15b-head)"/>
+      <text x="30" y="400" class="sv-tag sv-no" text-anchor="start">próxima</text>
+      <text x="30" y="414" class="sv-tag sv-no" text-anchor="start">volta</text>
+    </svg>
+    <div class="cap">Tudo entre o losango de cima e a caixa “i ← i + 1” roda uma vez por temperatura. A média é a única conta feita depois do laço, no caminho F.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>As três primeiras caixas acontecem <b>uma vez só</b>, antes do laço. São as inicializações que o Desafio 6 pede para justificar.</span></li>
+      <li><span class="num">2</span><span>“Valor atual” é o elemento da lista na posição <code>i</code>. Escrever isso em Python é a lacuna do Desafio 3, e a mesma expressão aparece nos losangos.</span></li>
+      <li><span class="num">3</span><span>Os três losangos de dentro são independentes: um valor pode, por exemplo, ser o procurado e também o maior. Por isso cada um tem a sua seta de volta para o caminho principal.</span></li>
+      <li><span class="num">4</span><span>No Desafio 5, sigam o losango “é o procurado?” com um valor repetido na lista: o que acontece com <code>encontrou</code> na segunda vez?</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
