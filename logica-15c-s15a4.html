@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -345,21 +345,11 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       <div class="marca">PY</div>
       <div>
         <div class="nome">Visual Studio Code + Python</div>
-        <div class="desc">A entrega tem <b>duas peças</b>: o arquivo <code>.py</code> com o código completo funcionando e um parágrafo explicando como a solução foi construída. Salvem o arquivo → Fazer download → .py Guardem a versão final no <b>repositório do grupo no GitHub</b>. <a href="github-passo-a-passo.html">Veja o passo a passo do GitHub</a>.</div>
+        <div class="desc">A entrega tem <b>duas peças</b>: o arquivo <code>.py</code> com o código completo funcionando e um parágrafo explicando como a solução foi construída. No VS Code, salvem com <b>Ctrl + S</b>, com a extensão <code>.py</code>. Guardem a versão final no <b>repositório do grupo no GitHub</b>. <a href="github-passo-a-passo.html">Veja o passo a passo do GitHub</a>.</div>
         
       </div>
     </div>
   </section>
-<section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S15A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
 <section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>O sistema em cinco etapas</h2></div>
       <p class="lead">Cada etapa usa um conceito já praticado: repetição para ler, lista para armazenar, percurso para somar, cálculo para a média e decisão para classificar.</p>
@@ -385,7 +375,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="196" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">As cinco etapas, em código</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">1. quantidade = int(input(...))</text><text x="20" y="78" class="sv-code sv-code-key" xml:space="preserve">2. notas = []   → e append() dentro do laço de leitura</text><text x="20" y="104" class="sv-code sv-code-key" xml:space="preserve">3. soma = 0     → percorre a lista acumulando</text><text x="20" y="130" class="sv-code sv-code-key" xml:space="preserve">4. media = soma / quantidade</text><text x="20" y="156" class="sv-code sv-code-key" xml:space="preserve">5. if media &gt;= 7: satisfatório  senão: insatisfatório</text><text x="280" y="208" class="sv-legend">Cuidado na etapa 2: input() devolve texto — é preciso converter para número</text><text x="280" y="224" class="sv-legend">antes de guardar.</text>
+  <rect x="0" y="0" width="560" height="196" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">As cinco etapas, em palavras</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">1. ler quantas notas serão digitadas</text><text x="20" y="78" class="sv-code sv-code-key" xml:space="preserve">2. lista vazia → a cada volta da leitura, acrescentar</text><text x="20" y="104" class="sv-code sv-code-key" xml:space="preserve">3. soma começa em zero → percorrer a lista acumulando</text><text x="20" y="130" class="sv-code sv-code-key" xml:space="preserve">4. média = soma dividida pela quantidade de notas</text><text x="20" y="156" class="sv-code sv-code-key" xml:space="preserve">5. decidir: satisfatório ou insatisfatório</text><text x="280" y="208" class="sv-legend">Cuidado: o que o input() devolve? Isso muda o que fazer</text><text x="280" y="224" class="sv-legend">antes de guardar a nota (Etapa 1).</text>
 </svg></div><div class="visual"><svg viewBox="0 0 660 310" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -408,6 +398,94 @@ section.tab{display:flex;flex-direction:column;gap:16px}
      <text x="330" y="292" class="sv-legend">Use &gt;= e não apenas &gt; — uma média exatamente 7 é satisfatória.</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S15A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>Dois laços em sequência e uma decisão</h2></div>
+  <p class="lead">O programa tem dois laços, um <b>depois</b> do outro (não um dentro do outro, como na Semana 10). O primeiro <b>enche</b> a lista com as notas digitadas. O segundo <b>percorre</b> a lista somando. Só depois vem a média e a decisão.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 600" class="sv" role="img" aria-label="Fluxograma do sistema de notas da turma: início, ler a quantidade de notas, criar a lista vazia; enquanto ainda faltar nota, ler uma nota, converter e acrescentar na lista; quando já leu todas, soma recebe zero; enquanto ainda houver nota a percorrer, soma recebe soma mais a nota; depois, média recebe a soma dividida pela quantidade; se a média for maior ou igual a 7, desempenho satisfatório, senão insatisfatório; fim">
+      <defs>
+        <marker id="fl15c-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="100" y="8" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="200" y="29" class="sv-label sv-small">INÍCIO</text>
+      <path d="M200 40 L200 54" class="sv-arrow" marker-end="url(#fl15c-head)"/>
+      <rect x="80" y="54" width="240" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="75" class="sv-label sv-small">Ler a quantidade de notas</text>
+      <path d="M200 86 L200 100" class="sv-arrow" marker-end="url(#fl15c-head)"/>
+      <rect x="80" y="100" width="240" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="121" class="sv-label sv-small">notas ← lista vazia</text>
+      <path d="M200 132 L200 154" class="sv-arrow" marker-end="url(#fl15c-head)"/>
+      <text x="64" y="150" class="sv-tag sv-ok">1º LAÇO: LER</text>
+
+      <polygon points="200,154 320,186 200,218 80,186" class="sv-diamond"/>
+      <text x="200" y="182" class="sv-label sv-small">Ainda falta</text>
+      <text x="200" y="198" class="sv-label sv-small">ler alguma nota?</text>
+      <path d="M320 186 L400 186" class="sv-arrow" marker-end="url(#fl15c-head)"/>
+      <text x="350" y="178" class="sv-tag sv-ok">V</text>
+      <rect x="400" y="163" width="220" height="46" rx="8" class="sv-box"/>
+      <text x="510" y="182" class="sv-label sv-small">Ler uma nota, converter</text>
+      <text x="510" y="199" class="sv-label sv-small">e acrescentar na lista</text>
+      <path d="M510 163 L510 144 L204 144" class="sv-arrow sv-arrow-soft" marker-end="url(#fl15c-head)"/>
+
+      <path d="M200 218 L200 238" class="sv-arrow" marker-end="url(#fl15c-head)"/>
+      <text x="210" y="234" class="sv-tag sv-no">F</text>
+      <rect x="80" y="238" width="240" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="259" class="sv-label sv-small">soma ← 0</text>
+      <path d="M200 270 L200 294" class="sv-arrow" marker-end="url(#fl15c-head)"/>
+      <text x="64" y="290" class="sv-tag sv-ok">2º LAÇO: SOMAR</text>
+
+      <polygon points="200,294 320,326 200,358 80,326" class="sv-diamond"/>
+      <text x="200" y="322" class="sv-label sv-small">Ainda há nota</text>
+      <text x="200" y="338" class="sv-label sv-small">a percorrer?</text>
+      <path d="M320 326 L400 326" class="sv-arrow" marker-end="url(#fl15c-head)"/>
+      <text x="350" y="318" class="sv-tag sv-ok">V</text>
+      <rect x="400" y="309" width="220" height="34" rx="8" class="sv-box"/>
+      <text x="510" y="331" class="sv-label sv-small">soma ← soma + nota</text>
+      <path d="M510 309 L510 284 L204 284" class="sv-arrow sv-arrow-soft" marker-end="url(#fl15c-head)"/>
+
+      <path d="M200 358 L200 378" class="sv-arrow" marker-end="url(#fl15c-head)"/>
+      <text x="210" y="374" class="sv-tag sv-no">F</text>
+      <rect x="60" y="378" width="280" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="399" class="sv-label sv-small">média ← soma ÷ quantidade de notas</text>
+      <path d="M200 410 L200 428" class="sv-arrow" marker-end="url(#fl15c-head)"/>
+
+      <polygon points="200,428 310,458 200,488 90,458" class="sv-diamond"/>
+      <text x="200" y="463" class="sv-label sv-small">média ≥ 7 ?</text>
+      <path d="M310 458 L400 458" class="sv-arrow" marker-end="url(#fl15c-head)"/>
+      <text x="350" y="450" class="sv-tag sv-ok">V</text>
+      <rect x="400" y="441" width="220" height="34" rx="8" class="sv-box-ok"/>
+      <text x="510" y="463" class="sv-label sv-small">“Satisfatório”</text>
+      <path d="M200 488 L200 506" class="sv-arrow" marker-end="url(#fl15c-head)"/>
+      <text x="210" y="502" class="sv-tag sv-no">F</text>
+      <rect x="80" y="506" width="240" height="32" rx="8" class="sv-box-no"/>
+      <text x="200" y="527" class="sv-label sv-small">“Insatisfatório”</text>
+      <path d="M200 538 L200 556" class="sv-arrow" marker-end="url(#fl15c-head)"/>
+      <path d="M510 475 L510 572 L304 572" class="sv-arrow" marker-end="url(#fl15c-head)"/>
+      <rect x="100" y="556" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="200" y="577" class="sv-label sv-small">FIM</text>
+    </svg>
+    <div class="cap">As setas tracejadas são as voltas dos dois laços. Repare que cada uma volta para o seu próprio losango: o segundo laço só começa quando o primeiro terminou de vez.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>O primeiro losango é controlado pela <b>quantidade</b> lida no começo (Etapa 1). Ele repete exatamente essa quantidade de vezes.</span></li>
+      <li><span class="num">2</span><span>A caixa “Ler uma nota, converter e acrescentar” tem três ações. As três precisam aparecer no trecho da Etapa 2.</span></li>
+      <li><span class="num">3</span><span>O segundo laço é o acumulador da 15b (Etapa 3). A média fica <b>fora</b> dele: só dá para dividir depois que a soma terminou (Etapa 4).</span></li>
+      <li><span class="num">4</span><span>No teste da Etapa 6, sigam o losango “média ≥ 7?” com a média exatamente 7: por qual caminho ela sai?</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
@@ -430,7 +508,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
           <div class="passo-txt">Etapa 1 — Defina a quantidade de notas.</div>
         </div>
         <div class="dica"><b>Como pensar:</b> Uma variável guarda quantas notas serão digitadas, e é ela que vai controlar quantas vezes o laço de leitura repete.</div>
-        <div class="campoWrap" data-rel="campo" data-rotulo="Etapa 1 — leitura da quantidade"><label class="f" for="c0">Linha que lê a quantidade</label><input type="text" id="c0" data-campo="c0" placeholder="quantidade = int(input(...))"></div><div class="campoWrap" data-rel="campo" data-rotulo="Etapa 1 — por que converter"><label class="f" for="c1">Por que converter com int()?</label><input type="text" id="c1" data-campo="c1" placeholder="Porque input() devolve..."></div>
+        <div class="campoWrap" data-rel="campo" data-rotulo="Etapa 1 — leitura da quantidade"><label class="f" for="c0">Linha que lê a quantidade</label><input type="text" id="c0" data-campo="c0" placeholder="quantidade = ..."></div><div class="campoWrap" data-rel="campo" data-rotulo="Etapa 1 — por que converter"><label class="f" for="c1">Por que converter com int()?</label><input type="text" id="c1" data-campo="c1" placeholder="Porque input() devolve..."></div>
       </div><div class="passo">
         <div class="passo-top">
           <span class="passo-num">2</span>
