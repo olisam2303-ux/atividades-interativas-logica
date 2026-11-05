@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -340,18 +340,8 @@ section.tab{display:flex;flex-direction:column;gap:16px}
     </div>
   </section>
 <section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S16A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
-<section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>Agregar é resumir</h2></div>
-      <p class="lead">O detalhe que decide tudo aqui é &lt;b&gt;onde&lt;/b&gt; o acumulador é criado: dentro ou fora do laço externo. Um zera a cada linha; o outro atravessa a matriz inteira.</p>
+      <p class="lead">O detalhe que decide tudo aqui é <b>onde</b> o acumulador é criado: dentro ou fora do laço externo. Essa escolha muda o resultado, e a Etapa 1 mostra como.</p>
       <div class="visual"><svg viewBox="0 0 690 162" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -365,7 +355,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
         <rect x="0" y="0" width="218" height="130" rx="11" class="sv-box sv-band-0"/>
         <text x="109" y="26" class="sv-card-key">Por linha</text>
         <text x="109" y="52" class="sv-label">Soma da turma</text>
-        <text x="109" y="81" class="sv-legend sv-small">acumulador criado DENTRO do</text><text x="109" y="96" class="sv-legend sv-small">laço externo — zera a cada</text><text x="109" y="111" class="sv-legend sv-small">turma</text>
+        <text x="109" y="81" class="sv-legend sv-small">acumulador criado DENTRO do</text><text x="109" y="96" class="sv-legend sv-small">laço externo</text><text x="109" y="111" class="sv-legend sv-small"></text>
       </g><g>
         <rect x="236" y="0" width="218" height="130" rx="11" class="sv-box sv-band-1"/>
         <text x="345" y="26" class="sv-card-key">Por coluna</text>
@@ -386,9 +376,148 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="274" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O erro clássico da soma por linha</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">for i in range(len(notas)):</text><text x="42" y="78" class="sv-code sv-code-key" xml:space="preserve">soma_linha = 0   ← AQUI dentro</text><text x="42" y="104" class="sv-code" xml:space="preserve">for j in range(len(notas[i])):</text><text x="64" y="130" class="sv-code" xml:space="preserve">soma_linha += notas[i][j]</text><text x="42" y="156" class="sv-code" xml:space="preserve">print(soma_linha)</text><text x="20" y="182" class="sv-code" xml:space="preserve"> </text><text x="20" y="208" class="sv-code sv-code-soft" xml:space="preserve">se soma_linha for criado FORA, os totais se somam</text><text x="20" y="234" class="sv-code sv-code-soft" xml:space="preserve">e cada turma sai com o acumulado das anteriores</text><text x="280" y="286" class="sv-legend">Reiniciar o acumulador a cada linha é o que garante um total por turma, e não</text><text x="280" y="302" class="sv-legend">um total acumulado.</text>
+  <rect x="0" y="0" width="560" height="274" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O erro clássico da soma por linha</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">for i in range(len(notas)):</text><text x="42" y="78" class="sv-code sv-code-key" xml:space="preserve">soma_linha = 0   ← criado aqui dentro</text><text x="42" y="104" class="sv-code" xml:space="preserve">for j in range(len(notas[i])):</text><text x="64" y="130" class="sv-code" xml:space="preserve">soma_linha += notas[i][j]</text><text x="42" y="156" class="sv-code" xml:space="preserve">print(soma_linha)</text><text x="20" y="182" class="sv-code" xml:space="preserve"> </text><text x="20" y="208" class="sv-code sv-code-soft" xml:space="preserve">e se esta linha subisse para antes do 1º for?</text><text x="20" y="234" class="sv-code sv-code-soft" xml:space="preserve">o que sairia para a turma 1? e para a 2?</text><text x="280" y="286" class="sv-legend">Mudem a linha de lugar, rodem e comparem as duas saídas.</text><text x="280" y="302" class="sv-legend">A explicação vai na Etapa 1.</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S16A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>Onde fica o acumulador, e quem anda primeiro</h2></div>
+  <p class="lead">Os dois desenhos têm a mesma forma da 16a: dois laços, um dentro do outro. Repare em duas coisas: em que ponto do desenho a caixa laranja (o acumulador) aparece, e qual índice está no laço de fora em cada um.</p>
+
+  <div class="visual">
+    <svg viewBox="0 0 640 560" class="sv" role="img" aria-label="Fluxograma da soma por turma: i recebe 0; enquanto i for menor que o tamanho de notas, soma_linha recebe 0, j recebe 0 e, enquanto j for menor que o tamanho de notas na posição i, soma_linha recebe soma_linha mais notas na posição i, j, e j aumenta 1. Quando j termina, mostra soma_linha, i aumenta 1 e volta. Quando i termina, fim">
+      <defs>
+        <marker id="fl16b1-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <text x="320" y="14" class="sv-tag sv-ok">ETAPA 1 — SOMA POR TURMA</text>
+      <rect x="130" y="24" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="230" y="45" class="sv-label sv-small">INÍCIO</text>
+      <path d="M230 56 L230 70" class="sv-arrow" marker-end="url(#fl16b1-head)"/>
+      <rect x="130" y="70" width="200" height="32" rx="8" class="sv-box"/>
+      <text x="230" y="91" class="sv-label sv-small">i ← 0</text>
+      <path d="M230 102 L230 120" class="sv-arrow" marker-end="url(#fl16b1-head)"/>
+
+      <polygon points="230,120 340,152 230,184 120,152" class="sv-diamond"/>
+      <text x="230" y="157" class="sv-label sv-small">i &lt; len(notas) ?</text>
+      <path d="M120 152 L40 152 L40 524 L130 524" class="sv-arrow" marker-end="url(#fl16b1-head)"/>
+      <text x="104" y="144" class="sv-tag sv-no">F</text>
+      <rect x="130" y="508" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="230" y="529" class="sv-label sv-small">FIM</text>
+
+      <path d="M230 184 L230 200" class="sv-arrow" marker-end="url(#fl16b1-head)"/>
+      <text x="240" y="197" class="sv-tag sv-ok">V</text>
+      <rect x="130" y="200" width="200" height="32" rx="8" class="sv-box-no"/>
+      <text x="230" y="221" class="sv-label sv-small">soma_linha ← 0</text>
+      <path d="M230 232 L230 246" class="sv-arrow" marker-end="url(#fl16b1-head)"/>
+      <rect x="130" y="246" width="200" height="32" rx="8" class="sv-box"/>
+      <text x="230" y="267" class="sv-label sv-small">j ← 0</text>
+      <path d="M230 278 L230 298" class="sv-arrow" marker-end="url(#fl16b1-head)"/>
+
+      <polygon points="230,298 350,334 230,370 110,334" class="sv-diamond"/>
+      <text x="230" y="339" class="sv-label sv-small">j &lt; len(notas[i]) ?</text>
+      <path d="M350 334 L440 334" class="sv-arrow" marker-end="url(#fl16b1-head)"/>
+      <text x="370" y="326" class="sv-tag sv-no">F</text>
+      <rect x="440" y="311" width="180" height="46" rx="8" class="sv-box"/>
+      <text x="530" y="330" class="sv-label sv-small">mostrar soma_linha</text>
+      <text x="530" y="347" class="sv-label sv-small">i ← i + 1</text>
+      <path d="M620 334 L630 334 L630 110 L234 110" class="sv-arrow sv-arrow-soft" marker-end="url(#fl16b1-head)"/>
+      <text x="560" y="200" class="sv-tag sv-no">próxima turma</text>
+
+      <path d="M230 370 L230 386" class="sv-arrow" marker-end="url(#fl16b1-head)"/>
+      <text x="240" y="383" class="sv-tag sv-ok">V</text>
+      <rect x="90" y="386" width="280" height="34" rx="8" class="sv-box"/>
+      <text x="230" y="408" class="sv-label sv-small">soma_linha ← soma_linha + notas[i][j]</text>
+      <path d="M230 420 L230 436" class="sv-arrow" marker-end="url(#fl16b1-head)"/>
+      <rect x="130" y="436" width="200" height="32" rx="8" class="sv-box"/>
+      <text x="230" y="457" class="sv-label sv-small">j ← j + 1</text>
+      <path d="M130 452 L72 452 L72 288 L226 288" class="sv-arrow sv-arrow-soft" marker-end="url(#fl16b1-head)"/>
+      <text x="96" y="372" class="sv-tag sv-no">próximo</text>
+      <text x="96" y="386" class="sv-tag sv-no">aluno</text>
+    </svg>
+    <div class="cap">A caixa laranja fica dentro da seta “próxima turma” e fora da seta “próximo aluno”. Na Etapa 1, testem o que acontece quando ela sobe para antes do “i ← 0”.</div>
+  </div>
+
+  <div class="visual">
+    <svg viewBox="0 0 640 576" class="sv" role="img" aria-label="Fluxograma do maior valor por coluna, com os laços invertidos: j recebe 0; enquanto j for menor que o tamanho da primeira linha, maior recebe notas na posição 0, j, i recebe 0 e, enquanto i for menor que o tamanho de notas, se notas na posição i, j for maior que maior, maior recebe esse valor; i aumenta 1. Quando i termina, mostra maior, j aumenta 1 e volta. Quando j termina, fim">
+      <defs>
+        <marker id="fl16b2-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <text x="320" y="14" class="sv-tag sv-ok">ETAPA 4 — MAIOR POR COLUNA (LAÇOS INVERTIDOS)</text>
+      <rect x="130" y="24" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="230" y="45" class="sv-label sv-small">INÍCIO</text>
+      <path d="M230 56 L230 70" class="sv-arrow" marker-end="url(#fl16b2-head)"/>
+      <rect x="130" y="70" width="200" height="32" rx="8" class="sv-box"/>
+      <text x="230" y="91" class="sv-label sv-small">j ← 0</text>
+      <path d="M230 102 L230 120" class="sv-arrow" marker-end="url(#fl16b2-head)"/>
+
+      <polygon points="230,120 350,152 230,184 110,152" class="sv-diamond"/>
+      <text x="230" y="157" class="sv-label sv-small">j &lt; len(notas[0]) ?</text>
+      <path d="M110 152 L40 152 L40 542 L130 542" class="sv-arrow" marker-end="url(#fl16b2-head)"/>
+      <text x="94" y="144" class="sv-tag sv-no">F</text>
+      <rect x="130" y="526" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="230" y="547" class="sv-label sv-small">FIM</text>
+
+      <path d="M230 184 L230 200" class="sv-arrow" marker-end="url(#fl16b2-head)"/>
+      <text x="240" y="197" class="sv-tag sv-ok">V</text>
+      <rect x="130" y="200" width="200" height="32" rx="8" class="sv-box-no"/>
+      <text x="230" y="221" class="sv-label sv-small">maior ← notas[0][j]</text>
+      <path d="M230 232 L230 246" class="sv-arrow" marker-end="url(#fl16b2-head)"/>
+      <rect x="130" y="246" width="200" height="32" rx="8" class="sv-box"/>
+      <text x="230" y="267" class="sv-label sv-small">i ← 0</text>
+      <path d="M230 278 L230 298" class="sv-arrow" marker-end="url(#fl16b2-head)"/>
+
+      <polygon points="230,298 340,330 230,362 120,330" class="sv-diamond"/>
+      <text x="230" y="335" class="sv-label sv-small">i &lt; len(notas) ?</text>
+      <path d="M340 330 L440 330" class="sv-arrow" marker-end="url(#fl16b2-head)"/>
+      <text x="364" y="322" class="sv-tag sv-no">F</text>
+      <rect x="440" y="307" width="180" height="46" rx="8" class="sv-box"/>
+      <text x="530" y="326" class="sv-label sv-small">mostrar maior</text>
+      <text x="530" y="343" class="sv-label sv-small">j ← j + 1</text>
+      <path d="M620 330 L630 330 L630 110 L234 110" class="sv-arrow sv-arrow-soft" marker-end="url(#fl16b2-head)"/>
+      <text x="560" y="200" class="sv-tag sv-no">próxima coluna</text>
+
+      <path d="M230 362 L230 378" class="sv-arrow" marker-end="url(#fl16b2-head)"/>
+      <text x="240" y="375" class="sv-tag sv-ok">V</text>
+      <polygon points="230,378 360,410 230,442 100,410" class="sv-diamond"/>
+      <text x="230" y="415" class="sv-label sv-small">notas[i][j] &gt; maior ?</text>
+      <path d="M360 410 L440 410" class="sv-arrow" marker-end="url(#fl16b2-head)"/>
+      <text x="380" y="402" class="sv-tag sv-ok">V</text>
+      <rect x="440" y="393" width="180" height="34" rx="8" class="sv-box-ok"/>
+      <text x="530" y="415" class="sv-label sv-small">maior ← notas[i][j]</text>
+      <path d="M530 427 L530 474 L334 474" class="sv-arrow" marker-end="url(#fl16b2-head)"/>
+
+      <path d="M230 442 L230 458" class="sv-arrow" marker-end="url(#fl16b2-head)"/>
+      <text x="240" y="455" class="sv-tag sv-no">F</text>
+      <rect x="130" y="458" width="200" height="32" rx="8" class="sv-box"/>
+      <text x="230" y="479" class="sv-label sv-small">i ← i + 1</text>
+      <path d="M130 474 L72 474 L72 288 L226 288" class="sv-arrow sv-arrow-soft" marker-end="url(#fl16b2-head)"/>
+      <text x="96" y="372" class="sv-tag sv-no">próxima</text>
+      <text x="96" y="386" class="sv-tag sv-no">turma</text>
+    </svg>
+    <div class="cap">Agora quem está no laço de fora é o j. A caixa laranja, o ponto de partida da disputa, aparece de novo dentro da seta de fora: cada coluna começa a sua própria disputa.</div>
+  </div>
+
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler os fluxogramas</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>Nos dois desenhos, a caixa laranja fica <b>entre</b> as duas setas de volta: dentro da de fora, fora da de dentro. Comparem com a Etapa 3, em que o acumulador fica fora dos dois laços.</span></li>
+      <li><span class="num">2</span><span>A saída F do losango de dentro é o momento em que um grupo terminou (uma turma, no primeiro; uma coluna, no segundo). É ali que o resultado do grupo é mostrado.</span></li>
+      <li><span class="num">3</span><span>No segundo desenho, o laço de fora usa <code>len(notas[0])</code>: o tamanho de uma linha diz quantas colunas existem.</span></li>
+      <li><span class="num">4</span><span>Na Etapa 2, a média de cada turma sai no mesmo ponto do “mostrar soma_linha” do primeiro desenho. Por quê?</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
