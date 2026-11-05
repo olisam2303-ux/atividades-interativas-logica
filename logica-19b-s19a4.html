@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -340,18 +340,8 @@ section.tab{display:flex;flex-direction:column;gap:16px}
     </div>
   </section>
 <section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S19A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
-<section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>A anatomia de uma linha de log</h2></div>
-      <p class="lead">Log bruto é texto. Para o programa entender, é preciso &lt;b&gt;fatiar em campos&lt;/b&gt; — e é o separador &lt;code&gt;|&lt;/code&gt; que torna isso possível.</p>
+      <p class="lead">Log bruto é texto. Para o programa entender, é preciso <b>fatiar em campos</b> — e é o separador <code>|</code> que torna isso possível.</p>
       <div class="visual"><svg viewBox="0 0 560 346" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -361,7 +351,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="300" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">Um registro, cinco campos</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">2024-07-15 08:42:17 | ERROR | auth-service | ip=192.168.4.21 | Login failed</text><text x="20" y="78" class="sv-code" xml:space="preserve"> </text><text x="20" y="104" class="sv-code sv-code-soft" xml:space="preserve">campo 0 → data e hora</text><text x="20" y="130" class="sv-code sv-code-soft" xml:space="preserve">campo 1 → NÍVEL de severidade   ← é o que decide o alerta</text><text x="20" y="156" class="sv-code sv-code-soft" xml:space="preserve">campo 2 → serviço de origem</text><text x="20" y="182" class="sv-code sv-code-soft" xml:space="preserve">campo 3 → ip=...   ← precisa tirar o prefixo</text><text x="20" y="208" class="sv-code sv-code-soft" xml:space="preserve">campo 4 → mensagem</text><text x="20" y="234" class="sv-code" xml:space="preserve"> </text><text x="20" y="260" class="sv-code sv-code-key" xml:space="preserve">linha.split("|") devolve uma lista com esses 5 pedaços</text><text x="280" y="312" class="sv-legend">Depois do split sobram espaços nas bordas de cada campo — use .strip() para</text><text x="280" y="328" class="sv-legend">limpá-los.</text>
+  <rect x="0" y="0" width="560" height="300" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">Um registro de exemplo, cinco campos</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">2024-08-02 14:05 | WARN | pay-api | ip=10.0.0.7 | Slow</text><text x="20" y="78" class="sv-code" xml:space="preserve"> </text><text x="20" y="104" class="sv-code sv-code-soft" xml:space="preserve">campo 0 → data e hora</text><text x="20" y="130" class="sv-code sv-code-soft" xml:space="preserve">campo 1 → NÍVEL de severidade   ← é o que decide o alerta</text><text x="20" y="156" class="sv-code sv-code-soft" xml:space="preserve">campo 2 → serviço de origem</text><text x="20" y="182" class="sv-code sv-code-soft" xml:space="preserve">campo 3 → ip=...   ← precisa tirar o prefixo</text><text x="20" y="208" class="sv-code sv-code-soft" xml:space="preserve">campo 4 → mensagem</text><text x="20" y="234" class="sv-code" xml:space="preserve"> </text><text x="20" y="260" class="sv-code sv-code-key" xml:space="preserve">linha.split("|") devolve uma lista com esses 5 pedaços</text><text x="280" y="312" class="sv-legend">Depois do split sobram espaços nas bordas de cada campo — use .strip() para</text><text x="280" y="328" class="sv-legend">limpá-los.</text>
 </svg></div><div class="visual"><svg viewBox="0 0 926 162" class="sv" role="img" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="sv-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -401,9 +391,84 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="170" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O formato do alerta</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">ALERTA DE SEGURANÇA!</text><text x="20" y="78" class="sv-code sv-code-key" xml:space="preserve">Nível: [NÍVEL] | Origem: [IP] | Mensagem: [TEXTO]</text><text x="20" y="104" class="sv-code" xml:space="preserve"> </text><text x="20" y="130" class="sv-code sv-code-soft" xml:space="preserve">print(f"⚠️ ALERTA DE SEGURANÇA! Nível: {nivel} | Origem: {ip} | Mensagem: {msg}")</text><text x="280" y="182" class="sv-legend">Os colchetes do roteiro são só marcadores: no código eles viram chaves da</text><text x="280" y="198" class="sv-legend">f-string.</text>
+  <rect x="0" y="0" width="560" height="170" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O formato do alerta</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">ALERTA DE SEGURANÇA!</text><text x="20" y="78" class="sv-code sv-code-key" xml:space="preserve">Nível: [NÍVEL] | Origem: [IP] | Mensagem: [TEXTO]</text><text x="20" y="104" class="sv-code" xml:space="preserve"> </text><text x="20" y="130" class="sv-code sv-code-soft" xml:space="preserve">print(f"... Nível: {???} | Origem: {???} | ...")</text><text x="280" y="182" class="sv-legend">Os colchetes do roteiro são só marcadores: no código eles viram chaves da</text><text x="280" y="198" class="sv-legend">f-string.</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S19A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>A triagem, registro por registro</h2></div>
+  <p class="lead">O programa é um laço sobre a lista de logs. Em cada volta ele faz sempre o mesmo trabalho: dividir a linha, limpar os campos que interessam e decidir se aquele registro vira alerta. Só os dois níveis graves passam pelo losango. Os outros seguem direto para o próximo registro.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 462" class="sv" role="img" aria-label="Fluxograma da triagem de logs: início; a lista de logs brutos vem do roteiro; enquanto houver registro na lista, dividir a linha pelo separador barra vertical, pegar o nível no campo 1 sem espaços e o ip no campo 3 sem o prefixo; se o nível for ERROR ou CRITICAL, imprimir o alerta com f-string; nos dois casos, seguir para o próximo registro. Quando a lista acaba, conferir com a análise prévia e terminar">
+      <defs>
+        <marker id="fl19b-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="100" y="8" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="200" y="29" class="sv-label sv-small">INÍCIO</text>
+      <path d="M200 40 L200 54" class="sv-arrow" marker-end="url(#fl19b-head)"/>
+      <rect x="60" y="54" width="280" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="75" class="sv-label sv-small">logs_brutos ← lista do roteiro</text>
+      <path d="M200 86 L200 106" class="sv-arrow" marker-end="url(#fl19b-head)"/>
+
+      <polygon points="200,106 320,136 200,166 80,136" class="sv-diamond"/>
+      <text x="200" y="132" class="sv-label sv-small">Ainda há registro</text>
+      <text x="200" y="148" class="sv-label sv-small">na lista?</text>
+      <path d="M320 136 L400 136" class="sv-arrow" marker-end="url(#fl19b-head)"/>
+      <text x="346" y="128" class="sv-tag sv-no">F</text>
+      <rect x="400" y="113" width="220" height="46" rx="8" class="sv-box"/>
+      <text x="510" y="132" class="sv-label sv-small">Conferir com a</text>
+      <text x="510" y="149" class="sv-label sv-small">análise prévia</text>
+      <path d="M510 159 L510 177" class="sv-arrow" marker-end="url(#fl19b-head)"/>
+      <rect x="430" y="177" width="160" height="32" rx="16" class="sv-box-ok"/>
+      <text x="510" y="198" class="sv-label sv-small">FIM</text>
+
+      <path d="M200 166 L200 184" class="sv-arrow" marker-end="url(#fl19b-head)"/>
+      <text x="210" y="180" class="sv-tag sv-ok">V</text>
+      <rect x="60" y="184" width="280" height="46" rx="8" class="sv-box"/>
+      <text x="200" y="203" class="sv-label sv-small">campos ← linha dividida</text>
+      <text x="200" y="220" class="sv-label sv-small">pelo separador |</text>
+      <path d="M200 230 L200 246" class="sv-arrow" marker-end="url(#fl19b-head)"/>
+      <rect x="60" y="246" width="280" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="267" class="sv-label sv-small">nível ← campo 1, sem espaços</text>
+      <path d="M200 278 L200 294" class="sv-arrow" marker-end="url(#fl19b-head)"/>
+      <rect x="60" y="294" width="280" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="315" class="sv-label sv-small">ip ← campo 3, sem o “ip=”</text>
+      <path d="M200 326 L200 344" class="sv-arrow" marker-end="url(#fl19b-head)"/>
+
+      <polygon points="200,344 320,374 200,404 80,374" class="sv-diamond"/>
+      <text x="200" y="370" class="sv-label sv-small">Registro é ERROR</text>
+      <text x="200" y="386" class="sv-label sv-small">ou CRITICAL?</text>
+      <path d="M320 374 L400 374" class="sv-arrow" marker-end="url(#fl19b-head)"/>
+      <text x="346" y="366" class="sv-tag sv-ok">V</text>
+      <rect x="400" y="351" width="220" height="46" rx="8" class="sv-box-no"/>
+      <text x="510" y="370" class="sv-label sv-small">Imprimir o alerta</text>
+      <text x="510" y="387" class="sv-label sv-small">(f-string do roteiro)</text>
+      <path d="M200 404 L200 440" class="sv-arrow"/>
+      <text x="210" y="420" class="sv-tag sv-no">F</text>
+      <path d="M510 397 L510 440 L24 440 L24 98 L196 98" class="sv-arrow sv-arrow-soft" marker-end="url(#fl19b-head)"/>
+      <text x="120" y="434" class="sv-tag sv-no">próximo registro</text>
+    </svg>
+    <div class="cap">A caixa laranja só é alcançada pelos registros graves. Contem quantas vezes ela é visitada na lista do roteiro: esse número tem que bater com a coluna “vira alerta?” da tabela do Passo 1.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>As três caixas depois do losango de cima são o Passo 2: dividir, limpar o nível e limpar o IP. Os números dos campos são os do diagrama da aba Como fazer.</span></li>
+      <li><span class="num">2</span><span>Para responder ao losango de baixo, o programa pode olhar o campo do nível já extraído ou a linha inteira. Qual é mais seguro? É a pergunta do terceiro trecho do Passo 2.</span></li>
+      <li><span class="num">3</span><span>O caminho F do losango de baixo não imprime nada: INFO e WARN seguem calados para o próximo registro.</span></li>
+      <li><span class="num">4</span><span>A última caixa antes do FIM é a conferência do Passo 3: a saída do programa contra a análise que vocês fizeram à mão.</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
@@ -449,7 +514,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
           <span class="passo-num">4</span>
           <div class="passo-txt">Passo 2 — Extraiam o IP de origem.</div>
         </div>
-        <div class="dica"><b>Como pensar:</b> O campo vem como <code>ip=192.168.4.21</code>. É preciso localizar o trecho e remover o prefixo <code>ip=</code> — dá para usar split, fatiamento ou replace.</div>
+        <div class="dica"><b>Como pensar:</b> O campo vem como <code>ip=10.0.0.7</code>. É preciso localizar o trecho e remover o prefixo <code>ip=</code> — dá para usar split, fatiamento ou replace.</div>
         <div class="campoWrap" data-rel="campo" data-rotulo="Extração do IP"><label class="f" for="c4">Trecho que extrai o IP</label><textarea id="c4" class="cod" data-campo="c4" rows="6" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="Estratégia de extração do IP"><label class="f" for="c5">Qual estratégia vocês usaram?</label><input type="text" id="c5" data-campo="c5" placeholder="Ex.: split, fatiamento, replace"></div>
       </div><div class="passo">
         <div class="passo-top">
