@@ -313,7 +313,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
   </header>
   <nav class="tabs" role="tablist" aria-label="Partes da atividade">
     <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
-    <button role="tab" data-tab="diagrama" id="t-diagrama" aria-selected="false">Diagrama</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
     <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
   </nav>
 
@@ -357,19 +357,9 @@ section.tab{display:flex;flex-direction:column;gap:16px}
 &quot;Costa, Ana&quot;,&quot;Tecnologia, Suporte&quot;,7100.00,5
 &quot;Lima, Carlos&quot;,RH,6500.00,9
 &quot;Ferreira, Julia&quot;,Vendas,5200.00,1</pre>
-        <div class="obs">Reparem nas <b>aspas</b>: elas existem porque há vírgulas <i>dentro</i> dos campos — em todos os nomes e no departamento da Ana. É exatamente isso que faz o <code>split(",")</code> da Etapa 1 falhar e devolver 5 pedaços onde deveriam existir 4 colunas.</div>
+        <div class="obs">Reparem nas <b>aspas</b>: elas existem porque há vírgulas <i>dentro</i> dos campos — em todos os nomes e no departamento da Ana. Na Etapa 1 vocês vão descobrir o que isso faz com o <code>split(",")</code>.</div>
       </div>
     </section>
-<section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S20A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
-</section>
-<section class="tab" id="diagrama" role="tabpanel" hidden>
 <section>
       <div class="sec-head"><span class="n">ENTENDA</span><h2>Quando a vírgula não separa</h2></div>
       <p class="lead">CSV é o formato universal de troca entre planilhas, bancos e ERPs. Mas nem toda vírgula é separador — e é aí que o fatiamento ingênuo falha.</p>
@@ -405,9 +395,99 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       <path d="M0,0 L8,4 L0,8 z" class="sv-headfill-soft"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="560" height="222" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O arquivo que precisa ser gerado</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">nome,departamento,salario,anos_empresa,faixa_salarial</text><text x="20" y="78" class="sv-code" xml:space="preserve">"Santos, Maria",RH,6200.00,7,Abaixo da média</text><text x="20" y="104" class="sv-code" xml:space="preserve">"Costa, Ana","Tecnologia, Suporte",7100.00,5,Acima da média</text><text x="20" y="130" class="sv-code" xml:space="preserve">"Lima, Carlos",RH,6500.00,9,Abaixo da média</text><text x="20" y="156" class="sv-code" xml:space="preserve"> </text><text x="20" y="182" class="sv-code sv-code-soft" xml:space="preserve">uma coluna a mais · aspas preservadas onde havia vírgula</text><text x="280" y="234" class="sv-legend">Confiram: as aspas do arquivo final não foram digitadas por vocês — quem as</text><text x="280" y="250" class="sv-legend">colocou?</text>
+  <rect x="0" y="0" width="560" height="222" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O arquivo que precisa ser gerado</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">nome,departamento,salario,anos_empresa,faixa_salarial</text><text x="20" y="78" class="sv-code" xml:space="preserve">"Souza, Bia",Financeiro,9000.00,4,Acima da média</text><text x="20" y="104" class="sv-code sv-code-soft" xml:space="preserve">(linha de exemplo, com uma pessoa fictícia)</text><text x="20" y="130" class="sv-code sv-code-soft" xml:space="preserve">... as linhas reais saem do programa de vocês</text><text x="20" y="156" class="sv-code" xml:space="preserve"> </text><text x="20" y="182" class="sv-code sv-code-soft" xml:space="preserve">uma coluna a mais · aspas preservadas onde havia vírgula</text><text x="280" y="234" class="sv-legend">Confiram: as aspas do arquivo final não foram digitadas por vocês — quem as</text><text x="280" y="250" class="sv-legend">colocou?</text>
 </svg></div>
     </section>
+<section>
+    <div class="comoBox">
+      <h2>Como preencher este relatório</h2>
+      <ol class="comoList">
+        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S20A4</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
+      </ol>
+    </div>
+  </section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>Ler, filtrar, calcular, escrever</h2></div>
+  <p class="lead">São dois laços, um depois do outro, como na 15c. O primeiro percorre o arquivo original e separa o grupo que passa no filtro. A média é calculada <b>entre</b> os dois laços, sobre esse grupo. O segundo laço percorre só o grupo e escreve o arquivo novo, já com a faixa salarial.</p>
+  <div class="visual">
+    <svg viewBox="0 0 640 556" class="sv" role="img" aria-label="Fluxograma do integrador de planilhas: início; abrir funcionarios.csv com csv.reader e pular o cabeçalho; enquanto houver linha, se anos for maior que 3, guardar no grupo; depois, média recebe a soma dos salários do grupo dividida pelo tamanho do grupo; abrir relatorio_rh.csv com csv.writer e escrever o cabeçalho com faixa_salarial; enquanto houver alguém no grupo, comparar o salário com a média para definir a faixa e escrever a linha com csv.writer; fim">
+      <defs>
+        <marker id="fl20b-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="100" y="8" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="200" y="29" class="sv-label sv-small">INÍCIO</text>
+      <path d="M200 40 L200 54" class="sv-arrow" marker-end="url(#fl20b-head)"/>
+      <rect x="40" y="54" width="320" height="46" rx="8" class="sv-box"/>
+      <text x="200" y="73" class="sv-label sv-small">Abrir funcionarios.csv</text>
+      <text x="200" y="90" class="sv-label sv-small">com csv.reader()</text>
+      <path d="M200 100 L200 114" class="sv-arrow" marker-end="url(#fl20b-head)"/>
+      <rect x="40" y="114" width="320" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="135" class="sv-label sv-small">Pular o cabeçalho (next)</text>
+      <path d="M200 146 L200 166" class="sv-arrow" marker-end="url(#fl20b-head)"/>
+      <text x="64" y="160" class="sv-tag sv-ok">1º LAÇO</text>
+
+      <polygon points="200,166 320,196 200,226 80,196" class="sv-diamond"/>
+      <text x="200" y="192" class="sv-label sv-small">Ainda há</text>
+      <text x="200" y="208" class="sv-label sv-small">linha?</text>
+      <path d="M320 196 L400 196" class="sv-arrow" marker-end="url(#fl20b-head)"/>
+      <text x="346" y="188" class="sv-tag sv-ok">V</text>
+      <polygon points="510,170 620,196 510,222 400,196" class="sv-diamond"/>
+      <text x="510" y="201" class="sv-label sv-small">anos &gt; 3 ?</text>
+      <path d="M510 222 L510 244" class="sv-arrow" marker-end="url(#fl20b-head)"/>
+      <text x="520" y="238" class="sv-tag sv-ok">V</text>
+      <rect x="400" y="244" width="220" height="32" rx="8" class="sv-box-ok"/>
+      <text x="510" y="265" class="sv-label sv-small">Guardar no grupo</text>
+      <path d="M620 260 L632 260 L632 158 L204 158" class="sv-arrow sv-arrow-soft" marker-end="url(#fl20b-head)"/>
+      <path d="M510 170 L510 158" class="sv-arrow sv-arrow-soft"/>
+      <text x="524" y="166" class="sv-tag sv-no">F</text>
+
+      <path d="M200 226 L200 244" class="sv-arrow" marker-end="url(#fl20b-head)"/>
+      <text x="210" y="240" class="sv-tag sv-no">F</text>
+      <rect x="40" y="244" width="320" height="46" rx="8" class="sv-box-no"/>
+      <text x="200" y="263" class="sv-label sv-small">média ← soma dos salários</text>
+      <text x="200" y="280" class="sv-label sv-small">do grupo ÷ tamanho do grupo</text>
+      <path d="M200 290 L200 306" class="sv-arrow" marker-end="url(#fl20b-head)"/>
+      <rect x="40" y="306" width="320" height="46" rx="8" class="sv-box"/>
+      <text x="200" y="325" class="sv-label sv-small">Abrir relatorio_rh.csv</text>
+      <text x="200" y="342" class="sv-label sv-small">com csv.writer()</text>
+      <path d="M200 352 L200 366" class="sv-arrow" marker-end="url(#fl20b-head)"/>
+      <rect x="40" y="366" width="320" height="32" rx="8" class="sv-box"/>
+      <text x="200" y="387" class="sv-label sv-small">Escrever o cabeçalho + faixa_salarial</text>
+      <path d="M200 398 L200 432" class="sv-arrow" marker-end="url(#fl20b-head)"/>
+      <text x="64" y="420" class="sv-tag sv-ok">2º LAÇO</text>
+
+      <polygon points="200,432 320,462 200,492 80,462" class="sv-diamond"/>
+      <text x="200" y="458" class="sv-label sv-small">Ainda há alguém</text>
+      <text x="200" y="474" class="sv-label sv-small">no grupo?</text>
+      <path d="M320 462 L400 462" class="sv-arrow" marker-end="url(#fl20b-head)"/>
+      <text x="346" y="454" class="sv-tag sv-ok">V</text>
+      <rect x="400" y="439" width="220" height="46" rx="8" class="sv-box"/>
+      <text x="510" y="458" class="sv-label sv-small">Comparar o salário com</text>
+      <text x="510" y="475" class="sv-label sv-small">a média → faixa</text>
+      <path d="M510 485 L510 501" class="sv-arrow" marker-end="url(#fl20b-head)"/>
+      <rect x="400" y="501" width="220" height="32" rx="8" class="sv-box"/>
+      <text x="510" y="522" class="sv-label sv-small">Escrever a linha</text>
+      <path d="M620 517 L632 517 L632 424 L204 424" class="sv-arrow sv-arrow-soft" marker-end="url(#fl20b-head)"/>
+
+      <path d="M200 492 L200 510" class="sv-arrow" marker-end="url(#fl20b-head)"/>
+      <text x="210" y="506" class="sv-tag sv-no">F</text>
+      <rect x="100" y="510" width="200" height="32" rx="16" class="sv-box-ok"/>
+      <text x="200" y="531" class="sv-label sv-small">FIM</text>
+    </svg>
+    <div class="cap">A caixa laranja fica entre os dois laços: a média só pode ser calculada depois que o filtro terminou, e precisa estar pronta antes de qualquer linha do arquivo novo ser escrita.</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>O losango “anos &gt; 3 ?” é o filtro da Etapa 3. Sigam o desenho com cada linha do arquivo para descobrir quem entra no grupo, e prestem atenção em quem tem exatamente 3 anos.</span></li>
+      <li><span class="num">2</span><span>A caixa laranja é a média do grupo filtrado, e não do arquivo inteiro. O cálculo vai na Etapa 3, com os números.</span></li>
+      <li><span class="num">3</span><span>O segundo laço percorre o <b>grupo</b>, não o arquivo original. Por isso o relatório novo tem menos linhas.</span></li>
+      <li><span class="num">4</span><span>Na Etapa 4, abram o arquivo gerado e procurem as aspas nos campos com vírgula. O programa de vocês não as digitou: em qual caixa do desenho elas aparecem, e por quê?</span></li>
+    </ol>
+  </div>
 </section>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
