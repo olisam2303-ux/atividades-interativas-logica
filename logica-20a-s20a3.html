@@ -405,14 +405,6 @@ Carregador,1,15</pre>
   <rect x="0" y="0" width="560" height="274" rx="12" class="sv-card"/><text x="20" y="32" class="sv-code-title">O formato do relatório</text><text x="20" y="52" class="sv-code sv-code-key" xml:space="preserve">=== RELATÓRIO DE ESTOQUE - DISTRIBUIDORA ALFA ===</text><text x="20" y="78" class="sv-code" xml:space="preserve">Notebook............12 unidades</text><text x="20" y="104" class="sv-code" xml:space="preserve">Smartphone..........3 unidades</text><text x="20" y="130" class="sv-code sv-code-soft" xml:space="preserve">...</text><text x="20" y="156" class="sv-code" xml:space="preserve">Total de produtos: 6</text><text x="20" y="182" class="sv-code" xml:space="preserve"> </text><text x="20" y="208" class="sv-code sv-code-soft" xml:space="preserve">os pontos preenchem até uma largura fixa</text><text x="20" y="234" class="sv-code sv-code-soft" xml:space="preserve">f"{produto:.&lt;20}{quantidade} unidades"</text><text x="280" y="286" class="sv-legend">O alinhamento por pontos é feito pela própria f-string — não precisa contar</text><text x="280" y="302" class="sv-legend">espaço na mão.</text>
 </svg></div>
     </section>
-<section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S20A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
 </section>
 <section class="tab" id="fluxograma" role="tabpanel" hidden>
   <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>O script final, da leitura aos dois arquivos</h2></div>
@@ -490,7 +482,6 @@ Carregador,1,15</pre>
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
     <div class="sec-head"><span class="n">PASSO 0</span><h2>Identificação</h2></div>
-    <p class="lead">Estes dados montam a capa e a folha de rosto do relatório em PDF.</p>
     <div class="ident"><div><label class="f" for="id0">Escola</label>
        <input type="text" id="id0" data-campo="id0" data-idk="escola"></div><div><label class="f" for="id1">Turma</label>
        <input type="text" id="id1" data-campo="id1" data-idk="turma"></div><div><label class="f" for="id2">Nome do grupo</label>
@@ -556,12 +547,6 @@ Carregador,1,15</pre>
     <div class="sec-head"><span class="n">CONFIRA</span><h2>Checklist antes de gerar o PDF</h2></div>
     <div class="progresso" id="progresso"></div>
     <label class="check"><input type="checkbox" data-check="0"><span>A tabela dos três modos foi preenchida com testes reais.</span></label><label class="check"><input type="checkbox" data-check="1"><span>O relatório sai no formato exato, com preenchimento de pontos e total.</span></label><label class="check"><input type="checkbox" data-check="2"><span>Os produtos em alerta foram identificados antes de programar.</span></label><label class="check"><input type="checkbox" data-check="3"><span>O programa foi executado duas vezes e observamos o efeito no histórico.</span></label><label class="check"><input type="checkbox" data-check="4"><span>O script final une leitura e escrita, com o modo certo em cada arquivo.</span></label><label class="check"><input type="checkbox" data-check="5"><span>As duas questões de reflexão foram respondidas.</span></label>
-    <div class="avisoPDF">
-      <b>Ao clicar em “Gerar PDF da resposta”</b>, o navegador monta o relatório completo no padrão de
-      roteiro de aula prática — com capa, folha de rosto, objetivos, procedimentos, as respostas do grupo e
-      as referências. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b>, salve como
-      <b>NOME_TURMA_S20A3</b> e envie no AVA. Antes de salvar, clique em <b>Mais configurações</b> e desmarque <b>Cabeçalhos e rodapés</b> — assim o PDF não sai com o endereço da página.
-    </div>
   </section>
 <section>
     <div class="sec-head"><span class="n">AVALIAÇÃO</span><h2>Como esta atividade será avaliada</h2></div>

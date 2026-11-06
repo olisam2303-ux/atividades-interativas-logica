@@ -345,7 +345,7 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       <div class="marca">PY</div>
       <div>
         <div class="nome">Visual Studio Code + Python</div>
-        <div class="desc">O programa final precisa ser salvo como um arquivo <b>.py</b> e enviado junto com o relato. No VS Code, use <i>Arquivo → Salvar como</i> e guardem a versão final no GitHub. O relatório desta página é preenchido aqui e exportado em PDF pelo navegador. <a href="github-passo-a-passo.html">Veja o passo a passo do GitHub</a>.</div>
+        <div class="desc">O programa final precisa ser salvo como um arquivo <b>.py</b> e enviado junto com o relato. No VS Code, use <i>Arquivo → Salvar como</i> e guardem a versão final no GitHub. <a href="github-passo-a-passo.html">Veja o passo a passo do GitHub</a>.</div>
         
       </div>
     </div>
@@ -395,14 +395,6 @@ section.tab{display:flex;flex-direction:column;gap:16px}
       </g><text x="227" y="156" class="sv-legend">Regra prática: função que só mostra algo na tela</text><text x="227" y="172" class="sv-legend">geralmente não precisa retornar nada.</text>
 </svg></div>
     </section>
-<section>
-    <div class="comoBox">
-      <h2>Como preencher este relatório</h2>
-      <ol class="comoList">
-        <li><span class="num">1</span><span>Leia o cenário e observe os diagramas — eles mostram o conceito que a sua resposta precisa usar.</span></li><li><span class="num">2</span><span>Preencha a identificação do grupo no Passo 0.</span></li><li><span class="num">3</span><span>Responda um passo de cada vez, na ordem. Cada passo traz uma dica de <b>como pensar</b> logo abaixo do enunciado.</span></li><li><span class="num">4</span><span>Confira o checklist no final — ele verifica se não ficou nada faltando.</span></li><li><span class="num">5</span><span>Clique em <b>Gerar PDF da resposta</b>. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b> e salve como <b>NOME_TURMA_S13A3</b>.</span></li><li><span class="num">6</span><span>Envie esse PDF no AVA. O que vocês digitarem fica salvo neste computador sozinho — dá para fechar a página e voltar depois.</span></li>
-      </ol>
-    </div>
-  </section>
 </section>
 <section class="tab" id="fluxograma" role="tabpanel" hidden>
   <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>O programa principal só chama</h2></div>
@@ -482,7 +474,6 @@ section.tab{display:flex;flex-direction:column;gap:16px}
 <section class="tab" id="relatorio-tab" role="tabpanel" hidden>
 <section>
     <div class="sec-head"><span class="n">PASSO 0</span><h2>Identificação</h2></div>
-    <p class="lead">Estes dados montam a capa e a folha de rosto do relatório em PDF.</p>
     <div class="ident"><div><label class="f" for="id0">Escola</label>
        <input type="text" id="id0" data-campo="id0" data-idk="escola"></div><div><label class="f" for="id1">Turma</label>
        <input type="text" id="id1" data-campo="id1" data-idk="turma"></div><div><label class="f" for="id2">Nome do grupo</label>
@@ -582,12 +573,6 @@ Isso melhora a manutenção porque..."></textarea></div>
     <div class="sec-head"><span class="n">CONFIRA</span><h2>Checklist antes de gerar o PDF</h2></div>
     <div class="progresso" id="progresso"></div>
     <label class="check"><input type="checkbox" data-check="0"><span>As funções têm nomes semânticos (verbo + objeto).</span></label><label class="check"><input type="checkbox" data-check="1"><span>O padrão snake_case foi aplicado em tudo.</span></label><label class="check"><input type="checkbox" data-check="2"><span>As variáveis têm nomes claros — nada de x e i.</span></label><label class="check"><input type="checkbox" data-check="3"><span>Existe pelo menos uma função sem retorno e uma com retorno.</span></label><label class="check"><input type="checkbox" data-check="4"><span>O programa principal ficou limpo, só com chamadas de função.</span></label><label class="check"><input type="checkbox" data-check="5"><span>O programa funciona com lista cheia e com lista vazia.</span></label><label class="check"><input type="checkbox" data-check="6"><span>O arquivo .py final foi salvo para enviar junto.</span></label><label class="check"><input type="checkbox" data-check="7"><span>O relato final tem de 12 a 18 linhas e explica as escolhas.</span></label><label class="check"><input type="checkbox" data-check="8"><span>Vamos salvar o PDF como NOME_TURMA_S13A3 e enviar no AVA.</span></label>
-    <div class="avisoPDF">
-      <b>Ao clicar em “Gerar PDF da resposta”</b>, o navegador monta o relatório completo no padrão de
-      roteiro de aula prática — com capa, folha de rosto, objetivos, procedimentos, as respostas do grupo e
-      as referências. Na janela de impressão, escolha <b>Destino: Salvar como PDF</b>, salve como
-      <b>NOME_TURMA_S13A3</b> e envie no AVA. Antes de salvar, clique em <b>Mais configurações</b> e desmarque <b>Cabeçalhos e rodapés</b> — assim o PDF não sai com o endereço da página.
-    </div>
   </section>
 <section>
     <div class="sec-head"><span class="n">AVALIAÇÃO</span><h2>Como esta atividade será avaliada</h2></div>
