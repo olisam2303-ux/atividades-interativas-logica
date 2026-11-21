@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%E2%9C%8F%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<title>Papelaria Ponto Certo: do menu ao sistema completo — Registro de Aula — Semana 25</title>
+<style>
+:root{
+  --bg:#f5f7f6; --surface:#ffffff; --surface-2:#eef2f1; --ink:#17222b; --muted:#5d6b75;
+  --border:#d9e1df; --border-strong:#c2cecb;
+  --accent:#136f78; --accent-ink:#ffffff; --accent-soft:#e0f0f1; --accent-line:#7fc0c6;
+  --ok:#1f7a4d; --ok-soft:#e3f3ea; --no:#a3401b; --no-soft:#fbeae2;
+  --amber:#8a5a12; --amber-soft:#fbf0dc;
+  --shadow:0 1px 2px rgba(16,32,38,.06), 0 8px 24px -18px rgba(16,32,38,.4);
+  --mono:ui-monospace,"Cascadia Mono","Consolas","SF Mono",Menlo,monospace;
+  --sans:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,"Helvetica Neue",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1519; --surface:#151f24; --surface-2:#1b262c; --ink:#e6edee; --muted:#95a4ac;
+    --border:#26333a; --border-strong:#33434b;
+    --accent:#4ab8c2; --accent-ink:#08161a; --accent-soft:#16333733; --accent-line:#2c6d74;
+    --ok:#5cc48b; --ok-soft:#15302399; --no:#e59468; --no-soft:#32201699;
+    --amber:#dda65b; --amber-soft:#2c241599;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -20px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1519; --surface:#151f24; --surface-2:#1b262c; --ink:#e6edee; --muted:#95a4ac;
+  --border:#26333a; --border-strong:#33434b;
+  --accent:#4ab8c2; --accent-ink:#08161a; --accent-soft:#16333733; --accent-line:#2c6d74;
+  --ok:#5cc48b; --ok-soft:#15302399; --no:#e59468; --no-soft:#32201699;
+  --amber:#dda65b; --amber-soft:#2c241599;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;margin:0}
+.wrap{max-width:900px;margin:0 auto;padding:36px 20px 140px}
+h1,h2,h3{margin:0;text-wrap:balance;font-weight:650}
+a{color:var(--accent)}
+
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.topo h1{font-size:31px;letter-spacing:-.015em;margin:10px 0 6px}
+.topo .sub{color:var(--muted);font-size:15px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.chip{font-family:var(--mono);font-size:11.5px;color:var(--muted);background:var(--surface);
+  border:1px solid var(--border);border-radius:999px;padding:5px 11px;white-space:nowrap}
+.chip b{color:var(--ink);font-weight:600}
+
+section{margin-top:34px}
+.sec-head{display:flex;align-items:baseline;gap:10px;padding-bottom:8px;border-bottom:2px solid var(--accent-line);margin-bottom:16px}
+.sec-head h2{font-size:19px}
+.sec-head .n{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--accent)}
+.lead{color:var(--muted);font-size:15px;margin:0 0 14px}
+
+/* objetivos */
+.objetivos{display:grid;gap:9px;margin:0;padding:0;list-style:none}
+.objetivos li{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.objetivos .tick{color:var(--ok);font-weight:700;flex:none}
+
+/* solução digital */
+.ferramenta{display:flex;gap:15px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:16px 18px;box-shadow:var(--shadow)}
+.ferramenta .marca{flex:none;width:46px;height:46px;border-radius:10px;background:var(--accent-soft);
+  border:1px solid var(--accent-line);display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:16px;font-weight:700;color:var(--accent)}
+.ferramenta .nome{font-size:16px;font-weight:650;margin-bottom:3px}
+.ferramenta .desc{font-size:14px;color:var(--muted)}
+.ferramenta .link{font-family:var(--mono);font-size:12.5px;margin-top:7px;word-break:break-all}
+
+/* visual */
+.visual{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 18px;
+  box-shadow:var(--shadow);overflow-x:auto}
+.visual + .visual{margin-top:14px}
+.visual .cap{font-size:13px;color:var(--muted);margin-top:12px;text-align:center}
+svg.sv{display:block;width:100%;height:auto;max-width:760px;margin:0 auto}
+.sv-box{fill:var(--surface-2);stroke:var(--border-strong);stroke-width:1.5}
+.sv-box-soft{fill:var(--surface);stroke-dasharray:5 4}
+.sv-box-ok{fill:var(--ok-soft);stroke:var(--ok)}
+.sv-box-no{fill:var(--no-soft);stroke:var(--no)}
+.sv-card{fill:var(--surface-2);stroke:var(--border-strong);stroke-width:1.5}
+.sv-diamond{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.8}
+.sv-label{fill:var(--ink);font-family:var(--sans);font-size:14.5px;text-anchor:middle}
+.sv-label.sv-small{font-size:13px}
+.sv-legend{fill:var(--muted);font-family:var(--sans);font-size:12.5px;text-anchor:middle;font-style:italic}
+.sv-range{fill:var(--muted);font-family:var(--mono);font-size:12px;text-anchor:middle}
+.sv-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-anchor:middle;font-weight:600}
+.sv-ok{fill:var(--ok)} .sv-no{fill:var(--no)}
+.sv-arrow{stroke:var(--border-strong);stroke-width:1.8;fill:none}
+.sv-arrow-soft{stroke:var(--border);stroke-width:1.4;stroke-dasharray:4 4}
+.sv-headfill{fill:var(--border-strong)} .sv-headfill-soft{fill:var(--border)}
+.sv-code{fill:var(--ink);font-family:var(--mono);font-size:14px}
+.sv-code-key{fill:var(--accent);font-weight:600}
+.sv-code-soft{fill:var(--muted)}
+.sv-code-title{fill:var(--muted);font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase}
+.sv-band{stroke-width:1.5}
+.sv-band-0{fill:var(--accent-soft);stroke:var(--accent-line)}
+.sv-band-1{fill:var(--ok-soft);stroke:var(--ok)}
+.sv-band-2{fill:var(--amber-soft);stroke:var(--amber)}
+.sv-band-3{fill:var(--no-soft);stroke:var(--no)}
+.sv-node{fill:var(--accent);stroke:var(--surface);stroke-width:1.5}
+.sv-link{stroke:var(--border-strong);stroke-width:1.6;fill:none}
+.sv-link-bold{stroke-width:3}
+.sv-ring{fill:none;stroke-dasharray:0}
+.sv-hub{fill:var(--accent);stroke:none}
+.sv-term{fill:var(--muted);stroke:none}
+.sv-mini{fill:var(--muted);font-family:var(--mono);font-size:10.5px;text-anchor:middle}
+.sv-left{text-anchor:start}
+.sv-card-key{fill:var(--accent);font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;
+  text-transform:uppercase;text-anchor:middle;font-weight:600}
+.sv-arrow-no{stroke:var(--no)}
+.sv-collision{fill:var(--no-soft);stroke:var(--no);stroke-width:2}
+.sv-boom{fill:var(--no);font-family:var(--sans);font-size:20px;font-weight:700;text-anchor:middle}
+.sv-token{fill:var(--amber-soft);stroke:var(--amber);stroke-width:1.5}
+.sv-token-txt{fill:var(--amber);font-family:var(--mono);font-size:11px;font-weight:700;text-anchor:middle;letter-spacing:.06em}
+.sv-wave{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-linejoin:round}
+.sv-guide{stroke:var(--border);stroke-width:1;stroke-dasharray:3 3}
+.sv-ray{stroke-width:3.5;stroke-linecap:round;fill:none}
+.sv-ray.sv-band-0{stroke:var(--accent)} .sv-ray.sv-band-1{stroke:var(--ok)} .sv-ray.sv-band-2{stroke:var(--amber)}
+
+.comoBox{background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:12px;padding:18px 20px}
+.comoBox h2{font-size:16px;margin-bottom:10px;color:var(--accent)}
+.comoList{margin:0;padding-left:0;list-style:none;display:grid;gap:9px}
+.comoList li{display:flex;gap:10px;font-size:14.5px;align-items:flex-start}
+.comoList .num{flex:none;width:20px;height:20px;border-radius:50%;background:var(--accent);color:var(--accent-ink);
+  font-family:var(--mono);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+
+.ident{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+
+.passo{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 18px 16px;
+  box-shadow:var(--shadow);margin-bottom:14px}
+.passo-top{display:flex;gap:12px;align-items:flex-start}
+.passo-num{flex:none;width:28px;height:28px;border-radius:8px;background:var(--accent);color:var(--accent-ink);
+  font-family:var(--mono);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.passo-txt{font-size:15.5px;font-weight:600;margin-bottom:0}
+.dica{margin:10px 0 0 40px;padding:9px 12px;background:var(--amber-soft);border-left:3px solid var(--amber);
+  border-radius:0 7px 7px 0;font-size:13.5px;color:var(--ink)}
+.dica b{color:var(--amber);font-weight:650}
+.campoWrap{margin:14px 0 0 40px}
+@media (max-width:600px){.dica,.campoWrap{margin-left:0}}
+
+label.f{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:5px;font-weight:600}
+input[type=text],textarea,select{width:100%;background:var(--surface-2);color:var(--ink);
+  border:1px solid var(--border-strong);border-radius:8px;padding:9px 11px;font-family:var(--sans);font-size:14.5px;
+  transition:border-color .12s, box-shadow .12s}
+textarea{resize:vertical;min-height:64px;line-height:1.5}
+textarea.cod{font-family:var(--mono);font-size:13.5px;min-height:200px;white-space:pre;overflow-wrap:normal;overflow-x:auto}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.hint{font-size:12.5px;color:var(--muted);margin-top:5px}
+
+.modelo{background:var(--surface-2);border:1px solid var(--border-strong);border-radius:10px;padding:14px 16px;
+  font-family:var(--mono);font-size:13.5px;white-space:pre;overflow-x:auto;color:var(--ink);margin-bottom:14px}
+.modelo .k{color:var(--accent);font-weight:600}
+.modelo .b{color:var(--muted)}
+
+.tabWrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--accent-soft);color:var(--accent);font-size:12px;letter-spacing:.04em;text-transform:uppercase;font-weight:650}
+td.fix{background:var(--surface-2);font-weight:600}
+td input{border:none;background:transparent;padding:2px 0;font-size:14px;width:100%}
+td input:focus{box-shadow:none;border-bottom:1px solid var(--accent)}
+table.criterios td:last-child{font-family:var(--mono);text-align:right;white-space:nowrap}
+
+.check{display:flex;gap:11px;align-items:flex-start;padding:10px 12px;border:1px solid var(--border);
+  border-radius:9px;background:var(--surface);margin-bottom:8px;cursor:pointer;transition:border-color .12s,background .12s}
+.check:hover{border-color:var(--accent-line)}
+.check input{flex:none;width:18px;height:18px;margin-top:2px;accent-color:var(--accent)}
+.check span{font-size:14.5px}
+.check.done{background:var(--ok-soft);border-color:var(--ok)}
+.progresso{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.dados{margin:18px 0;border:1px solid var(--border);border-radius:12px;background:var(--surface);overflow:hidden}
+.dados .cab{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+  padding:11px 14px;border-bottom:1px solid var(--border);background:var(--accent-soft)}
+.dados .nomeArq{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13.5px;font-weight:600;color:var(--accent)}
+.dados .acoes{display:flex;gap:8px}
+.dados .mini{font:inherit;font-size:12.5px;font-weight:600;padding:6px 11px;border-radius:8px;cursor:pointer;
+  border:1px solid var(--border);background:var(--bg);color:var(--ink);text-decoration:none;display:inline-block}
+.dados .mini:hover{border-color:var(--accent)}
+.dados pre{margin:0;padding:13px 15px;overflow-x:auto;font-family:ui-monospace,Menlo,Consolas,monospace;
+  font-size:12.5px;line-height:1.65;color:var(--ink);white-space:pre}
+.dados .obs{padding:9px 15px 12px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--border)}
+@media print{.dados .acoes{display:none}}
+.card-ava{margin:18px 0 0;border:1px solid var(--border);border-radius:12px;background:var(--surface);overflow:hidden}
+.card-ava .trilha{padding:9px 16px;border-bottom:1px solid var(--border);background:var(--accent-soft);
+  font-size:11.5px;letter-spacing:.03em;color:var(--muted)}
+.card-ava .corpo{padding:16px 18px 18px}
+.card-ava h3{margin:0 0 4px;font-size:19px;line-height:1.3;color:var(--ink);font-weight:700}
+.card-ava .chamada{margin:0 0 12px;font-size:14.5px;line-height:1.6;color:var(--ink)}
+.card-ava .bloco{margin-top:13px}
+.card-ava .bloco > .rot{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.card-ava .bloco p{margin:0;font-size:14px;line-height:1.6;color:var(--ink)}
+.card-ava ul,.card-ava ol{margin:0;padding-left:21px}
+.card-ava li ul{margin:3px 0 5px;padding-left:19px;list-style:circle}
+.card-ava li{font-size:14px;line-height:1.62;color:var(--ink);margin:2px 0}
+.card-ava .moldura{border:1px solid var(--border);border-radius:9px;padding:12px 14px 14px;margin-top:13px}
+.card-ava .moldura .bloco:first-of-type{margin-top:9px}
+.card-ava .fonte{margin-top:12px;font-size:11.5px;color:var(--muted);text-align:right;font-style:italic}
+.imgWrap{margin-top:6px}
+.imgCaixa{border:1.5px dashed var(--border);border-radius:11px;background:var(--surface);padding:16px;text-align:center}
+.imgCaixa.temFoto{border-style:solid;padding:10px}
+.imgCaixa .conv{font-size:13.5px;color:var(--muted);line-height:1.55;margin:0 0 11px}
+.imgCaixa input[type=file]{display:none}
+.imgBtn{font:inherit;font-size:13.5px;font-weight:600;padding:9px 15px;border-radius:9px;cursor:pointer;
+  border:1px solid var(--accent);background:var(--accent);color:#fff}
+.imgBtn:hover{filter:brightness(1.07)}
+.imgBtn.sec{background:var(--bg);color:var(--ink);border-color:var(--border);margin-left:7px}
+.imgPreview{display:block;max-width:100%;max-height:420px;margin:0 auto 10px;border-radius:8px}
+.imgNome{font-size:12px;color:var(--muted);margin-top:4px;word-break:break-all}
+.avisoPDF{margin-top:14px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:10px;
+  padding:13px 15px;font-size:14px}
+.avisoPDF b{color:var(--accent)}
+
+.refs{margin:0;padding-left:20px;display:grid;gap:7px}
+.refs li{font-size:14px;color:var(--ink)}
+.refs li span{color:var(--muted)}
+
+.navAtiv{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch;
+  margin:34px 0 0;padding-top:22px;border-top:1px solid var(--border)}
+.navAtiv a{display:flex;flex-direction:column;gap:2px;text-decoration:none;padding:12px 15px;border-radius:11px;
+  border:1px solid var(--border);background:var(--surface);color:var(--ink);transition:border-color .12s}
+.navAtiv a:hover{border-color:var(--accent)}
+.navAtiv .dir{text-align:right;align-items:flex-end}
+.navAtiv .rot{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.navAtiv .tit{font-size:14px;font-weight:600;line-height:1.35}
+.navAtiv .meio{justify-content:center;align-items:center;font-size:13.5px;font-weight:600;color:var(--muted);white-space:nowrap}
+.navAtiv .vazio{border:1px dashed var(--border);opacity:.4}
+.navGit{display:flex;gap:11px;align-items:center;margin-top:16px;padding:13px 16px;border-radius:11px;
+  border:1px solid var(--accent-line);background:var(--accent-soft);text-decoration:none;color:var(--ink)}
+.navGit:hover{border-color:var(--accent)}
+.navGit .ic{font-family:var(--mono);font-size:12px;font-weight:700;color:#fff;background:var(--accent);
+  border-radius:7px;padding:7px 9px;flex:none}
+.navGit b{display:block;font-size:14.5px}
+.navGit span{font-size:13px;color:var(--muted)}
+@media (max-width:620px){.navAtiv{grid-template-columns:1fr}.navAtiv .dir{text-align:left;align-items:flex-start}}
+@media print{.navAtiv,.navGit{display:none}}
+.barra{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--border);
+  padding:11px 20px;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;
+  box-shadow:0 -6px 24px -18px rgba(0,0,0,.6);z-index:20}
+.btn{font-family:var(--sans);font-size:14px;font-weight:600;border-radius:9px;padding:10px 18px;border:1px solid var(--border-strong);
+  background:var(--surface-2);color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.status{font-size:12.5px;color:var(--muted);font-family:var(--mono);min-width:150px;text-align:center}
+
+/* ================= RELATÓRIO IMPRESSO (padrão roteiro de aula prática) ============= */
+#relatorio{display:none}
+@media print{
+  @page{size:A4;margin:25mm 20mm 20mm 25mm}
+  body{background:#fff;color:#000;font-family:"Times New Roman",Georgia,serif;font-size:12pt;line-height:1.5}
+  .wrap>*:not(#relatorio){display:none !important}
+  .barra{display:none !important}
+  #relatorio{display:block}
+  .wrap{max-width:none;padding:0;margin:0}
+
+  .folha{page-break-after:always;text-align:center}
+  .folha .inst{font-size:12pt;font-weight:bold;text-transform:uppercase;line-height:1.4}
+  .folha .meio{margin-top:70mm}
+  .folha .fim{margin-top:70mm;text-transform:uppercase}
+  .folha .tituloTrab{font-size:14pt;font-weight:bold;text-transform:uppercase;margin-top:6mm}
+  .folha .subtitulo{font-size:12pt;margin-top:2mm}
+  .folha .autores{font-size:12pt;margin-top:4mm}
+  .fr-nota{width:8.5cm;margin:14mm 0 0 auto;text-align:justify;font-size:10pt;line-height:1.3}
+  .fr-orient{width:8.5cm;margin:6mm 0 0 auto;text-align:left;font-size:10pt}
+
+  #roteiro h2.rtitulo{font-size:12pt;font-weight:bold;text-align:center;text-transform:uppercase;margin:0 0 8mm}
+  #roteiro .rlinha{font-size:12pt;margin-bottom:2mm}
+  #roteiro .rlinha b{text-transform:uppercase}
+  #roteiro h3{font-size:12pt;font-weight:bold;text-transform:uppercase;margin:7mm 0 3mm;page-break-after:avoid}
+  #roteiro p{margin:0 0 3mm;text-align:justify}
+  #roteiro ul{margin:0 0 3mm;padding-left:6mm}
+  #roteiro li{margin-bottom:1.5mm}
+  #roteiro .lista-obj{list-style:none;padding-left:0}
+  #roteiro .lista-obj li:before{content:"✓  ";font-weight:bold}
+  #roteiro .link{font-family:"Courier New",monospace;font-size:10.5pt;word-break:break-all}
+
+  #roteiro .item{margin-bottom:5mm;page-break-inside:avoid}
+  #roteiro .item .perg{font-weight:bold;margin-bottom:1.5mm}
+  #roteiro .item .rot{font-size:10.5pt;font-variant:small-caps;color:#333;margin-top:2mm}
+  #roteiro .item .resp{white-space:pre-wrap;border-bottom:1px dotted #999;padding-bottom:1mm;min-height:5mm}
+  #roteiro .item .resp.cod{font-family:"Courier New",monospace;font-size:10.5pt;white-space:pre;
+    border:1px solid #999;border-bottom:1px solid #999;padding:3mm;background:#f6f6f6}
+  #roteiro .figura{margin:3mm 0;page-break-inside:avoid;text-align:center}
+  #roteiro .figura img{max-width:100%;max-height:150mm}
+  #roteiro .figura .molduraVazia{border:1px dashed #777;height:95mm;display:flex;align-items:center;
+    justify-content:center;color:#777;font-style:italic;font-size:10.5pt}
+  #roteiro .figura .legenda{font-size:10pt;color:#333;margin-top:1.5mm;font-style:italic}
+  #roteiro table{width:100%;border-collapse:collapse;font-size:10.5pt;margin-top:2mm}
+  #roteiro th,#roteiro td{border:1px solid #666;padding:1.5mm 2mm}
+  #roteiro th{background:#e8e8e8;color:#000;text-transform:none;font-variant:small-caps;letter-spacing:0}
+  #roteiro .checkline{margin-bottom:1.5mm;font-size:11pt}
+}
+
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;background:var(--bg);padding:8px 0;border-bottom:2px solid var(--border-strong);margin-bottom:6px}
+.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:1.5px solid var(--border-strong);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font-weight:600;white-space:nowrap;cursor:pointer;font:inherit}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+section.tab{display:flex;flex-direction:column;gap:16px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="topo">
+    <div class="eyebrow">LÓGICA E LINGUAGEM DE PROGRAMAÇÃO</div>
+    <h1>Papelaria Ponto Certo: do menu ao sistema completo</h1>
+    <div class="sub">Registro de Aula — Semana 25 · Aulas 1 a 4 – Do menu ao sistema completo</div>
+    <div class="chips"><span class="chip">Unidade <b>6 – Vetores e matrizes</b></span><span class="chip">Base: <b>Capítulo 25</b></span><span class="chip">Tempo: <b>4 aulas · 50 min cada</b></span><span class="chip">Entrega: <b>AVA (A1-A2 em duplas, A3-A4 individual)</b></span><span class="chip">Arquivo: <b>NOME_TURMA_S25</b></span></div>
+  </header>
+  <nav class="tabs" role="tablist" aria-label="Partes da atividade">
+    <button role="tab" data-tab="como" id="t-como" aria-selected="true">Como fazer</button>
+    <button role="tab" data-tab="fluxograma" id="t-fluxograma" aria-selected="false">Fluxograma</button>
+    <button role="tab" data-tab="relatorio-tab" id="t-relatorio" aria-selected="false">Relatório</button>
+  </nav>
+
+<section class="tab" id="como" role="tabpanel">
+<section>
+    <div class="sec-head"><span class="n">ATIVIDADE PROPOSTA</span><h2>O que a turma vai resolver</h2></div>
+    <p class="lead" style="color:var(--ink);font-size:15.5px">Ao longo de 4 aulas, a turma vai entender como as partes do sistema da Papelaria Ponto Certo trabalham juntas e dar a ele persistência de verdade. Aula 1: analisar, em duplas, o percurso de uma venda pelo menu, pelas funções e pelas listas. Aula 2: decidir, em duplas, onde cada responsabilidade deve ficar (modularização). Aula 3: implementar, individualmente, salvar e carregar o catálogo de produtos em arquivo, com <code>alterar_produto()</code> validado. Aula 4: implementar, individualmente, salvar e carregar o histórico de vendas, com <code>registrar_venda()</code> e <code>cancelar_venda()</code> validados.</p>
+  </section>
+<section>
+    <div class="sec-head"><span class="n">OBJETIVOS</span><h2>O que vocês vão aprender aqui</h2></div>
+    <ul class="objetivos">
+      <li><span class="tick">✓</span><span>Analisar como sistemas simples em terminal articulam menu, funções, dados em memória e fluxo de execução.</span></li><li><span class="tick">✓</span><span>Entender que funções diferentes consultam listas diferentes, e que atualizar uma lista não atualiza a outra automaticamente.</span></li><li><span class="tick">✓</span><span>Aplicar modularização: dividir responsabilidades para que cada função altere o dado certo e grave o arquivo correspondente.</span></li><li><span class="tick">✓</span><span>Diferenciar memória (lista, válida durante a execução) de arquivo (persistência entre execuções).</span></li><li><span class="tick">✓</span><span>Implementar funções de salvar/carregar arquivo, alteração e cancelamento com validação.</span></li><li><span class="tick">✓</span><span>Integrar as novas funções ao menu existente e testar a reabertura do programa.</span></li>
+    </ul>
+  </section>
+<section>
+    <div class="sec-head"><span class="n">SOLUÇÃO DIGITAL</span><h2>Ferramenta usada nesta aula</h2></div>
+    <div class="ferramenta">
+      <div class="marca">PY</div>
+      <div>
+        <div class="nome">Visual Studio Code + Python (terminal)</div>
+        <div class="desc">Continuação direta do projeto: menu, funções, listas, validação e <code>if</code>/<code>elif</code>/<code>else</code> já existentes. Entram agora a leitura e a escrita de arquivos (<code>open()</code>, módulo <code>csv</code>), para que o catálogo e o histórico de vendas sobrevivam ao fechamento do programa. Guardem a versão final no <b>repositório do grupo no GitHub</b>. <a href="github-passo-a-passo.html">Veja o passo a passo do GitHub</a>.</div>
+      </div>
+    </div>
+  </section>
+<section>
+  <div class="sec-head"><span class="n">ENTENDA</span><h2>Como as partes do sistema trabalham juntas</h2></div>
+  <p class="lead">Os exemplos abaixo usam situações diferentes das que vocês vão analisar no Relatório (consultar produto, cadastrar um Lápis, alterar um preço) — a venda do Caderno e as responsabilidades da Aula 2 ficam só no Relatório, para vocês mesmos preencherem.</p>
+  <div class="visual"><svg viewBox="0 0 600 190" class="sv" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Um sistema é feito de quatro partes: menu, funções, dados e fluxo">
+  <g><rect x="20" y="20" width="130" height="64" rx="8" class="sv-box"/><text x="85" y="46" class="sv-label sv-small">Menu</text><text x="85" y="64" class="sv-label sv-small" style="font-size:11.5px">apresenta as opções</text></g>
+  <g><rect x="170" y="20" width="130" height="64" rx="8" class="sv-box"/><text x="235" y="46" class="sv-label sv-small">Funções</text><text x="235" y="64" class="sv-label sv-small" style="font-size:11.5px">executam as tarefas</text></g>
+  <g><rect x="320" y="20" width="130" height="64" rx="8" class="sv-box"/><text x="385" y="46" class="sv-label sv-small">Dados</text><text x="385" y="64" class="sv-label sv-small" style="font-size:11.5px">guardam as informações</text></g>
+  <g><rect x="470" y="20" width="110" height="64" rx="8" class="sv-box-ok"/><text x="525" y="46" class="sv-label sv-small">Fluxo</text><text x="525" y="64" class="sv-label sv-small" style="font-size:11.5px">organiza a ordem</text></g>
+  <text x="300" y="116" class="sv-legend">As quatro partes trabalham juntas para que uma única opção do menu seja concluída.</text>
+  <text x="300" y="140" class="sv-legend sv-small">Nenhuma parte sozinha resolve a tarefa — o menu não guarda dados,</text>
+  <text x="300" y="158" class="sv-legend sv-small">e os dados não se mostram sozinhos.</text>
+</svg>
+<p class="cap">As mesmas quatro partes que já existem no sistema da Papelaria: menu, funções, as listas produtos/vendas, e o fluxo que liga tudo.</p></div>
+  <div class="visual"><svg viewBox="0 0 600 150" class="sv" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="O caminho de uma escolha no menu: o menu recebe a opção 2, chama a função consultar_produto, que consulta a lista produtos, e o resultado aparece na tela">
+  <g><rect x="10" y="10" width="130" height="58" rx="8" class="sv-box"/><text x="75" y="34" class="sv-label sv-small">Menu</text><text x="75" y="50" class="sv-label sv-small" style="font-size:11.5px">recebe a opção 2</text></g>
+  <path d="M140 39 L158 39" class="sv-arrow"/>
+  <g><rect x="160" y="10" width="150" height="58" rx="8" class="sv-box"/><text x="235" y="34" class="sv-label sv-small">Função</text><text x="235" y="50" class="sv-label sv-small" style="font-size:11px">chama consultar_produto()</text></g>
+  <path d="M310 39 L328 39" class="sv-arrow"/>
+  <g><rect x="330" y="10" width="140" height="58" rx="8" class="sv-box"/><text x="400" y="34" class="sv-label sv-small">Dados</text><text x="400" y="50" class="sv-label sv-small" style="font-size:11.5px">consulta produtos</text></g>
+  <path d="M470 39 L488 39" class="sv-arrow"/>
+  <g><rect x="490" y="10" width="100" height="58" rx="8" class="sv-box-ok"/><text x="540" y="34" class="sv-label sv-small">Resultado</text><text x="540" y="50" class="sv-label sv-small" style="font-size:11px">mostra na tela</text></g>
+  <text x="300" y="100" class="sv-legend">Exemplo: o usuário escolhe "2. Consultar produto" no menu.</text>
+  <text x="300" y="124" class="sv-legend sv-small">O mesmo caminho (menu → função → dados → resultado) vale para qualquer opção do sistema.</text>
+</svg>
+<p class="cap">Essa trilha é o que vocês vão descrever, com outra opção do menu, no Passo 1.</p></div>
+  <div class="visual"><div class="tabWrap"><table>
+      <thead><tr><th>Situação</th><th>O que acontece</th></tr></thead>
+      <tbody><tr><td>Cadastrar um Lápis em produtos</td><td>O cadastro funciona: o Lápis passa a aparecer ao consultar produtos.</td></tr><tr><td>Pedir o desempenho do Lápis logo em seguida</td><td>O programa responde "Sem histórico" — <code>classificar_desempenho()</code> consulta <b>vendas</b>, e nenhuma venda do Lápis foi registrada lá.</td></tr></tbody>
+    </table></div>
+<p class="cap">Cadastrar um produto muda produtos; vender um produto muda vendas — são listas diferentes, lidas por funções diferentes.</p></div>
+  <div class="visual"><svg viewBox="0 0 600 150" class="sv" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Memória e arquivo têm papéis diferentes: produto índice 1 igual dezenove vírgula noventa altera a lista em memória, mas sozinha ainda não regrava o arquivo produtos ponto csv">
+  <rect x="0" y="0" width="590" height="90" rx="8" class="sv-card"/>
+  <text x="20" y="24" class="sv-code-title">memória e arquivo: papéis diferentes</text>
+  <text x="20" y="50" class="sv-code sv-code-key" xml:space="preserve">produto[1] = novo_preco</text>
+  <text x="20" y="72" class="sv-code sv-code-soft" xml:space="preserve"># altera a lista em memória — ainda não regrava produtos.csv</text>
+  <text x="300" y="112" class="sv-legend sv-small">A lista vale só enquanto o programa está aberto;</text>
+  <text x="300" y="130" class="sv-legend sv-small">o arquivo precisa ser gravado para a mudança continuar depois.</text>
+</svg>
+<p class="cap">É por isso que toda função que altera uma lista também precisa de uma função que grave o arquivo correspondente.</p></div>
+  <div class="visual"><div class="tabWrap"><table>
+      <thead><tr><th>Função</th><th>Responsabilidade</th></tr></thead>
+      <tbody><tr><td><code>alterar_produto()</code></td><td>alterar nome e/ou preço em produtos</td></tr><tr><td><code>salvar_produtos()</code></td><td>gravar a nova versão de produtos.csv</td></tr><tr><td><code>registrar_venda()</code></td><td>incluir um registro em vendas</td></tr><tr><td><code>cancelar_venda()</code></td><td>retirar um registro de vendas</td></tr><tr><td><code>salvar_vendas()</code></td><td>gravar a nova versão de vendas.csv</td></tr></tbody>
+    </table></div>
+<p class="cap">Essas são as cinco funções novas desta semana — cada uma com uma responsabilidade clara, sem misturar catálogo (produtos) e histórico (vendas).</p></div>
+</section>
+</section>
+<section class="tab" id="fluxograma" role="tabpanel" hidden>
+  <div class="sec-head"><span class="n">FLUXOGRAMA</span><h2>Como o menu decide o que fazer com cada opção</h2></div>
+  <p class="lead">O fluxograma mostra o sistema final (Aulas 3 e 4): toda opção que altera dados precisa validar, atualizar a lista e gravar o arquivo antes de voltar ao menu.</p>
+  <div class="visual">
+    <svg viewBox="0 0 490 410" class="sv" role="img" aria-label="Fluxograma: início; carregar produtos csv e vendas csv para as listas; mostrar o menu e receber a opção; a opção é sair? se sim, vai para o fim; se não, a opção altera produtos ou vendas? se sim, chamar a função e validar a entrada, atualizar a lista e gravar o arquivo, e voltar a mostrar o menu; se não, executar a opção de consulta ou listagem, e voltar a mostrar o menu">
+      <defs>
+        <marker id="fl25-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" class="sv-headfill"/>
+        </marker>
+      </defs>
+      <rect x="150" y="8" width="160" height="32" rx="16" class="sv-box-ok"/>
+      <text x="230" y="29" class="sv-label sv-small">INÍCIO</text>
+      <path d="M230 40 L230 54" class="sv-arrow" marker-end="url(#fl25-head)"/>
+
+      <rect x="100" y="54" width="260" height="40" rx="8" class="sv-box"/>
+      <text x="230" y="78" class="sv-label sv-small">Carregar produtos.csv e vendas.csv</text>
+      <path d="M230 94 L230 108" class="sv-arrow" marker-end="url(#fl25-head)"/>
+
+      <rect x="100" y="108" width="260" height="40" rx="8" class="sv-box"/>
+      <text x="230" y="132" class="sv-label sv-small">Mostrar o menu e receber a opção</text>
+      <path d="M230 148 L230 162" class="sv-arrow" marker-end="url(#fl25-head)"/>
+
+      <polygon points="230,162 300,182 230,202 160,182" class="sv-diamond"/>
+      <text x="230" y="187" class="sv-label sv-small">Sair?</text>
+      <path d="M300 182 L320 182" class="sv-arrow" marker-end="url(#fl25-head)"/>
+      <text x="306" y="176" class="sv-tag sv-ok">V</text>
+      <path d="M230 202 L230 216" class="sv-arrow" marker-end="url(#fl25-head)"/>
+      <text x="242" y="212" class="sv-tag sv-no">F</text>
+
+      <rect x="320" y="166" width="100" height="32" rx="16" class="sv-box-ok"/>
+      <text x="370" y="187" class="sv-label sv-small">FIM</text>
+
+      <polygon points="230,216 350,246 230,276 130,246" class="sv-diamond"/>
+      <text x="230" y="238" class="sv-label sv-small">A opção altera</text>
+      <text x="230" y="254" class="sv-label sv-small">produtos ou vendas?</text>
+      <path d="M130 246 L130 266 L100 266 L100 286" class="sv-arrow" marker-end="url(#fl25-head)"/>
+      <text x="96" y="262" class="sv-tag sv-ok">V</text>
+      <path d="M230 276 L230 284 L365 284 L365 290" class="sv-arrow" marker-end="url(#fl25-head)"/>
+      <text x="320" y="280" class="sv-tag sv-no">F</text>
+
+      <rect x="20" y="286" width="180" height="48" rx="8" class="sv-box"/>
+      <text x="110" y="304" class="sv-label sv-small">Chamar a função e</text>
+      <text x="110" y="320" class="sv-label sv-small">validar a entrada</text>
+      <path d="M110 334 L110 346" class="sv-arrow" marker-end="url(#fl25-head)"/>
+
+      <rect x="20" y="346" width="180" height="48" rx="8" class="sv-box-ok"/>
+      <text x="110" y="364" class="sv-label sv-small">Atualizar a lista e</text>
+      <text x="110" y="380" class="sv-label sv-small">gravar o arquivo</text>
+      <path d="M20 370 L8 370 L8 128 L100 128" class="sv-arrow sv-arrow-soft" marker-end="url(#fl25-head)"/>
+
+      <rect x="270" y="290" width="190" height="48" rx="8" class="sv-box-ok"/>
+      <text x="365" y="310" class="sv-label sv-small">Executar a opção</text>
+      <text x="365" y="326" class="sv-label sv-small">(consulta/listagem)</text>
+      <path d="M460 314 L478 314 L478 128 L360 128" class="sv-arrow sv-arrow-soft" marker-end="url(#fl25-head)"/>
+    </svg>
+    <div class="cap">Os dois laços tracejados voltam para "Mostrar o menu e receber a opção" — o programa só encerra quando o primeiro losango responde "sim".</div>
+  </div>
+  <div class="comoBox">
+    <h3 style="margin-top:0">Como ler o fluxograma</h3>
+    <ol class="comoList">
+      <li><span class="num">1</span><span>O primeiro losango decide se a opção escolhida encerra o programa — se for "sair", o fluxo vai direto para o FIM.</span></li>
+      <li><span class="num">2</span><span>O segundo losango separa as opções que alteram produtos/vendas (que precisam validar, atualizar a lista e gravar o arquivo) das que só consultam ou exibem informações.</span></li>
+      <li><span class="num">3</span><span>Os dois caminhos voltam para "Mostrar o menu e receber a opção" — o laço se repete até o usuário escolher sair.</span></li>
+    </ol>
+  </div>
+</section>
+<section class="tab" id="relatorio-tab" role="tabpanel" hidden>
+<section>
+    <div class="sec-head"><span class="n">PASSO 0</span><h2>Identificação</h2></div>
+    <div class="ident"><div><label class="f" for="id0">Escola</label>
+       <input type="text" id="id0" data-campo="id0" data-idk="escola"></div><div><label class="f" for="id1">Turma</label>
+       <input type="text" id="id1" data-campo="id1" data-idk="turma"></div><div><label class="f" for="id2">Nome do grupo</label>
+       <input type="text" id="id2" data-campo="id2" data-idk="grupo"></div><div><label class="f" for="id3">Professor(a)</label>
+       <input type="text" id="id3" data-campo="id3" data-idk="professor"></div><div><label class="f" for="id4">Integrantes (nomes completos)</label>
+       <input type="text" id="id4" data-campo="id4" data-idk="integrantes"></div><div><label class="f" for="id5">Data</label>
+       <input type="text" id="id5" data-campo="id5" data-idk="data"></div></div>
+  </section>
+<section>
+    <div class="sec-head"><span class="n">PROCEDIMENTOS</span><h2>Analisem e implementem, aula a aula</h2></div>
+    <p class="lead">Quatro etapas, uma por aula: o percurso de uma venda, as responsabilidades de cada função, a persistência de produtos, e a persistência de vendas.</p>
+    <div class="passo">
+        <div class="passo-top">
+          <span class="passo-num">1</span>
+          <div class="passo-txt">Aula 1 — Enxergando o sistema por partes (em duplas)</div>
+        </div>
+        <div class="dica"><b>Como pensar:</b> usem o padrão do ENTENDA (menu → função → dados → resultado) para descrever cada etapa da venda. Lembrem que registrar a venda e classificar o desempenho são duas funções diferentes, cada uma lendo sua própria lista.</div>
+        <div class="campoWrap"><p style="font-size:14px;color:var(--muted);margin:0 0 10px">Situação: o produto Caderno já está cadastrado em produtos. Um cliente compra 3 unidades. O programa registra a venda e volta ao menu.</p></div>
+        <div class="campoWrap" data-rel="tabela" data-rotulo="Quadro: análise do percurso da venda"><div class="tabWrap"><table>
+          <thead><tr><th>Parte do sistema</th><th>O que acontece?</th></tr></thead>
+          <tbody>
+            <tr><td class="fix">Menu</td><td><input type="text" data-campo="c0"></td></tr>
+            <tr><td class="fix">Registrar venda</td><td><input type="text" data-campo="c1"></td></tr>
+            <tr><td class="fix">produtos</td><td><input type="text" data-campo="c2"></td></tr>
+            <tr><td class="fix">vendas</td><td><input type="text" data-campo="c3"></td></tr>
+            <tr><td class="fix">Classificar desempenho</td><td><input type="text" data-campo="c4"></td></tr>
+          </tbody>
+        </table></div></div><div class="campoWrap" data-rel="campo" data-rotulo="Qual informação deveria aparecer em vendas para a venda ser considerada"><label class="f" for="c5">Se foram vendidas 3 unidades de Caderno, qual informação deveria aparecer em vendas para que a função de desempenho pudesse considerar essa venda?</label><textarea id="c5" data-campo="c5" rows="3" placeholder=""></textarea></div>
+      </div><div class="passo">
+        <div class="passo-top">
+          <span class="passo-num">2</span>
+          <div class="passo-txt">Aula 2 — Quem faz o quê: dados e funções (em duplas)</div>
+        </div>
+        <div class="dica"><b>Como pensar:</b> observem os dois trechos de código (alterar o preço em memória, e gravar o catálogo no arquivo) e completem a tabela com a função, a lista e o arquivo responsáveis por cada situação — usem a tabela de funções do ENTENDA como referência.</div>
+        <div class="campoWrap"><div class="modelo">for produto in produtos:
+    if produto[0].lower() == nome.lower():
+        produto[1] = novo_preco
+
+with open("produtos.csv", "w", encoding="utf-8") as arquivo:
+    for produto in produtos:
+        arquivo.write(f"{produto[0]};{produto[1]:.2f}\n")</div></div><div class="campoWrap" data-rel="tabela" data-rotulo="Quadro: onde cada responsabilidade deve ficar"><div class="tabWrap"><table>
+          <thead><tr><th>Situação</th><th>Qual função deve agir?</th><th>Qual lista muda?</th><th>Qual arquivo precisa ser gravado?</th></tr></thead>
+          <tbody>
+            <tr><td class="fix">Alterar o preço de um produto</td><td><input type="text" data-campo="c6"></td><td><input type="text" data-campo="c7"></td><td><input type="text" data-campo="c8"></td></tr>
+            <tr><td class="fix">Cancelar uma venda lançada por engano</td><td><input type="text" data-campo="c9"></td><td><input type="text" data-campo="c10"></td><td><input type="text" data-campo="c11"></td></tr>
+          </tbody>
+        </table></div></div><div class="campoWrap" data-rel="campo" data-rotulo="Por que o menu não deve gravar o arquivo diretamente"><label class="f" for="c12">Por que não é o menu que deve fazer essa gravação diretamente?</label><textarea id="c12" data-campo="c12" rows="2" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="O que ficaria mais confuso se uma única função fizesse tudo"><label class="f" for="c13">O que ficaria mais confuso se uma única função tentasse fazer todas as mudanças sozinha?</label><textarea id="c13" data-campo="c13" rows="2" placeholder=""></textarea></div>
+      </div><div class="passo">
+        <div class="passo-top">
+          <span class="passo-num">3</span>
+          <div class="passo-txt">Aula 3 — Montando o minissistema (individual)</div>
+        </div>
+        <div class="dica"><b>Como pensar:</b> criem primeiro salvar_produtos() e carregar_produtos(), depois alterar_produto(produtos) com validação de nome e/ou preço — testem fechando e reabrindo o programa para confirmar que a alteração foi mesmo salva.</div>
+        <div class="campoWrap" data-rel="campo" data-rotulo="Código completo de salvar_produtos, carregar_produtos e alterar_produto"><label class="f" for="c14">Colem aqui o código completo das funções salvar_produtos, carregar_produtos e alterar_produto, já integradas ao menu.</label><textarea id="c14" class="cod" data-campo="c14" rows="16" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="O que aconteceu ao tentar um valor inválido"><label class="f" for="c15">O que aconteceu ao tentar alterar um produto com um valor inválido (por exemplo, um preço negativo ou um nome vazio)?</label><textarea id="c15" data-campo="c15" rows="2" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="O que aconteceu ao fechar e reabrir o programa"><label class="f" for="c16">O que aconteceu ao fechar e reabrir o programa depois da alteração?</label><textarea id="c16" data-campo="c16" rows="2" placeholder=""></textarea></div>
+      </div><div class="passo">
+        <div class="passo-top">
+          <span class="passo-num">4</span>
+          <div class="passo-txt">Aula 4 — Completando as opções do sistema (individual)</div>
+        </div>
+        <div class="dica"><b>Como pensar:</b> reaproveitem o padrão da Aula 3 — agora para vendas: salvar_vendas(), carregar_vendas(), registrar_venda(produtos, vendas) e cancelar_venda(vendas) com validação. Testem registrar, cancelar e reabrir o programa.</div>
+        <div class="campoWrap" data-rel="campo" data-rotulo="Código completo de salvar_vendas, carregar_vendas, registrar_venda e cancelar_venda"><label class="f" for="c17">Colem aqui o código completo das funções salvar_vendas, carregar_vendas, registrar_venda e cancelar_venda, já integradas ao menu.</label><textarea id="c17" class="cod" data-campo="c17" rows="16" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="O que aconteceu ao tentar cancelar uma venda inexistente"><label class="f" for="c18">O que aconteceu ao tentar cancelar uma venda que não existe no histórico?</label><textarea id="c18" data-campo="c18" rows="2" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="O que apareceu em vendas.csv após registrar e cancelar"><label class="f" for="c19">O que apareceu no arquivo vendas.csv depois de registrar e depois de cancelar uma venda?</label><textarea id="c19" data-campo="c19" rows="2" placeholder=""></textarea></div><div class="campoWrap" data-rel="campo" data-rotulo="Por que separar alterar a lista de gravar o arquivo ajudou"><label class="f" for="c20">Em poucas linhas, expliquem por que separar "alterar a lista em memória" de "gravar o arquivo" em funções diferentes ajudou a organizar o sistema.</label><textarea id="c20" data-campo="c20" rows="4" placeholder=""></textarea></div>
+      </div>
+  </section>
+<section>
+    <div class="sec-head"><span class="n">CONFIRA</span><h2>Checklist antes de gerar o PDF</h2></div>
+    <div class="progresso" id="progresso"></div>
+    <label class="check"><input type="checkbox" data-check="0"><span>Identificação (escola, turma, grupo, integrantes, professor(a), data) preenchida.</span></label><label class="check"><input type="checkbox" data-check="1"><span>Aula 1 — quadro do percurso da venda preenchido e a pergunta sobre o registro em vendas respondida.</span></label><label class="check"><input type="checkbox" data-check="2"><span>Aula 2 — tabela de responsabilidades preenchida e as duas perguntas de reflexão respondidas.</span></label><label class="check"><input type="checkbox" data-check="3"><span>Aula 3 — salvar_produtos/carregar_produtos/alterar_produto implementados, testados com validação e com a reabertura do programa.</span></label><label class="check"><input type="checkbox" data-check="4"><span>Aula 4 — salvar_vendas/carregar_vendas/registrar_venda/cancelar_venda implementados e testados.</span></label><label class="check"><input type="checkbox" data-check="5"><span>A reflexão final sobre separar alteração e gravação em funções diferentes foi respondida.</span></label><label class="check"><input type="checkbox" data-check="6"><span>Vamos salvar o PDF como NOME_TURMA_S25 e enviar no AVA.</span></label>
+  </section>
+<section>
+    <div class="sec-head"><span class="n">AVALIAÇÃO</span><h2>Como esta atividade será avaliada</h2></div>
+    <div class="tabWrap"><table class="criterios">
+      <thead><tr><th>Critério</th><th>Pontos</th></tr></thead>
+      <tbody><tr><td>Aula 1 — quadro do percurso da venda preenchido, identificando que vendas precisa ser atualizada</td><td>2,0</td></tr><tr><td>Aula 2 — tabela de responsabilidades preenchida corretamente (função, lista e arquivo de cada situação)</td><td>2,5</td></tr><tr><td>Aula 3 — salvar_produtos/carregar_produtos/alterar_produto implementados, testados e com validação</td><td>2,5</td></tr><tr><td>Aula 4 — salvar_vendas/carregar_vendas/registrar_venda/cancelar_venda implementados, testados e arquivo enviado no AVA</td><td>3,0</td></tr></tbody>
+    </table></div>
+  </section>
+<section>
+    <div class="sec-head"><span class="n">REFERÊNCIAS</span><h2>De onde veio o conteúdo desta aula</h2></div>
+    <ul class="refs"><li>Apostila da disciplina — Lógica e Linguagem de Programação, Semana 25 (Capítulo 25).</li><li>SEDUC-SP — Registro das Aulas 1 a 4, Semana 25 (Do menu ao sistema completo).</li><li>Documentação oficial do Python — <i>Entrada e saída de dados</i> e módulo <i>csv</i>.</li></ul>
+  </section>
+</section>
+  <a class="navGit" href="github-passo-a-passo.html">
+        <span class="ic">GIT</span>
+        <span><b>Como entregar no GitHub</b>
+          <span>Criar a conta, publicar pelo VS Code ou pelo site, e o que colar no AVA</span></span>
+      </a>
+  <nav class="navAtiv">
+    <a class="" href="logica-24-s24-quiz-terminal.html">
+          <span class="rot">← Anterior · Semana 24</span>
+          <span class="tit">Quiz da Feira de Ciências: perguntas, tentativas e pontuação</span>
+        </a>
+    <a class="meio" href="index.html">Todas as atividades</a>
+    <span class="vazio"></span>
+  </nav>
+
+  <div id="relatorio">
+
+  <div class="folha">
+    <div class="inst" data-fill="escola"></div>
+    <div class="inst">Curso Técnico em Desenvolvimento de Sistemas</div>
+    <div class="meio">
+      <div class="autores" data-fill="integrantes"></div>
+      <div class="tituloTrab">Roteiro de Aula Prática</div>
+      <div class="subtitulo">Lógica e Linguagem de Programação</div>
+      <div class="subtitulo">Papelaria Ponto Certo: do menu ao sistema completo</div>
+    </div>
+    <div class="fim">
+      <div>São Paulo - SP</div>
+      <div>2026</div>
+    </div>
+  </div>
+
+  <div class="folha">
+    <div class="autores" data-fill="integrantes"></div>
+    <div class="meio">
+      <div class="tituloTrab">Roteiro de Aula Prática</div>
+      <div class="subtitulo">Papelaria Ponto Certo: do menu ao sistema completo</div>
+      <div class="fr-nota">Roteiro de Aula Prática apresentado ao componente curricular Lógica e Linguagem de Programação, como requisito parcial de avaliação do 4º bimestre.</div>
+      <div class="fr-orient" data-fill="professor"></div>
+      <div class="fr-orient" data-fill="turma"></div>
+      <div class="fr-orient" data-fill="data"></div>
+    </div>
+    <div class="fim">
+      <div>São Paulo - SP</div>
+      <div>2026</div>
+    </div>
+  </div>
+
+  <div id="roteiro">
+    <h2 class="rtitulo">Roteiro de Aula Prática</h2>
+    <div class="rlinha"><b>Nome da disciplina:</b> LÓGICA E LINGUAGEM DE PROGRAMAÇÃO</div>
+    <div class="rlinha"><b>Unidade:</b> 6 – Vetores e matrizes</div>
+    <div class="rlinha"><b>Aula:</b> Semana 25 – Do menu ao sistema completo (Aulas 1 a 4)</div>
+    <div class="rlinha"><b>Base teórica:</b> Capítulo 25 — modularização, persistência em arquivo, validação</div>
+
+    <h3>Objetivos</h3>
+    <ul class="lista-obj"><li>Analisar como sistemas simples em terminal articulam menu, funções, dados e fluxo.</li><li>Entender que funções diferentes consultam listas diferentes.</li><li>Aplicar modularização: cada função altera o dado certo e grava o arquivo correspondente.</li><li>Diferenciar memória de arquivo (persistência entre execuções).</li><li>Implementar funções de salvar/carregar, alteração e cancelamento com validação.</li><li>Integrar as novas funções ao menu existente e testar a reabertura do programa.</li></ul>
+
+    <h3>Procedimento / Atividade</h3>
+    <p><b>Atividade proposta:</b> ao longo de 4 aulas, a turma analisa como o sistema da Papelaria Ponto Certo articula suas partes, decide onde cada responsabilidade deve ficar, e então implementa a persistência em arquivo do catálogo de produtos e do histórico de vendas, com validação e integração ao menu.</p>
+
+    <h3>Procedimentos para a realização da atividade</h3>
+    <div id="corpoRoteiro"></div>
+
+    <h3>Referências</h3>
+    <ul><li>Apostila da disciplina — Lógica e Linguagem de Programação, Semana 25 (Capítulo 25).</li><li>SEDUC-SP — Registro das Aulas 1 a 4, Semana 25 (Do menu ao sistema completo).</li><li>Documentação oficial do Python — Entrada e saída de dados e módulo csv.</li></ul>
+
+    <h3>Checklist de entrega</h3>
+    <div id="corpoChecklist"></div>
+  </div>
+</div>
+
+</div>
+
+<div class="barra">
+  <span class="status" id="status">salva sozinho neste computador</span>
+  <button class="btn" id="btnLimpar" type="button">Limpar tudo</button>
+  <button class="btn primary" id="btnPDF" type="button">Gerar PDF da resposta</button>
+</div>
+
+<script>
+(function(){
+  var CHAVE = "logica_s25";
+  var campos = document.querySelectorAll("[data-campo]");
+  var checks = document.querySelectorAll("[data-check]");
+  var status = document.getElementById("status");
+
+  function val(chave){
+    var el = document.querySelector('[data-idk="' + chave + '"]');
+    return el && el.value.trim() ? el.value.trim() : "";
+  }
+  function salvar(){
+    var dados = {};
+    campos.forEach(function(el){ dados[el.dataset.campo] = el.value; });
+    checks.forEach(function(el){ dados["chk_" + el.dataset.check] = el.checked ? "1" : ""; });
+    try{ localStorage.setItem(CHAVE, JSON.stringify(dados)); }catch(e){}
+    if(status){
+      status.textContent = "rascunho salvo";
+      clearTimeout(status._t);
+      status._t = setTimeout(function(){ status.textContent = "salva sozinho neste computador"; }, 1600);
+    }
+  }
+  function carregar(){
+    var bruto = null;
+    try{ bruto = localStorage.getItem(CHAVE); }catch(e){}
+    if(!bruto) return;
+    var dados;
+    try{ dados = JSON.parse(bruto); }catch(e){ return; }
+    campos.forEach(function(el){ if(dados[el.dataset.campo] != null) el.value = dados[el.dataset.campo]; });
+    checks.forEach(function(el){ el.checked = dados["chk_" + el.dataset.check] === "1"; });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-caixa]"), function(caixa){
+      if(typeof sincronizarImagem === "function") sincronizarImagem(caixa);
+    });
+  }
+  function pintarChecks(){
+    var feitos = 0;
+    checks.forEach(function(el){
+      var linha = el.closest(".check");
+      if(el.checked){ linha.classList.add("done"); feitos++; } else { linha.classList.remove("done"); }
+    });
+    var p = document.getElementById("progresso");
+    if(p) p.textContent = feitos + " de " + checks.length + " itens conferidos";
+  }
+
+  campos.forEach(function(el){ el.addEventListener("input", salvar); el.addEventListener("change", salvar); });
+  checks.forEach(function(el){ el.addEventListener("change", function(){ pintarChecks(); salvar(); }); });
+
+  var limpar = document.getElementById("btnLimpar");
+  if(limpar) limpar.addEventListener("click", function(){
+    if(!confirm("Apagar tudo o que foi preenchido nesta página?")) return;
+    campos.forEach(function(el){ el.value = ""; });
+    checks.forEach(function(el){ el.checked = false; });
+    pintarChecks(); salvar();
+  });
+
+  function preencher(sel, texto){
+    document.querySelectorAll(sel).forEach(function(el){ el.textContent = texto; });
+  }
+
+  function montarRelatorio(){
+    // ---- capa e folha de rosto ----
+    var integrantes = val("integrantes") || val("grupo") || "___________________________";
+    preencher("[data-fill=escola]", val("escola") || "ESCOLA");
+    preencher("[data-fill=integrantes]", integrantes);
+    preencher("[data-fill=turma]", val("turma") ? "Turma: " + val("turma") : "");
+    preencher("[data-fill=professor]", val("professor") ? "Professor(a): " + val("professor") : "Professor(a): ___________________________");
+    preencher("[data-fill=data]", val("data") ? "Data de entrega: " + val("data") : "");
+
+    // ---- procedimentos: um item por passo ----
+    var alvo = document.getElementById("corpoRoteiro");
+    if(!alvo) return;
+    alvo.innerHTML = "";
+    var n = 0;
+    document.querySelectorAll(".passo").forEach(function(passo){
+      n++;
+      var item = document.createElement("div");
+      item.className = "item";
+      var perg = document.createElement("div");
+      perg.className = "perg";
+      perg.textContent = n + ". " + passo.querySelector(".passo-txt").textContent.trim();
+      item.appendChild(perg);
+
+      passo.querySelectorAll("[data-rel]").forEach(function(bloco){
+        if(bloco.dataset.rel === "campo"){
+          var el = bloco.querySelector("[data-campo]");
+          if(!el) return;
+          var rotulo = bloco.dataset.rotulo || "";
+          if(rotulo){
+            var r = document.createElement("div");
+            r.className = "rot";
+            r.textContent = rotulo;
+            item.appendChild(r);
+          }
+          var resp = document.createElement("div");
+          resp.className = "resp" + (el.classList.contains("cod") ? " cod" : "");
+          resp.textContent = (el.value || "").trim() || "(não preenchido)";
+          item.appendChild(resp);
+        } else if(bloco.dataset.rel === "imagem"){
+          if(bloco.dataset.rotulo){
+            var ri = document.createElement("div");
+            ri.className = "rot";
+            ri.textContent = bloco.dataset.rotulo;
+            item.appendChild(ri);
+          }
+          var fig = document.createElement("div");
+          fig.className = "figura";
+          var oc = bloco.querySelector("[data-campo]");
+          if(oc && oc.value){
+            var im = document.createElement("img");
+            im.src = oc.value;
+            fig.appendChild(im);
+          } else {
+            var vazia = document.createElement("div");
+            vazia.className = "molduraVazia";
+            vazia.textContent = "Cole aqui o desenho feito no papel";
+            fig.appendChild(vazia);
+          }
+          item.appendChild(fig);
+        } else if(bloco.dataset.rel === "tabela"){
+          if(bloco.dataset.rotulo){
+            var r2 = document.createElement("div");
+            r2.className = "rot";
+            r2.textContent = bloco.dataset.rotulo;
+            item.appendChild(r2);
+          }
+          var t = bloco.querySelector("table").cloneNode(true);
+          t.querySelectorAll("input").forEach(function(inp){
+            var td = inp.parentNode;
+            td.textContent = inp.value || "—";
+          });
+          item.appendChild(t);
+        }
+      });
+      alvo.appendChild(item);
+    });
+
+    // ---- checklist ----
+    var lista = document.getElementById("corpoChecklist");
+    if(lista){
+      lista.innerHTML = "";
+      checks.forEach(function(el){
+        var l = document.createElement("div");
+        l.className = "checkline";
+        l.textContent = (el.checked ? "[ X ]  " : "[    ]  ") + el.parentNode.querySelector("span").textContent;
+        lista.appendChild(l);
+      });
+    }
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll("[data-copiar]"), function (b) {
+    b.addEventListener("click", function () {
+      var pre = document.querySelector('pre[data-arquivo="' + b.getAttribute("data-copiar") + '"]');
+      if (!pre) return;
+      var txt = pre.textContent;
+      var antigo = b.textContent;
+      function ok() { b.textContent = "Copiado!"; setTimeout(function () { b.textContent = antigo; }, 1600); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(ok, function () { b.textContent = "Selecione e copie"; });
+      } else {
+        var t = document.createElement("textarea");
+        t.value = txt; document.body.appendChild(t); t.select();
+        try { document.execCommand("copy"); ok(); } catch (e) { b.textContent = "Selecione e copie"; }
+        document.body.removeChild(t);
+      }
+    });
+  });
+
+  // ---- campos de imagem: anexa, comprime e guarda como data URI ----
+  function sincronizarImagem(caixa){
+    var oculto = caixa.querySelector("[data-campo]");
+    var prev = caixa.querySelector("[data-preview]");
+    var conv = caixa.querySelector("[data-conv]");
+    var rem = caixa.querySelector("[data-remover]");
+    var tem = !!(oculto && oculto.value);
+    if(prev){ prev.hidden = !tem; if(tem) prev.src = oculto.value; else prev.removeAttribute("src"); }
+    if(conv) conv.hidden = tem;
+    if(rem) rem.hidden = !tem;
+    caixa.classList.toggle("temFoto", tem);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("[data-caixa]"), function(caixa){
+    var entrada = caixa.querySelector("[data-arquivo]");
+    var oculto = caixa.querySelector("[data-campo]");
+    var nome = caixa.querySelector("[data-nome]");
+    var rem = caixa.querySelector("[data-remover]");
+
+    if(entrada) entrada.addEventListener("change", function(){
+      var arq = entrada.files && entrada.files[0];
+      if(!arq) return;
+      var leitor = new FileReader();
+      leitor.onload = function(ev){
+        var img = new Image();
+        img.onload = function(){
+          // reduz para caber no localStorage e no PDF sem pesar
+          var maxL = 1400, esc2 = Math.min(1, maxL / img.width);
+          var cv = document.createElement("canvas");
+          cv.width = Math.round(img.width * esc2);
+          cv.height = Math.round(img.height * esc2);
+          cv.getContext("2d").drawImage(img, 0, 0, cv.width, cv.height);
+          var uri;
+          try{ uri = cv.toDataURL("image/jpeg", 0.75); }catch(err){ uri = ev.target.result; }
+          oculto.value = uri;
+          if(nome) nome.textContent = arq.name;
+          sincronizarImagem(caixa);
+          try{ salvar(); }catch(err){}
+          if(status && uri.length > 3500000){ status.textContent = "imagem muito grande — tente uma foto menor"; }
+        };
+        img.onerror = function(){ if(status) status.textContent = "não consegui ler essa imagem"; };
+        img.src = ev.target.result;
+      };
+      leitor.readAsDataURL(arq);
+      entrada.value = "";
+    });
+
+    if(rem) rem.addEventListener("click", function(){
+      oculto.value = "";
+      if(nome) nome.textContent = "";
+      sincronizarImagem(caixa);
+      try{ salvar(); }catch(err){}
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-caixa]"), sincronizarImagem);
+
+  var pdf = document.getElementById("btnPDF");
+  if(pdf) pdf.addEventListener("click", function(){ montarRelatorio(); window.print(); });
+  window.addEventListener("beforeprint", montarRelatorio);
+
+  carregar(); pintarChecks();
+})();
+</script>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button'));
+  function show(name){
+    if(!document.getElementById(name)) name='como';
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', String(t.dataset.tab===name)); });
+    document.querySelectorAll('section.tab').forEach(function(s){ s.hidden = s.id!==name; });
+    window.scrollTo(0,0);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab); }); });
+  show('como');
+})();
+</script>
+</body>
+</html>
